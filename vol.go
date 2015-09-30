@@ -488,7 +488,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Initialize: func(ca *ygo.Card) bool {
 
 			e := func(c *ygo.Card) {
-				if c.GetAttack() >= 1000 {
+				if c.GetAttack() >= 1000 && c.GetSummoner() != ca.GetSummoner() {
 					ca.PushChain(func() {
 						c.Dispatch(ygo.Destroy, ca)
 					})
@@ -722,7 +722,7 @@ func vol(cardBag *ygo.CardVersion) {
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterEquipMagic(func(c *ygo.Card) bool {
-				return c.RaceIsFiend()
+				return c.RaceIsInsect()
 			}, func(c *ygo.Card) {
 				c.SetAttack(c.GetAttack() + 300)
 				c.SetDefense(c.GetDefense() + 300)
@@ -4359,16 +4359,15 @@ func vol(cardBag *ygo.CardVersion) {
 		Defense: 800,
 		Initialize: func(ca *ygo.Card) bool {
 			ca.AddEvent(ygo.FaceUp, func() {
+				ca.RegisterGlobalListen(ygo.SP, func(pl0 *ygo.Player) {
+					pl := ca.GetSummoner()
+					if pl != pl0 {
+						return
+					}
+					pl.ChangeHp(-300)
+				})
 				var e func()
 				e = func() {
-					ca.RegisterGlobalListen(ygo.SP, func(pl0 *ygo.Player) {
-						pl := ca.GetSummoner()
-						if pl != pl0 {
-							return
-						}
-						pl.ChangeHp(-300)
-					})
-
 					ca.RegisterIgnitionSelector(ygo.EP, func(pl0 *ygo.Player) {
 						pl := ca.GetSummoner()
 						if pl != pl0 {
@@ -5350,10 +5349,10 @@ func vol(cardBag *ygo.CardVersion) {
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterOrdinaryTrap(ygo.Declaration, func(c *ygo.Card) {
-				obj := c.GetSummoner()
-				if obj != ca.GetSummoner() {
+				if obj := c.GetSummoner(); obj == ca.GetSummoner() {
 					ca.PushChain(func() {
-						obj.Mzone.ForEach(func(b *ygo.Card) bool {
+						tar := obj.GetTarget()
+						tar.Mzone.ForEach(func(b *ygo.Card) bool {
 							if b.IsAttack() {
 								b.Dispatch(ygo.Destroy, ca)
 							}
