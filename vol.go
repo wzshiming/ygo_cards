@@ -4359,15 +4359,16 @@ func vol(cardBag *ygo.CardVersion) {
 		Defense: 800,
 		Initialize: func(ca *ygo.Card) bool {
 			ca.AddEvent(ygo.FaceUp, func() {
-				ca.RegisterGlobalListen(ygo.SP, func(pl0 *ygo.Player) {
-					pl := ca.GetSummoner()
-					if pl != pl0 {
-						return
-					}
-					pl.ChangeHp(-300)
-				})
+
 				var e func()
 				e = func() {
+					ca.RegisterGlobalListen(ygo.SP, func(pl0 *ygo.Player) {
+						pl := ca.GetSummoner()
+						if pl != pl0 {
+							return
+						}
+						pl.ChangeHp(-300)
+					})
 					ca.RegisterIgnitionSelector(ygo.EP, func(pl0 *ygo.Player) {
 						pl := ca.GetSummoner()
 						if pl != pl0 {
