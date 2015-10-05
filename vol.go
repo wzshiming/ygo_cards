@@ -2471,8 +2471,13 @@ func vol(cardBag *ygo.CardVersion) {
 		Lr:      ygo.LR_Thunder, // 雷
 		Attack:  2600,
 		Defense: 2200,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.OnlyOnce(ygo.BearAttack, func(c *ygo.Card) {
+				c.SetAttack(0)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*55*/
@@ -2514,8 +2519,13 @@ func vol(cardBag *ygo.CardVersion) {
 		Lr:      ygo.LR_SpellCaster, // 魔法师
 		Attack:  2400,
 		Defense: 2200,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.OnlyOnce(ygo.BearAttack, func(c *ygo.Card) {
+				c.SetAttack(0)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*56*/
@@ -2557,8 +2567,13 @@ func vol(cardBag *ygo.CardVersion) {
 		Lr:      ygo.LR_None,  // 水
 		Attack:  2500,
 		Defense: 2400,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.OnlyOnce(ygo.BearAttack, func(c *ygo.Card) {
+				c.SetAttack(0)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*57*/
@@ -3105,7 +3120,17 @@ func vol(cardBag *ygo.CardVersion) {
 		Name:     "伪陷阱",               // "Fake Trap"  "偽物のわな"
 		Lc:       ygo.LC_OrdinaryTrap, // 通常陷阱
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
+		//		Initialize: func(ca *ygo.Card) bool {
+		//			ca.RegisterOrdinaryTrap(ygo.Destroy, func(c *ygo.Card) {
+		//				pl := ca.GetSummoner()
+		//				if c.GetSummoner() == pl && c != ca && c.IsTrap() {
+		//					ca.PushChain(func() {
+
+		//					})
+		//				}
+		//			})
+		//			return true
+		//		}, // 初始
 		IsValid: false,
 	})
 
@@ -3542,8 +3567,24 @@ func vol(cardBag *ygo.CardVersion) {
 		Lr:      ygo.LR_Fiend, // 恶魔
 		Attack:  300,
 		Defense: 200,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEvent(ygo.InHand, func() {
+				ca.RegisterIgnitionSelector(ygo.Deduct, func(c *ygo.Card, tar *ygo.Player) {
+					pl := ca.GetSummoner()
+					if pl == tar {
+						ca.PushChain(func() {
+							ca.Dispatch(ygo.Cost)
+							c.StopOnce(ygo.Deduct)
+						})
+					}
+				})
+			})
+			ca.AddEvent(ygo.OutHand, func() {
+				ca.UnregisterGlobalListen()
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*77*/

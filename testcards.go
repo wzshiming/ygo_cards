@@ -6,6 +6,6 @@ var CardBag_test = ygo.NewCardVersion()
 
 func init() {
 	vol(CardBag_test)
-	//booster(CardBag_test)
+	booster(CardBag_test)
 
 }

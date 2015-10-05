@@ -42,8 +42,23 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:      ygo.LR_Warrior, // 战士
 		Attack:  500,
 		Defense: 1100,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFlip(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				if c := pl.SelectForWarn(tar.Szone, pl.Szone); c != nil {
+					c.SetFaceUp()
+					if c.IsTrap() {
+						c.Dispatch(ygo.Destroy, ca)
+					} else {
+						c.SetFaceDown()
+					}
+				}
+			})
+			return true
+		}, // 初始
+
+		IsValid: true,
 	})
 
 	/*1*/
@@ -132,8 +147,17 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:      ygo.LR_Warrior, // 战士
 		Attack:  1000,
 		Defense: 1500,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			e := func() {
+				pl := ca.GetSummoner()
+				pl.ChangeHp(500)
+			}
+			ca.AddEvent(ygo.Summon, e)
+			ca.AddEvent(ygo.SummonFlip, e)
+			return true
+		}, // 初始
+
+		IsValid: true,
 	})
 
 	/*3*/
@@ -255,8 +279,15 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "昼夜的大火事",             // "Ookazi"  "昼夜の大火事"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				tar.ChangeHp(-800)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*7*/
@@ -286,8 +317,21 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "尖刺神的杀虫剂",            // "Eradicating Aerosol"  "トゲトゲ神の殺虫剤"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				cs := ygo.NewCards(&pl.Mzone.Cards, &tar.Mzone.Cards)
+				cs.ForEach(func(c *ygo.Card) bool {
+					if c.IsFaceUp() && c.RaceIsInsect() {
+						c.Dispatch(ygo.Destroy, ca)
+					}
+					return true
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*8*/
@@ -317,8 +361,21 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "永远的渴水",              // "Eternal Drought"  "永遠の渇水"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				cs := ygo.NewCards(&pl.Mzone.Cards, &tar.Mzone.Cards)
+				cs.ForEach(func(c *ygo.Card) bool {
+					if c.IsFaceUp() && c.RaceIsFish() {
+						c.Dispatch(ygo.Destroy, ca)
+					}
+					return true
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*9*/
@@ -347,9 +404,21 @@ func booster(cardBag *ygo.CardVersion) {
 		Password: "21323861",
 		Name:     "酸性风暴",               // "Acid Rain"  "酸の嵐"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
-
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				cs := ygo.NewCards(&pl.Mzone.Cards, &tar.Mzone.Cards)
+				cs.ForEach(func(c *ygo.Card) bool {
+					if c.IsFaceUp() && c.RaceIsMachine() {
+						c.Dispatch(ygo.Destroy, ca)
+					}
+					return true
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*10*/
@@ -379,8 +448,21 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "神之息吹",               // "Breath of Light"  "神の息吹"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				cs := ygo.NewCards(&pl.Mzone.Cards, &tar.Mzone.Cards)
+				cs.ForEach(func(c *ygo.Card) bool {
+					if c.IsFaceUp() && c.RaceIsRock() {
+						c.Dispatch(ygo.Destroy, ca)
+					}
+					return true
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*11*/
@@ -410,8 +492,21 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "战士抹杀",               // "Warrior Elimination"  "戦士抹殺"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				cs := ygo.NewCards(&pl.Mzone.Cards, &tar.Mzone.Cards)
+				cs.ForEach(func(c *ygo.Card) bool {
+					if c.IsFaceUp() && c.RaceIsWarrior() {
+						c.Dispatch(ygo.Destroy, ca)
+					}
+					return true
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*12*/
@@ -510,8 +605,11 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:      ygo.LR_Seaserpent, // 海龙
 		Attack:  2250,
 		Defense: 1900,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFusionMonster("妖精龙", "海原的女战士", "区域吞噬者")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*15*/
@@ -1067,8 +1165,19 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "大风暴",                // "Heavy Storm"  "大嵐"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				cs := ygo.NewCards(&pl.Szone.Cards, &tar.Szone.Cards)
+				cs.ForEach(func(c *ygo.Card) bool {
+					c.Dispatch(ygo.Destroy, ca)
+					return true
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*29*/
@@ -1099,8 +1208,21 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "精灵之光",            // "Elf's Light"  "エルフの光"
 		Lc:       ygo.LC_EquipMagic, // 装备魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterEquipMagic(func(c *ygo.Card) bool {
+				return c.AttrIsLight()
+			}, func(c *ygo.Card) {
+				c.SetAttack(c.GetAttack() + 400)
+				c.SetDefense(c.GetDefense() - 200)
+
+			}, func(c *ygo.Card) {
+				c.SetAttack(c.GetAttack() - 400)
+				c.SetDefense(c.GetDefense() + 200)
+
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*30*/
@@ -1131,8 +1253,21 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "钢甲壳",             // "Steel Shell"  "はがねの甲羅"
 		Lc:       ygo.LC_EquipMagic, // 装备魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterEquipMagic(func(c *ygo.Card) bool {
+				return c.AttrIsWater()
+			}, func(c *ygo.Card) {
+				c.SetAttack(c.GetAttack() + 400)
+				c.SetDefense(c.GetDefense() - 200)
+
+			}, func(c *ygo.Card) {
+				c.SetAttack(c.GetAttack() - 400)
+				c.SetDefense(c.GetDefense() + 200)
+
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*31*/
@@ -1161,8 +1296,14 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "天使的鲜血",              // "Soul of the Pure"  "天使の生き血"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				pl.ChangeHp(800)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*32*/
@@ -1191,8 +1332,18 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "消除黑暗的光",             // "Dark-Piercing Light"  "闇をかき消す光"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				tar.Mzone.ForEach(func(c *ygo.Card) bool {
+					c.SetFaceUp()
+					return true
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*33*/
@@ -1221,8 +1372,14 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "蓝色药剂",               // "Blue Medicine"  "ブルー·ポーション"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				pl.ChangeHp(400)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*34*/
@@ -1252,8 +1409,15 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "雷鸣",                 // "Raimei"  "雷鳴"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				tar.ChangeHp(-300)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*35*/
@@ -1284,8 +1448,21 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "灼热之枪",            // "Burning Spear"  "灼熱の槍"
 		Lc:       ygo.LC_EquipMagic, // 装备魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterEquipMagic(func(c *ygo.Card) bool {
+				return c.AttrIsFire()
+			}, func(c *ygo.Card) {
+				c.SetAttack(c.GetAttack() + 400)
+				c.SetDefense(c.GetDefense() - 200)
+
+			}, func(c *ygo.Card) {
+				c.SetAttack(c.GetAttack() - 400)
+				c.SetDefense(c.GetDefense() + 200)
+
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*36*/
@@ -1316,8 +1493,21 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "突风之扇",            // "Gust Fan"  "突風の扇"
 		Lc:       ygo.LC_EquipMagic, // 装备魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterEquipMagic(func(c *ygo.Card) bool {
+				return c.AttrIsWind()
+			}, func(c *ygo.Card) {
+				c.SetAttack(c.GetAttack() + 400)
+				c.SetDefense(c.GetDefense() - 200)
+
+			}, func(c *ygo.Card) {
+				c.SetAttack(c.GetAttack() - 400)
+				c.SetDefense(c.GetDefense() + 200)
+
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*37*/
@@ -1443,8 +1633,13 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:      ygo.LR_Insect, // 昆虫
 		Attack:  800,
 		Defense: 900,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEvent(ygo.InGrave, func() {
+				ca.ToDeck()
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*40*/
@@ -1561,8 +1756,23 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "天使的施舍",              // "Graceful Charity"  "天使の施し"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				ca.GetSummoner().ActionDraw(3)
+				for i := 0; i != 2; i++ {
+					c := pl.SelectForWarn(pl.Hand, func(c0 *ygo.Card) bool {
+						return c0.IsMonster()
+					})
+					if c == nil {
+						c = pl.Hand.EndPop()
+					}
+					c.Dispatch(ygo.Discard, ca)
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*43*/
@@ -2108,8 +2318,20 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:      ygo.LR_None,  // 水
 		Attack:  750,
 		Defense: 500,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFlip(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				for i := 0; i != 2; i++ {
+					if c := pl.SelectForWarn(tar.Mzone, pl.Mzone); c != nil {
+						c.ToHand()
+					}
+				}
+			})
+			return true
+		}, // 初始
+
+		IsValid: true,
 	})
 
 	/*56*/
@@ -2142,8 +2364,11 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:      ygo.LR_None,  // 水
 		Attack:  1850,
 		Defense: 1300,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFusionMonster("陆战型战斗艇", "守卫海洋的战士")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*57*/
@@ -2249,8 +2474,21 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "魔女狩猎",               // "Last Day of Witch"  "魔女狩り"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				cs := ygo.NewCards(&pl.Mzone.Cards, &tar.Mzone.Cards)
+				cs.ForEach(func(c *ygo.Card) bool {
+					if c.IsFaceUp() && c.RaceIsSpellCaster() {
+						c.Dispatch(ygo.Destroy, ca)
+					}
+					return true
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*60*/
@@ -2280,8 +2518,21 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "恶魔祓除",               // "Exile of the Wicked"  "悪魔払い"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				cs := ygo.NewCards(&pl.Mzone.Cards, &tar.Mzone.Cards)
+				cs.ForEach(func(c *ygo.Card) bool {
+					if c.IsFaceUp() && c.RaceIsFiend() {
+						c.Dispatch(ygo.Destroy, ca)
+					}
+					return true
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*61*/
@@ -2347,8 +2598,15 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "革命",                 // "Restructer Revolution"  "革命"
 		Lc:       ygo.LC_OrdinaryMagic, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterOrdinaryMagic(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				tar.ChangeHp(-200 * tar.Hand.Len())
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*63*/
