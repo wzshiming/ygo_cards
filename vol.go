@@ -2818,18 +2818,21 @@ func vol(cardBag *ygo.CardVersion) {
 			e := func() {
 				ca.RegisterIgnitionSelector(ygo.SP, func(pl0 *ygo.Player) bool {
 					if pl := ca.GetSummoner(); pl == pl0 {
-						ca.PushChain(func() {
-							tar := pl.GetTarget()
-							ca.Dispatch(ygo.Cost)
-							for i := 0; i != 2; i++ {
-								if c := pl.SelectForWarn(tar.Mzone, pl.Mzone, func(c0 *ygo.Card) bool {
-									return c0.IsFaceUp() && (c0.GetAttack() <= 1000)
-								}); c != nil {
-									c.Dispatch(ygo.Destroy, ca)
-								}
-							}
-
+						tar := pl.GetTarget()
+						css := ygo.NewCards(tar.Mzone, pl.Mzone, func(c0 *ygo.Card) bool {
+							return c0.IsFaceUp() && (c0.GetAttack() <= 1000) && c0 != ca
 						})
+						if css.Len() > 1 {
+							ca.PushChain(func() {
+								ca.Dispatch(ygo.Cost)
+								for i := 0; i != 2; i++ {
+									if c := pl.SelectForWarn(css); c != nil {
+										c.Dispatch(ygo.Destroy, ca)
+									}
+								}
+
+							})
+						}
 					}
 					return true
 				})
@@ -3367,7 +3370,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  1800,
 		Defense: 1500,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterMzoneArea(func(c *ygo.Card) {
+			ca.RegisterMzoneAccessArea(func(c *ygo.Card) {
 				if c.GetName() == "野蛮人1号" {
 					ca.SetAttack(ca.GetAttack() + 500)
 				}
@@ -3835,7 +3838,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  1600,
 		Defense: 1300,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterGraveArea(func(c *ygo.Card) {
+			ca.RegisterGraveAccessArea(func(c *ygo.Card) {
 				if c.IsMonster() {
 					ca.SetAttack(ca.GetAttack() + 100)
 				}
@@ -3893,16 +3896,19 @@ func vol(cardBag *ygo.CardVersion) {
 				ca.RegisterIgnitionSelector(ygo.MP, func(pl0 *ygo.Player) {
 					pl := ca.GetSummoner()
 					if pl == pl0 {
-						ca.PushChain(func() {
-							ca.Dispatch(ygo.Cost)
-							for i := 0; i != 2; i++ {
-								if c := pl.SelectForPopup(pl.Deck, func(c0 *ygo.Card) bool {
-									return c0.GetId() == ca.GetId()
-								}); c != nil {
-									c.ToHand()
-								}
-							}
+						css := ygo.NewCards(pl.Deck, func(c0 *ygo.Card) bool {
+							return c0.GetId() == ca.GetId()
 						})
+						if css.Len() > 0 {
+							ca.PushChain(func() {
+								ca.Dispatch(ygo.Cost)
+								for i := 0; i != 2; i++ {
+									if c := pl.SelectForPopup(css); c != nil {
+										c.ToHand()
+									}
+								}
+							})
+						}
 					}
 				})
 			})
@@ -4183,7 +4189,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  600,
 		Defense: 300,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterHandArea(func() {
+			ca.RegisterHandAccessArea(func() {
 				ca.SetAttack(ca.GetAttack() + 300)
 				ca.SetDefense(ca.GetDefense() + 300)
 			}, func() {
@@ -4468,7 +4474,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  1550,
 		Defense: 1800,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterMzoneArea(func(c *ygo.Card) {
+			ca.RegisterMzoneAccessArea(func(c *ygo.Card) {
 				if c.GetName() == "野蛮人2号" {
 					ca.SetAttack(ca.GetAttack() + 500)
 				}
@@ -5392,15 +5398,18 @@ func vol(cardBag *ygo.CardVersion) {
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterOrdinaryTrap(ygo.Declaration, func(c *ygo.Card) {
 				if obj := c.GetSummoner(); obj == ca.GetSummoner() {
-					ca.PushChain(func() {
-						tar := obj.GetTarget()
-						tar.Mzone.ForEach(func(b *ygo.Card) bool {
-							if b.IsAttack() {
-								b.Dispatch(ygo.Destroy, ca)
-							}
-							return true
-						})
+					tar := obj.GetTarget()
+					css := ygo.NewCards(tar.Mzone, func(c0 *ygo.Card) bool {
+						return c0.IsAttack()
 					})
+					if css.Len() > 0 {
+						ca.PushChain(func() {
+							css.ForEach(func(c0 *ygo.Card) bool {
+								c0.Dispatch(ygo.Destroy, ca)
+								return true
+							})
+						})
+					}
 				}
 			})
 			return true

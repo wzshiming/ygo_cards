@@ -57,7 +57,6 @@ func booster(cardBag *ygo.CardVersion) {
 			})
 			return true
 		}, // 初始
-
 		IsValid: true,
 	})
 
@@ -651,7 +650,42 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:      ygo.LR_Fiend, // 恶魔
 		Attack:  920,
 		Defense: 1930,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
+		//		Initialize: func(ca *ygo.Card) bool {
+		//			i := 1
+		//			e := ca.EffectAllMzoneHalo(func(c *ygo.Card) bool {
+		//				if c.RaceIsZombie() {
+		//					c.SetAttack(c.GetAttack() + i*200)
+		//					c.SetDefense(c.GetDefense() + i)*200)
+		//					ca.OnlyOnce(ygo.Disabled, func() {
+		//						c.SetAttack(c.GetAttack() - i*200)
+		//						c.SetDefense(c.GetDefense() - i*200)
+		//					}, c)
+		//				}
+		//				return true
+		//			})
+		//			ca.RegisterFlip(func() {
+		//				e()
+		//				ca.RegisterGlobalListen(ygo.SP, func(pl0 *ygo.Player) {
+		//					if i >= 5 {
+		//						return
+		//					}
+		//					i++
+		//					pl := ca.GetSummoner()
+		//					tar := pl.GetTarget()
+		//					if pl == pl0 {
+		//						cs := ygo.NewCards(tar.Mzone, pl.Mzone)
+		//						cs.ForEach(func(c *ygo.Card) bool {
+		//							if c.RaceIsZombie() {
+		//								c.SetAttack(c.GetAttack() + 200)
+		//								c.SetDefense(c.GetDefense() + 200)
+		//							}
+		//							return true
+		//						})
+		//					}
+		//				})
+		//			})
+		//			return true
+		//		}, // 初始
 		IsValid: false,
 	})
 
