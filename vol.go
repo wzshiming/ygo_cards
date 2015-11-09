@@ -310,7 +310,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				cs := ygo.NewCards(&pl.Mzone.Cards, &tar.Mzone.Cards)
+				cs := ygo.NewCards(pl.Mzone, tar.Mzone)
 				cs.ForEach(func(c *ygo.Card) bool {
 					c.Dispatch(ygo.Destroy, ca)
 					return true
@@ -3370,14 +3370,12 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  1800,
 		Defense: 1500,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterMzoneAccessArea(func(c *ygo.Card) {
-				if c.GetName() == "野蛮人1号" {
-					ca.SetAttack(ca.GetAttack() + 500)
-				}
+			ca.RegisterMzoneAccessArea(func(c *ygo.Card) bool {
+				return c.GetName() == "野蛮人1号"
 			}, func(c *ygo.Card) {
-				if c.GetName() == "野蛮人1号" {
-					ca.SetAttack(ca.GetAttack() - 500)
-				}
+				ca.SetAttack(ca.GetAttack() + 500)
+			}, func(c *ygo.Card) {
+				ca.SetAttack(ca.GetAttack() - 500)
 			})
 			return true
 
@@ -3422,8 +3420,31 @@ func vol(cardBag *ygo.CardVersion) {
 		Lr:      ygo.LR_Pyro, // 炎
 		Attack:  200,
 		Defense: 1800,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFlip(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				css := ygo.NewCards(pl.Mzone, tar.Mzone, func(c *ygo.Card) bool {
+					return c.GetName() == "龙族封印之壶"
+				})
+				if css.Len() == 0 {
+					return
+				}
+				css.ForEach(func(c *ygo.Card) bool {
+					c.Dispatch(ygo.Destroy)
+					return true
+				})
+				css2 := ygo.NewCards(pl.Mzone, tar.Mzone, func(c *ygo.Card) bool {
+					return c.RaceIsDragon() && c.IsFaceUpDefense()
+				})
+				css2.ForEach(func(c *ygo.Card) bool {
+					c.SetFaceUpAttack()
+					return true
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*74*/
@@ -3838,14 +3859,12 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  1600,
 		Defense: 1300,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterGraveAccessArea(func(c *ygo.Card) {
-				if c.IsMonster() {
-					ca.SetAttack(ca.GetAttack() + 100)
-				}
+			ca.RegisterGraveAccessArea(func(c *ygo.Card) bool {
+				return c.IsMonster()
 			}, func(c *ygo.Card) {
-				if c.IsMonster() {
-					ca.SetAttack(ca.GetAttack() - 100)
-				}
+				ca.SetAttack(ca.GetAttack() + 100)
+			}, func(c *ygo.Card) {
+				ca.SetAttack(ca.GetAttack() - 100)
 			})
 			return true
 		}, // 初始
@@ -4019,17 +4038,19 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  500,
 		Defense: 700,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterAllMzoneHalo(func(c *ygo.Card) {
+			ca.RegisterAllMzoneHalo(func(c *ygo.Card) bool {
+				return c.AttrIsLight() || c.AttrIsDark()
+			}, func(c *ygo.Card) {
 				if c.AttrIsLight() {
 					c.SetAttack(c.GetAttack() + 500)
-					ca.OnlyOnce(ygo.Disabled, func() {
-						c.SetAttack(c.GetAttack() - 500)
-					}, c)
 				} else if c.AttrIsDark() {
 					c.SetAttack(c.GetAttack() - 400)
-					ca.OnlyOnce(ygo.Disabled, func() {
-						c.SetAttack(c.GetAttack() + 400)
-					}, c)
+				}
+			}, func(c *ygo.Card) {
+				if c.AttrIsLight() {
+					c.SetAttack(c.GetAttack() - 500)
+				} else if c.AttrIsDark() {
+					c.SetAttack(c.GetAttack() + 400)
 				}
 			})
 			return true
@@ -4189,7 +4210,9 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  600,
 		Defense: 300,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterHandAccessArea(func() {
+			ca.RegisterHandAccessArea(func(c *ygo.Card) bool {
+				return true
+			}, func() {
 				ca.SetAttack(ca.GetAttack() + 300)
 				ca.SetDefense(ca.GetDefense() + 300)
 			}, func() {
@@ -4238,17 +4261,19 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  550,
 		Defense: 500,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterAllMzoneHalo(func(c *ygo.Card) {
+			ca.RegisterAllMzoneHalo(func(c *ygo.Card) bool {
+				return c.AttrIsWater() || c.AttrIsFire()
+			}, func(c *ygo.Card) {
 				if c.AttrIsWater() {
 					c.SetAttack(c.GetAttack() + 500)
-					ca.OnlyOnce(ygo.Disabled, func() {
-						c.SetAttack(c.GetAttack() - 500)
-					}, c)
 				} else if c.AttrIsFire() {
 					c.SetAttack(c.GetAttack() - 400)
-					ca.OnlyOnce(ygo.Disabled, func() {
-						c.SetAttack(c.GetAttack() + 400)
-					}, c)
+				}
+			}, func(c *ygo.Card) {
+				if c.AttrIsWater() {
+					c.SetAttack(c.GetAttack() - 500)
+				} else if c.AttrIsFire() {
+					c.SetAttack(c.GetAttack() + 400)
 				}
 			})
 			return true
@@ -4293,19 +4318,22 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  300,
 		Defense: 250,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterAllMzoneHalo(func(c *ygo.Card) {
+			ca.RegisterAllMzoneHalo(func(c *ygo.Card) bool {
+				return c.AttrIsEarth() || c.AttrIsWind()
+			}, func(c *ygo.Card) {
 				if c.AttrIsEarth() {
 					c.SetAttack(c.GetAttack() + 500)
-					ca.OnlyOnce(ygo.Disabled, func() {
-						c.SetAttack(c.GetAttack() - 500)
-					}, c)
 				} else if c.AttrIsWind() {
 					c.SetAttack(c.GetAttack() - 400)
-					ca.OnlyOnce(ygo.Disabled, func() {
-						c.SetAttack(c.GetAttack() + 400)
-					}, c)
+				}
+			}, func(c *ygo.Card) {
+				if c.AttrIsEarth() {
+					c.SetAttack(c.GetAttack() - 500)
+				} else if c.AttrIsWind() {
+					c.SetAttack(c.GetAttack() + 400)
 				}
 			})
+
 			return true
 		}, // 初始
 		IsValid: true,
@@ -4474,14 +4502,13 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  1550,
 		Defense: 1800,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterMzoneAccessArea(func(c *ygo.Card) {
-				if c.GetName() == "野蛮人2号" {
-					ca.SetAttack(ca.GetAttack() + 500)
-				}
+			ca.RegisterMzoneAccessArea(func(c *ygo.Card) bool {
+				return c.GetName() == "野蛮人2号"
 			}, func(c *ygo.Card) {
-				if c.GetName() == "野蛮人2号" {
-					ca.SetAttack(ca.GetAttack() - 500)
-				}
+				ca.SetAttack(ca.GetAttack() + 500)
+
+			}, func(c *ygo.Card) {
+				ca.SetAttack(ca.GetAttack() - 500)
 			})
 			return true
 		}, // 初始
@@ -4586,19 +4613,22 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  600,
 		Defense: 550,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterAllMzoneHalo(func(c *ygo.Card) {
+			ca.RegisterAllMzoneHalo(func(c *ygo.Card) bool {
+				return c.AttrIsFire() || c.AttrIsWater()
+			}, func(c *ygo.Card) {
 				if c.AttrIsFire() {
 					c.SetAttack(c.GetAttack() + 500)
-					ca.OnlyOnce(ygo.Disabled, func() {
-						c.SetAttack(c.GetAttack() - 500)
-					}, c)
 				} else if c.AttrIsWater() {
 					c.SetAttack(c.GetAttack() - 400)
-					ca.OnlyOnce(ygo.Disabled, func() {
-						c.SetAttack(c.GetAttack() + 400)
-					}, c)
+				}
+			}, func(c *ygo.Card) {
+				if c.AttrIsFire() {
+					c.SetAttack(c.GetAttack() - 500)
+				} else if c.AttrIsWater() {
+					c.SetAttack(c.GetAttack() + 400)
 				}
 			})
+
 			return true
 		}, // 初始
 		IsValid: true,
@@ -4641,19 +4671,22 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  600,
 		Defense: 700,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterAllMzoneHalo(func(c *ygo.Card) {
+			ca.RegisterAllMzoneHalo(func(c *ygo.Card) bool {
+				return c.AttrIsWind() || c.AttrIsEarth()
+			}, func(c *ygo.Card) {
 				if c.AttrIsWind() {
 					c.SetAttack(c.GetAttack() + 500)
-					ca.OnlyOnce(ygo.Disabled, func() {
-						c.SetAttack(c.GetAttack() - 500)
-					}, c)
 				} else if c.AttrIsEarth() {
 					c.SetAttack(c.GetAttack() - 400)
-					ca.OnlyOnce(ygo.Disabled, func() {
-						c.SetAttack(c.GetAttack() + 400)
-					}, c)
+				}
+			}, func(c *ygo.Card) {
+				if c.AttrIsWind() {
+					c.SetAttack(c.GetAttack() - 500)
+				} else if c.AttrIsEarth() {
+					c.SetAttack(c.GetAttack() + 400)
 				}
 			})
+
 			return true
 		}, // 初始
 		IsValid: true,
@@ -4733,17 +4766,19 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  550,
 		Defense: 500,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterAllMzoneHalo(func(c *ygo.Card) {
+			ca.RegisterAllMzoneHalo(func(c *ygo.Card) bool {
+				return c.AttrIsDark() || c.AttrIsLight()
+			}, func(c *ygo.Card) {
 				if c.AttrIsDark() {
 					c.SetAttack(c.GetAttack() + 500)
-					ca.OnlyOnce(ygo.Disabled, func() {
-						c.SetAttack(c.GetAttack() - 500)
-					}, c)
 				} else if c.AttrIsLight() {
 					c.SetAttack(c.GetAttack() - 400)
-					ca.OnlyOnce(ygo.Disabled, func() {
-						c.SetAttack(c.GetAttack() + 400)
-					}, c)
+				}
+			}, func(c *ygo.Card) {
+				if c.AttrIsDark() {
+					c.SetAttack(c.GetAttack() - 500)
+				} else if c.AttrIsLight() {
+					c.SetAttack(c.GetAttack() + 400)
 				}
 			})
 			return true
