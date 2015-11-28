@@ -46,7 +46,7 @@ func booster(cardBag *ygo.CardVersion) {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Szone, pl.Szone); c != nil {
+				if c := pl.SelectForWarn(tar.Szone(), pl.Szone()); c != nil {
 					c.SetFaceUp()
 					if c.IsTrap() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -320,7 +320,7 @@ func booster(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				cs := ygo.NewCards(pl.Mzone, tar.Mzone)
+				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsInsect() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -364,7 +364,7 @@ func booster(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				cs := ygo.NewCards(pl.Mzone, tar.Mzone)
+				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsFish() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -407,7 +407,7 @@ func booster(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				cs := ygo.NewCards(pl.Mzone, tar.Mzone)
+				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsMachine() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -451,7 +451,7 @@ func booster(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				cs := ygo.NewCards(pl.Mzone, tar.Mzone)
+				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsRock() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -495,7 +495,7 @@ func booster(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				cs := ygo.NewCards(pl.Mzone, tar.Mzone)
+				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsWarrior() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -1179,7 +1179,7 @@ func booster(cardBag *ygo.CardVersion) {
 				c.SetAttack(c.GetAttack() + 700)
 
 			}, func(c *ygo.Card) {
-				ca.UnregisterGlobalListen()
+				ca.UnregisterAllGlobalListen()
 				c.SetAttack(c.GetAttack() - 700)
 
 			})
@@ -1221,7 +1221,7 @@ func booster(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				cs := ygo.NewCards(pl.Szone, tar.Szone)
+				cs := ygo.NewCards(pl.Szone(), tar.Szone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					c.Dispatch(ygo.Destroy, ca)
 					return true
@@ -1388,7 +1388,7 @@ func booster(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				tar.Mzone.ForEach(func(c *ygo.Card) bool {
+				tar.Mzone().ForEach(func(c *ygo.Card) bool {
 					c.SetFaceUp()
 					return true
 				})
@@ -1642,7 +1642,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Attack:  900,
 		Defense: 1200,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterMzoneAccessArea(func(c *ygo.Card) bool {
+			ca.RegisterAccessArea(ygo.LL_Mzone, func(c *ygo.Card) bool {
 				return c.RaceIsPlant()
 			}, func(c *ygo.Card) {
 				ca.SetAttack(ca.GetAttack() + 100)
@@ -1823,11 +1823,11 @@ func booster(cardBag *ygo.CardVersion) {
 				pl := ca.GetSummoner()
 				ca.GetSummoner().ActionDraw(3)
 				for i := 0; i != 2; i++ {
-					c := pl.SelectForWarn(pl.Hand, func(c0 *ygo.Card) bool {
+					c := pl.SelectForWarn(pl.Hand(), func(c0 *ygo.Card) bool {
 						return c0.IsMonster()
 					})
 					if c == nil {
-						c = pl.Hand.EndPop()
+						c = pl.Hand().EndPop()
 					}
 					c.Dispatch(ygo.Discard, ca)
 				}
@@ -2083,7 +2083,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Attack:  2200,
 		Defense: 2000,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterMzoneAccessArea(func(c *ygo.Card) bool {
+			ca.RegisterAccessArea(ygo.LL_Mzone, func(c *ygo.Card) bool {
 				return c.RaceIsMachine()
 			}, func(c *ygo.Card) {
 				ca.SetAttack(ca.GetAttack() + 100)
@@ -2394,7 +2394,7 @@ func booster(cardBag *ygo.CardVersion) {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				for i := 0; i != 2; i++ {
-					if c := pl.SelectForWarn(tar.Mzone, pl.Mzone); c != nil {
+					if c := pl.SelectForWarn(tar.Mzone(), pl.Mzone()); c != nil {
 						c.ToHand()
 					}
 				}
@@ -2549,7 +2549,7 @@ func booster(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				cs := ygo.NewCards(pl.Mzone, tar.Mzone)
+				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsSpellCaster() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -2593,7 +2593,7 @@ func booster(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				cs := ygo.NewCards(pl.Mzone, tar.Mzone)
+				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsFiend() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -2673,7 +2673,7 @@ func booster(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				tar.ChangeHp(-200 * tar.Hand.Len())
+				tar.ChangeHp(-200 * tar.Hand().Len())
 			})
 			return true
 		}, // 初始

@@ -310,7 +310,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				cs := ygo.NewCards(pl.Mzone, tar.Mzone)
+				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					c.Dispatch(ygo.Destroy, ca)
 					return true
@@ -428,14 +428,14 @@ func vol(cardBag *ygo.CardVersion) {
 				tar := pl.GetTarget()
 
 				i := -1
-				tar.Mzone.ForEach(func(c *ygo.Card) bool {
+				tar.Mzone().ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && (i == -1 || i > c.GetAttack()) {
 						i = c.GetAttack()
 					}
 					return true
 				})
 
-				cs := tar.Mzone.Find(func(c *ygo.Card) bool {
+				cs := tar.Mzone().Find(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && i == c.GetAttack() {
 						return true
 					}
@@ -535,7 +535,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
-				if c := pl.SelectForWarn(pl.Extra); c != nil {
+				if c := pl.SelectForWarn(pl.Extra()); c != nil {
 					if c.IsFusionMonster() {
 						c.Dispatch(ygo.SummonFusion, ca)
 					}
@@ -631,7 +631,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Szone, pl.Szone); c != nil {
+				if c := pl.SelectForWarn(tar.Szone(), pl.Szone()); c != nil {
 					c.SetFaceUp()
 					if c.IsTrap() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -994,7 +994,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Mzone, func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarn(tar.Mzone(), func(c0 *ygo.Card) bool {
 					return c0.IsDefense()
 				}); c != nil {
 					c.SetFaceUpAttack()
@@ -1253,7 +1253,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterUnordinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				tar.Mzone.ForEach(func(c *ygo.Card) bool {
+				tar.Mzone().ForEach(func(c *ygo.Card) bool {
 					c.SetFaceUp()
 					return true
 				})
@@ -1263,7 +1263,7 @@ func vol(cardBag *ygo.CardVersion) {
 					if tar != pl0 {
 						return
 					}
-					tar.Mzone.ForEach(func(c *ygo.Card) bool {
+					tar.Mzone().ForEach(func(c *ygo.Card) bool {
 						c.SetNotCanAttack()
 						return true
 					})
@@ -1419,7 +1419,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Szone, pl.Szone); c != nil {
+				if c := pl.SelectForWarn(tar.Szone(), pl.Szone()); c != nil {
 					c.SetFaceUp()
 					if c.IsMagic() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -1480,7 +1480,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Mzone, pl.Mzone); c != nil {
+				if c := pl.SelectForWarn(tar.Mzone(), pl.Mzone()); c != nil {
 					c.Dispatch(ygo.Destroy, ca)
 				}
 			})
@@ -1539,7 +1539,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Mzone, pl.Mzone); c != nil {
+				if c := pl.SelectForWarn(tar.Mzone(), pl.Mzone()); c != nil {
 					c.ToHand()
 				}
 			})
@@ -1583,7 +1583,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Szone, pl.Szone); c != nil {
+				if c := pl.SelectForWarn(tar.Szone(), pl.Szone()); c != nil {
 					c.SetFaceUp()
 					if c.IsMagic() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -1629,14 +1629,11 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Grave, pl.Grave, func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarn(tar.Grave(), pl.Grave(), func(c0 *ygo.Card) bool {
 					return c0.IsMonster()
 				}); c != nil {
-					if c.GetSummoner() != ca.GetSummoner() {
-						pl := ca.GetSummoner()
-						c.SetSummoner(pl)
-					}
 					c.Init()
+					c.SetSummoner(pl)
 					c.Dispatch(ygo.SummonSpecial, ca)
 				}
 			})
@@ -1715,7 +1712,7 @@ func vol(cardBag *ygo.CardVersion) {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				for i := 0; i != 2; i++ {
-					if c := pl.SelectForWarn(tar.Grave, func(c0 *ygo.Card) bool {
+					if c := pl.SelectForWarn(tar.Grave(), func(c0 *ygo.Card) bool {
 						return c0.IsMonster()
 					}); c != nil {
 						c.ToRemoved()
@@ -2157,7 +2154,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
-				if c := pl.SelectForWarn(pl.Grave, func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarn(pl.Grave(), func(c0 *ygo.Card) bool {
 					return c0.IsTrap()
 				}); c != nil {
 					c.ToHand()
@@ -2209,7 +2206,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Defense: 700,
 		Initialize: func(ca *ygo.Card) bool {
 			ca.AddEvent(ygo.Deduct, func(tar *ygo.Player) {
-				tar.Hand.Get(ygo.RandInt(tar.Hand.Len())).Dispatch(ygo.Discard, ca)
+				tar.Hand().Get(ygo.RandInt(tar.Hand().Len())).Dispatch(ygo.Discard, ca)
 			})
 			return true
 		}, // 初始
@@ -2260,14 +2257,13 @@ func vol(cardBag *ygo.CardVersion) {
 				pl := ca.GetSummoner()
 				cs := ygo.NewCards()
 				for i := 0; i != 5; i++ {
-					if c := pl.Deck.EndPop(); c != nil {
+					if c := pl.Deck().EndPop(); c != nil {
 						cs.EndPush(c)
 					}
 				}
 				for cs.Len() != 0 {
-
 					if c := pl.SelectForPopup(cs); c != nil {
-						pl.Deck.EndPush(c)
+						pl.Deck().EndPush(c)
 						cs.PickedFor(c)
 					}
 				}
@@ -2810,7 +2806,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_EffectMonster, // 效果怪兽
 
 		Level:   3,
-		La:      ygo.LA_None,    // 炎
+		La:      ygo.LA_Fire,    // 炎
 		Lr:      ygo.LR_Machine, // 机械
 		Attack:  800,
 		Defense: 900,
@@ -2819,7 +2815,7 @@ func vol(cardBag *ygo.CardVersion) {
 				ca.RegisterIgnitionSelector(ygo.SP, func(pl0 *ygo.Player) bool {
 					if pl := ca.GetSummoner(); pl == pl0 {
 						tar := pl.GetTarget()
-						css := ygo.NewCards(tar.Mzone, pl.Mzone, func(c0 *ygo.Card) bool {
+						css := ygo.NewCards(tar.Mzone(), pl.Mzone(), func(c0 *ygo.Card) bool {
 							return c0.IsFaceUp() && (c0.GetAttack() <= 1000) && c0 != ca
 						})
 						if css.Len() > 1 {
@@ -2830,7 +2826,6 @@ func vol(cardBag *ygo.CardVersion) {
 										c.Dispatch(ygo.Destroy, ca)
 									}
 								}
-
 							})
 						}
 					}
@@ -2932,7 +2927,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
-				if c := pl.SelectForWarn(pl.Grave, func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarn(pl.Grave(), func(c0 *ygo.Card) bool {
 					return c0.IsMagic()
 				}); c != nil {
 					c.ToHand()
@@ -3171,7 +3166,7 @@ func vol(cardBag *ygo.CardVersion) {
 					return
 				}
 				pl := ca.GetSummoner()
-				if c := pl.SelectForWarn(pl.Hand, func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarn(pl.Hand(), func(c0 *ygo.Card) bool {
 					return c0 != ca
 				}); c != nil {
 					c.Dispatch(ygo.Cost, ca)
@@ -3182,7 +3177,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Mzone, pl.Mzone); c != nil {
+				if c := pl.SelectForWarn(tar.Mzone(), pl.Mzone()); c != nil {
 					c.Dispatch(ygo.Destroy, ca)
 				}
 			})
@@ -3224,7 +3219,7 @@ func vol(cardBag *ygo.CardVersion) {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				for i := 0; i != 5; i++ {
-					if c := pl.SelectForWarn(tar.Grave, pl.Grave); c != nil {
+					if c := pl.SelectForWarn(tar.Grave(), pl.Grave()); c != nil {
 						c.ToRemoved()
 					}
 				}
@@ -3265,7 +3260,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				for i := 0; i != 3; i++ {
-					if c := pl.SelectForWarn(pl.Hand, func(c0 *ygo.Card) bool {
+					if c := pl.SelectForWarn(pl.Hand(), func(c0 *ygo.Card) bool {
 						return c0.IsMonster()
 					}); c != nil {
 						c.Dispatch(ygo.Discard, ca)
@@ -3316,7 +3311,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Mzone); c != nil {
+				if c := pl.SelectForWarn(tar.Mzone()); c != nil {
 					t := c.GetSummoner()
 					if c.SetSummoner(ca.GetSummoner()); c.IsInMzone() {
 						c.ToMzone()
@@ -3370,8 +3365,8 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  1800,
 		Defense: 1500,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterMzoneAccessArea(func(c *ygo.Card) bool {
-				return c.GetName() == "野蛮人1号"
+			ca.RegisterAccessArea(ygo.LL_Mzone, func(c *ygo.Card) bool {
+				return ca.GetSummoner() == c.GetSummoner() && c.GetName() == "野蛮人1号"
 			}, func(c *ygo.Card) {
 				ca.SetAttack(ca.GetAttack() + 500)
 			}, func(c *ygo.Card) {
@@ -3424,7 +3419,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				css := ygo.NewCards(pl.Mzone, tar.Mzone, func(c *ygo.Card) bool {
+				css := ygo.NewCards(pl.Mzone(), tar.Mzone(), func(c *ygo.Card) bool {
 					return c.GetName() == "龙族封印之壶"
 				})
 				if css.Len() == 0 {
@@ -3434,7 +3429,7 @@ func vol(cardBag *ygo.CardVersion) {
 					c.Dispatch(ygo.Destroy)
 					return true
 				})
-				css2 := ygo.NewCards(pl.Mzone, tar.Mzone, func(c *ygo.Card) bool {
+				css2 := ygo.NewCards(pl.Mzone(), tar.Mzone(), func(c *ygo.Card) bool {
 					return c.RaceIsDragon() && c.IsFaceUpDefense()
 				})
 				css2.ForEach(func(c *ygo.Card) bool {
@@ -3495,7 +3490,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.AddEvent(ygo.InMzone, func() {
 				ca.AddEvent(ygo.InGrave, func() {
 					pl := ca.GetSummoner()
-					cs := pl.Deck.Find(func(c *ygo.Card) bool {
+					cs := pl.Deck().Find(func(c *ygo.Card) bool {
 						return c.IsMonster() && c.GetDefense() <= 1500
 					})
 					if c := pl.SelectForPopup(cs); c != nil {
@@ -3604,7 +3599,7 @@ func vol(cardBag *ygo.CardVersion) {
 				})
 			})
 			ca.AddEvent(ygo.OutHand, func() {
-				ca.UnregisterGlobalListen()
+				ca.UnregisterAllGlobalListen()
 			})
 			return true
 		}, // 初始
@@ -3771,7 +3766,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				i := tar.Szone.Len()
+				i := tar.Szone().Len()
 				if i != 0 {
 					tar.ChangeHp(i * -500)
 				}
@@ -3859,8 +3854,8 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  1600,
 		Defense: 1300,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterGraveAccessArea(func(c *ygo.Card) bool {
-				return c.IsMonster()
+			ca.RegisterAccessArea(ygo.LL_Grave, func(c *ygo.Card) bool {
+				return ca.GetSummoner() == c.GetSummoner() && c.IsMonster()
 			}, func(c *ygo.Card) {
 				ca.SetAttack(ca.GetAttack() + 100)
 			}, func(c *ygo.Card) {
@@ -3911,11 +3906,12 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  1600,
 		Defense: 1500,
 		Initialize: func(ca *ygo.Card) bool {
+
 			ca.AddEvent(ygo.InHand, func() {
 				ca.RegisterIgnitionSelector(ygo.MP, func(pl0 *ygo.Player) {
 					pl := ca.GetSummoner()
 					if pl == pl0 {
-						css := ygo.NewCards(pl.Deck, func(c0 *ygo.Card) bool {
+						css := ygo.NewCards(pl.Deck(), func(c0 *ygo.Card) bool {
 							return c0.GetId() == ca.GetId()
 						})
 						if css.Len() > 0 {
@@ -3924,12 +3920,18 @@ func vol(cardBag *ygo.CardVersion) {
 								for i := 0; i != 2; i++ {
 									if c := pl.SelectForPopup(css); c != nil {
 										c.ToHand()
+										css.PickedFor(c)
+									} else {
+										break
 									}
 								}
 							})
 						}
 					}
 				})
+			})
+			ca.AddEvent(ygo.OutHand, func() {
+				ca.UnregisterAllGlobalListen()
 			})
 			return true
 		}, // 初始
@@ -4210,8 +4212,8 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  600,
 		Defense: 300,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterHandAccessArea(func(c *ygo.Card) bool {
-				return true
+			ca.RegisterAccessArea(ygo.LL_Hand, func(c *ygo.Card) bool {
+				return ca.GetSummoner() == c.GetSummoner()
 			}, func() {
 				ca.SetAttack(ca.GetAttack() + 300)
 				ca.SetDefense(ca.GetDefense() + 300)
@@ -4502,8 +4504,8 @@ func vol(cardBag *ygo.CardVersion) {
 		Attack:  1550,
 		Defense: 1800,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterMzoneAccessArea(func(c *ygo.Card) bool {
-				return c.GetName() == "野蛮人2号"
+			ca.RegisterAccessArea(ygo.LL_Mzone, func(c *ygo.Card) bool {
+				return ca.GetSummoner() == c.GetSummoner() && c.GetName() == "野蛮人2号"
 			}, func(c *ygo.Card) {
 				ca.SetAttack(ca.GetAttack() + 500)
 
@@ -4562,7 +4564,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.AddEvent(ygo.InMzone, func() {
 				ca.AddEvent(ygo.InGrave, func() {
 					pl := ca.GetSummoner()
-					cs := pl.Deck.Find(func(c *ygo.Card) bool {
+					cs := pl.Deck().Find(func(c *ygo.Card) bool {
 						return c.IsMonster() && c.GetDefense() <= 1500
 					})
 					if c := pl.SelectForPopup(cs); c != nil {
@@ -4608,7 +4610,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_EffectMonster, // 效果怪兽
 
 		Level:   2,
-		La:      ygo.LA_None,  // 炎
+		La:      ygo.LA_Fire,  // 炎
 		Lr:      ygo.LR_Beast, // 兽
 		Attack:  600,
 		Defense: 550,
@@ -4833,7 +4835,7 @@ func vol(cardBag *ygo.CardVersion) {
 						tar := pl.GetTarget()
 						ca.PushChain(func() {
 							if ygo.RandInt(3) <= 1 {
-								if c := pl.SelectForWarn(tar.Mzone); c != nil {
+								if c := pl.SelectForWarn(tar.Mzone()); c != nil {
 									c.Dispatch(ygo.Destroy, ca)
 								}
 							}
@@ -4937,7 +4939,7 @@ func vol(cardBag *ygo.CardVersion) {
 					return
 				}
 				pl := ca.GetSummoner()
-				if c := pl.SelectForWarn(pl.Hand, func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarn(pl.Hand(), func(c0 *ygo.Card) bool {
 					return c0 != ca
 				}); c != nil {
 					c.Dispatch(ygo.Cost, ca)
@@ -5036,7 +5038,7 @@ func vol(cardBag *ygo.CardVersion) {
 					return
 				}
 				pl := ca.GetSummoner()
-				if c := pl.SelectForWarn(pl.Mzone); c != nil {
+				if c := pl.SelectForWarn(pl.Mzone()); c != nil {
 					c.Dispatch(ygo.Cost, ca)
 				} else {
 					ca.StopOnce(s)
@@ -5099,8 +5101,8 @@ func vol(cardBag *ygo.CardVersion) {
 					return true
 				}
 
-				pl.Mzone.ForEach(e)
-				tar.Mzone.ForEach(e)
+				pl.Mzone().ForEach(e)
+				tar.Mzone().ForEach(e)
 			})
 			return true
 		}, // 初始
@@ -5190,7 +5192,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Mzone, func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarn(tar.Mzone(), func(c0 *ygo.Card) bool {
 					return c0.IsFaceUp()
 				}); c != nil {
 					c.SetFaceDefense()
@@ -5243,7 +5245,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.AddEvent(ygo.DestroyBeBattle, func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				tar.Mzone.ForEach(func(c *ygo.Card) bool {
+				tar.Mzone().ForEach(func(c *ygo.Card) bool {
 					c.SetNotCanAttack()
 					return true
 				})
@@ -5288,7 +5290,7 @@ func vol(cardBag *ygo.CardVersion) {
 				pl := ca.GetSummoner()
 				e := func() {
 					if c.GetSummoner() == pl && pl != tar {
-						tar.Hand.Get(ygo.RandInt(tar.Hand.Len())).Dispatch(ygo.Discard, ca)
+						tar.Hand().Get(ygo.RandInt(tar.Hand().Len())).Dispatch(ygo.Discard, ca)
 					}
 				}
 				if use {
@@ -5434,7 +5436,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterOrdinaryTrap(ygo.Declaration, func(c *ygo.Card) {
 				if obj := c.GetSummoner(); obj == ca.GetSummoner() {
 					tar := obj.GetTarget()
-					css := ygo.NewCards(tar.Mzone, func(c0 *ygo.Card) bool {
+					css := ygo.NewCards(tar.Mzone(), func(c0 *ygo.Card) bool {
 						return c0.IsAttack()
 					})
 					if css.Len() > 0 {
@@ -8744,7 +8746,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Name:     "TM-1火箭炮蜘蛛",            // "Launcher Spider"  "TM－１ランチャースパイダー"
 		Lc:       ygo.LC_OrdinaryMonster, // 通常怪兽
 		Level:    7,
-		La:       ygo.LA_None,    // 炎
+		La:       ygo.LA_Fire,    // 炎
 		Lr:       ygo.LR_Machine, // 机械
 		Attack:   2200,
 		Defense:  2500,
@@ -8776,7 +8778,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Name:     "高科技狼",                 // "Giga-Tech Wolf"  "ギガテック·ウルフ"
 		Lc:       ygo.LC_OrdinaryMonster, // 通常怪兽
 		Level:    4,
-		La:       ygo.LA_None,    // 炎
+		La:       ygo.LA_Fire,    // 炎
 		Lr:       ygo.LR_Machine, // 机械
 		Attack:   1200,
 		Defense:  1400,
