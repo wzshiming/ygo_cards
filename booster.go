@@ -1821,7 +1821,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterNormalMagic(func() {
 				pl := ca.GetSummoner()
-				ca.GetSummoner().ActionDraw(3)
+				ca.GetSummoner().DrawCard(3)
 				for i := 0; i != 2; i++ {
 					c := pl.SelectForWarn(pl.Hand(), func(c0 *ygo.Card) bool {
 						return c0.IsMonster()

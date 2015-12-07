@@ -1363,7 +1363,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
-				pl.ActionDraw(1)
+				pl.DrawCard(1)
 			})
 			return true
 		}, // 初始
@@ -1672,7 +1672,7 @@ func vol(cardBag *ygo.CardVersion) {
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterNormalMagic(func() {
-				ca.GetSummoner().ActionDraw(2)
+				ca.GetSummoner().DrawCard(2)
 			})
 			return true
 		}, // 初始
@@ -2354,7 +2354,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Initialize: func(ca *ygo.Card) bool {
 			ca.AddEvent(ygo.Deduct, func(tar *ygo.Player) {
 				pl := ca.GetSummoner()
-				pl.ActionDraw(1)
+				pl.DrawCard(1)
 			})
 			return true
 		}, // 初始
