@@ -46,7 +46,7 @@ func booster(cardBag *ygo.CardVersion) {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Szone(), pl.Szone()); c != nil {
+				if c := pl.SelectForWarn(ygo.LO_Destroy, tar.Szone(), pl.Szone()); c != nil {
 					c.SetFaceUp()
 					if c.IsTrap() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -1823,7 +1823,7 @@ func booster(cardBag *ygo.CardVersion) {
 				pl := ca.GetSummoner()
 				ca.GetSummoner().DrawCard(3)
 				for i := 0; i != 2; i++ {
-					c := pl.SelectForWarn(pl.Hand(), func(c0 *ygo.Card) bool {
+					c := pl.SelectForWarnShort(ygo.LO_Discard, 2-i, func(c0 *ygo.Card) bool {
 						return c0.IsMonster()
 					})
 					if c == nil {
@@ -2394,7 +2394,7 @@ func booster(cardBag *ygo.CardVersion) {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				for i := 0; i != 2; i++ {
-					if c := pl.SelectForWarn(tar.Mzone(), pl.Mzone()); c != nil {
+					if c := pl.SelectForWarn(ygo.LO_Popup, tar.Mzone(), pl.Mzone()); c != nil {
 						c.ToHand()
 					}
 				}

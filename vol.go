@@ -445,7 +445,7 @@ func vol(cardBag *ygo.CardVersion) {
 				if cs.Len() == 1 {
 					cs.EndPop().Dispatch(ygo.Destroy, ca)
 				} else if cs.Len() > 1 {
-					if c := pl.SelectForWarn(cs); c != nil {
+					if c := pl.SelectForWarn(ygo.LO_Destroy, cs); c != nil {
 						c.Dispatch(ygo.Destroy, ca)
 					}
 				}
@@ -535,7 +535,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterNormalMagic(func() {
 				pl := ca.GetSummoner()
-				if c := pl.SelectForWarn(pl.Extra()); c != nil {
+				if c := pl.SelectForWarn(ygo.LO_Cost, pl.Extra()); c != nil {
 					if c.IsMonsterFusion() {
 						c.Dispatch(ygo.SummonFusion, ca)
 					}
@@ -631,7 +631,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Szone(), pl.Szone()); c != nil {
+				if c := pl.SelectForWarn(ygo.LO_Destroy, tar.Szone(), pl.Szone()); c != nil {
 					c.SetFaceUp()
 					if c.IsTrap() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -994,7 +994,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterNormalMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Mzone(), func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarnShort(ygo.LO_Expres, 1, tar.Mzone(), func(c0 *ygo.Card) bool {
 					return c0.IsDefense()
 				}); c != nil {
 					c.SetFaceUpAttack()
@@ -1419,7 +1419,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Szone(), pl.Szone()); c != nil {
+				if c := pl.SelectForWarn(ygo.LO_Destroy, tar.Szone(), pl.Szone()); c != nil {
 					c.SetFaceUp()
 					if c.IsSpell() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -1480,7 +1480,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Mzone(), pl.Mzone()); c != nil {
+				if c := pl.SelectForWarn(ygo.LO_Destroy, tar.Mzone(), pl.Mzone()); c != nil {
 					c.Dispatch(ygo.Destroy, ca)
 				}
 			})
@@ -1539,7 +1539,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Mzone(), pl.Mzone()); c != nil {
+				if c := pl.SelectForWarn(ygo.LO_Popup, tar.Mzone(), pl.Mzone()); c != nil {
 					c.ToHand()
 				}
 			})
@@ -1583,7 +1583,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterNormalMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Szone(), pl.Szone()); c != nil {
+				if c := pl.SelectForWarnShort(ygo.LO_Destroy, 1, tar.Szone(), pl.Szone()); c != nil {
 					c.SetFaceUp()
 					if c.IsSpell() {
 						c.Dispatch(ygo.Destroy, ca)
@@ -1629,7 +1629,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterNormalMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Grave(), pl.Grave(), func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarnShort(ygo.LO_SummonSpecial, 1, tar.Grave(), pl.Grave(), func(c0 *ygo.Card) bool {
 					return c0.IsMonster()
 				}); c != nil {
 					c.Init()
@@ -1712,7 +1712,7 @@ func vol(cardBag *ygo.CardVersion) {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				for i := 0; i != 2; i++ {
-					if c := pl.SelectForWarn(tar.Grave(), func(c0 *ygo.Card) bool {
+					if c := pl.SelectForWarnShort(ygo.LO_Removed, 1, tar.Grave(), func(c0 *ygo.Card) bool {
 						return c0.IsMonster()
 					}); c != nil {
 						c.ToRemoved()
@@ -2154,7 +2154,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
-				if c := pl.SelectForWarn(pl.Grave(), func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarn(ygo.LO_JoinHand, pl.Grave(), func(c0 *ygo.Card) bool {
 					return c0.IsTrap()
 				}); c != nil {
 					c.ToHand()
@@ -2262,7 +2262,7 @@ func vol(cardBag *ygo.CardVersion) {
 					}
 				}
 				for cs.Len() != 0 {
-					if c := pl.SelectForPopup(cs); c != nil {
+					if c := pl.SelectForPopup(ygo.LO_Select, cs); c != nil {
 						pl.Deck().EndPush(c)
 						cs.PickedFor(c)
 					}
@@ -2822,7 +2822,7 @@ func vol(cardBag *ygo.CardVersion) {
 							ca.PushChain(func() {
 								ca.Dispatch(ygo.Cost)
 								for i := 0; i != 2; i++ {
-									if c := pl.SelectForWarn(css); c != nil {
+									if c := pl.SelectForWarn(ygo.LO_Destroy, css); c != nil {
 										c.Dispatch(ygo.Destroy, ca)
 									}
 								}
@@ -2927,7 +2927,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
-				if c := pl.SelectForWarn(pl.Grave(), func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarn(ygo.LO_JoinHand, pl.Grave(), func(c0 *ygo.Card) bool {
 					return c0.IsSpell()
 				}); c != nil {
 					c.ToHand()
@@ -3166,7 +3166,7 @@ func vol(cardBag *ygo.CardVersion) {
 					return
 				}
 				pl := ca.GetSummoner()
-				if c := pl.SelectForWarn(pl.Hand(), func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarnShort(ygo.LO_Discard, 1, pl.Hand(), func(c0 *ygo.Card) bool {
 					return c0 != ca
 				}); c != nil {
 					c.Dispatch(ygo.Cost, ca)
@@ -3177,7 +3177,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterNormalMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Mzone(), pl.Mzone()); c != nil {
+				if c := pl.SelectForWarnShort(ygo.LO_Destroy, 1, tar.Mzone(), pl.Mzone()); c != nil {
 					c.Dispatch(ygo.Destroy, ca)
 				}
 			})
@@ -3219,7 +3219,7 @@ func vol(cardBag *ygo.CardVersion) {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				for i := 0; i != 5; i++ {
-					if c := pl.SelectForWarn(tar.Grave(), pl.Grave()); c != nil {
+					if c := pl.SelectForWarnShort(ygo.LO_Removed, 0, tar.Grave(), pl.Grave()); c != nil {
 						c.ToRemoved()
 					}
 				}
@@ -3260,7 +3260,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterNormalMagic(func() {
 				pl := ca.GetSummoner()
 				for i := 0; i != 3; i++ {
-					if c := pl.SelectForWarn(pl.Hand(), func(c0 *ygo.Card) bool {
+					if c := pl.SelectForWarnShort(ygo.LO_Discard, 0, pl.Hand(), func(c0 *ygo.Card) bool {
 						return c0.IsMonster()
 					}); c != nil {
 						c.Dispatch(ygo.Discard, ca)
@@ -3311,7 +3311,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterNormalMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Mzone()); c != nil {
+				if c := pl.SelectForWarnShort(ygo.LO_Puppet, 1, tar.Mzone()); c != nil {
 					t := c.GetSummoner()
 					if c.SetSummoner(ca.GetSummoner()); c.IsInMzone() {
 						c.ToMzone()
@@ -3493,7 +3493,7 @@ func vol(cardBag *ygo.CardVersion) {
 					cs := pl.Deck().Find(func(c *ygo.Card) bool {
 						return c.IsMonster() && c.GetDef() <= 1500
 					})
-					if c := pl.SelectForPopup(cs); c != nil {
+					if c := pl.SelectForPopup(ygo.LO_JoinHand, cs); c != nil {
 						c.ToHand()
 					}
 				})
@@ -3918,7 +3918,7 @@ func vol(cardBag *ygo.CardVersion) {
 							ca.PushChain(func() {
 								ca.Dispatch(ygo.Cost)
 								for i := 0; i != 2; i++ {
-									if c := pl.SelectForPopup(css); c != nil {
+									if c := pl.SelectForPopup(ygo.LO_JoinHand, css); c != nil {
 										c.ToHand()
 										css.PickedFor(c)
 									} else {
@@ -4567,7 +4567,7 @@ func vol(cardBag *ygo.CardVersion) {
 					cs := pl.Deck().Find(func(c *ygo.Card) bool {
 						return c.IsMonster() && c.GetDef() <= 1500
 					})
-					if c := pl.SelectForPopup(cs); c != nil {
+					if c := pl.SelectForPopup(ygo.LO_JoinHand, cs); c != nil {
 						c.SetFaceUp()
 						c.ToHand()
 					}
@@ -4835,7 +4835,7 @@ func vol(cardBag *ygo.CardVersion) {
 						tar := pl.GetTarget()
 						ca.PushChain(func() {
 							if ygo.RandInt(3) <= 1 {
-								if c := pl.SelectForWarn(tar.Mzone()); c != nil {
+								if c := pl.SelectForWarn(ygo.LO_Destroy, tar.Mzone()); c != nil {
 									c.Dispatch(ygo.Destroy, ca)
 								}
 							}
@@ -4939,7 +4939,7 @@ func vol(cardBag *ygo.CardVersion) {
 					return
 				}
 				pl := ca.GetSummoner()
-				if c := pl.SelectForWarn(pl.Hand(), func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarn(ygo.LO_Discard, pl.Hand(), func(c0 *ygo.Card) bool {
 					return c0 != ca
 				}); c != nil {
 					c.Dispatch(ygo.Cost, ca)
@@ -5038,7 +5038,7 @@ func vol(cardBag *ygo.CardVersion) {
 					return
 				}
 				pl := ca.GetSummoner()
-				if c := pl.SelectForWarn(pl.Mzone()); c != nil {
+				if c := pl.SelectForWarn(ygo.LO_Cost, pl.Mzone()); c != nil {
 					c.Dispatch(ygo.Cost, ca)
 				} else {
 					ca.StopOnce(s)
@@ -5192,7 +5192,7 @@ func vol(cardBag *ygo.CardVersion) {
 			ca.RegisterNormalMagic(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				if c := pl.SelectForWarn(tar.Mzone(), func(c0 *ygo.Card) bool {
+				if c := pl.SelectForWarnShort(ygo.LO_Expres, 1, tar.Mzone(), func(c0 *ygo.Card) bool {
 					return c0.IsFaceUp()
 				}); c != nil {
 					c.SetFaceDefense()
