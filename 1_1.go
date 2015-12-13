@@ -1,8 +1,8 @@
-package cards
+package ygo_cards
 
 import ygo "github.com/wzshiming/ygo_core"
 
-func vol(cardBag *ygo.CardVersion) {
+func d1_1(cardBag *ygo.CardVersion) {
 
 	/*0*/
 	cardBag.Register(&ygo.CardOriginal{
@@ -47,8 +47,8 @@ func vol(cardBag *ygo.CardVersion) {
 		Def:   1000,
 		Initialize: func(ca *ygo.Card) bool {
 			ca.AddEvent(ygo.Fought, func(c *ygo.Card) {
-				ca.Dispatch(ygo.Removed)
-				c.Dispatch(ygo.Removed, ca)
+				ca.Removed(ca)
+				c.Removed(ca)
 			})
 			return true
 		}, // 初始
@@ -307,12 +307,12 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
-					c.Dispatch(ygo.Destroy, ca)
+					c.Destroy(ca)
 					return true
 				})
 			})
@@ -348,9 +348,9 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
-				pl.ChangeHp(500)
+				pl.ChangeLp(500)
 			})
 			return true
 		}, // 初始
@@ -384,10 +384,10 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				tar.ChangeHp(-200)
+				tar.ChangeLp(-200)
 			})
 			return true
 		}, // 初始
@@ -422,7 +422,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
@@ -443,10 +443,10 @@ func vol(cardBag *ygo.CardVersion) {
 				})
 
 				if cs.Len() == 1 {
-					cs.EndPop().Dispatch(ygo.Destroy, ca)
+					cs.EndPop().Destroy(ca)
 				} else if cs.Len() > 1 {
 					if c := pl.SelectForWarn(ygo.LO_Destroy, cs); c != nil {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					}
 				}
 			})
@@ -490,12 +490,12 @@ func vol(cardBag *ygo.CardVersion) {
 			e := func(c *ygo.Card) {
 				if c.GetAtk() >= 1000 && c.GetSummoner() != ca.GetSummoner() {
 					ca.PushChain(func() {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					})
 				}
 			}
-			ca.RegisterNormalTrap(ygo.Summon, e)
-			ca.RegisterNormalTrap(ygo.SummonFlip, e)
+			ca.RegisterTrapNormal(ygo.Summon, e)
+			ca.RegisterTrapNormal(ygo.SummonFlip, e)
 			return true
 		}, // 初始
 		IsValid: true,
@@ -533,7 +533,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				if c := pl.SelectForWarn(ygo.LO_Cost, pl.Extra()); c != nil {
 					if c.IsMonsterFusion() {
@@ -634,7 +634,7 @@ func vol(cardBag *ygo.CardVersion) {
 				if c := pl.SelectForWarn(ygo.LO_Destroy, tar.Szone(), pl.Szone()); c != nil {
 					c.SetFaceUp()
 					if c.IsTrap() {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					} else {
 						c.SetFaceDown()
 					}
@@ -991,7 +991,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				if c := pl.SelectForWarnShort(ygo.LO_Expres, 1, tar.Mzone(), func(c0 *ygo.Card) bool {
@@ -1169,9 +1169,9 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
-				pl.ChangeHp(600)
+				pl.ChangeLp(600)
 			})
 			return true
 		}, // 初始
@@ -1205,10 +1205,10 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				tar.ChangeHp(-600)
+				tar.ChangeLp(-600)
 			})
 			return true
 		}, // 初始
@@ -1250,7 +1250,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterUnnormalSpell(func() {
+			ca.RegisterSpellUnnormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				tar.Mzone().ForEach(func(c *ygo.Card) bool {
@@ -1422,7 +1422,7 @@ func vol(cardBag *ygo.CardVersion) {
 				if c := pl.SelectForWarn(ygo.LO_Destroy, tar.Szone(), pl.Szone()); c != nil {
 					c.SetFaceUp()
 					if c.IsSpell() {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					} else {
 						c.SetFaceDown()
 					}
@@ -1481,7 +1481,7 @@ func vol(cardBag *ygo.CardVersion) {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				if c := pl.SelectForWarn(ygo.LO_Destroy, tar.Mzone(), pl.Mzone()); c != nil {
-					c.Dispatch(ygo.Destroy, ca)
+					c.Destroy(ca)
 				}
 			})
 			return true
@@ -1580,13 +1580,13 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				if c := pl.SelectForWarnShort(ygo.LO_Destroy, 1, tar.Szone(), pl.Szone()); c != nil {
 					c.SetFaceUp()
 					if c.IsSpell() {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					} else {
 						c.SetFaceDown()
 					}
@@ -1626,7 +1626,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				if c := pl.SelectForWarnShort(ygo.LO_SummonSpecial, 1, tar.Grave(), pl.Grave(), func(c0 *ygo.Card) bool {
@@ -1671,7 +1671,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				ca.GetSummoner().DrawCard(2)
 			})
 			return true
@@ -1708,7 +1708,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				for i := 0; i != 2; i++ {
@@ -2206,7 +2206,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Def:   700,
 		Initialize: func(ca *ygo.Card) bool {
 			ca.AddEvent(ygo.Deduct, func(tar *ygo.Player) {
-				tar.Hand().Get(ygo.RandInt(tar.Hand().Len())).Dispatch(ygo.Discard, ca)
+				tar.Hand().Random().Discard(ca)
 			})
 			return true
 		}, // 初始
@@ -2388,7 +2388,7 @@ func vol(cardBag *ygo.CardVersion) {
 
 		Level: 6,
 		La:    ygo.LA_Water, // 水
-		Lr:    ygo.LR_None,  // 水
+		Lr:    ygo.LR_Water, // 水
 		Atk:   2100,
 		Def:   1800,
 		Initialize: func(ca *ygo.Card) bool {
@@ -2560,7 +2560,7 @@ func vol(cardBag *ygo.CardVersion) {
 
 		Level: 7,
 		La:    ygo.LA_Water, // 水
-		Lr:    ygo.LR_None,  // 水
+		Lr:    ygo.LR_Water, // 水
 		Atk:   2500,
 		Def:   2400,
 		Initialize: func(ca *ygo.Card) bool {
@@ -2670,7 +2670,7 @@ func vol(cardBag *ygo.CardVersion) {
 					}
 					i++
 					if i >= 3 {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					}
 				})
 			})
@@ -2757,7 +2757,7 @@ func vol(cardBag *ygo.CardVersion) {
 
 		Level: 1,
 		La:    ygo.LA_Water, // 水
-		Lr:    ygo.LR_None,  // 水
+		Lr:    ygo.LR_Water, // 水
 		Atk:   300,
 		Def:   250,
 		Initialize: func(ca *ygo.Card) bool {
@@ -2812,7 +2812,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Def:   900,
 		Initialize: func(ca *ygo.Card) bool {
 			e := func() {
-				ca.RegisterIgnitionSelector(ygo.SP, func(pl0 *ygo.Player) bool {
+				ca.RegisterIgnitionSelector(ygo.SP, func(pl0 *ygo.Player) {
 					if pl := ca.GetSummoner(); pl == pl0 {
 						tar := pl.GetTarget()
 						css := ygo.NewCards(tar.Mzone(), pl.Mzone(), func(c0 *ygo.Card) bool {
@@ -2820,16 +2820,15 @@ func vol(cardBag *ygo.CardVersion) {
 						})
 						if css.Len() > 1 {
 							ca.PushChain(func() {
-								ca.Dispatch(ygo.Cost)
+								ca.Cost(ca)
 								for i := 0; i != 2; i++ {
 									if c := pl.SelectForWarn(ygo.LO_Destroy, css); c != nil {
-										c.Dispatch(ygo.Destroy, ca)
+										c.Destroy(ca)
 									}
 								}
 							})
 						}
 					}
-					return true
 				})
 			}
 			ca.AddEvent(ygo.FaceUp, e)
@@ -3161,24 +3160,21 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterPay(func(s string) {
-				if s != ygo.Onset {
-					return
-				}
+			ca.AddEventPre(ygo.Onset, func() {
 				pl := ca.GetSummoner()
 				if c := pl.SelectForWarnShort(ygo.LO_Discard, 1, pl.Hand(), func(c0 *ygo.Card) bool {
 					return c0 != ca
 				}); c != nil {
-					c.Dispatch(ygo.Cost, ca)
+					c.Cost(ca)
 				} else {
-					ca.StopOnce(s)
+					ca.StopOnce(ygo.Onset)
 				}
 			})
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				if c := pl.SelectForWarnShort(ygo.LO_Destroy, 1, tar.Mzone(), pl.Mzone()); c != nil {
-					c.Dispatch(ygo.Destroy, ca)
+					c.Destroy(ca)
 				}
 			})
 			return true
@@ -3215,7 +3211,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				for i := 0; i != 5; i++ {
@@ -3257,13 +3253,13 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				for i := 0; i != 3; i++ {
 					if c := pl.SelectForWarnShort(ygo.LO_Discard, 0, pl.Hand(), func(c0 *ygo.Card) bool {
 						return c0.IsMonster()
 					}); c != nil {
-						c.Dispatch(ygo.Discard, ca)
+						c.Discard(ca)
 					}
 				}
 			})
@@ -3308,17 +3304,14 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				if c := pl.SelectForWarnShort(ygo.LO_Puppet, 1, tar.Mzone()); c != nil {
-					t := c.GetSummoner()
-					if c.SetSummoner(ca.GetSummoner()); c.IsInMzone() {
-						c.ToMzone()
+					if c.IsInMzone() {
+						c.MzoneControlPower(ca.GetSummoner())
 						pl.OnlyOnce(ygo.RoundEnd, func() {
-							if c.SetSummoner(t); c.IsInMzone() {
-								c.ToMzone()
-							}
+							c.MzoneControlRestore()
 						}, ca, c)
 					}
 				}
@@ -3426,7 +3419,7 @@ func vol(cardBag *ygo.CardVersion) {
 					return
 				}
 				css.ForEach(func(c *ygo.Card) bool {
-					c.Dispatch(ygo.Destroy)
+					c.Destroy(ca)
 					return true
 				})
 				css2 := ygo.NewCards(pl.Mzone(), tar.Mzone(), func(c *ygo.Card) bool {
@@ -3592,7 +3585,7 @@ func vol(cardBag *ygo.CardVersion) {
 					pl := ca.GetSummoner()
 					if pl == tar {
 						ca.PushChain(func() {
-							ca.Dispatch(ygo.Cost)
+							ca.Cost(ca)
 							c.StopOnce(ygo.Deduct)
 						})
 					}
@@ -3678,11 +3671,29 @@ func vol(cardBag *ygo.CardVersion) {
 
 		Level: 5,
 		La:    ygo.LA_Water, // 水
-		Lr:    ygo.LR_None,  // 水
+		Lr:    ygo.LR_Water, // 水
 		Atk:   1000,
 		Def:   2000,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEvent(ygo.InMzone, func() {
+				ca.RegisterIgnitionSelector(ygo.SP, func(pl0 *ygo.Player) {
+					pl := ca.GetSummoner()
+					if pl == pl0 {
+						ca.PushChain(func() {
+							if c := pl.SelectForWarn(ygo.LO_Cost, pl.Mzone()); c != nil {
+								c.Cost(ca)
+								pl.GetTarget().ChangeLp(c.GetAtk() / -2)
+							}
+						})
+					}
+				})
+			})
+			ca.AddEvent(ygo.OutMzone, func() {
+				ca.UnregisterAllGlobalListen()
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*79*/
@@ -3768,7 +3779,7 @@ func vol(cardBag *ygo.CardVersion) {
 				tar := pl.GetTarget()
 				i := tar.Szone().Len()
 				if i != 0 {
-					tar.ChangeHp(i * -500)
+					tar.ChangeLp(i * -500)
 				}
 			})
 			return true
@@ -3806,11 +3817,11 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				tar.ChangeHp(-1000)
-				pl.ChangeHp(-500)
+				tar.ChangeLp(-1000)
+				pl.ChangeLp(-500)
 			})
 			return true
 		}, // 初始
@@ -3916,7 +3927,7 @@ func vol(cardBag *ygo.CardVersion) {
 						})
 						if css.Len() > 0 {
 							ca.PushChain(func() {
-								ca.Dispatch(ygo.Cost)
+								ca.Cost(ca)
 								for i := 0; i != 2; i++ {
 									if c := pl.SelectForPopup(ygo.LO_JoinHand, css); c != nil {
 										c.ToHand()
@@ -3983,12 +3994,12 @@ func vol(cardBag *ygo.CardVersion) {
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterFlip(func() {
 				pl := ca.GetSummoner()
-				pl.ChangeHp(3000)
+				pl.ChangeLp(3000)
 			})
 			ca.AddEvent(ygo.OutMzone, func() {
 				pl := ca.GetSummoner()
 				e1 := func() {
-					pl.ChangeHp(-5000)
+					pl.ChangeLp(-5000)
 				}
 				e2 := func() {
 					ca.RemoveEvent(ygo.InGrave, e1)
@@ -4171,8 +4182,30 @@ func vol(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Machine, // 机械
 		Atk:   1400,
 		Def:   1300,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEvent(ygo.InMzone, func() {
+				ca.RegisterIgnitionSelector(ygo.SP, func(pl0 *ygo.Player) {
+					pl := ca.GetSummoner()
+					if pl == pl0 {
+						ca.PushChain(func() {
+							for pl.Mzone().Len() != 0 {
+								if c := pl.SelectForWarn(ygo.LO_Cost, pl.Mzone()); c != nil {
+									c.Cost(ca)
+									pl.GetTarget().ChangeLp(-500)
+								} else {
+									break
+								}
+							}
+						})
+					}
+				})
+			})
+			ca.AddEvent(ygo.OutMzone, func() {
+				ca.UnregisterAllGlobalListen()
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*89*/
@@ -4259,7 +4292,7 @@ func vol(cardBag *ygo.CardVersion) {
 
 		Level: 2,
 		La:    ygo.LA_Water, // 水
-		Lr:    ygo.LR_None,  // 水
+		Lr:    ygo.LR_Water, // 水
 		Atk:   550,
 		Def:   500,
 		Initialize: func(ca *ygo.Card) bool {
@@ -4379,12 +4412,9 @@ func vol(cardBag *ygo.CardVersion) {
 		Atk:   2000,
 		Def:   800,
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterPay(func(s string) {
-				if s != ygo.Declaration {
-					return
-				}
+			ca.AddEventPre(ygo.Declaration, func() {
 				pl := ca.GetSummoner()
-				pl.ChangeHp(-1000)
+				pl.ChangeLp(-1000)
 			})
 			return true
 		}, // 初始
@@ -4444,7 +4474,7 @@ func vol(cardBag *ygo.CardVersion) {
 						if pl != pl0 {
 							return
 						}
-						pl.ChangeHp(-300)
+						pl.ChangeLp(-300)
 					})
 					ca.RegisterIgnitionSelector(ygo.EP, func(pl0 *ygo.Player) {
 						pl := ca.GetSummoner()
@@ -4452,10 +4482,9 @@ func vol(cardBag *ygo.CardVersion) {
 							return
 						}
 						ca.PushChain(func() {
-							pl.ChangeHp(-500)
+							pl.ChangeLp(-500)
 							tar := pl.GetTarget()
-							ca.SetSummoner(tar)
-							ca.ToMzone()
+							ca.MzoneControlPower(tar)
 							e()
 						})
 					})
@@ -4834,9 +4863,9 @@ func vol(cardBag *ygo.CardVersion) {
 					if pl == pl0 && r != pl.GetRound() {
 						tar := pl.GetTarget()
 						ca.PushChain(func() {
-							if ygo.RandInt(3) <= 1 {
+							if pl.Coins(3) <= 1 {
 								if c := pl.SelectForWarn(ygo.LO_Destroy, tar.Mzone()); c != nil {
-									c.Dispatch(ygo.Destroy, ca)
+									c.Destroy(ca)
 								}
 							}
 							r = pl.GetRound()
@@ -4883,23 +4912,20 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_TrapCounter, // 反击陷阱
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterPay(func(s string) {
-				if s != ygo.Trigger {
-					return
-				}
+			ca.AddEventPre(ygo.Trigger, func() {
 				pl := ca.GetSummoner()
-				pl.ChangeHp(pl.GetHp() / -2)
+				pl.ChangeLp(pl.GetLp() / -2)
 			})
 			e := func(c *ygo.Card) {
 				ca.PushChain(func() {
-					c.Dispatch(ygo.Destroy, ca)
+					c.Destroy(ca)
 				})
 			}
-			ca.RegisterNormalTrap(ygo.UseSpell, e)
-			ca.RegisterNormalTrap(ygo.UseTrap, e)
-			ca.RegisterNormalTrap(ygo.Summon, e)
-			ca.RegisterNormalTrap(ygo.SummonFlip, e)
-			ca.RegisterNormalTrap(ygo.SummonSpecial, e)
+			ca.RegisterTrapNormal(ygo.UseSpell, e)
+			ca.RegisterTrapNormal(ygo.UseTrap, e)
+			ca.RegisterTrapNormal(ygo.Summon, e)
+			ca.RegisterTrapNormal(ygo.SummonFlip, e)
+			ca.RegisterTrapNormal(ygo.SummonSpecial, e)
 			return true
 		}, // 初始
 		IsValid: true,
@@ -4934,24 +4960,21 @@ func vol(cardBag *ygo.CardVersion) {
 
 		Initialize: func(ca *ygo.Card) bool {
 
-			ca.RegisterPay(func(s string) {
-				if s != ygo.Trigger {
-					return
-				}
+			ca.AddEventPre(ygo.Trigger, func() {
 				pl := ca.GetSummoner()
 				if c := pl.SelectForWarn(ygo.LO_Discard, pl.Hand(), func(c0 *ygo.Card) bool {
 					return c0 != ca
 				}); c != nil {
-					c.Dispatch(ygo.Cost, ca)
+					c.Cost(ca)
 				} else {
-					ca.StopOnce(s)
+					ca.StopOnce(ygo.Trigger)
 				}
 
 			})
 
-			ca.RegisterNormalTrap(ygo.UseSpell, func(c *ygo.Card) {
+			ca.RegisterTrapNormal(ygo.UseSpell, func(c *ygo.Card) {
 				ca.PushChain(func() {
-					c.Dispatch(ygo.Destroy, ca)
+					c.Destroy(ca)
 				})
 			})
 			return true
@@ -4987,17 +5010,14 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_TrapCounter, // 反击陷阱
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterPay(func(s string) {
-				if s != ygo.Trigger {
-					return
-				}
+			ca.AddEventPre(ygo.Trigger, func() {
 				pl := ca.GetSummoner()
-				pl.ChangeHp(-1000)
+				pl.ChangeLp(-1000)
 			})
 
-			ca.RegisterNormalTrap(ygo.UseTrap, func(c *ygo.Card) {
+			ca.RegisterTrapNormal(ygo.UseTrap, func(c *ygo.Card) {
 				ca.PushChain(func() {
-					c.Dispatch(ygo.Destroy, ca)
+					c.Destroy(ca)
 				})
 			})
 			return true
@@ -5033,25 +5053,22 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_TrapCounter, // 反击陷阱
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterPay(func(s string) {
-				if s != ygo.Trigger {
-					return
-				}
+			ca.AddEventPre(ygo.Trigger, func() {
 				pl := ca.GetSummoner()
 				if c := pl.SelectForWarn(ygo.LO_Cost, pl.Mzone()); c != nil {
-					c.Dispatch(ygo.Cost, ca)
+					c.Cost(ca)
 				} else {
-					ca.StopOnce(s)
+					ca.StopOnce(ygo.Trigger)
 				}
 			})
 			e := func(c *ygo.Card) {
 				ca.PushChain(func() {
-					c.Dispatch(ygo.Destroy, ca)
+					c.Destroy(ca)
 				})
 			}
-			ca.RegisterNormalTrap(ygo.Summon, e)
-			ca.RegisterNormalTrap(ygo.SummonFlip, e)
-			ca.RegisterNormalTrap(ygo.SummonSpecial, e)
+			ca.RegisterTrapNormal(ygo.Summon, e)
+			ca.RegisterTrapNormal(ygo.SummonFlip, e)
+			ca.RegisterTrapNormal(ygo.SummonSpecial, e)
 			return true
 		}, // 初始
 		IsValid: true,
@@ -5085,11 +5102,12 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				var e func(c *ygo.Card) bool
-				e = func(c *ygo.Card) bool {
+				ygo.NewCards(pl.Mzone(), tar.Mzone(), func(c0 *ygo.Card) bool {
+					return c0.IsFaceUp()
+				}).ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() {
 						c.SetAtk(c.GetAtk() - c.GetBaseAtk() + c.GetBaseDef())
 						c.SetDef(c.GetDef() - c.GetBaseDef() + c.GetBaseAtk())
@@ -5099,10 +5117,8 @@ func vol(cardBag *ygo.CardVersion) {
 						}, ca, c)
 					}
 					return true
-				}
+				})
 
-				pl.Mzone().ForEach(e)
-				tar.Mzone().ForEach(e)
 			})
 			return true
 		}, // 初始
@@ -5141,7 +5157,7 @@ func vol(cardBag *ygo.CardVersion) {
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.AddEvent(ygo.InGrave, func() {
-				ca.ToDeck()
+				ca.ToDeckTop()
 			})
 			ca.RegisterSpellEquip(func(c *ygo.Card) bool {
 				return true
@@ -5189,7 +5205,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				if c := pl.SelectForWarnShort(ygo.LO_Expres, 1, tar.Mzone(), func(c0 *ygo.Card) bool {
@@ -5285,23 +5301,19 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
 
 		Initialize: func(ca *ygo.Card) bool {
-			use := false
-			ca.RegisterUnnormalTrap(ygo.Deduct, func(tar *ygo.Player, c *ygo.Card) {
+			ca.RegisterTrapUnnormal(ygo.Deduct, func(tar *ygo.Player, c *ygo.Card) {
 				pl := ca.GetSummoner()
-				e := func() {
-					if c.GetSummoner() == pl && pl != tar {
-						tar.Hand().Get(ygo.RandInt(tar.Hand().Len())).Dispatch(ygo.Discard, ca)
-					}
-				}
-				if use {
-					e()
-				} else {
-					if c.GetSummoner() == pl && pl != tar {
-						ca.PushChain(func() {
-							e()
-							use = true
-						})
-					}
+				if c.GetSummoner() == pl && pl != tar {
+					ca.PushChain(func() {
+						e := func(tar0 *ygo.Player, c0 *ygo.Card) {
+							pl := ca.GetSummoner()
+							if c0.GetSummoner() == pl && pl != tar0 {
+								tar0.Hand().Random().Discard(ca)
+							}
+						}
+						e(tar, c)
+						ca.RegisterGlobalListen(ygo.Deduct, e)
+					})
 				}
 			})
 			return true
@@ -5433,7 +5445,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_TrapNormal, // 通常陷阱
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalTrap(ygo.Declaration, func(c *ygo.Card) {
+			ca.RegisterTrapNormal(ygo.Declaration, func(c *ygo.Card) {
 				if obj := c.GetSummoner(); obj == ca.GetSummoner() {
 					tar := obj.GetTarget()
 					css := ygo.NewCards(tar.Mzone(), func(c0 *ygo.Card) bool {
@@ -5442,7 +5454,7 @@ func vol(cardBag *ygo.CardVersion) {
 					if css.Len() > 0 {
 						ca.PushChain(func() {
 							css.ForEach(func(c0 *ygo.Card) bool {
-								c0.Dispatch(ygo.Destroy, ca)
+								c0.Destroy(ca)
 								return true
 							})
 						})
@@ -6474,7 +6486,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    3,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      800,
 		Def:      700,
 		IsValid:  true,
@@ -6954,7 +6966,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    5,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      1700,
 		Def:      1400,
 		IsValid:  true,
@@ -7114,7 +7126,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    4,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      850,
 		Def:      1400,
 		IsValid:  true,
@@ -7947,7 +7959,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    4,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      1550,
 		Def:      800,
 		IsValid:  true,
@@ -8299,7 +8311,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    4,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      1400,
 		Def:      1200,
 		IsValid:  true,
@@ -8523,7 +8535,7 @@ func vol(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    4,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      1500,
 		Def:      900,
 		IsValid:  true,

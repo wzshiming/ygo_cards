@@ -1,8 +1,8 @@
-package cards
+package ygo_cards
 
 import ygo "github.com/wzshiming/ygo_core"
 
-func booster(cardBag *ygo.CardVersion) {
+func d1_2(cardBag *ygo.CardVersion) {
 
 	/*0*/
 	cardBag.Register(&ygo.CardOriginal{
@@ -49,7 +49,7 @@ func booster(cardBag *ygo.CardVersion) {
 				if c := pl.SelectForWarn(ygo.LO_Destroy, tar.Szone(), pl.Szone()); c != nil {
 					c.SetFaceUp()
 					if c.IsTrap() {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					} else {
 						c.SetFaceDown()
 					}
@@ -149,7 +149,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Initialize: func(ca *ygo.Card) bool {
 			e := func() {
 				pl := ca.GetSummoner()
-				pl.ChangeHp(500)
+				pl.ChangeLp(500)
 			}
 			ca.AddEvent(ygo.Summon, e)
 			ca.AddEvent(ygo.SummonFlip, e)
@@ -279,10 +279,10 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				tar.ChangeHp(-800)
+				tar.ChangeLp(-800)
 			})
 			return true
 		}, // 初始
@@ -317,13 +317,13 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsInsect() {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					}
 					return true
 				})
@@ -361,13 +361,13 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsFish() {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					}
 					return true
 				})
@@ -404,13 +404,13 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "酸性风暴",             // "Acid Rain"  "酸の嵐"
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsMachine() {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					}
 					return true
 				})
@@ -448,13 +448,13 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsRock() {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					}
 					return true
 				})
@@ -492,13 +492,13 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsWarrior() {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					}
 					return true
 				})
@@ -727,8 +727,19 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Fiend, // 恶魔
 		Atk:   1350,
 		Def:   1400,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEvent(ygo.Expres, func() {
+				if ca.IsAttack() {
+					pl := ca.GetSummoner()
+					tar := pl.GetTarget()
+					if c := pl.SelectForWarnShort(ygo.LO_Popup, 1, tar.Mzone()); c != nil {
+						c.ToHand()
+					}
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*17*/
@@ -813,8 +824,19 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Warrior, // 战士
 		Atk:   1200,
 		Def:   900,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEvent(ygo.Expres, func() {
+				if ca.IsDefense() {
+					pl := ca.GetSummoner()
+					tar := pl.GetTarget()
+					if c := pl.SelectForWarnShort(ygo.LO_Destroy, 1, tar.Mzone()); c != nil {
+						c.Destroy(ca)
+					}
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*19*/
@@ -854,11 +876,19 @@ func booster(cardBag *ygo.CardVersion) {
 
 		Level: 3,
 		La:    ygo.LA_Dark,  // 暗
-		Lr:    ygo.LR_Fiend, // 恶魔
+		Lr:    ygo.LR_Water, //ygo.LR_Fiend, // 恶魔
 		Atk:   1250,
 		Def:   800,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEvent(ygo.Expres, func() {
+				if ca.IsDefense() {
+					pl := ca.GetSummoner()
+					pl.Shuffle()
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*20*/
@@ -900,8 +930,37 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Warrior, // 战士
 		Atk:   800,
 		Def:   1300,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEvent(ygo.InMzone, func() {
+				ca.RegisterIgnitionSelector(ygo.SP, func(pl0 *ygo.Player) {
+					pl := ca.GetSummoner()
+					if pl == pl0 {
+						ca.PushChain(func() {
+							i := 0
+							for pl.Mzone().Len() != 1 {
+								if c := pl.SelectForWarn(ygo.LO_Cost, pl.Mzone(), func(c0 *ygo.Card) bool {
+									return c0 != ca
+								}); c != nil {
+									c.Cost(ca)
+									ca.SetAtk(ca.GetAtk() + 700)
+									i++
+								} else {
+									break
+								}
+							}
+							ca.OnlyOnce(ygo.EP, func() {
+								ca.SetAtk(ca.GetAtk() - i*700)
+							})
+						})
+					}
+				})
+			})
+			ca.AddEvent(ygo.OutMzone, func() {
+				ca.UnregisterAllGlobalListen()
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*21*/
@@ -943,8 +1002,16 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Insect, // 昆虫
 		Atk:   2200,
 		Def:   100,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEventPre(ygo.Declaration, func() {
+				pl := ca.GetSummoner()
+				if pl.Coins(1) != 0 {
+					pl.ChangeLp(pl.GetLp() / -2)
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*22*/
@@ -1026,11 +1093,26 @@ func booster(cardBag *ygo.CardVersion) {
 
 		Level: 4,
 		La:    ygo.LA_Water, // 水
-		Lr:    ygo.LR_None,  // 水
+		Lr:    ygo.LR_Water, // 水
 		Atk:   900,
 		Def:   1700,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEvent(ygo.Expres, func() {
+				if ca.IsDefense() {
+					pl := ca.GetSummoner()
+					for pl.Hand().Len() != 0 {
+						if c := pl.SelectForWarn(ygo.LO_JoinDeckBot, pl.Hand()); c != nil {
+							c.ToDeckBot()
+						} else {
+							break
+						}
+					}
+
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*24*/
@@ -1071,8 +1153,13 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Fiend, // 恶魔
 		Atk:   1800,
 		Def:   1000,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEvent(ygo.Deduct, func(tar *ygo.Player) {
+				tar.DrawCard(2)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*25*/
@@ -1136,8 +1223,16 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "分担痛苦",             // "Share the Pain"  "痛み分け"
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormal(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				pl.SelectForWarnShort(ygo.LO_Cost, 1, pl.Mzone())
+				tar.SelectForWarnShort(ygo.LO_Cost, 1, pl.Mzone())
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*27*/
@@ -1218,12 +1313,12 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				cs := ygo.NewCards(pl.Szone(), tar.Szone())
 				cs.ForEach(func(c *ygo.Card) bool {
-					c.Dispatch(ygo.Destroy, ca)
+					c.Destroy(ca)
 					return true
 				})
 			})
@@ -1349,9 +1444,9 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
-				pl.ChangeHp(800)
+				pl.ChangeLp(800)
 			})
 			return true
 		}, // 初始
@@ -1385,7 +1480,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				tar.Mzone().ForEach(func(c *ygo.Card) bool {
@@ -1425,9 +1520,9 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
-				pl.ChangeHp(400)
+				pl.ChangeLp(400)
 			})
 			return true
 		}, // 初始
@@ -1462,10 +1557,10 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				tar.ChangeHp(-300)
+				tar.ChangeLp(-300)
 			})
 			return true
 		}, // 初始
@@ -1601,8 +1696,19 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Beast, // 兽
 		Atk:   1400,
 		Def:   700,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEvent(ygo.FaceUp, func() {
+				ca.AddEvent(ygo.EP, func(pl0 *ygo.Player) {
+					pl := ca.GetSummoner()
+					if pl == pl0 {
+						ca.ToHand()
+						ca.Init()
+					}
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*38*/
@@ -1697,7 +1803,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Def:   900,
 		Initialize: func(ca *ygo.Card) bool {
 			ca.AddEvent(ygo.InGrave, func() {
-				ca.ToDeck()
+				ca.ToDeckTop()
 			})
 			return true
 		}, // 初始
@@ -1819,7 +1925,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				ca.GetSummoner().DrawCard(3)
 				for i := 0; i != 2; i++ {
@@ -1829,7 +1935,7 @@ func booster(cardBag *ygo.CardVersion) {
 					if c == nil {
 						c = pl.Hand().EndPop()
 					}
-					c.Dispatch(ygo.Discard, ca)
+					c.Discard(ca)
 				}
 			})
 			return true
@@ -1951,7 +2057,7 @@ func booster(cardBag *ygo.CardVersion) {
 
 		Level: 4,
 		La:    ygo.LA_Water, // 水
-		Lr:    ygo.LR_None,  // 水
+		Lr:    ygo.LR_Water, // 水
 		Atk:   1000,
 		Def:   1100,
 		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
@@ -2041,8 +2147,25 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Fiend, // 恶魔
 		Atk:   250,
 		Def:   350,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterIgnitionSelector(ygo.SP, func(pl0 *ygo.Player) {
+				if pl := ca.GetSummoner(); pl == pl0 {
+					css := ygo.NewCards(pl.Grave(), func(c0 *ygo.Card) bool {
+						return c0.IsSpell() && c0.GetName() == "融合"
+					})
+					if css.Len() > 1 {
+						ca.PushChain(func() {
+							pl.ChangeLp(-1000)
+							c := css.EndPop()
+							c.Init()
+							c.ToHand()
+						})
+					}
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*48*/
@@ -2134,8 +2257,23 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Machine, // 机械
 		Atk:   700,
 		Def:   500,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterIgnitionSelector(ygo.SP, func(pl0 *ygo.Player) {
+				if pl := ca.GetSummoner(); pl == pl0 {
+					css := ygo.NewCards(pl.Extra())
+					if css.Len() > 1 {
+						ca.PushChain(func() {
+							pl.ChangeLp(-5000)
+							if c := pl.SelectForWarnShort(ygo.LO_SummonSpecial, 1, css); c != nil {
+								c.Dispatch(ygo.SummonSpecial, ca)
+							}
+						})
+					}
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*50*/
@@ -2175,8 +2313,18 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Fiend, // 恶魔
 		Atk:   750,
 		Def:   700,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFlip(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				if c := pl.SelectForWarn(ygo.LO_Chain, ca); c != nil {
+					pl.ChangeLp(-2000)
+					tar.ChangeLp(-1000)
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*51*/
@@ -2218,8 +2366,21 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Fiend, // 恶魔
 		Atk:   2000,
 		Def:   2100,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			e := func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				if c := pl.SelectForWarnShort(ygo.LO_Destroy, 1, pl.Mzone(), tar.Mzone(), func(c0 *ygo.Card) bool {
+					return c0.RaceIsDragon()
+				}); c != nil {
+					c.Destroy(ca)
+				}
+			}
+			ca.AddEvent(ygo.Summon, e)
+			ca.AddEvent(ygo.SummonFlip, e)
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*52*/
@@ -2261,8 +2422,19 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Insect, // 昆虫
 		Atk:   750,
 		Def:   600,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFlip(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				d := tar.Deck()
+				for i := 0; i != 5 && d.Len() != 0; i++ {
+					d.EndPop().Discard(ca)
+				}
+
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*53*/
@@ -2304,8 +2476,23 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Warrior, // 战士
 		Atk:   650,
 		Def:   900,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFlip(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				css := ygo.NewCards(pl.Mzone(), tar.Mzone(), func(c *ygo.Card) bool {
+					return c.IsFaceDown()
+				})
+				if css.Len() >= 2 {
+					for i := 0; i != 2; i++ {
+						c := pl.SelectForWarnShort(ygo.LO_Destroy, 2-i, css)
+						c.Destroy(ca)
+					}
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*54*/
@@ -2347,8 +2534,24 @@ func booster(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Rock,  // 岩石
 		Atk:   700,
 		Def:   600,
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFlip(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				h1 := pl.Hand()
+				for h1.Len() != 0 {
+					h1.EndPop().Discard(ca)
+				}
+				h2 := tar.Hand()
+				for h2.Len() != 0 {
+					h2.EndPop().Discard(ca)
+				}
+				pl.DrawCard(5)
+				tar.DrawCard(5)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*55*/
@@ -2386,7 +2589,7 @@ func booster(cardBag *ygo.CardVersion) {
 
 		Level: 2,
 		La:    ygo.LA_Water, // 水
-		Lr:    ygo.LR_None,  // 水
+		Lr:    ygo.LR_Water, // 水
 		Atk:   750,
 		Def:   500,
 		Initialize: func(ca *ygo.Card) bool {
@@ -2432,7 +2635,7 @@ func booster(cardBag *ygo.CardVersion) {
 
 		Level: 5,
 		La:    ygo.LA_Water, // 水
-		Lr:    ygo.LR_None,  // 水
+		Lr:    ygo.LR_Water, // 水
 		Atk:   1850,
 		Def:   1300,
 		Initialize: func(ca *ygo.Card) bool {
@@ -2546,13 +2749,13 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsSpellcaster() {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					}
 					return true
 				})
@@ -2590,13 +2793,13 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
 				cs := ygo.NewCards(pl.Mzone(), tar.Mzone())
 				cs.ForEach(func(c *ygo.Card) bool {
 					if c.IsFaceUp() && c.RaceIsFiend() {
-						c.Dispatch(ygo.Destroy, ca)
+						c.Destroy(ca)
 					}
 					return true
 				})
@@ -2637,7 +2840,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "魔力之棘",                // "Magical Thorn"  "魔力の棘"
 		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
+		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
 	})
 
@@ -2670,10 +2873,10 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterNormalMagic(func() {
+			ca.RegisterSpellNormal(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				tar.ChangeHp(-200 * tar.Hand().Len())
+				tar.ChangeLp(-200 * tar.Hand().Len())
 			})
 			return true
 		}, // 初始
@@ -2707,8 +2910,21 @@ func booster(cardBag *ygo.CardVersion) {
 		Name:     "融合贤者",             // "Fusion Sage"  "融合賢者"
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize:    func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormal(func() {
+				pl := ca.GetSummoner()
+
+				c := ygo.NewCards(pl.Deck(), func(c0 *ygo.Card) bool {
+					return c0.GetName() == "融合"
+				})
+				if c.Len() != 0 {
+					c.EndPop().ToHand()
+					pl.Shuffle()
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/*64*/
@@ -3004,7 +3220,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    3,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      900,
 		Def:      700,
 		IsValid:  true,
@@ -3132,7 +3348,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    3,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      900,
 		Def:      700,
 		IsValid:  true,
@@ -3644,7 +3860,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    2,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      600,
 		Def:      700,
 		IsValid:  true,
@@ -4156,7 +4372,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    3,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      1200,
 		Def:      900,
 		IsValid:  true,
@@ -4188,7 +4404,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    6,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      1900,
 		Def:      1700,
 		IsValid:  true,
@@ -4636,7 +4852,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    4,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      1200,
 		Def:      1500,
 		IsValid:  true,
@@ -4956,7 +5172,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    4,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      1800,
 		Def:      800,
 		IsValid:  true,
@@ -5052,7 +5268,7 @@ func booster(cardBag *ygo.CardVersion) {
 		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
 		Level:    4,
 		La:       ygo.LA_Water, // 水
-		Lr:       ygo.LR_None,  // 水
+		Lr:       ygo.LR_Water, // 水
 		Atk:      1600,
 		Def:      1100,
 		IsValid:  true,
