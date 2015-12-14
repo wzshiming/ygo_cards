@@ -5,5 +5,6 @@ import (
 )
 
 func Test_a(t *testing.T) {
-	t.Logf("%v/%v",len(CardBag_test.ListIsValid()),len(CardBag_test.ListIsAll()))
+
+	t.Logf("%v/%v", len(CardBag_test.ListIsValid()), len(CardBag_test.ListIsAll()))
 }

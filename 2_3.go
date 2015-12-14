@@ -51,8 +51,19 @@ func d2_3(cardBag *ygo.CardVersion) {
 		Name:     "水世界",
 		Lc:       ygo.LC_SpellField, // 场地魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellField(ca.EffectMzoneHalo(func(c *ygo.Card) bool {
+				return c.AttrIsWater()
+			}, func(c *ygo.Card) {
+				c.SetAtk(c.GetAtk() + 500)
+				c.SetDef(c.GetDef() - 400)
+			}, func(c *ygo.Card) {
+				c.SetAtk(c.GetAtk() - 500)
+				c.SetDef(c.GetDef() + 400)
+			}))
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 2 */
@@ -74,8 +85,19 @@ func d2_3(cardBag *ygo.CardVersion) {
 		Name:     "燃烧熔岩",
 		Lc:       ygo.LC_SpellField, // 场地魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellField(ca.EffectMzoneHalo(func(c *ygo.Card) bool {
+				return c.AttrIsFire()
+			}, func(c *ygo.Card) {
+				c.SetAtk(c.GetAtk() + 500)
+				c.SetDef(c.GetDef() - 400)
+			}, func(c *ygo.Card) {
+				c.SetAtk(c.GetAtk() - 500)
+				c.SetDef(c.GetDef() + 400)
+			}))
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 3 */
@@ -97,8 +119,19 @@ func d2_3(cardBag *ygo.CardVersion) {
 		Name:     "沙漠风暴",
 		Lc:       ygo.LC_SpellField, // 场地魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellField(ca.EffectMzoneHalo(func(c *ygo.Card) bool {
+				return c.AttrIsWind()
+			}, func(c *ygo.Card) {
+				c.SetAtk(c.GetAtk() + 500)
+				c.SetDef(c.GetDef() - 400)
+			}, func(c *ygo.Card) {
+				c.SetAtk(c.GetAtk() - 500)
+				c.SetDef(c.GetDef() + 400)
+			}))
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 4 */
@@ -120,8 +153,19 @@ func d2_3(cardBag *ygo.CardVersion) {
 		Name:     "光芒冲击",
 		Lc:       ygo.LC_SpellField, // 场地魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellField(ca.EffectMzoneHalo(func(c *ygo.Card) bool {
+				return c.AttrIsLight()
+			}, func(c *ygo.Card) {
+				c.SetAtk(c.GetAtk() + 500)
+				c.SetDef(c.GetDef() - 400)
+			}, func(c *ygo.Card) {
+				c.SetAtk(c.GetAtk() - 500)
+				c.SetDef(c.GetDef() + 400)
+			}))
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 5 */
@@ -143,8 +187,19 @@ func d2_3(cardBag *ygo.CardVersion) {
 		Name:     "暗黑地带",
 		Lc:       ygo.LC_SpellField, // 场地魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellField(ca.EffectMzoneHalo(func(c *ygo.Card) bool {
+				return c.AttrIsDark()
+			}, func(c *ygo.Card) {
+				c.SetAtk(c.GetAtk() + 500)
+				c.SetDef(c.GetDef() - 400)
+			}, func(c *ygo.Card) {
+				c.SetAtk(c.GetAtk() - 500)
+				c.SetDef(c.GetDef() + 400)
+			}))
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 6 */
