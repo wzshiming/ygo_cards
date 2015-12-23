@@ -28,8 +28,15 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "昼夜的大火事",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormalPuah(ygo.LO_Hurt, func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				tar.ChangeLp(-800)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 1 */
@@ -58,8 +65,17 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "未熟的密探",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormalPuah(ygo.LO_Peek, func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				if c := pl.SelectRequiredShor(ygo.LO_Peek, tar.Hand()); c != nil {
+					c.PeekFor(pl)
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 2 */
@@ -89,33 +105,45 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "古代的望远镜",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormalPuah(ygo.LO_Peek, func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				css := tar.Grave().EndPeek(5)
+				css.ForEach(func(c0 *ygo.Card) bool {
+					c0.PeekFor(pl)
+					return true
+				})
+				pl.SelectRequired(ygo.LO_Peek, css)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 3 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 476
-		 调整:
+			 id: 476
+			 调整:
 
-		 [分担痛苦]<痛み分け>
-		 [2010/09/10]
-		 ●把自己场上的1只怪兽解放发动。对方必须把1只怪兽解放。
-		 ◇发动时把自己场上的1只怪兽解放（代价）
-		 ◇效果处理时对方选择1只怪兽解放（不取对象）
-		 ◇这个效果是强制要求对方把1只怪兽解放，不是以魔法效果解放对方1只怪兽
-		 ◇对方场上的「荷鲁斯之黑炎龙
-		LV6/ホルスの黒炎竜
-		ＬＶ６」可以被解放
-		 ◇对方场上只有1只怪兽，自己不能利用「灵魂交错/クロス·ソウル」的效果把对方的怪兽解放来发动（发动时确定效果处理时不适用）
+			 [分担痛苦]<痛み分け>
+			 [2010/09/10]
+			 ●把自己场上的1只怪兽解放发动。对方必须把1只怪兽解放。
+			 ◇发动时把自己场上的1只怪兽解放（代价）
+			 ◇效果处理时对方选择1只怪兽解放（不取对象）
+			 ◇这个效果是强制要求对方把1只怪兽解放，不是以魔法效果解放对方1只怪兽
+			 ◇对方场上的「荷鲁斯之黑炎龙
+			LV6/ホルスの黒炎竜
+			ＬＶ６」可以被解放
+			 ◇对方场上只有1只怪兽，自己不能利用「灵魂交错/クロス·ソウル」的效果把对方的怪兽解放来发动（发动时确定效果处理时不适用）
 
-		 中文名: 分担痛苦
-		 卡片种类: 通常魔法
-		 卡片密码: 56830749
-		 罕见度: 平卡N
-		 卡包: ME、BE02、DL04、Booster07、DT02
-		 效果: 自己场上的1只怪兽作祭品。对方选择对方场上1只怪做祭品。
+			 中文名: 分担痛苦
+			 卡片种类: 通常魔法
+			 卡片密码: 56830749
+			 罕见度: 平卡N
+			 卡包: ME、BE02、DL04、Booster07、DT02
+			 效果: 自己场上的1只怪兽作祭品。对方选择对方场上1只怪做祭品。
 
 		*/
 		Id:       476,
@@ -123,8 +151,24 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "分担痛苦",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormal(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				if pl.Mzone().Len() != 0 && tar.Mzone().Len() != 0 {
+					ca.PushSpell(ygo.LO_Freedom, func() {
+						if c := pl.SelectRequiredShor(ygo.LO_Freedom, pl.Mzone()); c != nil {
+							c.Cost(ca)
+						}
+						if c := tar.SelectRequiredShor(ygo.LO_Freedom, tar.Mzone()); c != nil {
+							c.Cost(ca)
+						}
+					})
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 4 */
@@ -153,8 +197,19 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "大风暴",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormalPuah(ygo.LO_DestroySpellAndTrap, func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				css := ygo.NewCards(pl.Szone(), tar.Szone())
+				css.ForEach(func(c0 *ygo.Card) bool {
+					c0.Destroy(ca)
+					return true
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 5 */
@@ -181,8 +236,14 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "天使的鲜血",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormalPuah(ygo.LO_Reply, func() {
+				pl := ca.GetSummoner()
+				pl.ChangeLp(800)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 6 */
@@ -209,8 +270,25 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "消除黑暗的光",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormal(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				css := ygo.NewCards(tar.Szone(), func(c0 *ygo.Card) bool {
+					return c0.IsFaceDown()
+				})
+				if css.Len() != 0 {
+					ca.PushSpell(ygo.LO_Flip, func() {
+						css.ForEach(func(c0 *ygo.Card) bool {
+							c0.SetFaceUp()
+							return true
+						})
+					})
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 7 */
@@ -237,8 +315,14 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "蓝色药剂",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormalPuah(ygo.LO_Reply, func() {
+				pl := ca.GetSummoner()
+				pl.ChangeLp(400)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 8 */
@@ -266,8 +350,15 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "雷鸣",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormalPuah(ygo.LO_Hurt, func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				tar.ChangeLp(-300)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 9 */
@@ -297,8 +388,24 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "天使的施舍",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormal(func() {
+				pl := ca.GetSummoner()
+				if pl.Deck().Len() >= 3 {
+					ca.PushSpell(ygo.LO_Discard, func() {
+						pl.DrawCard(3)
+						if cs := pl.SelectRequiredRange(2, 2, ygo.LO_Discard, pl.Hand()); cs != nil {
+							cs.ForEach(func(c0 *ygo.Card) bool {
+								c0.Discard(ca)
+								return true
+							})
+						}
+					})
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 10 */
@@ -325,8 +432,13 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "魔女狩猎",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellEffectDestroyFor(func(c0 *ygo.Card) bool {
+				return c0.IsFaceUp() && c0.RaceIsSpellcaster()
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 11 */
@@ -353,8 +465,13 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "恶魔祓除",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellEffectDestroyFor(func(c0 *ygo.Card) bool {
+				return c0.IsFaceUp() && c0.RaceIsFiend()
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 12 */
@@ -383,8 +500,15 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "革命",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormalPuah(ygo.LO_Hurt, func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				tar.ChangeLp(tar.Hand().Len() * -200)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 13 */
@@ -412,8 +536,22 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "融合贤者",
 		Lc:       ygo.LC_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormal(func() {
+				pl := ca.GetSummoner()
+				css := pl.Deck().Find(func(c0 *ygo.Card) bool {
+					return c0.GetName() == "融合"
+				})
+				if css.Len() != 0 {
+					ca.PushSpell(ygo.LO_JoinHand, func() {
+						css.EndPop().ToHand()
+						pl.Deck().Shuffle()
+					})
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 14 */
@@ -442,8 +580,16 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "暗之破神剑",
 		Lc:       ygo.LC_SpellEquip, // 装备魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellEquipEffect1(func(c *ygo.Card) bool {
+				return c.AttrIsDark()
+			}, func(c *ygo.Card) {
+				c.AddAtk(400)
+				c.AddDef(-200)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 15 */
@@ -472,8 +618,16 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "觉醒",
 		Lc:       ygo.LC_SpellEquip, // 装备魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellEquipEffect1(func(c *ygo.Card) bool {
+				return c.AttrIsEarth()
+			}, func(c *ygo.Card) {
+				c.AddAtk(400)
+				c.AddDef(-200)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 16 */
@@ -530,8 +684,22 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "兴奋剂",
 		Lc:       ygo.LC_SpellEquip, // 装备魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.Counter = 0
+			ca.RegisterSpellEquipEffect2(func(c *ygo.Card) bool {
+				return !c.RaceIsMachine()
+			}, func(c *ygo.Card) {
+				c.AddAtk(700 + ca.Counter*-200)
+			}, ygo.SP, func(c *ygo.Card) {
+				p := c.GetSummoner()
+				if !p.IsCurrent() {
+					return
+				}
+				ca.Counter++
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 18 */
@@ -560,8 +728,16 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "精灵之光",
 		Lc:       ygo.LC_SpellEquip, // 装备魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellEquipEffect1(func(c *ygo.Card) bool {
+				return c.AttrIsLight()
+			}, func(c *ygo.Card) {
+				c.AddAtk(400)
+				c.AddDef(-200)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 19 */
@@ -590,8 +766,16 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "钢甲壳",
 		Lc:       ygo.LC_SpellEquip, // 装备魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellEquipEffect1(func(c *ygo.Card) bool {
+				return c.AttrIsWater()
+			}, func(c *ygo.Card) {
+				c.AddAtk(400)
+				c.AddDef(-200)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 20 */
@@ -620,8 +804,16 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "灼热之枪",
 		Lc:       ygo.LC_SpellEquip, // 装备魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellEquipEffect1(func(c *ygo.Card) bool {
+				return c.AttrIsFire()
+			}, func(c *ygo.Card) {
+				c.AddAtk(400)
+				c.AddDef(-200)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 21 */
@@ -650,41 +842,49 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "突风之扇",
 		Lc:       ygo.LC_SpellEquip, // 装备魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellEquipEffect1(func(c *ygo.Card) bool {
+				return c.AttrIsWind()
+			}, func(c *ygo.Card) {
+				c.AddAtk(400)
+				c.AddDef(-200)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 22 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 1358
-		 调整:
+			 id: 1358
+			 调整:
 
-		 [血之代偿]<血の代偿>
-		 [11/02/09]
-		 ●可以支付500基本分，把1只怪兽通常召唤。这个效果只能在自己的主要阶段及对方的战斗阶段时可以发动。
-		 ◇效果发动时支付500基本分（代价）
-		 ◇效果的发动进入连锁（咒文速度2）
-		 ◇在卡的发动时可以同时发动效果，那个场合支付500基本分（卡的发动没有条件限制）
-		 ◇效果处理时选择自己手卡的1只可以被通常召唤的怪兽进行通常召唤（不取对象）
-		 ◇自己手卡没有能被通常召唤的怪兽的场合，不能发动这个效果★效果处理时，对方没有可以召唤的怪兽的场合，能否确认对方手卡？调整中
-		 ◇这个通常召唤遵循普通的通常召唤规则（上级召唤在效果处理时需要解放怪兽）
-		 ◇这张卡的发动的那组连锁中，这张卡不能再在那组连锁中发动效果（卡的发动尚处理完毕，所以不能再发动效果）★用这张卡的效果在连锁1进行通常召唤的场合，是否可以对应发动「反冲/キックバック」「升天之角笛/昇天の角笛」
-		调整中
-		 ◇手卡中有多少能被通常召唤的怪兽，就限定了能在一组连锁中发动的次数
-		 ◇「王宫的通告/王宫のお触れ」发动中，可以反复发动这张卡来支付基本分
-		 ◇可以让二重怪兽进行再度召唤
-		 ◇手卡不存在怪兽的场合，可以让二重怪兽进行再度召唤★场上没卡，手卡只有1只二重怪兽，是否可以假设（连锁2）召唤二重怪兽，（连锁1）进行再度召唤来在同一组连锁中发动两次这张卡的效果
-		调整中
-		 ◇假设手卡只有「栗子球/クリボー」「恶魔召唤/デーモンの召唤」，自己场上只有这张卡，不能以假设（连锁2）上级召唤「恶魔召唤/デーモンの召唤」（以连锁1的「栗子球/クリボー」作为解放），（连锁1）召唤「栗子球/クリボー」
-		 ◇与1回合1次正常的通常召唤没有冲突
+			 [血之代偿]<血の代偿>
+			 [11/02/09]
+			 ●可以支付500基本分，把1只怪兽通常召唤。这个效果只能在自己的主要阶段及对方的战斗阶段时可以发动。
+			 ◇效果发动时支付500基本分（代价）
+			 ◇效果的发动进入连锁（咒文速度2）
+			 ◇在卡的发动时可以同时发动效果，那个场合支付500基本分（卡的发动没有条件限制）
+			 ◇效果处理时选择自己手卡的1只可以被通常召唤的怪兽进行通常召唤（不取对象）
+			 ◇自己手卡没有能被通常召唤的怪兽的场合，不能发动这个效果★效果处理时，对方没有可以召唤的怪兽的场合，能否确认对方手卡？调整中
+			 ◇这个通常召唤遵循普通的通常召唤规则（上级召唤在效果处理时需要解放怪兽）
+			 ◇这张卡的发动的那组连锁中，这张卡不能再在那组连锁中发动效果（卡的发动尚处理完毕，所以不能再发动效果）★用这张卡的效果在连锁1进行通常召唤的场合，是否可以对应发动「反冲/キックバック」「升天之角笛/昇天の角笛」
+			调整中
+			 ◇手卡中有多少能被通常召唤的怪兽，就限定了能在一组连锁中发动的次数
+			 ◇「王宫的通告/王宫のお触れ」发动中，可以反复发动这张卡来支付基本分
+			 ◇可以让二重怪兽进行再度召唤
+			 ◇手卡不存在怪兽的场合，可以让二重怪兽进行再度召唤★场上没卡，手卡只有1只二重怪兽，是否可以假设（连锁2）召唤二重怪兽，（连锁1）进行再度召唤来在同一组连锁中发动两次这张卡的效果
+			调整中
+			 ◇假设手卡只有「栗子球/クリボー」「恶魔召唤/デーモンの召唤」，自己场上只有这张卡，不能以假设（连锁2）上级召唤「恶魔召唤/デーモンの召唤」（以连锁1的「栗子球/クリボー」作为解放），（连锁1）召唤「栗子球/クリボー」
+			 ◇与1回合1次正常的通常召唤没有冲突
 
-		 中文名: 血之代偿
-		 卡片种类: 永续陷阱
-		 卡片密码: 80604091
-		 罕见度: 平卡N，银字R
-		 卡包: EX-R(EX)、Booster03、SD07、SD10、Booster R2、DT06、YU、JY、SJ2、DS14
-		 效果: 可以支付500基本分，把1只怪兽通常召唤。这个效果在自己回合的主要阶段及对方回合的战斗阶段才能发动。
+			 中文名: 血之代偿
+			 卡片种类: 永续陷阱
+			 卡片密码: 80604091
+			 罕见度: 平卡N，银字R
+			 卡包: EX-R(EX)、Booster03、SD07、SD10、Booster R2、DT06、YU、JY、SJ2、DS14
+			 效果: 可以支付500基本分，把1只怪兽通常召唤。这个效果在自己回合的主要阶段及对方回合的战斗阶段才能发动。
 
 		*/
 		Id:       1358,
@@ -692,8 +892,38 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "血之代偿",
 		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterTrapUnnormal(func() {
+				pl := ca.GetSummoner()
+				if (pl.IsCurrent() && pl.IsInMP()) || (!pl.IsCurrent() && pl.GetCurrent().IsInBP()) {
+					l := pl.Mzone().Len()
+					css := pl.Hand().Find(func(c0 *ygo.Card) bool {
+						if c0.IsMonster() {
+							if c0.GetLevel() <= 4 {
+								return true
+							} else if c0.GetLevel() <= 6 && l >= 1 {
+								return true
+							} else if l >= 2 {
+								return true
+							}
+						}
+						return false
+					})
+					if css.Len() != 0 {
+						ca.PushTrap(ygo.LO_Summon, func() {
+							pl.ChangeLp(-500)
+							if c := pl.SelectRequiredShor(ygo.Summon, css); c != nil {
+								c.SummonNormal(ca)
+							}
+						})
+					}
+				}
+
+			}, ygo.MP, ygo.Pre+ygo.BP)
+
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 23 */
@@ -755,8 +985,24 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "魔力之棘",
 		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterTrapUnnormal(func(tar *ygo.Player) {
+				pl := ca.GetSummoner()
+				if tar == pl {
+					return
+				}
+				e := func() {
+					tar.ChangeLp(-500)
+				}
+				if ca.IsFaceDown() {
+					ca.PushTrap(ygo.LO_Hurt, e)
+				} else {
+					e()
+				}
+			}, ygo.Discard)
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 25 */
@@ -784,8 +1030,15 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "自业自得",
 		Lc:       ygo.LC_TrapNormal, // 通常陷阱
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterTrapNormalAnyPush(ygo.LO_Hurt, func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				tar.ChangeLp(tar.Mzone().Len() * -500)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 26 */
@@ -813,8 +1066,26 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "城壁",
 		Lc:       ygo.LC_TrapNormal, // 通常陷阱
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterTrapNormalAny(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				css := ygo.NewCards(pl.Mzone(), tar.Mzone(), func(c0 *ygo.Card) bool {
+					return c0.IsFaceUp()
+				})
+				if css.Len() != 0 {
+					ca.PushTrap(ygo.LO_Equip, func() {
+						if c := pl.SelectRequiredShor(ygo.LO_Equip, css); c != nil {
+							ca.EquipSimpleTemp(c, ygo.EP, func(c0 *ygo.Card) {
+								c0.AddDef(500)
+							})
+						}
+					})
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 27 */
@@ -842,8 +1113,26 @@ func d_2(cardBag *ygo.CardVersion) {
 		Name:     "援军",
 		Lc:       ygo.LC_TrapNormal, // 通常陷阱
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterTrapNormalAny(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				css := ygo.NewCards(pl.Mzone(), tar.Mzone(), func(c0 *ygo.Card) bool {
+					return c0.IsFaceUp()
+				})
+				if css.Len() != 0 {
+					ca.PushTrap(ygo.LO_Equip, func() {
+						if c := pl.SelectRequiredShor(ygo.LO_Equip, css); c != nil {
+							ca.EquipSimpleTemp(c, ygo.EP, func(c0 *ygo.Card) {
+								c0.AddAtk(500)
+							})
+						}
+					})
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 28 */
@@ -992,8 +1281,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Fire, // 炎
 		Atk:   1900,
 		Def:   1500,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("赤剑之莱蒙多斯", "炎之魔神")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 33 */
@@ -1025,8 +1318,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Warrior, // 战士
 		Atk:   1900,
 		Def:   1700,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("音女", "斩首的美女")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 34 */
@@ -1058,8 +1355,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_WingedBeast, // 鸟兽
 		Atk:   1900,
 		Def:   1700,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("橐蜚", "骷髅寺院")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 35 */
@@ -1091,8 +1392,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_SeaSerpent, // 海龙
 		Atk:   2250,
 		Def:   1900,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("妖精龙", "海原的女战士", "区域吞噬者")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 36 */
@@ -1124,8 +1429,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Fish,  // 鱼
 		Atk:   2100,
 		Def:   1300,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("深海切割手", "杀人污泥", "海原的女战士")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 37 */
@@ -1157,8 +1466,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Dinosaur, // 恐龙
 		Atk:   2200,
 		Def:   2000,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("双头恐龙王", "贪尸龙")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 38 */
@@ -1190,8 +1503,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Zombie, // 不死
 		Atk:   2200,
 		Def:   1800,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("美杜莎的亡灵", "龙僵尸")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 39 */
@@ -1223,8 +1540,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Fiend, // 恶魔
 		Atk:   2200,
 		Def:   1800,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("神灯魔人", "来自异次元的侵略者")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 40 */
@@ -1256,8 +1577,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Fish,  // 鱼
 		Atk:   1700,
 		Def:   1600,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("水之魔导师", "大肚海蛇")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 41 */
@@ -1289,8 +1614,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Dragon, // 龙
 		Atk:   2300,
 		Def:   2000,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("守城的翼龙", "妖精龙")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 42 */
@@ -1322,8 +1651,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_WingedBeast, // 鸟兽
 		Atk:   2300,
 		Def:   1800,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("圣鸟", "天空猎手")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 43 */
@@ -1355,8 +1688,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Rock,  // 岩石
 		Atk:   2100,
 		Def:   1700,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("岩石巨兵", "古代精灵")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 44 */
@@ -1388,8 +1725,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Zombie, // 不死
 		Atk:   1700,
 		Def:   1900,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("美杜莎的亡灵", "暗黑之龙王")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 45 */
@@ -1421,8 +1762,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Insect, // 昆虫
 		Atk:   1900,
 		Def:   1700,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("锹甲阿尔法", "大力独角仙")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 46 */
@@ -1454,8 +1799,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Spellcaster, // 魔法师
 		Atk:   2650,
 		Def:   2250,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("恶魔的智慧", "魔天老")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 47 */
@@ -1487,8 +1836,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Fiend, // 恶魔
 		Atk:   2300,
 		Def:   2000,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("杀人小丑", "梦幻小丑")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 48 */
@@ -1520,8 +1873,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Lr:    ygo.LR_Water, // 水
 		Atk:   1850,
 		Def:   1300,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterFusion("陆战型战斗艇", "守卫海洋的战士")
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 49 */
@@ -1569,30 +1926,30 @@ func d_2(cardBag *ygo.CardVersion) {
 	/* 50 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 1359
-		 调整:
+			 id: 1359
+			 调整:
 
-		 [谜之傀儡师]<謎の傀儡師>
-		 [2010/09/10]
-		 ●怪兽召唤·反转召唤成功时，自己回复500基本分。
-		 ◇诱发效果（进入连锁）
-		 ◇强制发动
-		 ◇这张卡自身召唤、反转召唤成功时不发动
-		 ◇二重怪兽再度召唤成功时也发动
-		 ◇对方场上召唤、反转召唤怪兽成功时也发动★同一组连锁中召唤了2次怪兽的场合，连锁处理完毕后这张卡发动几次效果
-		调整中
+			 [谜之傀儡师]<謎の傀儡師>
+			 [2010/09/10]
+			 ●怪兽召唤·反转召唤成功时，自己回复500基本分。
+			 ◇诱发效果（进入连锁）
+			 ◇强制发动
+			 ◇这张卡自身召唤、反转召唤成功时不发动
+			 ◇二重怪兽再度召唤成功时也发动
+			 ◇对方场上召唤、反转召唤怪兽成功时也发动★同一组连锁中召唤了2次怪兽的场合，连锁处理完毕后这张卡发动几次效果
+			调整中
 
-		 中文名: 谜之傀儡师
-		 卡片种类: 效果怪兽
-		 卡片密码: 54098121
-		 种族: 战士
-		 属性: 地
-		 星级: 4
-		 攻击力: 1000
-		 防御力: 1500
-		 罕见度: 平卡N
-		 卡包: EX-R(EX)、Booster05、Booster R3、TP07
-		 效果: 怪兽召唤·反转召唤成功时，自己回复500基本分。
+			 中文名: 谜之傀儡师
+			 卡片种类: 效果怪兽
+			 卡片密码: 54098121
+			 种族: 战士
+			 属性: 地
+			 星级: 4
+			 攻击力: 1000
+			 防御力: 1500
+			 罕见度: 平卡N
+			 卡包: EX-R(EX)、Booster05、Booster R3、TP07
+			 效果: 怪兽召唤·反转召唤成功时，自己回复500基本分。
 
 		*/
 		Id:       1359,
@@ -1903,33 +2260,33 @@ func d_2(cardBag *ygo.CardVersion) {
 	/* 58 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 427
-		 调整:
-		 [幽灵王-南瓜王-]
-		<ゴースト王－パンプキング－>
+			 id: 427
+			 调整:
+			 [幽灵王-南瓜王-]
+			<ゴースト王－パンプキング－>
 
-		 [2010/09/10]
+			 [2010/09/10]
 
-		 ●只要「暗晦之城」在场上表侧表示存在，这张卡的攻击力与守备力上升100分。
+			 ●只要「暗晦之城」在场上表侧表示存在，这张卡的攻击力与守备力上升100分。
 
-		 ◇永续效果（不进入连锁）
+			 ◇永续效果（不进入连锁）
 
-		 ●并且，每次自己的准备阶段上升100分。这个效果持续到自己的第4回合的准备阶段为止。
+			 ●并且，每次自己的准备阶段上升100分。这个效果持续到自己的第4回合的准备阶段为止。
 
-		 ◇诱发效果（进入连锁）
+			 ◇诱发效果（进入连锁）
 
-		 ◇强制发动
-		 中文名: 南瓜幽灵王
-		 卡片种类: 效果怪兽
-		 卡片密码: 29155212
-		 种族: 不死
-		 属性: 暗
-		 星级: 6
-		 攻击力: 1800
-		 防御力: 2000
-		 罕见度: {rarely }
-		 卡包: ME，DL04，Booster07
-		 效果: 只要「暗晦之城」在场上表侧表示存在，这张卡的攻击力·守备力上升100。每次自己的准备阶段这张卡的攻防加100。这个效果持续到自己的第4个准备阶段。
+			 ◇强制发动
+			 中文名: 南瓜幽灵王
+			 卡片种类: 效果怪兽
+			 卡片密码: 29155212
+			 种族: 不死
+			 属性: 暗
+			 星级: 6
+			 攻击力: 1800
+			 防御力: 2000
+			 罕见度: {rarely }
+			 卡包: ME，DL04，Booster07
+			 效果: 只要「暗晦之城」在场上表侧表示存在，这张卡的攻击力·守备力上升100。每次自己的准备阶段这张卡的攻防加100。这个效果持续到自己的第4个准备阶段。
 
 		*/
 		Id:       427,
@@ -2274,29 +2631,29 @@ func d_2(cardBag *ygo.CardVersion) {
 	/* 67 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 494
-		 调整:
+			 id: 494
+			 调整:
 
-		 [森之住人
-		乌丹]<森の住人
-		ウダン>
-		 ●场上每存在一只打开表示的植物族怪兽，这张卡的攻击力上升100。
-		 ◇永续效果
-		 ◇数双方场上的植物族怪兽
-		 ◇
-		 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
+			 [森之住人
+			乌丹]<森の住人
+			ウダン>
+			 ●场上每存在一只打开表示的植物族怪兽，这张卡的攻击力上升100。
+			 ◇永续效果
+			 ◇数双方场上的植物族怪兽
+			 ◇
+			 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
 
-		 中文名: 森之住人 乌丹
-		 卡片种类: 效果怪兽
-		 卡片密码: 42883273
-		 种族: 战士
-		 属性: 地
-		 星级: 3
-		 攻击力: 900
-		 防御力: 1200
-		 罕见度: 平卡N
-		 卡包: DL04、Booster03、Booster Chronicle、Booster R2
-		 效果: 场上每存在1只表侧表示的植物族怪兽，这张卡的攻击力上升100。
+			 中文名: 森之住人 乌丹
+			 卡片种类: 效果怪兽
+			 卡片密码: 42883273
+			 种族: 战士
+			 属性: 地
+			 星级: 3
+			 攻击力: 900
+			 防御力: 1200
+			 罕见度: 平卡N
+			 卡包: DL04、Booster03、Booster Chronicle、Booster R2
+			 效果: 场上每存在1只表侧表示的植物族怪兽，这张卡的攻击力上升100。
 
 		*/
 		Id:       494,
@@ -2439,32 +2796,32 @@ func d_2(cardBag *ygo.CardVersion) {
 	/* 71 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 509
-		 调整:
+			 id: 509
+			 调整:
 
-		 [心眼之女神]<心眼の女神>
-		 [2010/09/10]
-		 ●这张卡可以代替1只融合素材怪兽。那时，其他的融合素材怪兽必须是正规物。
-		 ◇无效果分类
-		 ◇可以被「技能吸收/スキルドレイン」「星骸龙/デブリ·ドラゴン」「冥界的魔王
-		哈·迪斯/冥界の魔王
-		ハ·デス」等的效果无效
-		 ◇只能代替融合怪兽上写全卡名的融合素材
-		 ◇只能在进行融合召唤时代替融合素材怪兽
-		 ◇不能从卡组、除外状态代替融合素材怪兽
-		 ◇可以从手卡、场上（不论表里）、墓地代替融合素材怪兽
+			 [心眼之女神]<心眼の女神>
+			 [2010/09/10]
+			 ●这张卡可以代替1只融合素材怪兽。那时，其他的融合素材怪兽必须是正规物。
+			 ◇无效果分类
+			 ◇可以被「技能吸收/スキルドレイン」「星骸龙/デブリ·ドラゴン」「冥界的魔王
+			哈·迪斯/冥界の魔王
+			ハ·デス」等的效果无效
+			 ◇只能代替融合怪兽上写全卡名的融合素材
+			 ◇只能在进行融合召唤时代替融合素材怪兽
+			 ◇不能从卡组、除外状态代替融合素材怪兽
+			 ◇可以从手卡、场上（不论表里）、墓地代替融合素材怪兽
 
-		 中文名: 心眼之女神
-		 卡片种类: 效果怪兽
-		 卡片密码: 53493204
-		 种族: 天使
-		 属性: 光
-		 星级: 4
-		 攻击力: 1200
-		 防御力: 1000
-		 罕见度: 平卡N
-		 卡包: BE02、DL04、Booster06、Booster Chronicle、Booster R3、JY、GLD04
-		 效果: 这张卡可以代替融合怪兽素材的其中1只来融合。这个时候，其他的融合素材必须是指定的融合素材。
+			 中文名: 心眼之女神
+			 卡片种类: 效果怪兽
+			 卡片密码: 53493204
+			 种族: 天使
+			 属性: 光
+			 星级: 4
+			 攻击力: 1200
+			 防御力: 1000
+			 罕见度: 平卡N
+			 卡包: BE02、DL04、Booster06、Booster Chronicle、Booster R3、JY、GLD04
+			 效果: 这张卡可以代替融合怪兽素材的其中1只来融合。这个时候，其他的融合素材必须是指定的融合素材。
 
 		*/
 		Id:       509,
@@ -2484,32 +2841,32 @@ func d_2(cardBag *ygo.CardVersion) {
 	/* 72 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 511
-		 调整:
+			 id: 511
+			 调整:
 
-		 [沼地的魔兽王]<沼地の魔獣王>
-		 [2010/09/10]
-		 ●这张卡可以代替1只融合素材怪兽。那时，其他的融合素材怪兽必须是正规物。
-		 ◇无效果分类
-		 ◇可以被「技能吸收/スキルドレイン」「星骸龙/デブリ·ドラゴン」「冥界的魔王
-		哈·迪斯/冥界の魔王
-		ハ·デス」等的效果无效
-		 ◇只能代替融合怪兽上写全卡名的融合素材
-		 ◇只能在进行融合召唤时代替融合素材怪兽
-		 ◇不能从卡组、除外状态代替融合素材怪兽
-		 ◇可以从手卡、场上（不论表里）、墓地代替融合素材怪兽
+			 [沼地的魔兽王]<沼地の魔獣王>
+			 [2010/09/10]
+			 ●这张卡可以代替1只融合素材怪兽。那时，其他的融合素材怪兽必须是正规物。
+			 ◇无效果分类
+			 ◇可以被「技能吸收/スキルドレイン」「星骸龙/デブリ·ドラゴン」「冥界的魔王
+			哈·迪斯/冥界の魔王
+			ハ·デス」等的效果无效
+			 ◇只能代替融合怪兽上写全卡名的融合素材
+			 ◇只能在进行融合召唤时代替融合素材怪兽
+			 ◇不能从卡组、除外状态代替融合素材怪兽
+			 ◇可以从手卡、场上（不论表里）、墓地代替融合素材怪兽
 
-		 中文名: 沼地的魔兽王
-		 卡片种类: 效果怪兽
-		 卡片密码: 99426834
-		 种族: 水
-		 属性: 水
-		 星级: 4
-		 攻击力: 1000
-		 防御力: 1100
-		 罕见度: 平卡N
-		 卡包: DL04、Booster06、Booster Chronicle、Booster R3、GLD04
-		 效果: 这张卡可以代替融合怪兽素材的其中1只来融合。这个时候，其他的融合素材必须是指定的融合素材。
+			 中文名: 沼地的魔兽王
+			 卡片种类: 效果怪兽
+			 卡片密码: 99426834
+			 种族: 水
+			 属性: 水
+			 星级: 4
+			 攻击力: 1000
+			 防御力: 1100
+			 罕见度: 平卡N
+			 卡包: DL04、Booster06、Booster Chronicle、Booster R3、GLD04
+			 效果: 这张卡可以代替融合怪兽素材的其中1只来融合。这个时候，其他的融合素材必须是指定的融合素材。
 
 		*/
 		Id:       511,
@@ -2529,34 +2886,34 @@ func d_2(cardBag *ygo.CardVersion) {
 	/* 73 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 512
-		 调整:
+			 id: 512
+			 调整:
 
-		 [破坏神
-		瓦沙克]<破壊神
-		ヴァサーゴ>
-		 [2010/09/10]
-		 ●这张卡可以代替1只融合素材怪兽。那时，其他的融合素材怪兽必须是正规物。
-		 ◇无效果分类
-		 ◇可以被「技能吸收/スキルドレイン」「星骸龙/デブリ·ドラゴン」「冥界的魔王
-		哈·迪斯/冥界の魔王
-		ハ·デス」等的效果无效
-		 ◇只能代替融合怪兽上写全卡名的融合素材
-		 ◇只能在进行融合召唤时代替融合素材怪兽
-		 ◇不能从卡组、除外状态代替融合素材怪兽
-		 ◇可以从手卡、场上（不论表里）、墓地代替融合素材怪兽
+			 [破坏神
+			瓦沙克]<破壊神
+			ヴァサーゴ>
+			 [2010/09/10]
+			 ●这张卡可以代替1只融合素材怪兽。那时，其他的融合素材怪兽必须是正规物。
+			 ◇无效果分类
+			 ◇可以被「技能吸收/スキルドレイン」「星骸龙/デブリ·ドラゴン」「冥界的魔王
+			哈·迪斯/冥界の魔王
+			ハ·デス」等的效果无效
+			 ◇只能代替融合怪兽上写全卡名的融合素材
+			 ◇只能在进行融合召唤时代替融合素材怪兽
+			 ◇不能从卡组、除外状态代替融合素材怪兽
+			 ◇可以从手卡、场上（不论表里）、墓地代替融合素材怪兽
 
-		 中文名: 破坏神 瓦沙克
-		 卡片种类: 效果怪兽
-		 卡片密码: 50259460
-		 种族: 恶魔
-		 属性: 暗
-		 星级: 3
-		 攻击力: 1100
-		 防御力: 900
-		 罕见度: 平卡N
-		 卡包: DL04、Booster06、Booster Chronicle、Booster R3、KA、GLD04
-		 效果: 这张卡可以代替融合怪兽素材的其中1只来融合。这个时候，其他的融合素材必须是指定的融合素材。
+			 中文名: 破坏神 瓦沙克
+			 卡片种类: 效果怪兽
+			 卡片密码: 50259460
+			 种族: 恶魔
+			 属性: 暗
+			 星级: 3
+			 攻击力: 1100
+			 防御力: 900
+			 罕见度: 平卡N
+			 卡包: DL04、Booster06、Booster Chronicle、Booster R3、KA、GLD04
+			 效果: 这张卡可以代替融合怪兽素材的其中1只来融合。这个时候，其他的融合素材必须是指定的融合素材。
 
 		*/
 		Id:       512,
@@ -2655,32 +3012,32 @@ func d_2(cardBag *ygo.CardVersion) {
 	/* 76 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 515
-		 调整:
-		 [恶魔科学怪人]
-		<デビル·フランケン>
+			 id: 515
+			 调整:
+			 [恶魔科学怪人]
+			<デビル·フランケン>
 
-		 [15/02/02]
-		（这张卡在规则上不当作「恶魔/デーモン」卡使用）
+			 [15/02/02]
+			（这张卡在规则上不当作「恶魔/デーモン」卡使用）
 
-		 ●①：支付5000基本分才能发动。从额外卡组把1只融合怪兽攻击表示特殊召唤。
+			 ●①：支付5000基本分才能发动。从额外卡组把1只融合怪兽攻击表示特殊召唤。
 
-		 ◇起动效果，开连锁，不取对象
+			 ◇起动效果，开连锁，不取对象
 
-		 ◇支付5000基本分是效果发动COST
+			 ◇支付5000基本分是效果发动COST
 
-		 ◇效果处理时从自己的额外卡组把1只融合怪兽在自己场上表侧攻击表示特殊召唤，这个特殊召唤不是融合召唤、不解除苏生限制
-		 中文名: 恶魔科学怪人
-		 卡片种类: 效果怪兽
-		 卡片密码: 69015963
-		 种族: 机械
-		 属性: 暗
-		 星级: 2
-		 攻击力: 700
-		 防御力: 500
-		 罕见度: {rarely }
-		 卡包: BE02，DL04，Booster06，Booster Chronicle，Booster R3，KA，SK2，AT06
-		 效果: （这张卡在规则上不当作「恶魔」卡使用）①：支付5000基本分才能发动。从额外卡组把1只融合怪兽攻击表示特殊召唤。
+			 ◇效果处理时从自己的额外卡组把1只融合怪兽在自己场上表侧攻击表示特殊召唤，这个特殊召唤不是融合召唤、不解除苏生限制
+			 中文名: 恶魔科学怪人
+			 卡片种类: 效果怪兽
+			 卡片密码: 69015963
+			 种族: 机械
+			 属性: 暗
+			 星级: 2
+			 攻击力: 700
+			 防御力: 500
+			 罕见度: {rarely }
+			 卡包: BE02，DL04，Booster06，Booster Chronicle，Booster R3，KA，SK2，AT06
+			 效果: （这张卡在规则上不当作「恶魔」卡使用）①：支付5000基本分才能发动。从额外卡组把1只融合怪兽攻击表示特殊召唤。
 
 		*/
 		Id:       515,
@@ -2950,32 +3307,32 @@ func d_2(cardBag *ygo.CardVersion) {
 	/* 83 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 523
-		 调整:
+			 id: 523
+			 调整:
 
-		 [幻想绵羊]<イリュージョン·シープ>
-		 [2010/09/10]
-		 ●这张卡可以代替1只融合素材怪兽。那时，其他的融合素材怪兽必须是正规物。
-		 ◇无效果分类
-		 ◇可以被「技能吸收/スキルドレイン」「星骸龙/デブリ·ドラゴン」「冥界的魔王
-		哈·迪斯/冥界の魔王
-		ハ·デス」等的效果无效
-		 ◇只能代替融合怪兽上写全卡名的融合素材
-		 ◇只能在进行融合召唤时代替融合素材怪兽
-		 ◇不能从卡组、除外状态代替融合素材怪兽
-		 ◇可以从手卡、场上（不论表里）、墓地代替融合素材怪兽
+			 [幻想绵羊]<イリュージョン·シープ>
+			 [2010/09/10]
+			 ●这张卡可以代替1只融合素材怪兽。那时，其他的融合素材怪兽必须是正规物。
+			 ◇无效果分类
+			 ◇可以被「技能吸收/スキルドレイン」「星骸龙/デブリ·ドラゴン」「冥界的魔王
+			哈·迪斯/冥界の魔王
+			ハ·デス」等的效果无效
+			 ◇只能代替融合怪兽上写全卡名的融合素材
+			 ◇只能在进行融合召唤时代替融合素材怪兽
+			 ◇不能从卡组、除外状态代替融合素材怪兽
+			 ◇可以从手卡、场上（不论表里）、墓地代替融合素材怪兽
 
-		 中文名: 幻想绵羊
-		 卡片种类: 效果怪兽
-		 卡片密码: 30451366
-		 种族: 兽
-		 属性: 地
-		 星级: 3
-		 攻击力: 1150
-		 防御力: 900
-		 罕见度: 平卡N
-		 卡包: DL04、Booster06、Booster Chronicle、Booster R3、TP08
-		 效果: 这张卡可以代替融合怪兽素材的其中1只来融合。这个时候，其他的融合素材必须是指定的融合素材。
+			 中文名: 幻想绵羊
+			 卡片种类: 效果怪兽
+			 卡片密码: 30451366
+			 种族: 兽
+			 属性: 地
+			 星级: 3
+			 攻击力: 1150
+			 防御力: 900
+			 罕见度: 平卡N
+			 卡包: DL04、Booster06、Booster Chronicle、Booster R3、TP08
+			 效果: 这张卡可以代替融合怪兽素材的其中1只来融合。这个时候，其他的融合素材必须是指定的融合素材。
 
 		*/
 		Id:       523,
