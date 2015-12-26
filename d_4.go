@@ -29,7 +29,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       402,
 		Password: "33550694",
 		Name:     "融合之门",
-		Lc:       ygo.LC_SpellField, // 场地魔法
+		Lt:       ygo.LT_SpellField, // 场地魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -58,7 +58,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       570,
 		Password: "69296555",
 		Name:     "光之护封阵",
-		Lc:       ygo.LC_SpellField, // 场地魔法
+		Lt:       ygo.LT_SpellField, // 场地魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -67,46 +67,46 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 2 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 612
-		 调整:
+			 id: 612
+			 调整:
 
-		 [传说之都
-		亚特兰蒂斯]<伝説の都
-		アトランティス>
-		 ●这张卡的卡名当作
-		 [海/海]来使用。
-		 ◇规则效果，此卡的卡名在哪里也当作
-		 [海/海]
-		 ◇
-		 [禁止令/禁止令]宣言
-		 [海/海]的场合，此卡也不可用
-		 ◇
-		 [禁止令/禁止令]不能宣言
-		 [传说之都
-		亚特兰蒂斯/伝説の都
-		アトランティス]注：以上两条对其他指名系的卡也适用
-		 ●手卡和场上的水属性的怪兽星数降1。
-		 ◇可以与
-		 [代价降低/コストダウン]
-		 [降格处分/降格処分]叠加★用里侧表示的水属性怪兽给仪式怪兽凑星数的场合，星数是算原本的还是-1以后的，调整中★
-		 [等级变换实验室/レベル変換実験室]效果适用的场合，发动此卡，怎么处理，调整中★此卡效果适用的场合，发动
-		 [等级变换实验室/レベル変換実験室]，怎么处理，调整中
-		 ●场上的水属性的怪兽的攻击力和防守力上升200。
-		 ◇
-		 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
+			 [传说之都
+			亚特兰蒂斯]<伝説の都
+			アトランティス>
+			 ●这张卡的卡名当作
+			 [海/海]来使用。
+			 ◇规则效果，此卡的卡名在哪里也当作
+			 [海/海]
+			 ◇
+			 [禁止令/禁止令]宣言
+			 [海/海]的场合，此卡也不可用
+			 ◇
+			 [禁止令/禁止令]不能宣言
+			 [传说之都
+			亚特兰蒂斯/伝説の都
+			アトランティス]注：以上两条对其他指名系的卡也适用
+			 ●手卡和场上的水属性的怪兽星数降1。
+			 ◇可以与
+			 [代价降低/コストダウン]
+			 [降格处分/降格処分]叠加★用里侧表示的水属性怪兽给仪式怪兽凑星数的场合，星数是算原本的还是-1以后的，调整中★
+			 [等级变换实验室/レベル変換実験室]效果适用的场合，发动此卡，怎么处理，调整中★此卡效果适用的场合，发动
+			 [等级变换实验室/レベル変換実験室]，怎么处理，调整中
+			 ●场上的水属性的怪兽的攻击力和防守力上升200。
+			 ◇
+			 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
 
-		 中文名: 传说之都 亚特兰蒂斯
-		 卡片种类: 场地魔法
-		 卡片密码: 00295517
-		 罕见度: 平卡N
-		 卡包: BE02、MA、DL05、SD04、SD23
-		 效果: 这张卡的卡名当作「海」来使用。手卡和场上的水属性的怪兽等级减1。场上的水属性的怪兽的攻击力·守备力上升200。
+			 中文名: 传说之都 亚特兰蒂斯
+			 卡片种类: 场地魔法
+			 卡片密码: 00295517
+			 罕见度: 平卡N
+			 卡包: BE02、MA、DL05、SD04、SD23
+			 效果: 这张卡的卡名当作「海」来使用。手卡和场上的水属性的怪兽等级减1。场上的水属性的怪兽的攻击力·守备力上升200。
 
 		*/
 		Id:       612,
 		Password: "00295517",
 		Name:     "传说之都 亚特兰蒂斯",
-		Lc:       ygo.LC_SpellField, // 场地魔法
+		Lt:       ygo.LT_SpellField, // 场地魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -135,7 +135,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       574,
 		Password: "53046408",
 		Name:     "非常食",
-		Lc:       ygo.LC_SpellQuickPlay, // 速攻魔法
+		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -169,7 +169,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       586,
 		Password: "27770341",
 		Name:     "超再生能力",
-		Lc:       ygo.LC_SpellQuickPlay, // 速攻魔法
+		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -202,7 +202,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       662,
 		Password: "14087893",
 		Name:     "月之书",
-		Lc:       ygo.LC_SpellQuickPlay, // 速攻魔法
+		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -233,7 +233,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       667,
 		Password: "76754619",
 		Name:     "金字塔能量",
-		Lc:       ygo.LC_SpellQuickPlay, // 速攻魔法
+		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -242,32 +242,32 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 7 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 393
-		 调整:
+			 id: 393
+			 调整:
 
-		 [死之信息「E」]<死のメッセージ「E」>
-		 ●这张卡没有
-		 [通灵盘/ウィジャ盤]的效果不能上场。
-		 ◇这个上场不算发动
-		 ◇在英文版中同名卡是
-		 [Spirit
-		Message
-		"I"]
-		 ◇因
-		 [盗墓者/墓荒らし]的效果加入手牌并上场的场合，要受到2000伤害
+			 [死之信息「E」]<死のメッセージ「E」>
+			 ●这张卡没有
+			 [通灵盘/ウィジャ盤]的效果不能上场。
+			 ◇这个上场不算发动
+			 ◇在英文版中同名卡是
+			 [Spirit
+			Message
+			"I"]
+			 ◇因
+			 [盗墓者/墓荒らし]的效果加入手牌并上场的场合，要受到2000伤害
 
-		 中文名: 死之信息「E」
-		 卡片种类: 永续魔法
-		 卡片密码: 31893528
-		 罕见度: 平卡N，银字R
-		 卡包: BE02、LN、DL03
-		 效果: 这张卡没有「通灵盘」的效果不能上场。
+			 中文名: 死之信息「E」
+			 卡片种类: 永续魔法
+			 卡片密码: 31893528
+			 罕见度: 平卡N，银字R
+			 卡包: BE02、LN、DL03
+			 效果: 这张卡没有「通灵盘」的效果不能上场。
 
 		*/
 		Id:       393,
 		Password: "31893528",
 		Name:     "死之信息「E」",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -276,32 +276,32 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 8 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 394
-		 调整:
+			 id: 394
+			 调整:
 
-		 [死之信息「A」]<死のメッセージ「A」>
-		 ●这张卡没有
-		 [通灵盘/ウィジャ盤]的效果不能上场。
-		 ◇这个上场不算发动
-		 ◇在英文版中同名卡是
-		 [Spirit
-		Message
-		"N"]
-		 ◇因
-		 [盗墓者/墓荒らし]的效果加入手牌并上场的场合，要受到2000伤害
+			 [死之信息「A」]<死のメッセージ「A」>
+			 ●这张卡没有
+			 [通灵盘/ウィジャ盤]的效果不能上场。
+			 ◇这个上场不算发动
+			 ◇在英文版中同名卡是
+			 [Spirit
+			Message
+			"N"]
+			 ◇因
+			 [盗墓者/墓荒らし]的效果加入手牌并上场的场合，要受到2000伤害
 
-		 中文名: 死之信息「A」
-		 卡片种类: 永续魔法
-		 卡片密码: 67287533
-		 罕见度: 平卡N，银字R
-		 卡包: BE02、LN、DL03
-		 效果: 这张卡没有「通灵盘」的效果不能上场。
+			 中文名: 死之信息「A」
+			 卡片种类: 永续魔法
+			 卡片密码: 67287533
+			 罕见度: 平卡N，银字R
+			 卡包: BE02、LN、DL03
+			 效果: 这张卡没有「通灵盘」的效果不能上场。
 
 		*/
 		Id:       394,
 		Password: "67287533",
 		Name:     "死之信息「A」",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -310,32 +310,32 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 9 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 395
-		 调整:
+			 id: 395
+			 调整:
 
-		 [死之信息「T」]<死のメッセージ「T」>
-		 ●这张卡没有
-		 [通灵盘/ウィジャ盤]的效果不能上场。
-		 ◇这个上场不算发动
-		 ◇在英文版中同名卡是
-		 [Spirit
-		Message
-		"A"]
-		 ◇因
-		 [盗墓者/墓荒らし]的效果加入手牌并上场的场合，要受到2000伤害
+			 [死之信息「T」]<死のメッセージ「T」>
+			 ●这张卡没有
+			 [通灵盘/ウィジャ盤]的效果不能上场。
+			 ◇这个上场不算发动
+			 ◇在英文版中同名卡是
+			 [Spirit
+			Message
+			"A"]
+			 ◇因
+			 [盗墓者/墓荒らし]的效果加入手牌并上场的场合，要受到2000伤害
 
-		 中文名: 死之信息「T」
-		 卡片种类: 永续魔法
-		 卡片密码: 94772232
-		 罕见度: 平卡N，银字R
-		 卡包: BE02、LN、DL03
-		 效果: 这张卡没有「通灵盘」的效果不能上场。
+			 中文名: 死之信息「T」
+			 卡片种类: 永续魔法
+			 卡片密码: 94772232
+			 罕见度: 平卡N，银字R
+			 卡包: BE02、LN、DL03
+			 效果: 这张卡没有「通灵盘」的效果不能上场。
 
 		*/
 		Id:       395,
 		Password: "94772232",
 		Name:     "死之信息「T」",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -344,34 +344,34 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 10 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 396
-		 调整:
+			 id: 396
+			 调整:
 
-		 [死之信息「H」]<死のメッセージ「H」>
-		 ●这张卡没有
-		 [通灵盘/ウィジャ盤]的效果不能上场。
-		 ◇这个上场不算发动
-		 ◇在英文版中同名卡是
-		 [Spirit
-		Message
-		"L"]
-		 ◇因
-		 [盗墓者/墓荒らし]的效果加入手牌并上场的场合，要受到2000伤害★因
-		 [盗墓者/墓荒らし]的效果加入手牌并上场，但此时不够2000LP的场合，是因为
-		 [盗墓者/墓荒らし]的效果负，还是因为凑齐DEATH胜，还是平局，调整中
+			 [死之信息「H」]<死のメッセージ「H」>
+			 ●这张卡没有
+			 [通灵盘/ウィジャ盤]的效果不能上场。
+			 ◇这个上场不算发动
+			 ◇在英文版中同名卡是
+			 [Spirit
+			Message
+			"L"]
+			 ◇因
+			 [盗墓者/墓荒らし]的效果加入手牌并上场的场合，要受到2000伤害★因
+			 [盗墓者/墓荒らし]的效果加入手牌并上场，但此时不够2000LP的场合，是因为
+			 [盗墓者/墓荒らし]的效果负，还是因为凑齐DEATH胜，还是平局，调整中
 
-		 中文名: 死之信息「H」
-		 卡片种类: 永续魔法
-		 卡片密码: 30170981
-		 罕见度: 平卡N，银字R
-		 卡包: BE02、LN、DL03
-		 效果: 这张卡没有「通灵盘」的效果不能上场。
+			 中文名: 死之信息「H」
+			 卡片种类: 永续魔法
+			 卡片密码: 30170981
+			 罕见度: 平卡N，银字R
+			 卡包: BE02、LN、DL03
+			 效果: 这张卡没有「通灵盘」的效果不能上场。
 
 		*/
 		Id:       396,
 		Password: "30170981",
 		Name:     "死之信息「H」",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -400,7 +400,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       397,
 		Password: "30606547",
 		Name:     "暗黑之扉",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -429,7 +429,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       568,
 		Password: "00403847",
 		Name:     "联合军",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -456,7 +456,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       610,
 		Password: "94425169",
 		Name:     "元素之泉",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -488,7 +488,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       616,
 		Password: "99173029",
 		Name:     "灵子能固定装置",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -518,7 +518,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       617,
 		Password: "36562627",
 		Name:     "第二次机会",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -548,7 +548,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       618,
 		Password: "62966332",
 		Name:     "天变地异",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -571,7 +571,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       663,
 		Password: "41482598",
 		Name:     "噩梦之蜃气楼",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -598,7 +598,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       665,
 		Password: "04861205",
 		Name:     "木乃伊的呼声",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -630,7 +630,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       398,
 		Password: "15866454",
 		Name:     "喧闹的邪恶灵",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -639,43 +639,43 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 20 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 400
-		 调整:
+			 id: 400
+			 调整:
 
-		 [诱饵人偶]<おとり人形>
-		 ●强制发动一张盖放表示的陷阱卡。是发动时机不正确的陷阱卡的场合，那张卡的效果无效并破坏。
-		 ◇不能选择里侧表示的被当作装备魔法的怪兽
-		 ◇翻到魔法的场合，确认后覆盖
-		 ◇对象可以连锁此卡发动，不连锁的场合，相当于此卡效果全部处理完后新开连锁发动对象
-		 ◇“发动时机不正确”也包括“陷阱卡不能发动”的效果适用时与刚SET下去的陷阱
-		 ◇对象是发动时机不正确的陷阱卡的场合，无需支付COST
-		 ◇效果顺序：
-		1.打开对象
-		2.确认对象是“魔法卡”“发动时机正确的陷阱卡”还是“发动时机不正确的陷阱卡”
-		3.对象是“魔法卡”的场合盖回去；是“发动时机不正确的陷阱卡”的场合破坏，是“发动时机正确的陷阱卡”的场合暂时不处理
-		4.此卡返回卡组洗切
-		5.对象是“发动时机正确的陷阱卡”的场合，在此时开连锁发动，否则将优先权交给回合玩家，决斗继续
-		 ◇对象是发动时机不正确的陷阱卡的场合，将其打开确认后可以连锁发动
-		 [伪陷阱/偽物のわな]★对象是
-		 [魔之卡组破坏病毒/魔のデッキ破壊ウイルス]，并且对方场上存在表侧表示的
-		 [人造人-念力震慑者/人造人間－サイコ·ショッカー]的场合，可否解放
-		 [人造人-念力震慑者/人造人間－サイコ·ショッカー]来发动
-		 [魔之卡组破坏病毒/魔のデッキ破壊ウイルス]的效果，调整中
-		 ●发动后这张卡不送去墓地，加入卡组洗切。
-		 ◇效果处理时此卡不在场上的场合，此效果不适用
+			 [诱饵人偶]<おとり人形>
+			 ●强制发动一张盖放表示的陷阱卡。是发动时机不正确的陷阱卡的场合，那张卡的效果无效并破坏。
+			 ◇不能选择里侧表示的被当作装备魔法的怪兽
+			 ◇翻到魔法的场合，确认后覆盖
+			 ◇对象可以连锁此卡发动，不连锁的场合，相当于此卡效果全部处理完后新开连锁发动对象
+			 ◇“发动时机不正确”也包括“陷阱卡不能发动”的效果适用时与刚SET下去的陷阱
+			 ◇对象是发动时机不正确的陷阱卡的场合，无需支付COST
+			 ◇效果顺序：
+			1.打开对象
+			2.确认对象是“魔法卡”“发动时机正确的陷阱卡”还是“发动时机不正确的陷阱卡”
+			3.对象是“魔法卡”的场合盖回去；是“发动时机不正确的陷阱卡”的场合破坏，是“发动时机正确的陷阱卡”的场合暂时不处理
+			4.此卡返回卡组洗切
+			5.对象是“发动时机正确的陷阱卡”的场合，在此时开连锁发动，否则将优先权交给回合玩家，决斗继续
+			 ◇对象是发动时机不正确的陷阱卡的场合，将其打开确认后可以连锁发动
+			 [伪陷阱/偽物のわな]★对象是
+			 [魔之卡组破坏病毒/魔のデッキ破壊ウイルス]，并且对方场上存在表侧表示的
+			 [人造人-念力震慑者/人造人間－サイコ·ショッカー]的场合，可否解放
+			 [人造人-念力震慑者/人造人間－サイコ·ショッカー]来发动
+			 [魔之卡组破坏病毒/魔のデッキ破壊ウイルス]的效果，调整中
+			 ●发动后这张卡不送去墓地，加入卡组洗切。
+			 ◇效果处理时此卡不在场上的场合，此效果不适用
 
-		 中文名: 诱饵人偶
-		 卡片种类: 通常魔法
-		 卡片密码: 07165085
-		 罕见度: 平卡N
-		 卡包: LN、DL03、SJ2、TP16
-		 效果: 强制发动1张盖放表示的陷阱卡。是发动时机不正确的陷阱卡的场合，那张卡的效果无效并破坏。发动后这张卡不送去墓地，加入卡组洗切。
+			 中文名: 诱饵人偶
+			 卡片种类: 通常魔法
+			 卡片密码: 07165085
+			 罕见度: 平卡N
+			 卡包: LN、DL03、SJ2、TP16
+			 效果: 强制发动1张盖放表示的陷阱卡。是发动时机不正确的陷阱卡的场合，那张卡的效果无效并破坏。发动后这张卡不送去墓地，加入卡组洗切。
 
 		*/
 		Id:       400,
 		Password: "07165085",
 		Name:     "诱饵人偶",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -704,7 +704,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       404,
 		Password: "06343408",
 		Name:     "奇迹之发掘",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -713,32 +713,32 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 22 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 406
-		 调整:
+			 id: 406
+			 调整:
 
-		 [灵魂消灭]<霊魂消滅>
-		 ●墓地的怪兽从游戏中除外的场合，用自己场上的怪兽从游戏中除外代替。这个效果发动的回合有效。
-		 ◇此卡效果适用时，此卡控制者墓地里的怪兽不会除外
-		 ◇此卡效果适用时，
-		 [奇迹融合/ミラクル·フュージョン]之类卡只能从场上除外怪兽来进行融合召唤★此卡会不会影响对手，调整中★此卡效果适用时，发动
-		 [魂の解放/魂の解放]这类以除外墓地为目的的卡的场合，怎么处理，调整中★此卡效果适用时，发动
-		 [放浪勇者
-		弗里德/放浪の勇者
-		フリード]这类可能会除外自己的效果的场合，怎么处理，调整中★此卡效果适用时，发动
-		 [白骨王/ワイトキング]这类需要除外卡从墓地里复活自己的效果的场合，怎么处理，调整中
+			 [灵魂消灭]<霊魂消滅>
+			 ●墓地的怪兽从游戏中除外的场合，用自己场上的怪兽从游戏中除外代替。这个效果发动的回合有效。
+			 ◇此卡效果适用时，此卡控制者墓地里的怪兽不会除外
+			 ◇此卡效果适用时，
+			 [奇迹融合/ミラクル·フュージョン]之类卡只能从场上除外怪兽来进行融合召唤★此卡会不会影响对手，调整中★此卡效果适用时，发动
+			 [魂の解放/魂の解放]这类以除外墓地为目的的卡的场合，怎么处理，调整中★此卡效果适用时，发动
+			 [放浪勇者
+			弗里德/放浪の勇者
+			フリード]这类可能会除外自己的效果的场合，怎么处理，调整中★此卡效果适用时，发动
+			 [白骨王/ワイトキング]这类需要除外卡从墓地里复活自己的效果的场合，怎么处理，调整中
 
-		 中文名: 灵魂消灭
-		 卡片种类: 通常魔法
-		 卡片密码: 69832741
-		 罕见度: 平卡N
-		 卡包: LN、DL03
-		 效果: 墓地的怪兽从游戏中除外的场合，用自己场上的怪兽从游戏中除外代替。这个效果发动的回合有效。
+			 中文名: 灵魂消灭
+			 卡片种类: 通常魔法
+			 卡片密码: 69832741
+			 罕见度: 平卡N
+			 卡包: LN、DL03
+			 效果: 墓地的怪兽从游戏中除外的场合，用自己场上的怪兽从游戏中除外代替。这个效果发动的回合有效。
 
 		*/
 		Id:       406,
 		Password: "69832741",
 		Name:     "灵魂消灭",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -778,7 +778,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       555,
 		Password: "40703393",
 		Name:     "冥界流傀儡术",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -787,56 +787,56 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 24 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 557
-		 调整:
+			 id: 557
+			 调整:
 
-		 [二重陷阱]<ダブルトラップ>
-		 ●破坏场上存在的含有（陷阱的效果无效化的效果）的一张卡。
-		 ◇取对象
-		 ◇可以被此卡成功破坏的卡：
-		 [古代的机械工兵/古代の機械工兵]
-		 [人造人-念力震慑者/人造人間－サイコ·ショッカー]不满足“只要这张卡在场上表侧表示存在，魔法卡的效果无效”的
-		 [天魔神
-		因维希尔/天魔神
-		インヴィシル]
-		 [暴君龙/タイラント·ドラゴン]
-		 [死亡魔龙/デス·デーモン·ドラゴン]
-		 [王宫的通告/王宮のお触れ]
-		 [龙之宝珠/ドラゴンの宝珠]
-		 [陷阱封印咒符/罠封印の呪符]表侧守备表示的
-		 [电子凤凰/サイバー·フェニックス]
-		 ◇可以作为此卡对象但会因那张卡本身的效果将此卡效果无效的卡：表侧攻击表示的
-		 [电子凤凰/サイバー·フェニックス]
-		 [大神官
-		迪·扎德/大神官デ·ザード]
-		 [不死王
-		巫妖/不死王リッチー]
-		 [青眼光龙/青眼の光龍]
-		 [龙战士/ドラゴン·ウォリアー]满足“只要这张卡在场上表侧表示存在，魔法卡的效果无效”的
-		 [天魔神
-		因维希尔/天魔神
-		インヴィシル]★能否被此卡效果破坏，调整中的卡：
-		 [迅雷之魔王-骸骨恶魔/迅雷の魔王－スカル·デーモン]
-		 [王家长眠之谷/王家の眠る谷－ネクロバレ－]
-		 [地狱兵卒恶魔/ヘルポーンデーモン]
-		 [暗影骑士恶魔/シャドウナイトデーモン]
-		 [暗黑主教恶魔/ダークビショップデーモン]
-		 [死亡城堡恶魔/デスルークデーモン]
-		 [业火王后恶魔/インフェルノクインデーモン]
-		 [灭绝国王恶魔/ジェノサイドキングデーモン]
+			 [二重陷阱]<ダブルトラップ>
+			 ●破坏场上存在的含有（陷阱的效果无效化的效果）的一张卡。
+			 ◇取对象
+			 ◇可以被此卡成功破坏的卡：
+			 [古代的机械工兵/古代の機械工兵]
+			 [人造人-念力震慑者/人造人間－サイコ·ショッカー]不满足“只要这张卡在场上表侧表示存在，魔法卡的效果无效”的
+			 [天魔神
+			因维希尔/天魔神
+			インヴィシル]
+			 [暴君龙/タイラント·ドラゴン]
+			 [死亡魔龙/デス·デーモン·ドラゴン]
+			 [王宫的通告/王宮のお触れ]
+			 [龙之宝珠/ドラゴンの宝珠]
+			 [陷阱封印咒符/罠封印の呪符]表侧守备表示的
+			 [电子凤凰/サイバー·フェニックス]
+			 ◇可以作为此卡对象但会因那张卡本身的效果将此卡效果无效的卡：表侧攻击表示的
+			 [电子凤凰/サイバー·フェニックス]
+			 [大神官
+			迪·扎德/大神官デ·ザード]
+			 [不死王
+			巫妖/不死王リッチー]
+			 [青眼光龙/青眼の光龍]
+			 [龙战士/ドラゴン·ウォリアー]满足“只要这张卡在场上表侧表示存在，魔法卡的效果无效”的
+			 [天魔神
+			因维希尔/天魔神
+			インヴィシル]★能否被此卡效果破坏，调整中的卡：
+			 [迅雷之魔王-骸骨恶魔/迅雷の魔王－スカル·デーモン]
+			 [王家长眠之谷/王家の眠る谷－ネクロバレ－]
+			 [地狱兵卒恶魔/ヘルポーンデーモン]
+			 [暗影骑士恶魔/シャドウナイトデーモン]
+			 [暗黑主教恶魔/ダークビショップデーモン]
+			 [死亡城堡恶魔/デスルークデーモン]
+			 [业火王后恶魔/インフェルノクインデーモン]
+			 [灭绝国王恶魔/ジェノサイドキングデーモン]
 
-		 中文名: 二重陷阱
-		 卡片种类: 通常魔法
-		 卡片密码: 03682106
-		 罕见度: 平卡N
-		 卡包: BE02、SC、DL05
-		 效果: 破坏场上表侧表示存在的含有（陷阱的效果无效化的效果）的1张卡。
+			 中文名: 二重陷阱
+			 卡片种类: 通常魔法
+			 卡片密码: 03682106
+			 罕见度: 平卡N
+			 卡包: BE02、SC、DL05
+			 效果: 破坏场上表侧表示存在的含有（陷阱的效果无效化的效果）的1张卡。
 
 		*/
 		Id:       557,
 		Password: "03682106",
 		Name:     "二重陷阱",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -863,7 +863,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       569,
 		Password: "32807846",
 		Name:     "增援",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -891,7 +891,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       571,
 		Password: "95281259",
 		Name:     "战士生还",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -920,7 +920,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       583,
 		Password: "28596933",
 		Name:     "巨龙振翅",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -950,7 +950,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       584,
 		Password: "55991637",
 		Name:     "火龙的火炎弹",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -979,7 +979,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       585,
 		Password: "81385346",
 		Name:     "粉碎践踏",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1002,7 +1002,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       609,
 		Password: "37406863",
 		Name:     "封神镜",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1011,37 +1011,37 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 31 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 615
-		 调整:
+			 id: 615
+			 调整:
 
-		 [强制转移]<強制転移>
-		 [2012/01/29]
-		 ●双方各自选自己场上1只怪兽，那些怪兽的控制权交换。那些怪兽在这个回合不能把表示形式变更。
-		 ◇自己场上只有「荷鲁斯之黑炎龙
-		LV6/ホルスの黒炎竜
-		ＬＶ６」存在的场合，可以将这张卡发动。发动后效果处理时选择这张卡要将这张卡的控制权转移的场合，效果不发。「荷鲁斯之黑炎龙
-		LV6/ホルスの黒炎竜
-		ＬＶ６」的控制权不会转移，对方也不用将任何怪兽的控制权交给己方。
-		 ◇自己场上只有「荷鲁斯之黑炎龙
-		LV4/ホルスの黒炎竜
-		ＬＶ４」存在的场合，不可以将这张卡发动。
-		 ◇不取对象效果。
-		 ◇「魂を削る死霊」不会因为受到这个效果的影响而被自身效果破坏。
-		 ◇效果处理时可以将里侧表示的怪兽选择将其控制权转移。
-		 ◇「強奪」将因为这张卡的效果获得己方怪兽控制权的对方场上存在的怪兽的控制权获取后，「強奪」被破坏的场合，那个怪兽的控制权交回给对方。
+			 [强制转移]<強制転移>
+			 [2012/01/29]
+			 ●双方各自选自己场上1只怪兽，那些怪兽的控制权交换。那些怪兽在这个回合不能把表示形式变更。
+			 ◇自己场上只有「荷鲁斯之黑炎龙
+			LV6/ホルスの黒炎竜
+			ＬＶ６」存在的场合，可以将这张卡发动。发动后效果处理时选择这张卡要将这张卡的控制权转移的场合，效果不发。「荷鲁斯之黑炎龙
+			LV6/ホルスの黒炎竜
+			ＬＶ６」的控制权不会转移，对方也不用将任何怪兽的控制权交给己方。
+			 ◇自己场上只有「荷鲁斯之黑炎龙
+			LV4/ホルスの黒炎竜
+			ＬＶ４」存在的场合，不可以将这张卡发动。
+			 ◇不取对象效果。
+			 ◇「魂を削る死霊」不会因为受到这个效果的影响而被自身效果破坏。
+			 ◇效果处理时可以将里侧表示的怪兽选择将其控制权转移。
+			 ◇「強奪」将因为这张卡的效果获得己方怪兽控制权的对方场上存在的怪兽的控制权获取后，「強奪」被破坏的场合，那个怪兽的控制权交回给对方。
 
-		 中文名: 强制转移
-		 卡片种类: 通常魔法
-		 卡片密码: 31036355
-		 罕见度: 平卡N，银字R，黄金GR，面闪SR
-		 卡包: DP04、BE02、MA、DL05、SD01、SD02、SD04、SD15、YSD04、SD19、SDM、TU06、GS04、SD24、DS14、GDB1
-		 效果: 双方各自选自己场上1只怪兽，那些怪兽的控制权交换。那些怪兽在这个回合不能把表示形式变更。
+			 中文名: 强制转移
+			 卡片种类: 通常魔法
+			 卡片密码: 31036355
+			 罕见度: 平卡N，银字R，黄金GR，面闪SR
+			 卡包: DP04、BE02、MA、DL05、SD01、SD02、SD04、SD15、YSD04、SD19、SDM、TU06、GS04、SD24、DS14、GDB1
+			 效果: 双方各自选自己场上1只怪兽，那些怪兽的控制权交换。那些怪兽在这个回合不能把表示形式变更。
 
 		*/
 		Id:       615,
 		Password: "31036355",
 		Name:     "强制转移",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1050,35 +1050,35 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 32 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 619
-		 调整:
+			 id: 619
+			 调整:
 
-		 [盗贼的极意]<盜贼の極意>
-		 ●只能在主要流程1发动。
-		 ◇因
-		 [命运英雄
-		钻石人/D－HERO
-		ダイヤモンドガイ]的效果送入墓地的场合，也只能在下回合的主要阶段1发动
-		 ●选择场上的一只打开表示存在的怪兽。
-		 ◇取对象
-		 ●在这个回合，选择的怪兽每次给与对方玩家战斗伤害，对方随机丢弃一张手卡。
-		 ◇复数张此卡选择同一怪兽时，那怪兽给与对方玩家战斗伤害的场合，对方只随机丢弃一张手牌
-		 ◇时点同
-		 [首领
-		扎鲁格/首領·ザルーグ]
+			 [盗贼的极意]<盜贼の極意>
+			 ●只能在主要流程1发动。
+			 ◇因
+			 [命运英雄
+			钻石人/D－HERO
+			ダイヤモンドガイ]的效果送入墓地的场合，也只能在下回合的主要阶段1发动
+			 ●选择场上的一只打开表示存在的怪兽。
+			 ◇取对象
+			 ●在这个回合，选择的怪兽每次给与对方玩家战斗伤害，对方随机丢弃一张手卡。
+			 ◇复数张此卡选择同一怪兽时，那怪兽给与对方玩家战斗伤害的场合，对方只随机丢弃一张手牌
+			 ◇时点同
+			 [首领
+			扎鲁格/首領·ザルーグ]
 
-		 中文名: 盗贼的极意
-		 卡片种类: 通常魔法
-		 卡片密码: 99351431
-		 罕见度: 平卡N
-		 卡包: BE02、MA、DL05
-		 效果: 只能在主要阶段一发动。选择场上的1只表侧表示存在的怪兽。在这个回合，选择的怪兽每次给予对方玩家战斗伤害，对方随机丢弃1张手卡。
+			 中文名: 盗贼的极意
+			 卡片种类: 通常魔法
+			 卡片密码: 99351431
+			 罕见度: 平卡N
+			 卡包: BE02、MA、DL05
+			 效果: 只能在主要阶段一发动。选择场上的1只表侧表示存在的怪兽。在这个回合，选择的怪兽每次给予对方玩家战斗伤害，对方随机丢弃1张手卡。
 
 		*/
 		Id:       619,
 		Password: "99351431",
 		Name:     "盗贼的极意",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1087,34 +1087,34 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 33 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 620
-		 调整:
+			 id: 620
+			 调整:
 
-		 [灭绝战争]<ジェノサイド·ウォー>
-		 [10/09/08]
-		 ●只能在主要流程1发动。
-		 ◇因「命运英雄
-		钻石人/D－HERO
-		ダイヤモンドガイ」的效果送入墓地的场合，也只能在下回合的主要阶段1发动
-		 ●这个回合参与过战斗伤害计算的自己和对方的全部怪兽，在结束阶段破坏。
-		 ◇不进入连锁
-		 ◇不取对象
-		 ◇不受魔法效果的不会被破坏
-		 ◇发动这张卡后才召唤出场的怪物也适用
-		 ◇与「剑斗兽/剣闘獣」的回卡组特殊召唤效果同时点★进行过战斗的怪兽变成里侧表示的场合在结束阶段是否因这个效果而破坏？调整中
+			 [灭绝战争]<ジェノサイド·ウォー>
+			 [10/09/08]
+			 ●只能在主要流程1发动。
+			 ◇因「命运英雄
+			钻石人/D－HERO
+			ダイヤモンドガイ」的效果送入墓地的场合，也只能在下回合的主要阶段1发动
+			 ●这个回合参与过战斗伤害计算的自己和对方的全部怪兽，在结束阶段破坏。
+			 ◇不进入连锁
+			 ◇不取对象
+			 ◇不受魔法效果的不会被破坏
+			 ◇发动这张卡后才召唤出场的怪物也适用
+			 ◇与「剑斗兽/剣闘獣」的回卡组特殊召唤效果同时点★进行过战斗的怪兽变成里侧表示的场合在结束阶段是否因这个效果而破坏？调整中
 
-		 中文名: 灭绝战争
-		 卡片种类: 通常魔法
-		 卡片密码: 25345186
-		 罕见度: 平卡N
-		 卡包: BE02、MA、DL05
-		 效果: 只能在主要阶段一发动。这个回合经过了战斗伤害计算的自己·对方怪兽在结束步骤时全部破坏。
+			 中文名: 灭绝战争
+			 卡片种类: 通常魔法
+			 卡片密码: 25345186
+			 罕见度: 平卡N
+			 卡包: BE02、MA、DL05
+			 效果: 只能在主要阶段一发动。这个回合经过了战斗伤害计算的自己·对方怪兽在结束步骤时全部破坏。
 
 		*/
 		Id:       620,
 		Password: "25345186",
 		Name:     "灭绝战争",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1146,7 +1146,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       621,
 		Password: "61844784",
 		Name:     "魔法防护器",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1188,7 +1188,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       660,
 		Password: "02204140",
 		Name:     "生者之书-禁断的咒术-",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1217,7 +1217,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       661,
 		Password: "38699854",
 		Name:     "太阳之书",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1246,7 +1246,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       664,
 		Password: "77876207",
 		Name:     "通向财宝的隐藏通路",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1276,7 +1276,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       666,
 		Password: "40350910",
 		Name:     "癔病风",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1299,7 +1299,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       399,
 		Password: "05494820",
 		Name:     "旋风镭射",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1322,7 +1322,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       405,
 		Password: "32437102",
 		Name:     "龙魂之力",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1354,7 +1354,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       611,
 		Password: "64801562",
 		Name:     "明镜止水之心",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1388,7 +1388,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       613,
 		Password: "37684215",
 		Name:     "融合武器村雨刃",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1421,7 +1421,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       614,
 		Password: "63789924",
 		Name:     "盗贼的烟玉",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1451,7 +1451,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       384,
 		Password: "33950246",
 		Name:     "王宫的号令",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1479,7 +1479,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       386,
 		Password: "06733059",
 		Name:     "死灵之巢",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1507,7 +1507,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       387,
 		Password: "33737664",
 		Name:     "盗墓者的报应",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1536,7 +1536,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       390,
 		Password: "32015116",
 		Name:     "无差别破坏",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1562,7 +1562,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       391,
 		Password: "68400115",
 		Name:     "皇帝的新装",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1597,7 +1597,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       392,
 		Password: "94212438",
 		Name:     "通灵盘",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1629,7 +1629,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       553,
 		Password: "77910045",
 		Name:     "死之演算盘",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1656,7 +1656,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       556,
 		Password: "76297408",
 		Name:     "魂粉碎",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1685,7 +1685,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       582,
 		Password: "92408984",
 		Name:     "龙之宝珠",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1708,7 +1708,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       587,
 		Password: "54178050",
 		Name:     "龙之逆鳞",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1751,7 +1751,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       625,
 		Password: "93016201",
 		Name:     "王宫的弹压",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1760,31 +1760,31 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 55 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 627
-		 调整:
+			 id: 627
+			 调整:
 
-		 [药物的副作用]<シモッチによる副作用>
-		 [09/04/05]
-		 ●对方的基本分的恢复的效果变成给与对方基本分的伤害的效果。
-		 ◇相当于永续效果
-		 ◇此卡效果适用的场合，可以对应对手回复的效果的发动连锁
-		 [地狱的冷枪/地狱の扉越し铳]
-		 [痛魂之咒术/痛魂の呪术]
-		 [黑板擦的陷阱/黒板消しの罠]★对方场上存在的这张卡效果适用中，自己场上没有卡存在时，自己发动「黄金瓢虫/黄金の天道虫」的效果的场合，能否把自己手卡的「冥府之使者
-		格斯/冥府の使者ゴーズ」特殊召唤？调整中
+			 [药物的副作用]<シモッチによる副作用>
+			 [09/04/05]
+			 ●对方的基本分的恢复的效果变成给与对方基本分的伤害的效果。
+			 ◇相当于永续效果
+			 ◇此卡效果适用的场合，可以对应对手回复的效果的发动连锁
+			 [地狱的冷枪/地狱の扉越し铳]
+			 [痛魂之咒术/痛魂の呪术]
+			 [黑板擦的陷阱/黒板消しの罠]★对方场上存在的这张卡效果适用中，自己场上没有卡存在时，自己发动「黄金瓢虫/黄金の天道虫」的效果的场合，能否把自己手卡的「冥府之使者
+			格斯/冥府の使者ゴーズ」特殊召唤？调整中
 
-		 中文名: 药物的副作用
-		 卡片种类: 永续陷阱
-		 卡片密码: 40633297
-		 罕见度: 平卡N
-		 卡包: BE02、MA、DL05
-		 效果: 对方的基本分的回复的效果变成给予对方基本分的伤害的效果。
+			 中文名: 药物的副作用
+			 卡片种类: 永续陷阱
+			 卡片密码: 40633297
+			 罕见度: 平卡N
+			 卡包: BE02、MA、DL05
+			 效果: 对方的基本分的回复的效果变成给予对方基本分的伤害的效果。
 
 		*/
 		Id:       627,
 		Password: "40633297",
 		Name:     "药物的副作用",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1814,7 +1814,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       629,
 		Password: "92394653",
 		Name:     "灵魂的引诱",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1823,29 +1823,29 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 57 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 669
-		 调整:
+			 id: 669
+			 调整:
 
-		 [旅人的试练]<旅人の試練>
-		 ●对方的怪兽攻击宣言时才能发动。对方随机选择自己的一张手卡，对方猜选择的那张卡的种类（怪兽/魔法/陷阱）。猜不中的场合，那只攻击怪兽回到主人的手卡。
-		 ◇相当于任意发动的诱发效果，不取对象
-		 ◇处理时的顺序：1．随机选1张此卡控制者的手牌
-		注：
-		a．此卡控制者没有手牌的场合，此卡效果不发
-		b．此卡控制者因对方卡的效果强制展示手牌的场合，仅在此卡处理效果时将那些手牌暂时不公开并洗切2．对手宣言那张卡的种类（怪/魔/陷）3．确认那张卡，对手宣言正确的场合，战斗继续，错误的场合，攻击怪兽回手
+			 [旅人的试练]<旅人の試練>
+			 ●对方的怪兽攻击宣言时才能发动。对方随机选择自己的一张手卡，对方猜选择的那张卡的种类（怪兽/魔法/陷阱）。猜不中的场合，那只攻击怪兽回到主人的手卡。
+			 ◇相当于任意发动的诱发效果，不取对象
+			 ◇处理时的顺序：1．随机选1张此卡控制者的手牌
+			注：
+			a．此卡控制者没有手牌的场合，此卡效果不发
+			b．此卡控制者因对方卡的效果强制展示手牌的场合，仅在此卡处理效果时将那些手牌暂时不公开并洗切2．对手宣言那张卡的种类（怪/魔/陷）3．确认那张卡，对手宣言正确的场合，战斗继续，错误的场合，攻击怪兽回手
 
-		 中文名: 旅人的试练
-		 卡片种类: 永续陷阱
-		 卡片密码: 39537362
-		 罕见度: 平卡N，银字R
-		 卡包: BE02、PH、DL05、SD07
-		 效果: 对方的怪兽攻击宣言时才能发动。对方随机选择自己的1张手卡，对方猜选择的那张卡的种类（怪兽·魔法·陷阱）。猜不中的场合，那只攻击怪兽回到主人的手卡。
+			 中文名: 旅人的试练
+			 卡片种类: 永续陷阱
+			 卡片密码: 39537362
+			 罕见度: 平卡N，银字R
+			 卡包: BE02、PH、DL05、SD07
+			 效果: 对方的怪兽攻击宣言时才能发动。对方随机选择自己的1张手卡，对方猜选择的那张卡的种类（怪兽·魔法·陷阱）。猜不中的场合，那只攻击怪兽回到主人的手卡。
 
 		*/
 		Id:       669,
 		Password: "39537362",
 		Name:     "旅人的试练",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1881,7 +1881,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       670,
 		Password: "76532077",
 		Name:     "无底的流沙",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1910,7 +1910,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       675,
 		Password: "38299233",
 		Name:     "刺墙",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1933,7 +1933,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       668,
 		Password: "03149764",
 		Name:     "图坦假面",
-		Lc:       ygo.LC_TrapCounter, // 反击陷阱
+		Lt:       ygo.LT_TrapCounter, // 反击陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1962,7 +1962,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       671,
 		Password: "02926176",
 		Name:     "王家的诅咒",
-		Lc:       ygo.LC_TrapCounter, // 反击陷阱
+		Lt:       ygo.LT_TrapCounter, // 反击陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1971,42 +1971,42 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 62 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 2792
-		 调整:
+			 id: 2792
+			 调整:
 
-		 [命运之火钟]<運命の火時計>
-		 ●一张卡片的倒数回合前进一回合。
-		 ◇取对象，对象不在场上的场合宣言对象的卡名
-		 ◇可成为此卡对象的卡：（截止到08/07/22只有这么多）
-		 [异国的剑士/異国の剣士]
+			 [命运之火钟]<運命の火時計>
+			 ●一张卡片的倒数回合前进一回合。
+			 ◇取对象，对象不在场上的场合宣言对象的卡名
+			 ◇可成为此卡对象的卡：（截止到08/07/22只有这么多）
+			 [异国的剑士/異国の剣士]
 
-		 [区域吞噬者/ゾーン·イーター]
-		 [铁蝎子/鉄のサソリ]
-		 [鹰身女郎3/ハーピィ·レディ3]
-		 [噩梦之铁栏/悪夢の鉄檻]
-		 [大进化药/大進化薬]
-		 [光之护封剑/光の護封剣]
-		 [终焉的倒计时/終焉のカウントダウン]
-		 [光之封札剑/光の封札剣]
-		 [死之卡组破坏病毒/死のデッキ破壊ウイルス]
-		 [魔之卡组破坏病毒/魔のデッキ破壊ウイルス]
-		 [暗之卡组破坏病毒/闇のデッキ破壊ウイルス]
-		 [邪神
-		神之化身/邪神アバター]（仅限此卡发动者控制的）★对象为3回合的
-		 [光之护封剑/光の護封剣]的场合，是否立刻破坏，调整中
+			 [区域吞噬者/ゾーン·イーター]
+			 [铁蝎子/鉄のサソリ]
+			 [鹰身女郎3/ハーピィ·レディ3]
+			 [噩梦之铁栏/悪夢の鉄檻]
+			 [大进化药/大進化薬]
+			 [光之护封剑/光の護封剣]
+			 [终焉的倒计时/終焉のカウントダウン]
+			 [光之封札剑/光の封札剣]
+			 [死之卡组破坏病毒/死のデッキ破壊ウイルス]
+			 [魔之卡组破坏病毒/魔のデッキ破壊ウイルス]
+			 [暗之卡组破坏病毒/闇のデッキ破壊ウイルス]
+			 [邪神
+			神之化身/邪神アバター]（仅限此卡发动者控制的）★对象为3回合的
+			 [光之护封剑/光の護封剣]的场合，是否立刻破坏，调整中
 
-		 中文名: 命运之火钟
-		 卡片种类: 通常陷阱
-		 卡片密码: 01082946
-		 罕见度: 平卡N
-		 卡包: PH、TP16
-		 效果: 1张卡片的倒数回合前进1回合。
+			 中文名: 命运之火钟
+			 卡片种类: 通常陷阱
+			 卡片密码: 01082946
+			 罕见度: 平卡N
+			 卡包: PH、TP16
+			 效果: 1张卡片的倒数回合前进1回合。
 
 		*/
 		Id:       2792,
 		Password: "01082946",
 		Name:     "命运之火钟",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2038,7 +2038,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       382,
 		Password: "07565547",
 		Name:     "力之集约",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2068,7 +2068,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       383,
 		Password: "93599951",
 		Name:     "沉默的邪恶灵",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2098,7 +2098,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       388,
 		Password: "69122763",
 		Name:     "守护灵护符",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2124,7 +2124,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       389,
 		Password: "05616412",
 		Name:     "反击拳",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2133,31 +2133,31 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 67 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 552
-		 调整:
+			 id: 552
+			 调整:
 
-		 [冥王的咆哮]<冥王の咆哮>
-		 ●自己的场上的恶魔族进行战斗的场合，在那个伤害计算阶段发动。付出自己的基本分（以100为单位），在结束流程前对方一只怪兽攻击力防守力下降那个付出基本分的数值。
-		 ◇“付出自己的基本分（以100为单位）”是COST
-		 ◇COST的下限是100，上限是那只怪兽攻击/守备力的高者舍去百位以后的数值例：1.某怪兽攻击力1000，守备力1200，此时最多只能支付12002.某怪兽攻击力1250，守备力1000，此时最多只能支付12003.某怪兽攻击力0，守备力0，此时不能发动此卡
-		 ◇时点同
-		 [注射天使
-		莉莉/お注射天使リリー]
-		 ◇
-		 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
+			 [冥王的咆哮]<冥王の咆哮>
+			 ●自己的场上的恶魔族进行战斗的场合，在那个伤害计算阶段发动。付出自己的基本分（以100为单位），在结束流程前对方一只怪兽攻击力防守力下降那个付出基本分的数值。
+			 ◇“付出自己的基本分（以100为单位）”是COST
+			 ◇COST的下限是100，上限是那只怪兽攻击/守备力的高者舍去百位以后的数值例：1.某怪兽攻击力1000，守备力1200，此时最多只能支付12002.某怪兽攻击力1250，守备力1000，此时最多只能支付12003.某怪兽攻击力0，守备力0，此时不能发动此卡
+			 ◇时点同
+			 [注射天使
+			莉莉/お注射天使リリー]
+			 ◇
+			 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
 
-		 中文名: 冥王的咆哮
-		 卡片种类: 通常陷阱
-		 卡片密码: 41925941
-		 罕见度: 平卡N，银字R
-		 卡包: BE02、SC、DL05、TU04
-		 效果: 自己的场上的恶魔族进行战斗的场合，在那个伤害计算阶段发动。支付自己的基本分（以100为单位），在结束阶段前对方1只怪兽攻击力守备力下降那个支付基本分的数值。
+			 中文名: 冥王的咆哮
+			 卡片种类: 通常陷阱
+			 卡片密码: 41925941
+			 罕见度: 平卡N，银字R
+			 卡包: BE02、SC、DL05、TU04
+			 效果: 自己的场上的恶魔族进行战斗的场合，在那个伤害计算阶段发动。支付自己的基本分（以100为单位），在结束阶段前对方1只怪兽攻击力守备力下降那个支付基本分的数值。
 
 		*/
 		Id:       552,
 		Password: "41925941",
 		Name:     "冥王的咆哮",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2186,7 +2186,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       588,
 		Password: "80163754",
 		Name:     "爆裂龙息",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2224,7 +2224,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       622,
 		Password: "98239899",
 		Name:     "附锁链的爆弹",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2247,7 +2247,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       623,
 		Password: "24623598",
 		Name:     "失落",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2278,7 +2278,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       624,
 		Password: "61622107",
 		Name:     "泡沫崩溃",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2311,7 +2311,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       626,
 		Password: "29401950",
 		Name:     "奈落的落穴",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2342,7 +2342,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       631,
 		Password: "55773067",
 		Name:     "打落",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2372,7 +2372,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       632,
 		Password: "81172176",
 		Name:     "恶魔喜剧演员",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2395,7 +2395,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       633,
 		Password: "28566710",
 		Name:     "最终一战！",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2426,7 +2426,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       672,
 		Password: "38411870",
 		Name:     "吊顶",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2455,7 +2455,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       673,
 		Password: "65810489",
 		Name:     "黄金邪神像",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2486,7 +2486,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       674,
 		Password: "01804528",
 		Name:     "诅咒之棺",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2509,7 +2509,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       676,
 		Password: "64697231",
 		Name:     "滑槽",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2537,7 +2537,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       677,
 		Password: "37576645",
 		Name:     "无谋的贪心",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2574,7 +2574,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       678,
 		Password: "63571750",
 		Name:     "王家的财宝",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2607,7 +2607,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2079,
 		Password: "02326738",
 		Name:     "死亡骆驼",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,  // 地
@@ -2647,7 +2647,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2778,
 		Password: "01525329",
 		Name:     "有7种武器的猎人",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,   // 地
@@ -2686,7 +2686,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2790,
 		Password: "44913552",
 		Name:     "时间吞噬者",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 6,
 		La:    ygo.LA_Dark,    // 暗
@@ -2719,7 +2719,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2791,
 		Password: "43716289",
 		Name:     "剧毒木乃伊",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,  // 地
@@ -2733,52 +2733,52 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 86 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 365
-		 调整:
+			 id: 365
+			 调整:
 
-		 [升灵术师
-		奘玄]<昇霊術師
-		ジョウゲン>
-		 [2012/01/29]
-		 ●把手卡随机1张丢弃去墓地才能发动。场上的特殊召唤的怪兽全部破坏。
-		 ◇起动效果（进入连锁）。
-		 ◇只能在自己的主要阶段发动。
-		 ◇随机丢弃1张手卡去墓地是COST。
-		 ◇「次元的裂缝/次元の裂け目」效果适用中时不能发动这个效果。
-		 ◇不取对象效果。
-		 ◇特殊召唤后因为「月之书/月の書」变成里侧表示后或「亚空间物质传送装置/亜空間物質転送装置」暂时除外再于场上表侧表示存在的怪兽仍然会被这个效果所破坏。
-		 ●此外，只要这张卡在场上表侧表示存在，双方不能把怪兽特殊召唤。
-		 ◇永续效果（不进入连锁）。
-		 ◇不可以将场上表侧表示存在的这张卡作为同调或XYZ素材进行同调或XYZ召唤。
-		 ◇这张卡在场上表侧表示存在时，「恶魔的圣域/デビルズ·サンクチュアリ」等会产生衍生物（TOKEN）的卡不能发动。
-		 ◇这张卡在场上表侧表示存在时，「名推理/名推理」或「怪兽之门/モンスターゲート」等不能发动（无论是否将这张卡解放）。
-		 ◇这张卡在场上表侧表示存在时，「大宇宙/マクロコスモス」可以发动，但是不能将「原始太阳
-		赫利俄斯/原始太陽ヘリオス」特殊召唤。
-		 ◇这张卡在场上表侧表示存在时，不可以将这张卡解放「熔岩魔神/溶岩魔神ラヴァ·ゴーレム」或「命运英雄
-		血魔-D/Ｄ－ＨＥＲＯ
-		Ｂｌｏｏ－Ｄ」特殊召唤。
-		 ◇这张卡在场上表侧表示存在时，「未来融合/未来融合－フューチャー·フュージョン」不能发动。
-		 ◇这张卡在场上表侧表示存在时，「混沌壶/カオスポッド」「光与暗之龙/光と闇の竜」等的效果照常处理。▲例1
-		这张卡在场上表侧表示存在，「混沌壶/カオスポッド」效果发动后，将包含这张卡在内的所有怪兽回到卡组，然后处理「混沌壶/カオスポッド」的特殊召唤效果。▲例2
-		这张卡在自己场上表侧表示存在，自己的「光与暗之龙/光と闇の竜」被破坏后效果发动，将自己场上包含这张卡在内的所有卡破坏，之后将选择的怪兽特殊召唤。
+			 [升灵术师
+			奘玄]<昇霊術師
+			ジョウゲン>
+			 [2012/01/29]
+			 ●把手卡随机1张丢弃去墓地才能发动。场上的特殊召唤的怪兽全部破坏。
+			 ◇起动效果（进入连锁）。
+			 ◇只能在自己的主要阶段发动。
+			 ◇随机丢弃1张手卡去墓地是COST。
+			 ◇「次元的裂缝/次元の裂け目」效果适用中时不能发动这个效果。
+			 ◇不取对象效果。
+			 ◇特殊召唤后因为「月之书/月の書」变成里侧表示后或「亚空间物质传送装置/亜空間物質転送装置」暂时除外再于场上表侧表示存在的怪兽仍然会被这个效果所破坏。
+			 ●此外，只要这张卡在场上表侧表示存在，双方不能把怪兽特殊召唤。
+			 ◇永续效果（不进入连锁）。
+			 ◇不可以将场上表侧表示存在的这张卡作为同调或XYZ素材进行同调或XYZ召唤。
+			 ◇这张卡在场上表侧表示存在时，「恶魔的圣域/デビルズ·サンクチュアリ」等会产生衍生物（TOKEN）的卡不能发动。
+			 ◇这张卡在场上表侧表示存在时，「名推理/名推理」或「怪兽之门/モンスターゲート」等不能发动（无论是否将这张卡解放）。
+			 ◇这张卡在场上表侧表示存在时，「大宇宙/マクロコスモス」可以发动，但是不能将「原始太阳
+			赫利俄斯/原始太陽ヘリオス」特殊召唤。
+			 ◇这张卡在场上表侧表示存在时，不可以将这张卡解放「熔岩魔神/溶岩魔神ラヴァ·ゴーレム」或「命运英雄
+			血魔-D/Ｄ－ＨＥＲＯ
+			Ｂｌｏｏ－Ｄ」特殊召唤。
+			 ◇这张卡在场上表侧表示存在时，「未来融合/未来融合－フューチャー·フュージョン」不能发动。
+			 ◇这张卡在场上表侧表示存在时，「混沌壶/カオスポッド」「光与暗之龙/光と闇の竜」等的效果照常处理。▲例1
+			这张卡在场上表侧表示存在，「混沌壶/カオスポッド」效果发动后，将包含这张卡在内的所有怪兽回到卡组，然后处理「混沌壶/カオスポッド」的特殊召唤效果。▲例2
+			这张卡在自己场上表侧表示存在，自己的「光与暗之龙/光と闇の竜」被破坏后效果发动，将自己场上包含这张卡在内的所有卡破坏，之后将选择的怪兽特殊召唤。
 
-		 中文名: 升灵术师 奘玄
-		 卡片种类: 效果怪兽
-		 卡片密码: 41855169
-		 种族: 魔法师
-		 属性: 光
-		 星级: 3
-		 攻击力: 200
-		 防御力: 1300
-		 罕见度: 平卡N，银字R，黄金GR
-		 卡包: BE02、LN、DL03、GS04、GDB1
-		 效果: 把手卡随机1张丢弃去墓地才能发动。场上的特殊召唤的怪兽全部破坏。此外，只要这张卡在场上表侧表示存在，双方不能把怪兽特殊召唤。
+			 中文名: 升灵术师 奘玄
+			 卡片种类: 效果怪兽
+			 卡片密码: 41855169
+			 种族: 魔法师
+			 属性: 光
+			 星级: 3
+			 攻击力: 200
+			 防御力: 1300
+			 罕见度: 平卡N，银字R，黄金GR
+			 卡包: BE02、LN、DL03、GS04、GDB1
+			 效果: 把手卡随机1张丢弃去墓地才能发动。场上的特殊召唤的怪兽全部破坏。此外，只要这张卡在场上表侧表示存在，双方不能把怪兽特殊召唤。
 
 		*/
 		Id:       365,
 		Password: "41855169",
 		Name:     "升灵术师 奘玄",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Light,       // 光
@@ -2792,39 +2792,39 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 87 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 366
-		 调整:
+			 id: 366
+			 调整:
 
-		 [灵灭术师
-		海空]<霊滅術師
-		カイクウ>
-		 ●每次这张卡战斗造成对方基本分伤害，可以选对方墓地2只怪兽除外。
-		 ◇诱发效果，任意发动，取对象
-		 ◇可以选择1~2张卡
-		 ◇时点同
-		 [首领
-		扎鲁格/首領·ザルーグ]，此时战破确定怪兽不在墓地里★此时战破确定的怪兽的永续效果是否有效，调整中（应该无效）
-		 ●只要这张卡在场上存在，对方不能把墓地的卡从游戏中除外。
-		 ◇永续效果★此卡效果适用时，
-		 [次元壶/ディメンション·ポッド]的效果发动的场合，怎么处理，调整中
+			 [灵灭术师
+			海空]<霊滅術師
+			カイクウ>
+			 ●每次这张卡战斗造成对方基本分伤害，可以选对方墓地2只怪兽除外。
+			 ◇诱发效果，任意发动，取对象
+			 ◇可以选择1~2张卡
+			 ◇时点同
+			 [首领
+			扎鲁格/首領·ザルーグ]，此时战破确定怪兽不在墓地里★此时战破确定的怪兽的永续效果是否有效，调整中（应该无效）
+			 ●只要这张卡在场上存在，对方不能把墓地的卡从游戏中除外。
+			 ◇永续效果★此卡效果适用时，
+			 [次元壶/ディメンション·ポッド]的效果发动的场合，怎么处理，调整中
 
-		 中文名: 灵灭术师 海空
-		 卡片种类: 效果怪兽
-		 卡片密码: 88240808
-		 种族: 魔法师
-		 属性: 暗
-		 星级: 4
-		 攻击力: 1800
-		 防御力: 700
-		 罕见度: 平卡N，银字R，黄金GR
-		 卡包: BE02、LN、DL03、TU03、GS03、GDB1
-		 效果: 这张卡给予对方基本分战斗伤害时，可以选择对方墓地存在的最多2只怪兽从游戏中除外。此外，只要这张卡在场上表侧表示存在，对方不能把双方墓地存在的卡从游戏中除外。
+			 中文名: 灵灭术师 海空
+			 卡片种类: 效果怪兽
+			 卡片密码: 88240808
+			 种族: 魔法师
+			 属性: 暗
+			 星级: 4
+			 攻击力: 1800
+			 防御力: 700
+			 罕见度: 平卡N，银字R，黄金GR
+			 卡包: BE02、LN、DL03、TU03、GS03、GDB1
+			 效果: 这张卡给予对方基本分战斗伤害时，可以选择对方墓地存在的最多2只怪兽从游戏中除外。此外，只要这张卡在场上表侧表示存在，对方不能把双方墓地存在的卡从游戏中除外。
 
 		*/
 		Id:       366,
 		Password: "88240808",
 		Name:     "灵灭术师 海空",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Dark,        // 暗
@@ -2838,43 +2838,43 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 88 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 368
-		 调整:
+			 id: 368
+			 调整:
 
-		 [食魂者
-		巴祖]
-		 [14/08/01]
+			 [食魂者
+			巴祖]
+			 [14/08/01]
 
-		 ●可以从自己的墓地选最多3张怪兽从游戏中除外。每除外一张卡，在对方回合结束前，这张卡的攻击力上升300。这个效果在自己的回合只能用一次。
+			 ●可以从自己的墓地选最多3张怪兽从游戏中除外。每除外一张卡，在对方回合结束前，这张卡的攻击力上升300。这个效果在自己的回合只能用一次。
 
-		 ◇起动效果，开连锁，不取对象
+			 ◇起动效果，开连锁，不取对象
 
-		 ◇“从自己的墓地选最多3张怪兽从游戏中除外”是效果发动COST，可以除外1~3张卡，不能“除外0张卡”
+			 ◇“从自己的墓地选最多3张怪兽从游戏中除外”是效果发动COST，可以除外1~3张卡，不能“除外0张卡”
 
-		 ◇这个效果增加的攻击力在此卡离场或翻面后丢失
+			 ◇这个效果增加的攻击力在此卡离场或翻面后丢失
 
-		 ◇
-		 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用中这个效果增加的攻击力会变成减少
+			 ◇
+			 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用中这个效果增加的攻击力会变成减少
 
-		 ◇效果适用中的此卡被转移控制权的场合，这个回合可以再次发动效果，两次效果结束的时间分开计算（各自按效果发动时的控制者处理）
+			 ◇效果适用中的此卡被转移控制权的场合，这个回合可以再次发动效果，两次效果结束的时间分开计算（各自按效果发动时的控制者处理）
 
-		 中文名: 食魂者 巴祖
-		 卡片种类: 效果怪兽
-		 卡片密码: 40133511
-		 种族: 兽
-		 属性: 地
-		 星级: 4
-		 攻击力: 1600
-		 防御力: 900
-		 罕见度: 银字R
-		 卡包: BE02、LN、DL03
-		 效果: 可以从自己的墓地选最多3张怪兽从游戏中除外。每除外1张卡，在对方回合结束前，这张卡的攻击力上升300。这个效果在自己的回合只能用1次。
+			 中文名: 食魂者 巴祖
+			 卡片种类: 效果怪兽
+			 卡片密码: 40133511
+			 种族: 兽
+			 属性: 地
+			 星级: 4
+			 攻击力: 1600
+			 防御力: 900
+			 罕见度: 银字R
+			 卡包: BE02、LN、DL03
+			 效果: 可以从自己的墓地选最多3张怪兽从游戏中除外。每除外1张卡，在对方回合结束前，这张卡的攻击力上升300。这个效果在自己的回合只能用1次。
 
 		*/
 		Id:       368,
 		Password: "40133511",
 		Name:     "食魂者 巴祖",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth, // 地
@@ -2888,36 +2888,36 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 89 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 369
-		 调整:
+			 id: 369
+			 调整:
 
-		 [暗黑人偶
-		妮可罗菲娅]<ダーク·ネクロフィア>
-		 ●这张卡不能通常召唤。自己的墓地3张恶魔族的怪兽从游戏中除外，这张卡特殊召唤。
-		 ◇特殊召唤怪兽，遵守苏生限制
-		 ●这张卡被对方破坏送去墓地的场合，在被破坏的那个回合结束时以装备卡来使用装备在对方的怪兽上，只要这张卡装备着，得到被装备的怪兽的控制权。
-		 ◇诱发效果，强制发动，取对象
-		 ◇发动条件：1．此卡作为“怪兽卡”，且控制权属于“此卡所有者”时例：在此卡所有者的怪兽区/手牌/卡组里时满足在对方场上/手牌里或此卡所有者魔/陷区时不满足2．被对手“破坏”，送入自己墓地时3．那回合的结束阶段，此卡在墓地里，此卡所有者的魔/陷区有空位，对方场上有满足对象条件的怪兽时
-		 ◇因
-		 [过早的埋葬/早すぎた埋葬]被破坏导致此卡破坏，效果不发
+			 [暗黑人偶
+			妮可罗菲娅]<ダーク·ネクロフィア>
+			 ●这张卡不能通常召唤。自己的墓地3张恶魔族的怪兽从游戏中除外，这张卡特殊召唤。
+			 ◇特殊召唤怪兽，遵守苏生限制
+			 ●这张卡被对方破坏送去墓地的场合，在被破坏的那个回合结束时以装备卡来使用装备在对方的怪兽上，只要这张卡装备着，得到被装备的怪兽的控制权。
+			 ◇诱发效果，强制发动，取对象
+			 ◇发动条件：1．此卡作为“怪兽卡”，且控制权属于“此卡所有者”时例：在此卡所有者的怪兽区/手牌/卡组里时满足在对方场上/手牌里或此卡所有者魔/陷区时不满足2．被对手“破坏”，送入自己墓地时3．那回合的结束阶段，此卡在墓地里，此卡所有者的魔/陷区有空位，对方场上有满足对象条件的怪兽时
+			 ◇因
+			 [过早的埋葬/早すぎた埋葬]被破坏导致此卡破坏，效果不发
 
-		 中文名: 暗黑人偶 妮可罗菲娅
-		 卡片种类: 效果怪兽
-		 卡片密码: 31829185
-		 种族: 恶魔
-		 属性: 暗
-		 星级: 8
-		 攻击力: 2200
-		 防御力: 2800
-		 罕见度: 平卡N，银字R，金字UR，爆闪PR，立体UTR
-		 卡包: BE02、LN、DL03、DT04、SD21
-		 效果: 这张卡不能通常召唤。把自己墓地存在的3只恶魔族怪兽从游戏中除外的场合可以特殊召唤。这张卡被对方破坏送去墓地的回合的结束阶段时，这张卡当作装备卡使用给对方场上表侧表示存在的1只怪兽装备。只在这个效果当作装备卡使用的场合，得到装备怪兽的控制权。
+			 中文名: 暗黑人偶 妮可罗菲娅
+			 卡片种类: 效果怪兽
+			 卡片密码: 31829185
+			 种族: 恶魔
+			 属性: 暗
+			 星级: 8
+			 攻击力: 2200
+			 防御力: 2800
+			 罕见度: 平卡N，银字R，金字UR，爆闪PR，立体UTR
+			 卡包: BE02、LN、DL03、DT04、SD21
+			 效果: 这张卡不能通常召唤。把自己墓地存在的3只恶魔族怪兽从游戏中除外的场合可以特殊召唤。这张卡被对方破坏送去墓地的回合的结束阶段时，这张卡当作装备卡使用给对方场上表侧表示存在的1只怪兽装备。只在这个效果当作装备卡使用的场合，得到装备怪兽的控制权。
 
 		*/
 		Id:       369,
 		Password: "31829185",
 		Name:     "暗黑人偶 妮可罗菲娅",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 8,
 		La:    ygo.LA_Dark,  // 暗
@@ -2958,7 +2958,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       370,
 		Password: "77527210",
 		Name:     "神圣之魂",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 6,
 		La:    ygo.LA_Light, // 光
@@ -2972,35 +2972,35 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 91 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 371
-		 调整:
+			 id: 371
+			 调整:
 
-		 [炎之精灵
-		伊夫里特]<炎の精霊·イフリート>
-		 ●这张卡不能通常召唤。自己墓地1只炎属性怪兽从游戏中除外特殊召唤上场。
-		 ◇特殊召唤怪兽，遵守苏生限制
-		 ●这只怪兽在自己的战斗流程中，攻击力上升300。
-		 ◇永续效果
-		 ◇
-		 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
+			 [炎之精灵
+			伊夫里特]<炎の精霊·イフリート>
+			 ●这张卡不能通常召唤。自己墓地1只炎属性怪兽从游戏中除外特殊召唤上场。
+			 ◇特殊召唤怪兽，遵守苏生限制
+			 ●这只怪兽在自己的战斗流程中，攻击力上升300。
+			 ◇永续效果
+			 ◇
+			 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
 
-		 中文名: 炎之精灵 伊夫里特
-		 卡片种类: 效果怪兽
-		 卡片密码: 13522325
-		 种族: 炎
-		 属性: 炎
-		 星级: 4
-		 攻击力: 1700
-		 防御力: 1000
-		 罕见度: 平卡N
-		 卡包: BE02、LN、DL03、TP02、SD24
-		 效果: 这张卡不能通常召唤。把自己墓地1只炎属性怪兽从游戏中除外特殊召唤。这只怪兽只在自己的战斗阶段中，攻击力上升300。
+			 中文名: 炎之精灵 伊夫里特
+			 卡片种类: 效果怪兽
+			 卡片密码: 13522325
+			 种族: 炎
+			 属性: 炎
+			 星级: 4
+			 攻击力: 1700
+			 防御力: 1000
+			 罕见度: 平卡N
+			 卡包: BE02、LN、DL03、TP02、SD24
+			 效果: 这张卡不能通常召唤。把自己墓地1只炎属性怪兽从游戏中除外特殊召唤。这只怪兽只在自己的战斗阶段中，攻击力上升300。
 
 		*/
 		Id:       371,
 		Password: "13522325",
 		Name:     "炎之精灵 伊夫里特",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Fire, // 炎
@@ -3014,34 +3014,34 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 92 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 372
-		 调整:
+			 id: 372
+			 调整:
 
-		 [水之精灵
-		阿库艾丽娅]<水の精霊·アクエリア>
-		 ●这张卡不能通常召唤。自己墓地1只水属性怪兽从游戏中除外特殊召唤上场。
-		 ◇特殊召唤怪兽，遵守苏生限制
-		 ●每次对方的准备流程选对方的一只打开表示的怪兽改变它的表示形式。被改变表示形式的怪兽这个回合不能改变表示形式。
-		 ◇诱发效果，任意发动，取对象
-		 ◇“变更表示形式”等价于“表侧攻击表示变表侧守备表示，表侧守备表示变表侧攻击表示”
+			 [水之精灵
+			阿库艾丽娅]<水の精霊·アクエリア>
+			 ●这张卡不能通常召唤。自己墓地1只水属性怪兽从游戏中除外特殊召唤上场。
+			 ◇特殊召唤怪兽，遵守苏生限制
+			 ●每次对方的准备流程选对方的一只打开表示的怪兽改变它的表示形式。被改变表示形式的怪兽这个回合不能改变表示形式。
+			 ◇诱发效果，任意发动，取对象
+			 ◇“变更表示形式”等价于“表侧攻击表示变表侧守备表示，表侧守备表示变表侧攻击表示”
 
-		 中文名: 水之精灵 阿库艾丽娅
-		 卡片种类: 效果怪兽
-		 卡片密码: 40916023
-		 种族: 水
-		 属性: 水
-		 星级: 4
-		 攻击力: 1600
-		 防御力: 1200
-		 罕见度: 平卡N
-		 卡包: BE02、LN、DL03
-		 效果: 这张卡不能通常召唤。自己墓地1只水属性怪兽从游戏中除外特殊召唤上场。每次对方的准备阶段选对方的1只表侧表示的怪兽改变它的表示形式。被改变表示形式的怪兽这个回合不能改变表示形式。
+			 中文名: 水之精灵 阿库艾丽娅
+			 卡片种类: 效果怪兽
+			 卡片密码: 40916023
+			 种族: 水
+			 属性: 水
+			 星级: 4
+			 攻击力: 1600
+			 防御力: 1200
+			 罕见度: 平卡N
+			 卡包: BE02、LN、DL03
+			 效果: 这张卡不能通常召唤。自己墓地1只水属性怪兽从游戏中除外特殊召唤上场。每次对方的准备阶段选对方的1只表侧表示的怪兽改变它的表示形式。被改变表示形式的怪兽这个回合不能改变表示形式。
 
 		*/
 		Id:       372,
 		Password: "40916023",
 		Name:     "水之精灵 阿库艾丽娅",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Water, // 水
@@ -3055,35 +3055,35 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 93 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 373
-		 调整:
+			 id: 373
+			 调整:
 
-		 [岩之精灵
-		泰坦]<岩の精霊·タイタン>
-		 ●这张卡不能通常召唤。自己墓地1只地属性怪兽从游戏中除外特殊召唤上场。
-		 ◇特殊召唤怪兽，遵守苏生限制
-		 ●这只怪兽在对方的战斗流程攻击力上升300。
-		 ◇永续效果
-		 ◇
-		 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
+			 [岩之精灵
+			泰坦]<岩の精霊·タイタン>
+			 ●这张卡不能通常召唤。自己墓地1只地属性怪兽从游戏中除外特殊召唤上场。
+			 ◇特殊召唤怪兽，遵守苏生限制
+			 ●这只怪兽在对方的战斗流程攻击力上升300。
+			 ◇永续效果
+			 ◇
+			 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
 
-		 中文名: 岩之精灵 泰坦
-		 卡片种类: 效果怪兽
-		 卡片密码: 76305638
-		 种族: 岩石
-		 属性: 地
-		 星级: 4
-		 攻击力: 1700
-		 防御力: 1000
-		 罕见度: 平卡N
-		 卡包: LN、DL03
-		 效果: 这张卡不能通常召唤。自己墓地1只地属性怪兽从游戏中除外特殊召唤上场。这只怪兽在对方的战斗阶段攻击力上升300。
+			 中文名: 岩之精灵 泰坦
+			 卡片种类: 效果怪兽
+			 卡片密码: 76305638
+			 种族: 岩石
+			 属性: 地
+			 星级: 4
+			 攻击力: 1700
+			 防御力: 1000
+			 罕见度: 平卡N
+			 卡包: LN、DL03
+			 效果: 这张卡不能通常召唤。自己墓地1只地属性怪兽从游戏中除外特殊召唤上场。这只怪兽在对方的战斗阶段攻击力上升300。
 
 		*/
 		Id:       373,
 		Password: "76305638",
 		Name:     "岩之精灵 泰坦",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth, // 地
@@ -3097,34 +3097,34 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 94 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 374
-		 调整:
+			 id: 374
+			 调整:
 
-		 [风之精灵
-		迦楼罗]<風の精霊·ガルーダ>
-		 ●这张卡不能通常召唤。自己墓地1只风属性怪兽从游戏中除外特殊召唤上场。
-		 ◇特殊召唤怪兽，遵守苏生限制
-		 ●对方的回合结束时选对方一只打开表示的怪兽改变它的表示形式。
-		 ◇诱发效果，任意发动，取对象
-		 ◇“变更表示形式”等价于“表侧攻击表示变表侧守备表示，表侧守备表示变表侧攻击表示”
+			 [风之精灵
+			迦楼罗]<風の精霊·ガルーダ>
+			 ●这张卡不能通常召唤。自己墓地1只风属性怪兽从游戏中除外特殊召唤上场。
+			 ◇特殊召唤怪兽，遵守苏生限制
+			 ●对方的回合结束时选对方一只打开表示的怪兽改变它的表示形式。
+			 ◇诱发效果，任意发动，取对象
+			 ◇“变更表示形式”等价于“表侧攻击表示变表侧守备表示，表侧守备表示变表侧攻击表示”
 
-		 中文名: 风之精灵 迦楼罗
-		 卡片种类: 效果怪兽
-		 卡片密码: 12800777
-		 种族: 鸟兽
-		 属性: 风
-		 星级: 4
-		 攻击力: 1600
-		 防御力: 1200
-		 罕见度: 平卡N
-		 卡包: LN、DL03、TP03、SD19
-		 效果: 这张卡不能通常召唤。把自己墓地存在的1只风属性怪兽从游戏中除外的场合可以特殊召唤。对方的结束阶段时，可以选择对方场上表侧表示存在的1只怪兽，把表示形式变更。
+			 中文名: 风之精灵 迦楼罗
+			 卡片种类: 效果怪兽
+			 卡片密码: 12800777
+			 种族: 鸟兽
+			 属性: 风
+			 星级: 4
+			 攻击力: 1600
+			 防御力: 1200
+			 罕见度: 平卡N
+			 卡包: LN、DL03、TP03、SD19
+			 效果: 这张卡不能通常召唤。把自己墓地存在的1只风属性怪兽从游戏中除外的场合可以特殊召唤。对方的结束阶段时，可以选择对方场上表侧表示存在的1只怪兽，把表示形式变更。
 
 		*/
 		Id:       374,
 		Password: "12800777",
 		Name:     "风之精灵 迦楼罗",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Wind,        // 风
@@ -3161,7 +3161,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       376,
 		Password: "71283180",
 		Name:     "龙卷鸟",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Wind,        // 风
@@ -3175,40 +3175,40 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 96 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 377
-		 调整:
+			 id: 377
+			 调整:
 
-		 [幻影妖精]<幻影の妖精>
-		 ●这张卡受到对方怪兽攻击的场合，由其他的自己的场上的怪兽承受攻击，此时对这张卡的攻击不计算伤害。
-		 ◇诱发效果，强制发动，取对象
-		 ◇时点同
-		 [小钻头/ドリルロイド]
-		 ◇等价于“攻击对象变成自己场上另外一只怪兽并且直接计算伤害”
-		 ◇攻击对象变成同名卡的场合，不会再次诱发效果★攻击对象变成
-		 [魔镜导士
-		限界反射者/魔鏡導士リフレクト·バウンダー]
-		 [魔术神灯/マジック·ランプ]
-		 [球体时限炸弹/スフィア·ボム球体時限爆弾]的场合，怎么处理，调整中★此卡装备
-		 [磁力指轮/磁力の指輪]后，攻击此卡的场合，怎么处理，调整中★因
-		 [魔法臂盾/マジックアーム·シールド]的效果抢来此卡的场合，怎么处理，调整中
+			 [幻影妖精]<幻影の妖精>
+			 ●这张卡受到对方怪兽攻击的场合，由其他的自己的场上的怪兽承受攻击，此时对这张卡的攻击不计算伤害。
+			 ◇诱发效果，强制发动，取对象
+			 ◇时点同
+			 [小钻头/ドリルロイド]
+			 ◇等价于“攻击对象变成自己场上另外一只怪兽并且直接计算伤害”
+			 ◇攻击对象变成同名卡的场合，不会再次诱发效果★攻击对象变成
+			 [魔镜导士
+			限界反射者/魔鏡導士リフレクト·バウンダー]
+			 [魔术神灯/マジック·ランプ]
+			 [球体时限炸弹/スフィア·ボム球体時限爆弾]的场合，怎么处理，调整中★此卡装备
+			 [磁力指轮/磁力の指輪]后，攻击此卡的场合，怎么处理，调整中★因
+			 [魔法臂盾/マジックアーム·シールド]的效果抢来此卡的场合，怎么处理，调整中
 
-		 中文名: 幻影妖精
-		 卡片种类: 效果怪兽
-		 卡片密码: 08687195
-		 种族: 植物
-		 属性: 光
-		 星级: 2
-		 攻击力: 300
-		 防御力: 200
-		 罕见度: 平卡N
-		 卡包: LN、DL03
-		 效果: 这张卡受到对方怪兽攻击的场合，由其他的自己的场上的怪兽承受攻击，此时对这张卡的攻击不计算伤害。
+			 中文名: 幻影妖精
+			 卡片种类: 效果怪兽
+			 卡片密码: 08687195
+			 种族: 植物
+			 属性: 光
+			 星级: 2
+			 攻击力: 300
+			 防御力: 200
+			 罕见度: 平卡N
+			 卡包: LN、DL03
+			 效果: 这张卡受到对方怪兽攻击的场合，由其他的自己的场上的怪兽承受攻击，此时对这张卡的攻击不计算伤害。
 
 		*/
 		Id:       377,
 		Password: "08687195",
 		Name:     "幻影妖精",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Light, // 光
@@ -3222,39 +3222,39 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 97 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 378
-		 调整:
+			 id: 378
+			 调整:
 
-		 [暗黑英雄
-		尸魔侠]<ダーク·ヒーロー
-		ゾンバイア>
-		 ●这张卡不可以直接攻击游戏者。
-		 ◇永续效果
-		 ◇除了因
-		 [沉默的邪恶灵/沈黙の邪悪霊]的效果强制攻击以外，因其他原因使此卡的攻击变成直接攻击的效果都会使此卡的攻击无效
-		 ●这张卡每次战斗破坏一只怪兽，这张卡的攻击力下降200。
-		 ◇永续效果
-		 ◇离场重置
-		 ◇
-		 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
+			 [暗黑英雄
+			尸魔侠]<ダーク·ヒーロー
+			ゾンバイア>
+			 ●这张卡不可以直接攻击游戏者。
+			 ◇永续效果
+			 ◇除了因
+			 [沉默的邪恶灵/沈黙の邪悪霊]的效果强制攻击以外，因其他原因使此卡的攻击变成直接攻击的效果都会使此卡的攻击无效
+			 ●这张卡每次战斗破坏一只怪兽，这张卡的攻击力下降200。
+			 ◇永续效果
+			 ◇离场重置
+			 ◇
+			 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
 
-		 中文名: 暗黑英雄 尸魔侠
-		 卡片种类: 效果怪兽
-		 卡片密码: 88472456
-		 种族: 战士
-		 属性: 暗
-		 星级: 4
-		 攻击力: 2100
-		 防御力: 500
-		 罕见度: 银字R
-		 卡包: BE02、LN、DL03、SY2
-		 效果: 这张卡不可以直接攻击玩家。这张卡每次战斗破坏1只怪兽，这张卡的攻击力下降200。
+			 中文名: 暗黑英雄 尸魔侠
+			 卡片种类: 效果怪兽
+			 卡片密码: 88472456
+			 种族: 战士
+			 属性: 暗
+			 星级: 4
+			 攻击力: 2100
+			 防御力: 500
+			 罕见度: 银字R
+			 卡包: BE02、LN、DL03、SY2
+			 效果: 这张卡不可以直接攻击玩家。这张卡每次战斗破坏1只怪兽，这张卡的攻击力下降200。
 
 		*/
 		Id:       378,
 		Password: "88472456",
 		Name:     "暗黑英雄 尸魔侠",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Dark,    // 暗
@@ -3296,7 +3296,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       379,
 		Password: "44072894",
 		Name:     "物资调达员",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,   // 地
@@ -3334,7 +3334,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       380,
 		Password: "71466592",
 		Name:     "魔力吸收球体",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Water, // 水
@@ -3348,40 +3348,40 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 100 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 544
-		 调整:
+			 id: 544
+			 调整:
 
-		 [冥界的魔王
-		哈·迪斯]<冥界の魔王
-		ハ·デス>
-		 ●只要这张卡在场上打开表示存在，自己的场上的恶魔族怪兽战斗破坏的效果怪兽的效果无效。
-		 ◇永续效果
-		 ◇那只怪兽离开墓地后重置，否则一直有效
-		 ◇此卡战破确定的场合，此效果不适用
-		 ◇不能无效规则效果
-		 ◇不能无效“正规出场过”的事实
-		 ◇
-		 [大宇宙/マクロコスモス]之类卡效果适用的场合，不能无效被除外后发动的诱发效果
-		 ●这张卡不能从墓地特殊召唤。
-		 ◇规则效果
+			 [冥界的魔王
+			哈·迪斯]<冥界の魔王
+			ハ·デス>
+			 ●只要这张卡在场上打开表示存在，自己的场上的恶魔族怪兽战斗破坏的效果怪兽的效果无效。
+			 ◇永续效果
+			 ◇那只怪兽离开墓地后重置，否则一直有效
+			 ◇此卡战破确定的场合，此效果不适用
+			 ◇不能无效规则效果
+			 ◇不能无效“正规出场过”的事实
+			 ◇
+			 [大宇宙/マクロコスモス]之类卡效果适用的场合，不能无效被除外后发动的诱发效果
+			 ●这张卡不能从墓地特殊召唤。
+			 ◇规则效果
 
-		 中文名: 冥界的魔王 哈·迪斯
-		 卡片种类: 效果怪兽
-		 卡片密码: 53982768
-		 种族: 恶魔
-		 属性: 暗
-		 星级: 6
-		 攻击力: 2450
-		 防御力: 1600
-		 罕见度: 金字UR，爆闪PR
-		 卡包: BE02、SC、DL05
-		 效果: 只要这张卡在场上表侧表示存在，自己的场上的恶魔族怪兽战斗破坏的效果怪兽的效果无效。这张卡不能从墓地特殊召唤。
+			 中文名: 冥界的魔王 哈·迪斯
+			 卡片种类: 效果怪兽
+			 卡片密码: 53982768
+			 种族: 恶魔
+			 属性: 暗
+			 星级: 6
+			 攻击力: 2450
+			 防御力: 1600
+			 罕见度: 金字UR，爆闪PR
+			 卡包: BE02、SC、DL05
+			 效果: 只要这张卡在场上表侧表示存在，自己的场上的恶魔族怪兽战斗破坏的效果怪兽的效果无效。这张卡不能从墓地特殊召唤。
 
 		*/
 		Id:       544,
 		Password: "53982768",
 		Name:     "冥界的魔王 哈·迪斯",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 6,
 		La:    ygo.LA_Dark,  // 暗
@@ -3421,7 +3421,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       546,
 		Password: "16475472",
 		Name:     "下位恶魔",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 5,
 		La:    ygo.LA_Dark,  // 暗
@@ -3460,7 +3460,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       547,
 		Password: "52860176",
 		Name:     "凭依的血魂",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Dark,  // 暗
@@ -3502,7 +3502,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       548,
 		Password: "89258225",
 		Name:     "哈·迪斯的使魔",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Dark,  // 暗
@@ -3545,7 +3545,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       549,
 		Password: "15653824",
 		Name:     "骷髅骑士",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Dark,  // 暗
@@ -3583,7 +3583,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       550,
 		Password: "88132637",
 		Name:     "双头地狱犬",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Dark,  // 暗
@@ -3597,49 +3597,49 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 106 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 558
-		 调整:
+			 id: 558
+			 调整:
 
-		 [无败将军
-		弗里德]<無敗将軍
-		フリード>
-		 [10/03/24]
-		 ●只要这张卡在场上表侧表示存在，这张卡为对象的魔法卡的效果无效并破坏。
-		 ◇永续效果（不进入连锁）★以里侧表示的此卡为对象发动魔法卡，效果处理时此卡变成表侧表示的场合，那张魔法卡是否会被无效，调整中★
-		 [技能吸收/スキルドレイン]效果适用中，给此卡装备一张装备魔法，之后
-		 [技能吸收/スキルドレイン]被破坏的场合，那张装备魔法是否会被无效，调整中
-		 ●只要这张卡在场上表侧表示存在，可以作为自己的抽卡阶段时进行通常抽卡的代替，从自己卡组把1只4星以下的战士族怪兽加入手卡。
-		 ◇诱发效果（进入连锁）
-		 ◇任意发动
-		 ◇在抽卡前决定是否发动这个效果
-		 ◇自己卡组为0的场合不能发动
-		 ◇效果处理时选择自己卡组的1只4星以下的战士族怪兽（不取对象）
-		 ◇这个效果被无效的场合，不能进行正常的抽卡
-		 ◇这个效果的发动被无效的场合，可以进行正常的抽卡★效果处理时此卡不在场上表侧表示存在的场合，效果是否不发？调整中
-		 ◇这张卡复数张在己方场上表侧表示存在的场合，也只能用一次效果
-		 ◇「无败将军
-		弗里德/無敗将軍
-		フリード」复数张在自己方场上表侧表示存在时，其中一张的效果被无效的场合，不能发动另一只「无败将军
-		弗里德/無敗将軍
-		フリード」的效果
+			 [无败将军
+			弗里德]<無敗将軍
+			フリード>
+			 [10/03/24]
+			 ●只要这张卡在场上表侧表示存在，这张卡为对象的魔法卡的效果无效并破坏。
+			 ◇永续效果（不进入连锁）★以里侧表示的此卡为对象发动魔法卡，效果处理时此卡变成表侧表示的场合，那张魔法卡是否会被无效，调整中★
+			 [技能吸收/スキルドレイン]效果适用中，给此卡装备一张装备魔法，之后
+			 [技能吸收/スキルドレイン]被破坏的场合，那张装备魔法是否会被无效，调整中
+			 ●只要这张卡在场上表侧表示存在，可以作为自己的抽卡阶段时进行通常抽卡的代替，从自己卡组把1只4星以下的战士族怪兽加入手卡。
+			 ◇诱发效果（进入连锁）
+			 ◇任意发动
+			 ◇在抽卡前决定是否发动这个效果
+			 ◇自己卡组为0的场合不能发动
+			 ◇效果处理时选择自己卡组的1只4星以下的战士族怪兽（不取对象）
+			 ◇这个效果被无效的场合，不能进行正常的抽卡
+			 ◇这个效果的发动被无效的场合，可以进行正常的抽卡★效果处理时此卡不在场上表侧表示存在的场合，效果是否不发？调整中
+			 ◇这张卡复数张在己方场上表侧表示存在的场合，也只能用一次效果
+			 ◇「无败将军
+			弗里德/無敗将軍
+			フリード」复数张在自己方场上表侧表示存在时，其中一张的效果被无效的场合，不能发动另一只「无败将军
+			弗里德/無敗将軍
+			フリード」的效果
 
-		 中文名: 无败将军 弗里德
-		 卡片种类: 效果怪兽
-		 卡片密码: 49681811
-		 种族: 战士
-		 属性: 地
-		 星级: 5
-		 攻击力: 2300
-		 防御力: 1700
-		 罕见度: 平卡N，面闪SR，金字UR
-		 卡包: BE02、SC、DL05、SD17
-		 效果: 只要这张卡在场上表侧表示存在，这张卡为对象的魔法卡的效果无效并破坏。只要这张卡在场上表侧表示存在，可以作为自己的抽卡阶段时进行通常抽卡的代替，从自己卡组把1只4星以下的战士族怪兽加入手卡。
+			 中文名: 无败将军 弗里德
+			 卡片种类: 效果怪兽
+			 卡片密码: 49681811
+			 种族: 战士
+			 属性: 地
+			 星级: 5
+			 攻击力: 2300
+			 防御力: 1700
+			 罕见度: 平卡N，面闪SR，金字UR
+			 卡包: BE02、SC、DL05、SD17
+			 效果: 只要这张卡在场上表侧表示存在，这张卡为对象的魔法卡的效果无效并破坏。只要这张卡在场上表侧表示存在，可以作为自己的抽卡阶段时进行通常抽卡的代替，从自己卡组把1只4星以下的战士族怪兽加入手卡。
 
 		*/
 		Id:       558,
 		Password: "49681811",
 		Name:     "无败将军 弗里德",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 5,
 		La:    ygo.LA_Earth,   // 地
@@ -3678,7 +3678,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       559,
 		Password: "76075810",
 		Name:     "投石部队",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,   // 地
@@ -3719,7 +3719,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       560,
 		Password: "02460565",
 		Name:     "冲锋陷阵的队长",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,   // 地
@@ -3760,7 +3760,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       563,
 		Password: "01347977",
 		Name:     "神圣守卫者",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,       // 地
@@ -3774,32 +3774,32 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 110 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 564
-		 调整:
+			 id: 564
+			 调整:
 
-		 [边境的大贤者]<辺境の大賢者>
-		 ●只要这张卡在自己的场上存在，以自己场上的打开表示存在的战士族怪兽为对象的魔法卡的效果无效并破坏。参见
-		 [无败将军
-		弗里德/無敗将軍
-		フリード]的对应内容
+			 [边境的大贤者]<辺境の大賢者>
+			 ●只要这张卡在自己的场上存在，以自己场上的打开表示存在的战士族怪兽为对象的魔法卡的效果无效并破坏。参见
+			 [无败将军
+			弗里德/無敗将軍
+			フリード]的对应内容
 
-		 中文名: 边境的大贤者
-		 卡片种类: 效果怪兽
-		 卡片密码: 38742075
-		 种族: 魔法师
-		 属性: 地
-		 星级: 3
-		 攻击力: 1600
-		 防御力: 800
-		 罕见度: 平卡N
-		 卡包: BE02、SC、DL05
-		 效果: 只要这张卡在自己的场上存在，以自己场上的表侧表示存在的战士族怪兽为对象的魔法卡的效果无效并破坏。
+			 中文名: 边境的大贤者
+			 卡片种类: 效果怪兽
+			 卡片密码: 38742075
+			 种族: 魔法师
+			 属性: 地
+			 星级: 3
+			 攻击力: 1600
+			 防御力: 800
+			 罕见度: 平卡N
+			 卡包: BE02、SC、DL05
+			 效果: 只要这张卡在自己的场上存在，以自己场上的表侧表示存在的战士族怪兽为对象的魔法卡的效果无效并破坏。
 
 		*/
 		Id:       564,
 		Password: "38742075",
 		Name:     "边境的大贤者",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,       // 地
@@ -3836,7 +3836,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       565,
 		Password: "74131780",
 		Name:     "流氓佣兵部队",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,   // 地
@@ -3873,7 +3873,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       566,
 		Password: "37620434",
 		Name:     "恶魔驯服者",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,   // 地
@@ -3910,7 +3910,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       567,
 		Password: "63018132",
 		Name:     "龙骑手",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,   // 地
@@ -3957,7 +3957,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       575,
 		Password: "94568601",
 		Name:     "暴君龙",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 8,
 		La:    ygo.LA_Fire,   // 炎
@@ -3997,7 +3997,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       576,
 		Password: "31553716",
 		Name:     "长枪龙",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Wind,   // 风
@@ -4038,7 +4038,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       577,
 		Password: "67957315",
 		Name:     "灵魂龙",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Wind,   // 风
@@ -4080,7 +4080,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       579,
 		Password: "93220472",
 		Name:     "巨龙",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Wind,   // 风
@@ -4120,7 +4120,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       580,
 		Password: "29618570",
 		Name:     "灰翼龙",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Wind,   // 风
@@ -4159,7 +4159,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       581,
 		Password: "55013285",
 		Name:     "军队龙",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Wind,   // 风
@@ -4192,7 +4192,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       590,
 		Password: "78706415",
 		Name:     "纤维壶",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth, // 地
@@ -4206,51 +4206,51 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 121 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 591
-		 调整:
+			 id: 591
+			 调整:
 
-		 [纳迦]<ナーガ>
-		 [10/07/23]
-		 ●表侧表示的这张卡从场上回到卡组的场合，从卡组选一只3星以下的怪兽在自己场上特殊召唤。之后卡组洗切。
-		 ◇诱发效果（进入连锁）
-		 ◇强制发动
-		 ◇效果处理时选择自己卡组中的1只3星以下的怪兽（不取对象）
-		 ◇此效果在卡组中发动，
-		 [天罚/天罚]不能连锁
-		 ◇不对应这个效果连锁发动「星尘龙/爆裂体/スターダスト·ドラゴン／バスター」的效果★对方场上表侧表示存在的原本持有者为自己的这张卡回到卡组的场合，由谁发动这个效果？调整中
-		 ◇自己场上里侧守备表示的这张卡被「光道武僧
-		艾琳/ライトロード·モンク
-		エイリン」攻击翻开后，这张卡因「光道武僧
-		艾琳/ライトロード·モンク
-		エイリン」的效果回到卡组的场合，这张卡的效果能发动
-		 ◇「王宫的弹压/王宫の弾圧」「神之警告/神の警告」不能对应这个效果的发动进行连锁
-		 ◇
-		 [死灵骑士/死霊骑士デスカリバー·ナイト]可以连锁，效果处理时此卡效果无效，残留在卡组中
-		 ◇
-		 [墓场护卫/グレイヴ·キーパー]效果适用时，此卡被战破的场合，满足发动条件
-		 ◇
-		 [墓场护卫/グレイヴ·キーパー]效果适用时，此卡被
-		 [冥界的魔王
-		哈迪斯/冥界の魔王
-		ハ·デス]战破的场合，效果适用
+			 [纳迦]<ナーガ>
+			 [10/07/23]
+			 ●表侧表示的这张卡从场上回到卡组的场合，从卡组选一只3星以下的怪兽在自己场上特殊召唤。之后卡组洗切。
+			 ◇诱发效果（进入连锁）
+			 ◇强制发动
+			 ◇效果处理时选择自己卡组中的1只3星以下的怪兽（不取对象）
+			 ◇此效果在卡组中发动，
+			 [天罚/天罚]不能连锁
+			 ◇不对应这个效果连锁发动「星尘龙/爆裂体/スターダスト·ドラゴン／バスター」的效果★对方场上表侧表示存在的原本持有者为自己的这张卡回到卡组的场合，由谁发动这个效果？调整中
+			 ◇自己场上里侧守备表示的这张卡被「光道武僧
+			艾琳/ライトロード·モンク
+			エイリン」攻击翻开后，这张卡因「光道武僧
+			艾琳/ライトロード·モンク
+			エイリン」的效果回到卡组的场合，这张卡的效果能发动
+			 ◇「王宫的弹压/王宫の弾圧」「神之警告/神の警告」不能对应这个效果的发动进行连锁
+			 ◇
+			 [死灵骑士/死霊骑士デスカリバー·ナイト]可以连锁，效果处理时此卡效果无效，残留在卡组中
+			 ◇
+			 [墓场护卫/グレイヴ·キーパー]效果适用时，此卡被战破的场合，满足发动条件
+			 ◇
+			 [墓场护卫/グレイヴ·キーパー]效果适用时，此卡被
+			 [冥界的魔王
+			哈迪斯/冥界の魔王
+			ハ·デス]战破的场合，效果适用
 
-		 中文名: 纳迦
-		 卡片种类: 效果怪兽
-		 卡片密码: 71829750
-		 种族: 爬虫类
-		 属性: 水
-		 星级: 4
-		 攻击力: 1400
-		 防御力: 2000
-		 罕见度: 平卡N
-		 卡包: BE02、MA、DL05
-		 效果: 表侧表示的这张卡从场上回到卡组的场合，从卡组选1张3星以下的怪兽特殊召唤到场上。之后卡组洗切。
+			 中文名: 纳迦
+			 卡片种类: 效果怪兽
+			 卡片密码: 71829750
+			 种族: 爬虫类
+			 属性: 水
+			 星级: 4
+			 攻击力: 1400
+			 防御力: 2000
+			 罕见度: 平卡N
+			 卡包: BE02、MA、DL05
+			 效果: 表侧表示的这张卡从场上回到卡组的场合，从卡组选1张3星以下的怪兽特殊召唤到场上。之后卡组洗切。
 
 		*/
 		Id:       591,
 		Password: "71829750",
 		Name:     "纳迦",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Water,   // 水
@@ -4289,7 +4289,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       592,
 		Password: "19153634",
 		Name:     "黑暗贵族",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 5,
 		La:    ygo.LA_Dark,   // 暗
@@ -4327,7 +4327,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       593,
 		Password: "70797118",
 		Name:     "雷电娘娘",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Light,   // 光
@@ -4341,49 +4341,49 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 124 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 594
-		 调整:
+			 id: 594
+			 调整:
 
-		 [子机]<オプション>
-		 ●指定自己的场上的一只打开表示的
-		 [超时空战斗机
-		V形蛇/超時空戦闘機ビック·バイパー]才可以特殊召唤。
-		 ◇召唤规则，不能通常召唤
-		 ◇遵守苏生限制
-		 ●这张卡平常和作为对象的卡的拥有一样的攻击力和防守力的数值。
-		 ◇此卡不会受到会使攻击/守备力升降的效果的影响
-		 ◇此卡不会受到
-		 [邪神
-		恐惧之源/邪神ドレット·ルート]效果的影响★此卡能否作为
-		 [原力/フォース]的对象，调整中★此卡受
-		 [怪兽箱/モンスターBOX]之类“攻击怪兽攻击力变为0”的效果影响的场合，怎么处理，调整中★此卡受
-		 [银幕之镜壁/銀幕の鏡壁]的效果影响的场合，怎么处理，调整中
-		 ◇对象变成里侧表示的场合，不切断联系，此卡攻击/守备力变为0
-		 ◇
-		 [技能吸收/スキルドレイン]效果适用的场合，此卡攻击/守备力变为0
-		 ●作为对象的卡从场上离开的场合，这张卡破坏。
-		 ◇对象变成里侧表示的场合，此卡不破坏★此卡因其他卡的效果变成里侧表示的场合，是否切断联系，调整中★此卡因其他卡的效果变成里侧表示后再反转的场合，怎么处理，调整中★
-		 [技能吸收/スキルドレイン]效果适用的场合，是否切断联系，调整中★
-		 [技能吸收/スキルドレイン]效果适用后，
-		 [技能吸收/スキルドレイン]被破坏的场合，怎么处理，调整中
+			 [子机]<オプション>
+			 ●指定自己的场上的一只打开表示的
+			 [超时空战斗机
+			V形蛇/超時空戦闘機ビック·バイパー]才可以特殊召唤。
+			 ◇召唤规则，不能通常召唤
+			 ◇遵守苏生限制
+			 ●这张卡平常和作为对象的卡的拥有一样的攻击力和防守力的数值。
+			 ◇此卡不会受到会使攻击/守备力升降的效果的影响
+			 ◇此卡不会受到
+			 [邪神
+			恐惧之源/邪神ドレット·ルート]效果的影响★此卡能否作为
+			 [原力/フォース]的对象，调整中★此卡受
+			 [怪兽箱/モンスターBOX]之类“攻击怪兽攻击力变为0”的效果影响的场合，怎么处理，调整中★此卡受
+			 [银幕之镜壁/銀幕の鏡壁]的效果影响的场合，怎么处理，调整中
+			 ◇对象变成里侧表示的场合，不切断联系，此卡攻击/守备力变为0
+			 ◇
+			 [技能吸收/スキルドレイン]效果适用的场合，此卡攻击/守备力变为0
+			 ●作为对象的卡从场上离开的场合，这张卡破坏。
+			 ◇对象变成里侧表示的场合，此卡不破坏★此卡因其他卡的效果变成里侧表示的场合，是否切断联系，调整中★此卡因其他卡的效果变成里侧表示后再反转的场合，怎么处理，调整中★
+			 [技能吸收/スキルドレイン]效果适用的场合，是否切断联系，调整中★
+			 [技能吸收/スキルドレイン]效果适用后，
+			 [技能吸收/スキルドレイン]被破坏的场合，怎么处理，调整中
 
-		 中文名: 子机
-		 卡片种类: 效果怪兽
-		 卡片密码: 14291024
-		 种族: 机械
-		 属性: 光
-		 星级: 1
-		 攻击力: 0
-		 防御力: 0
-		 罕见度: 平卡N
-		 卡包: BE02、MA、DL05
-		 效果: 指定自己的场上的1只表侧表示的「超时空战斗机 V形蛇」才可以特殊召唤。这张卡平常和作为对象的卡的拥有一样的攻击力·守备力的数值。作为对象的卡从场上离开的场合，这张卡破坏。
+			 中文名: 子机
+			 卡片种类: 效果怪兽
+			 卡片密码: 14291024
+			 种族: 机械
+			 属性: 光
+			 星级: 1
+			 攻击力: 0
+			 防御力: 0
+			 罕见度: 平卡N
+			 卡包: BE02、MA、DL05
+			 效果: 指定自己的场上的1只表侧表示的「超时空战斗机 V形蛇」才可以特殊召唤。这张卡平常和作为对象的卡的拥有一样的攻击力·守备力的数值。作为对象的卡从场上离开的场合，这张卡破坏。
 
 		*/
 		Id:       594,
 		Password: "14291024",
 		Name:     "子机",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 1,
 		La:    ygo.LA_Light,   // 光
@@ -4397,33 +4397,33 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 125 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 595
-		 调整:
+			 id: 595
+			 调整:
 
-		 [注射天使
-		莉莉]<お注射天使リリー>
-		 ●这张卡在自己的和对方的回合进行战斗的场合，在那个计算伤害阶段时可以发动。付出2000分，这张卡的攻击力在计算伤害时上升3000。
-		 ◇诱发即时效果，“付出2000分”是COST
-		 ◇时点在“伤害计算时”
-		 ◇在一次战斗中此卡仅能用1次效果
+			 [注射天使
+			莉莉]<お注射天使リリー>
+			 ●这张卡在自己的和对方的回合进行战斗的场合，在那个计算伤害阶段时可以发动。付出2000分，这张卡的攻击力在计算伤害时上升3000。
+			 ◇诱发即时效果，“付出2000分”是COST
+			 ◇时点在“伤害计算时”
+			 ◇在一次战斗中此卡仅能用1次效果
 
-		 中文名: 注射天使 莉莉
-		 卡片种类: 效果怪兽
-		 卡片密码: 79575620
-		 种族: 魔法师
-		 属性: 地
-		 星级: 3
-		 攻击力: 400
-		 防御力: 1500
-		 罕见度: 平卡N，黄金GR，平罕NR，金字UR
-		 卡包: BE02、MA、DL05、GS03、GLD04、GDB1
-		 效果: 这张卡进行战斗的伤害计算时只有1次，支付2000基本分才能发动。这张卡的攻击力只在那次伤害计算时上升3000。
+			 中文名: 注射天使 莉莉
+			 卡片种类: 效果怪兽
+			 卡片密码: 79575620
+			 种族: 魔法师
+			 属性: 地
+			 星级: 3
+			 攻击力: 400
+			 防御力: 1500
+			 罕见度: 平卡N，黄金GR，平罕NR，金字UR
+			 卡包: BE02、MA、DL05、GS03、GLD04、GDB1
+			 效果: 这张卡进行战斗的伤害计算时只有1次，支付2000基本分才能发动。这张卡的攻击力只在那次伤害计算时上升3000。
 
 		*/
 		Id:       595,
 		Password: "79575620",
 		Name:     "注射天使 莉莉",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,       // 地
@@ -4460,7 +4460,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       596,
 		Password: "06979239",
 		Name:     "树叶妖精",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth, // 地
@@ -4474,36 +4474,36 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 127 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 597
-		 调整:
+			 id: 597
+			 调整:
 
-		 [天空骑士
-		柏修斯]<天空騎士パーシアス>
-		 ●攻击防守表示的怪兽时，这张卡的攻击力超过那张卡的防守力的数值造成对方的战斗伤害。
-		 ◇永续效果
-		 ●这张卡给与对方玩家战斗伤害时，自己抽一张卡。
-		 ◇诱发效果，强制发动
-		 ◇时点同
-		 [首领
-		扎鲁格/首領·ザルーグ]
+			 [天空骑士
+			柏修斯]<天空騎士パーシアス>
+			 ●攻击防守表示的怪兽时，这张卡的攻击力超过那张卡的防守力的数值造成对方的战斗伤害。
+			 ◇永续效果
+			 ●这张卡给与对方玩家战斗伤害时，自己抽一张卡。
+			 ◇诱发效果，强制发动
+			 ◇时点同
+			 [首领
+			扎鲁格/首領·ザルーグ]
 
-		 中文名: 天空骑士 珀耳修斯
-		 卡片种类: 效果怪兽
-		 卡片密码: 18036057
-		 种族: 天使
-		 属性: 光
-		 星级: 5
-		 攻击力: 1900
-		 防御力: 1400
-		 罕见度: 平卡N，面闪SR
-		 卡包: BE02、MA、DL05、SD11、SD20
-		 效果: 攻击守备表示的怪兽时，这张卡的攻击力超过那张卡的守备力的数值造成对方的战斗伤害。这张卡给予对方玩家战斗伤害时，自己抽1张卡。
+			 中文名: 天空骑士 珀耳修斯
+			 卡片种类: 效果怪兽
+			 卡片密码: 18036057
+			 种族: 天使
+			 属性: 光
+			 星级: 5
+			 攻击力: 1900
+			 防御力: 1400
+			 罕见度: 平卡N，面闪SR
+			 卡包: BE02、MA、DL05、SD11、SD20
+			 效果: 攻击守备表示的怪兽时，这张卡的攻击力超过那张卡的守备力的数值造成对方的战斗伤害。这张卡给予对方玩家战斗伤害时，自己抽1张卡。
 
 		*/
 		Id:       597,
 		Password: "18036057",
 		Name:     "天空骑士 珀耳修斯",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 5,
 		La:    ygo.LA_Light, // 光
@@ -4517,44 +4517,44 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 128 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 598
-		 调整:
+			 id: 598
+			 调整:
 
-		 [多尔·多拉]<ドル·ドラ>
-		 ●这张卡从场上破坏送去墓地的场合，在结束流程这张卡以攻击力防守力都是1000的状态特殊召唤。
-		 ◇诱发效果，强制发动
-		 ◇在魔/陷区的此卡被破坏的场合，也发动
-		 ◇改变的不是原攻击力
-		 ◇
-		 [天邪鬼的诅咒/あまのじゃくの呪い]効果不适用
-		 ◇因此效果特殊召唤后的此卡离场或变成里侧再翻开后重置攻击/守备力
-		 ◇
-		 [技能吸收/スキルドレイン]效果适用的场合，因此效果特殊召唤后的此卡攻击/守备力变回原攻击/守备力
-		 ●这个效果在一次决斗中只能使用一次。
-		 ◇因此卡不在墓地或者场上没有空怪兽区导致此卡效果不发的场合，算用过了这一次★此效果被
-		 [天罚/天罰]连锁并被无效的场合，是否不算用过了这一次，调整中★
-		 [技能吸收/スキルドレイン]效果适用的场合，“用过一次”是否重置，调整中★此卡被
-		 [冥界的魔王
-		哈迪斯/冥界の魔王
-		ハ·デス]战破的场合，“用过一次”是否重置，调整中注：如果卡组里有复数此卡，则此卡被回收后会出现“哪张用过哪张没用过”的问题，此卡因此被限制
+			 [多尔·多拉]<ドル·ドラ>
+			 ●这张卡从场上破坏送去墓地的场合，在结束流程这张卡以攻击力防守力都是1000的状态特殊召唤。
+			 ◇诱发效果，强制发动
+			 ◇在魔/陷区的此卡被破坏的场合，也发动
+			 ◇改变的不是原攻击力
+			 ◇
+			 [天邪鬼的诅咒/あまのじゃくの呪い]効果不适用
+			 ◇因此效果特殊召唤后的此卡离场或变成里侧再翻开后重置攻击/守备力
+			 ◇
+			 [技能吸收/スキルドレイン]效果适用的场合，因此效果特殊召唤后的此卡攻击/守备力变回原攻击/守备力
+			 ●这个效果在一次决斗中只能使用一次。
+			 ◇因此卡不在墓地或者场上没有空怪兽区导致此卡效果不发的场合，算用过了这一次★此效果被
+			 [天罚/天罰]连锁并被无效的场合，是否不算用过了这一次，调整中★
+			 [技能吸收/スキルドレイン]效果适用的场合，“用过一次”是否重置，调整中★此卡被
+			 [冥界的魔王
+			哈迪斯/冥界の魔王
+			ハ·デス]战破的场合，“用过一次”是否重置，调整中注：如果卡组里有复数此卡，则此卡被回收后会出现“哪张用过哪张没用过”的问题，此卡因此被限制
 
-		 中文名: 多尔·多拉
-		 卡片种类: 效果怪兽
-		 卡片密码: 43586926
-		 种族: 龙
-		 属性: 风
-		 星级: 3
-		 攻击力: 1500
-		 防御力: 1200
-		 罕见度: 平卡N
-		 卡包: BE02、MA、DL05、SD01
-		 效果: 这张卡从场上破坏送去墓地的场合，在结束阶段这张卡以攻击力守备力都是1000的状态特殊召唤。这个效果在1次决斗中只能使用1次。
+			 中文名: 多尔·多拉
+			 卡片种类: 效果怪兽
+			 卡片密码: 43586926
+			 种族: 龙
+			 属性: 风
+			 星级: 3
+			 攻击力: 1500
+			 防御力: 1200
+			 罕见度: 平卡N
+			 卡包: BE02、MA、DL05、SD01
+			 效果: 这张卡从场上破坏送去墓地的场合，在结束阶段这张卡以攻击力守备力都是1000的状态特殊召唤。这个效果在1次决斗中只能使用1次。
 
 		*/
 		Id:       598,
 		Password: "43586926",
 		Name:     "多尔·多拉",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Wind,   // 风
@@ -4596,7 +4596,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       599,
 		Password: "40695128",
 		Name:     "磨破罗魏",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth, // 地
@@ -4637,7 +4637,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       600,
 		Password: "77084837",
 		Name:     "因幡之白兔",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth, // 地
@@ -4670,7 +4670,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       601,
 		Password: "03078576",
 		Name:     "八汰乌",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Wind,  // 风
@@ -4709,7 +4709,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       602,
 		Password: "40473581",
 		Name:     "雷帝神",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,   // 地
@@ -4752,7 +4752,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       603,
 		Password: "76862289",
 		Name:     "八俣大蛇",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 7,
 		La:    ygo.LA_Fire,   // 炎
@@ -4766,38 +4766,38 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 134 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 604
-		 调整:
+			 id: 604
+			 调整:
 
-		 [伟大天狗]<偉大天狗>
-		 ●这张卡不能特殊召唤。召唤，翻转的回合的结束流程时回到主人的手卡。参见
-		 [沙尘之恶灵/砂塵の悪霊]的对应内容
-		 ●这张卡给与对方玩家战斗伤害的场合，跳过下次的对方回合的战斗流程。
-		 ◇诱发效果，强制发动
-		 ◇时点同
-		 [首领
-		扎鲁格/首領·ザルーグ]
-		 ◇下回合对方可以发动以“跳过战斗阶段”为誓约的卡（例：
-		 [灵魂交错/クロス·ソウル]）★下回合对方可否发动
-		 [最终一战！/ラストバトル！]，调整中
+			 [伟大天狗]<偉大天狗>
+			 ●这张卡不能特殊召唤。召唤，翻转的回合的结束流程时回到主人的手卡。参见
+			 [沙尘之恶灵/砂塵の悪霊]的对应内容
+			 ●这张卡给与对方玩家战斗伤害的场合，跳过下次的对方回合的战斗流程。
+			 ◇诱发效果，强制发动
+			 ◇时点同
+			 [首领
+			扎鲁格/首領·ザルーグ]
+			 ◇下回合对方可以发动以“跳过战斗阶段”为誓约的卡（例：
+			 [灵魂交错/クロス·ソウル]）★下回合对方可否发动
+			 [最终一战！/ラストバトル！]，调整中
 
-		 中文名: 伟大天狗
-		 卡片种类: 效果怪兽
-		 卡片密码: 02356994
-		 种族: 兽战士
-		 属性: 暗
-		 星级: 5
-		 攻击力: 1900
-		 防御力: 1700
-		 罕见度: 平卡N
-		 卡包: BE02、MA、DL05
-		 效果: 效果·灵魂：这张卡不能特殊召唤。召唤·反转回合的结束阶段时回到主人的手卡。这张卡给予对方玩家战斗伤害的场合，跳过下次的对方回合的战斗阶段。
+			 中文名: 伟大天狗
+			 卡片种类: 效果怪兽
+			 卡片密码: 02356994
+			 种族: 兽战士
+			 属性: 暗
+			 星级: 5
+			 攻击力: 1900
+			 防御力: 1700
+			 罕见度: 平卡N
+			 卡包: BE02、MA、DL05
+			 效果: 效果·灵魂：这张卡不能特殊召唤。召唤·反转回合的结束阶段时回到主人的手卡。这张卡给予对方玩家战斗伤害的场合，跳过下次的对方回合的战斗阶段。
 
 		*/
 		Id:       604,
 		Password: "02356994",
 		Name:     "伟大天狗",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 5,
 		La:    ygo.LA_Dark,         // 暗
@@ -4836,7 +4836,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       605,
 		Password: "39751093",
 		Name:     "龙宫之姬",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Light,       // 光
@@ -4850,41 +4850,41 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 136 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 606
-		 调整:
+			 id: 606
+			 调整:
 
-		 [火之迦具土]<火之迦具土>
-		 ●这张卡不能特殊召唤。召唤，翻转的回合的结束流程时回到主人的手卡。参见
-		 [沙尘之恶灵/砂塵の悪霊]的对应内容
-		 ●这张卡给与对方玩家战斗伤害的场合，下一个抽卡流程时，对方在抽卡前把全部手卡丢弃。
-		 ◇诱发效果，强制发动，发动时入连锁，下一个抽卡阶段使用效果时不入连锁
-		 ◇时点同
-		 [首领
-		扎鲁格/首領·ザルーグ]
-		 ◇下个抽卡阶段被跳过的场合，效果不发
-		 ◇此效果发动确定，下次的自己的抽卡流程时此卡不在场上正面表示的场合，效果适用
-		 ◇“把全部手卡丢弃”这个动作不入连锁
-		 ◇这个时点不能发动2速的效果
-		 ◇“下一个抽卡阶段”不是要弃手牌的人的抽卡阶段的场合，弃手牌一方弃掉
-		 [招财猫王/ネコマネキング]的场合，对手回合立刻结束，不抽卡
+			 [火之迦具土]<火之迦具土>
+			 ●这张卡不能特殊召唤。召唤，翻转的回合的结束流程时回到主人的手卡。参见
+			 [沙尘之恶灵/砂塵の悪霊]的对应内容
+			 ●这张卡给与对方玩家战斗伤害的场合，下一个抽卡流程时，对方在抽卡前把全部手卡丢弃。
+			 ◇诱发效果，强制发动，发动时入连锁，下一个抽卡阶段使用效果时不入连锁
+			 ◇时点同
+			 [首领
+			扎鲁格/首領·ザルーグ]
+			 ◇下个抽卡阶段被跳过的场合，效果不发
+			 ◇此效果发动确定，下次的自己的抽卡流程时此卡不在场上正面表示的场合，效果适用
+			 ◇“把全部手卡丢弃”这个动作不入连锁
+			 ◇这个时点不能发动2速的效果
+			 ◇“下一个抽卡阶段”不是要弃手牌的人的抽卡阶段的场合，弃手牌一方弃掉
+			 [招财猫王/ネコマネキング]的场合，对手回合立刻结束，不抽卡
 
-		 中文名: 火之迦具土
-		 卡片种类: 效果怪兽
-		 卡片密码: 75745607
-		 种族: 炎
-		 属性: 炎
-		 星级: 8
-		 攻击力: 2800
-		 防御力: 2900
-		 罕见度: 金字UR，爆闪PR
-		 卡包: BE02、MA、DL05
-		 效果: 效果·灵魂：这张卡不能特殊召唤。召唤·反转回合的结束阶段时回到持有者的手卡。这张卡给予对方玩家战斗伤害的场合，下个回合的抽卡阶段时，对方抽卡前把手卡全部丢弃。
+			 中文名: 火之迦具土
+			 卡片种类: 效果怪兽
+			 卡片密码: 75745607
+			 种族: 炎
+			 属性: 炎
+			 星级: 8
+			 攻击力: 2800
+			 防御力: 2900
+			 罕见度: 金字UR，爆闪PR
+			 卡包: BE02、MA、DL05
+			 效果: 效果·灵魂：这张卡不能特殊召唤。召唤·反转回合的结束阶段时回到持有者的手卡。这张卡给予对方玩家战斗伤害的场合，下个回合的抽卡阶段时，对方抽卡前把手卡全部丢弃。
 
 		*/
 		Id:       606,
 		Password: "75745607",
 		Name:     "火之迦具土",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 8,
 		La:    ygo.LA_Fire, // 炎
@@ -4923,7 +4923,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       607,
 		Password: "02134346",
 		Name:     "阿修罗",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Light, // 光
@@ -4937,35 +4937,35 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 138 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 608
-		 调整:
+			 id: 608
+			 调整:
 
-		 [不死之炎鸟]<不死之炎鳥>
-		 ●这张卡不能特殊召唤。召唤，翻转的回合的结束流程时回到主人的手卡。参见
-		 [沙尘之恶灵/砂塵の悪霊]的对应内容
-		 ●这张卡给与对方玩家战斗伤害的场合，自己的基本分恢复那个战斗伤害的数值。
-		 ◇诱发效果，强制发动
-		 ◇时点同
-		 [首领
-		扎鲁格/首領·ザルーグ]
+			 [不死之炎鸟]<不死之炎鳥>
+			 ●这张卡不能特殊召唤。召唤，翻转的回合的结束流程时回到主人的手卡。参见
+			 [沙尘之恶灵/砂塵の悪霊]的对应内容
+			 ●这张卡给与对方玩家战斗伤害的场合，自己的基本分恢复那个战斗伤害的数值。
+			 ◇诱发效果，强制发动
+			 ◇时点同
+			 [首领
+			扎鲁格/首領·ザルーグ]
 
-		 中文名: 不死之炎鸟
-		 卡片种类: 效果怪兽
-		 卡片密码: 38538445
-		 种族: 鸟兽
-		 属性: 炎
-		 星级: 4
-		 攻击力: 1200
-		 防御力: 0
-		 罕见度: 平卡N
-		 卡包: BE02、MA、DL05
-		 效果: 效果·灵魂：这张卡不能特殊召唤。召唤·反转回合的结束阶段时回到主人的手卡。这张卡给予对方玩家战斗伤害的场合，自己的基本分回复那个战斗伤害的数值。
+			 中文名: 不死之炎鸟
+			 卡片种类: 效果怪兽
+			 卡片密码: 38538445
+			 种族: 鸟兽
+			 属性: 炎
+			 星级: 4
+			 攻击力: 1200
+			 防御力: 0
+			 罕见度: 平卡N
+			 卡包: BE02、MA、DL05
+			 效果: 效果·灵魂：这张卡不能特殊召唤。召唤·反转回合的结束阶段时回到主人的手卡。这张卡给予对方玩家战斗伤害的场合，自己的基本分回复那个战斗伤害的数值。
 
 		*/
 		Id:       608,
 		Password: "38538445",
 		Name:     "不死之炎鸟",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Fire,        // 炎
@@ -5010,7 +5010,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       634,
 		Password: "83986578",
 		Name:     "王虎",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth, // 地
@@ -5052,7 +5052,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       635,
 		Password: "45547649",
 		Name:     "鸟面人",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Wind,        // 风
@@ -5091,7 +5091,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       636,
 		Password: "82642348",
 		Name:     "残酷",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Dark,  // 暗
@@ -5132,7 +5132,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       637,
 		Password: "42364374",
 		Name:     "甲蝇",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,  // 地
@@ -5180,7 +5180,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       638,
 		Password: "17214465",
 		Name:     "海神的巫女",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Water, // 水
@@ -5218,7 +5218,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       639,
 		Password: "05257687",
 		Name:     "外界异物",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Water, // 水
@@ -5258,7 +5258,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       640,
 		Password: "70307656",
 		Name:     "咒怨",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Dark,  // 暗
@@ -5295,7 +5295,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       641,
 		Password: "02792265",
 		Name:     "异形的从者",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Light, // 光
@@ -5309,31 +5309,31 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 147 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 642
-		 调整:
+			 id: 642
+			 调整:
 
-		 [湿度星人]<モイスチャー星人>
-		 ●用3只怪兽做这张卡的召唤祭品召唤的场合，对方场上的全部魔法陷阱破坏。参见
-		 [神兽王
-		巴巴罗斯/神獣王バルバロス]的对应内容
+			 [湿度星人]<モイスチャー星人>
+			 ●用3只怪兽做这张卡的召唤祭品召唤的场合，对方场上的全部魔法陷阱破坏。参见
+			 [神兽王
+			巴巴罗斯/神獣王バルバロス]的对应内容
 
-		 中文名: 湿度星人
-		 卡片种类: 效果怪兽
-		 卡片密码: 75285069
-		 种族: 天使
-		 属性: 光
-		 星级: 9
-		 攻击力: 2800
-		 防御力: 2900
-		 罕见度: 平卡N
-		 卡包: BE02、PH、DL05
-		 效果: 用3只怪兽做这张卡的召唤祭品召唤的场合，对方场上的全部魔法·陷阱破坏。
+			 中文名: 湿度星人
+			 卡片种类: 效果怪兽
+			 卡片密码: 75285069
+			 种族: 天使
+			 属性: 光
+			 星级: 9
+			 攻击力: 2800
+			 防御力: 2900
+			 罕见度: 平卡N
+			 卡包: BE02、PH、DL05
+			 效果: 用3只怪兽做这张卡的召唤祭品召唤的场合，对方场上的全部魔法·陷阱破坏。
 
 		*/
 		Id:       642,
 		Password: "75285069",
 		Name:     "湿度星人",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 9,
 		La:    ygo.LA_Light, // 光
@@ -5371,7 +5371,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       643,
 		Password: "80233946",
 		Name:     "筮龟",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Water, // 水
@@ -5408,7 +5408,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       644,
 		Password: "16222645",
 		Name:     "一刀两断侍",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Wind,    // 风
@@ -5463,7 +5463,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       645,
 		Password: "89111398",
 		Name:     "沙尘之恶灵",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 6,
 		La:    ygo.LA_Earth,  // 地
@@ -5503,7 +5503,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       646,
 		Password: "16509093",
 		Name:     "王族亲卫队",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,  // 地
@@ -5517,38 +5517,38 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 152 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 647
-		 调整:
+			 id: 647
+			 调整:
 
-		 [彷徨的木乃伊]<さまようミイラ>
-		 ●这张卡1个回合可以有1次变回覆盖防守表示。这个效果使用后，把自己场上的全部覆盖防守表示的怪兽洗切，再次重新覆盖防守表示按自己的顺序回到场上。
-		 ◇变成覆盖表示后处理洗切效果
-		 ◇洗切的时候不会影响怪兽区域例：己方场怪兽区编号：
-		6
-		7
-		8
-		9
-		10己方场上6、9号怪兽区上有里侧守备表示的怪兽，7号怪兽区上有此卡此卡发动效果后，6、7、9号怪兽区上的怪兽洗切后，只能放回到6、7、9号怪兽区上，就算8、10号怪兽区是空的也不能放到那些怪兽区
-		 ◇“这张卡1个回合可以有1次变回覆盖防守表示”参见
-		 [隐形鸟/ステルスバード]的对应内容
+			 [彷徨的木乃伊]<さまようミイラ>
+			 ●这张卡1个回合可以有1次变回覆盖防守表示。这个效果使用后，把自己场上的全部覆盖防守表示的怪兽洗切，再次重新覆盖防守表示按自己的顺序回到场上。
+			 ◇变成覆盖表示后处理洗切效果
+			 ◇洗切的时候不会影响怪兽区域例：己方场怪兽区编号：
+			6
+			7
+			8
+			9
+			10己方场上6、9号怪兽区上有里侧守备表示的怪兽，7号怪兽区上有此卡此卡发动效果后，6、7、9号怪兽区上的怪兽洗切后，只能放回到6、7、9号怪兽区上，就算8、10号怪兽区是空的也不能放到那些怪兽区
+			 ◇“这张卡1个回合可以有1次变回覆盖防守表示”参见
+			 [隐形鸟/ステルスバード]的对应内容
 
-		 中文名: 彷徨的木乃伊
-		 卡片种类: 效果怪兽
-		 卡片密码: 42994702
-		 种族: 不死
-		 属性: 地
-		 星级: 4
-		 攻击力: 1500
-		 防御力: 1500
-		 罕见度: 平卡N
-		 卡包: BE02、PH、DL05、SDM
-		 效果: 这张卡1个回合可以有1次变回里侧守备表示。这个效果使用后，把自己场上的全部里侧守备表示的怪兽洗切，再次重新里侧守备表示按自己的顺序安排到场上的位置。
+			 中文名: 彷徨的木乃伊
+			 卡片种类: 效果怪兽
+			 卡片密码: 42994702
+			 种族: 不死
+			 属性: 地
+			 星级: 4
+			 攻击力: 1500
+			 防御力: 1500
+			 罕见度: 平卡N
+			 卡包: BE02、PH、DL05、SDM
+			 效果: 这张卡1个回合可以有1次变回里侧守备表示。这个效果使用后，把自己场上的全部里侧守备表示的怪兽洗切，再次重新里侧守备表示按自己的顺序安排到场上的位置。
 
 		*/
 		Id:       647,
 		Password: "42994702",
 		Name:     "彷徨的木乃伊",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,  // 地
@@ -5562,36 +5562,36 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 153 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 648
-		 调整:
+			 id: 648
+			 调整:
 
-		 [大神官
-		迪·扎德]<大神官デ·ザード>
-		 ●根据战斗破坏怪兽的次数得到下面的效果。1次：只要这张卡在场上打开表示存在，以这张卡为对象的魔法陷阱卡的发动和效果无效并破坏。
-		 ◇永续效果
-		 ◇破坏2次或更多次怪兽的场合，此效果适用2次：可以把这张卡做祭品，从自己的手卡或卡组选一只
-		 [不死王
-		巫妖/不死王リッチー]特殊召唤到场上。
-		 ◇起动效果，“把这张卡做祭品”是COST
-		 ◇破坏3次或更多次怪兽的场合，此效果适用
+			 [大神官
+			迪·扎德]<大神官デ·ザード>
+			 ●根据战斗破坏怪兽的次数得到下面的效果。1次：只要这张卡在场上打开表示存在，以这张卡为对象的魔法陷阱卡的发动和效果无效并破坏。
+			 ◇永续效果
+			 ◇破坏2次或更多次怪兽的场合，此效果适用2次：可以把这张卡做祭品，从自己的手卡或卡组选一只
+			 [不死王
+			巫妖/不死王リッチー]特殊召唤到场上。
+			 ◇起动效果，“把这张卡做祭品”是COST
+			 ◇破坏3次或更多次怪兽的场合，此效果适用
 
-		 中文名: 大神官 迪·扎德
-		 卡片种类: 效果怪兽
-		 卡片密码: 88989706
-		 种族: 魔法师
-		 属性: 暗
-		 星级: 6
-		 攻击力: 1900
-		 防御力: 2300
-		 罕见度: 面闪SR
-		 卡包: BE02、PH、DL05
-		 效果: 根据战斗破坏怪兽的次数得到下面的效果：●1次：只要这张卡在场上表侧表示存在，以这张卡为对象的魔法·陷阱卡的发动和效果无效并破坏。●2次：可以把这张卡做祭品，从自己的手卡·卡组选1只「不死王 巫妖」特殊召唤到场上。
+			 中文名: 大神官 迪·扎德
+			 卡片种类: 效果怪兽
+			 卡片密码: 88989706
+			 种族: 魔法师
+			 属性: 暗
+			 星级: 6
+			 攻击力: 1900
+			 防御力: 2300
+			 罕见度: 面闪SR
+			 卡包: BE02、PH、DL05
+			 效果: 根据战斗破坏怪兽的次数得到下面的效果：●1次：只要这张卡在场上表侧表示存在，以这张卡为对象的魔法·陷阱卡的发动和效果无效并破坏。●2次：可以把这张卡做祭品，从自己的手卡·卡组选1只「不死王 巫妖」特殊召唤到场上。
 
 		*/
 		Id:       648,
 		Password: "88989706",
 		Name:     "大神官 迪·扎德",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 6,
 		La:    ygo.LA_Dark,        // 暗
@@ -5630,7 +5630,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       649,
 		Password: "15383415",
 		Name:     "圣甲虫群",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Dark,   // 暗
@@ -5669,7 +5669,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       650,
 		Password: "41872150",
 		Name:     "蝗虫的军势",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Dark,   // 暗
@@ -5708,7 +5708,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       651,
 		Password: "78266168",
 		Name:     "巨大木乃伊",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 5,
 		La:    ygo.LA_Earth,  // 地
@@ -5722,38 +5722,38 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 157 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 652
-		 调整:
+			 id: 652
+			 调整:
 
-		 [八钳蝎]<八つ手サソリ>
-		 ●这张卡1个回合可以有1次变回覆盖防守表示。参见
-		 [隐形鸟/ステルスバード]的对应内容
-		 ●这张卡攻击对方的覆盖防守表示的怪兽的场合，这张卡在伤害计算时攻击力以2400计算。
-		 ◇诱发效果，强制发动，入连锁
-		 ◇时点同
-		 [注射天使
-		莉莉/お注射天使リリー]
-		 ◇无论原来攻击力为多少，都按2400算
-		 ◇
-		 [天邪鬼的诅咒/あまのじゃくの呪い]効果不适用
+			 [八钳蝎]<八つ手サソリ>
+			 ●这张卡1个回合可以有1次变回覆盖防守表示。参见
+			 [隐形鸟/ステルスバード]的对应内容
+			 ●这张卡攻击对方的覆盖防守表示的怪兽的场合，这张卡在伤害计算时攻击力以2400计算。
+			 ◇诱发效果，强制发动，入连锁
+			 ◇时点同
+			 [注射天使
+			莉莉/お注射天使リリー]
+			 ◇无论原来攻击力为多少，都按2400算
+			 ◇
+			 [天邪鬼的诅咒/あまのじゃくの呪い]効果不适用
 
-		 中文名: 八钳蝎
-		 卡片种类: 效果怪兽
-		 卡片密码: 14261867
-		 种族: 昆虫
-		 属性: 暗
-		 星级: 2
-		 攻击力: 300
-		 防御力: 200
-		 罕见度: 平卡N
-		 卡包: PH、DL05、GLD01
-		 效果: 这张卡1个回合可以有1次变回里侧守备表示。这张卡攻击对方的里侧守备表示的怪兽的场合，这张卡在伤害计算时攻击力以2400计算。
+			 中文名: 八钳蝎
+			 卡片种类: 效果怪兽
+			 卡片密码: 14261867
+			 种族: 昆虫
+			 属性: 暗
+			 星级: 2
+			 攻击力: 300
+			 防御力: 200
+			 罕见度: 平卡N
+			 卡包: PH、DL05、GLD01
+			 效果: 这张卡1个回合可以有1次变回里侧守备表示。这张卡攻击对方的里侧守备表示的怪兽的场合，这张卡在伤害计算时攻击力以2400计算。
 
 		*/
 		Id:       652,
 		Password: "14261867",
 		Name:     "八钳蝎",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Dark,   // 暗
@@ -5792,7 +5792,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       653,
 		Password: "40659562",
 		Name:     "守护者斯芬克斯",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 5,
 		La:    ygo.LA_Earth, // 地
@@ -5829,7 +5829,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       654,
 		Password: "77044671",
 		Name:     "金字塔龟",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,  // 地
@@ -5870,7 +5870,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       655,
 		Password: "03549275",
 		Name:     "骰子壶",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Light, // 光
@@ -5884,34 +5884,34 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 161 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 656
-		 调整:
+			 id: 656
+			 调整:
 
-		 [黑蝎盗掘团]<黒蠍盜掘团>
-		 ●这张卡给与对方玩家战斗伤害时，对方从卡组选择一张魔法卡送去墓地，之后卡组洗切。
-		 ◇诱发效果，强制发动
-		 ◇时点同
-		 [首领
-		扎鲁格/首領·ザルーグ]
-		 ◇没有魔法卡可扔的场合，展示卡组
+			 [黑蝎盗掘团]<黒蠍盜掘团>
+			 ●这张卡给与对方玩家战斗伤害时，对方从卡组选择一张魔法卡送去墓地，之后卡组洗切。
+			 ◇诱发效果，强制发动
+			 ◇时点同
+			 [首领
+			扎鲁格/首領·ザルーグ]
+			 ◇没有魔法卡可扔的场合，展示卡组
 
-		 中文名: 黑蝎盗掘团
-		 卡片种类: 效果怪兽
-		 卡片密码: 40933924
-		 种族: 战士
-		 属性: 暗
-		 星级: 4
-		 攻击力: 1000
-		 防御力: 1000
-		 罕见度: 平卡N
-		 卡包: BE02、PH、DL05
-		 效果: 这张卡给予对方玩家战斗伤害时，对方从卡组选择1张魔法卡送去墓地，之后卡组洗切。
+			 中文名: 黑蝎盗掘团
+			 卡片种类: 效果怪兽
+			 卡片密码: 40933924
+			 种族: 战士
+			 属性: 暗
+			 星级: 4
+			 攻击力: 1000
+			 防御力: 1000
+			 罕见度: 平卡N
+			 卡包: BE02、PH、DL05
+			 效果: 这张卡给予对方玩家战斗伤害时，对方从卡组选择1张魔法卡送去墓地，之后卡组洗切。
 
 		*/
 		Id:       656,
 		Password: "40933924",
 		Name:     "黑蝎盗掘团",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Dark,    // 暗
@@ -5925,35 +5925,35 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 162 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 657
-		 调整:
+			 id: 657
+			 调整:
 
-		 [首领
-		扎鲁格]<首領·ザルーグ>
-		 ●这张卡给与对方玩家战斗伤害时，可以选择下面一个效果发动。
-		 ◇诱发效果，任意发动
-		 ●对方随机丢弃一张手卡。
-		 ◇就算对方手牌处于公开状态，也会暂时不公开，洗切后随机丢弃
-		 ●对方的卡组最上面的2张卡送去墓地。参见
-		 [黑蝎-拆除陷阱的克里夫/黒蠍－罠はずしのクリフ]的对应内容
+			 [首领
+			扎鲁格]<首領·ザルーグ>
+			 ●这张卡给与对方玩家战斗伤害时，可以选择下面一个效果发动。
+			 ◇诱发效果，任意发动
+			 ●对方随机丢弃一张手卡。
+			 ◇就算对方手牌处于公开状态，也会暂时不公开，洗切后随机丢弃
+			 ●对方的卡组最上面的2张卡送去墓地。参见
+			 [黑蝎-拆除陷阱的克里夫/黒蠍－罠はずしのクリフ]的对应内容
 
-		 中文名: 首领 扎鲁格
-		 卡片种类: 效果怪兽
-		 卡片密码: 76922029
-		 种族: 战士
-		 属性: 暗
-		 星级: 4
-		 攻击力: 1400
-		 防御力: 1500
-		 罕见度: 黄金GR，面闪SR
-		 卡包: BE02、PH、DL05、GLD01
-		 效果: 这张卡给予对方玩家战斗伤害时，可以选择下面1个效果发动：●对方随机丢弃1张手卡。●对方的卡组最上面的2张卡送去墓地。
+			 中文名: 首领 扎鲁格
+			 卡片种类: 效果怪兽
+			 卡片密码: 76922029
+			 种族: 战士
+			 属性: 暗
+			 星级: 4
+			 攻击力: 1400
+			 防御力: 1500
+			 罕见度: 黄金GR，面闪SR
+			 卡包: BE02、PH、DL05、GLD01
+			 效果: 这张卡给予对方玩家战斗伤害时，可以选择下面1个效果发动：●对方随机丢弃1张手卡。●对方的卡组最上面的2张卡送去墓地。
 
 		*/
 		Id:       657,
 		Password: "76922029",
 		Name:     "首领 扎鲁格",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Dark,    // 暗
@@ -5967,45 +5967,45 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 163 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 658
-		 调整:
+			 id: 658
+			 调整:
 
-		 [不死王
-		巫妖]<不死王リッチー>
-		 ●这张卡不能通常召唤。满足条件的
-		 [大神官
-		迪·扎德/大神官デ·ザード]做祭品特殊召唤。
-		 ◇召唤规则
-		 ◇遵守苏生限制
-		 ◇“满足条件的
-		 [大神官
-		迪·扎德/大神官デ·ザード]做祭品特殊召唤”等价于“通过
-		 [大神官
-		迪·扎德/大神官デ·ザード]的效果可以特殊召唤此卡”
-		 ●这张卡1个回合可以有1次变成覆盖防守表示。参见
-		 [隐形鸟/ステルスバード]的对应内容
-		 ●场上打开表示存在的这张卡为对象的魔法陷阱卡的发动和效果无效并破坏。
-		 ◇永续效果
-		 ●这张卡翻转时，选择自己的墓地的一只不死族怪兽特殊召唤上场。
-		 ◇诱发效果，强制发动，取对象
+			 [不死王
+			巫妖]<不死王リッチー>
+			 ●这张卡不能通常召唤。满足条件的
+			 [大神官
+			迪·扎德/大神官デ·ザード]做祭品特殊召唤。
+			 ◇召唤规则
+			 ◇遵守苏生限制
+			 ◇“满足条件的
+			 [大神官
+			迪·扎德/大神官デ·ザード]做祭品特殊召唤”等价于“通过
+			 [大神官
+			迪·扎德/大神官デ·ザード]的效果可以特殊召唤此卡”
+			 ●这张卡1个回合可以有1次变成覆盖防守表示。参见
+			 [隐形鸟/ステルスバード]的对应内容
+			 ●场上打开表示存在的这张卡为对象的魔法陷阱卡的发动和效果无效并破坏。
+			 ◇永续效果
+			 ●这张卡翻转时，选择自己的墓地的一只不死族怪兽特殊召唤上场。
+			 ◇诱发效果，强制发动，取对象
 
-		 中文名: 不死王 巫妖
-		 卡片种类: 效果怪兽
-		 卡片密码: 39711336
-		 种族: 不死
-		 属性: 暗
-		 星级: 7
-		 攻击力: 2600
-		 防御力: 2900
-		 罕见度: 金字UR，爆闪PR
-		 卡包: BE02、PH、DL05
-		 效果: 这张卡不能通常召唤。满足条件的「大神官 迪·扎德」做祭品特殊召唤。这张卡1个回合可以有1次变成里侧守备表示。场上表侧表示存在的这张卡为对象的魔法·陷阱卡的发动和效果无效并破坏。这张卡反转时，选择自己的墓地的1只不死族怪兽特殊召唤上场。
+			 中文名: 不死王 巫妖
+			 卡片种类: 效果怪兽
+			 卡片密码: 39711336
+			 种族: 不死
+			 属性: 暗
+			 星级: 7
+			 攻击力: 2600
+			 防御力: 2900
+			 罕见度: 金字UR，爆闪PR
+			 卡包: BE02、PH、DL05
+			 效果: 这张卡不能通常召唤。满足条件的「大神官 迪·扎德」做祭品特殊召唤。这张卡1个回合可以有1次变成里侧守备表示。场上表侧表示存在的这张卡为对象的魔法·陷阱卡的发动和效果无效并破坏。这张卡反转时，选择自己的墓地的1只不死族怪兽特殊召唤上场。
 
 		*/
 		Id:       658,
 		Password: "39711336",
 		Name:     "不死王 巫妖",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 7,
 		La:    ygo.LA_Dark,   // 暗
@@ -6019,34 +6019,34 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 164 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 659
-		 调整:
+			 id: 659
+			 调整:
 
-		 [半蛇人
-		萨库兹]<半蛇人サクズィー>
-		 ●这张卡1个回合可以有1次变回覆盖防守表示。参见
-		 [隐形鸟/ステルスバード]的对应内容
-		 ●这张卡翻转时，对方场上的覆盖放置的全部魔法陷阱卡翻开，确认后变会原来的放置形式。
-		 ◇诱发效果，强制发动
-		 ◇只是“确认”，那些魔法陷阱卡的效果在此效果处理时不发动
+			 [半蛇人
+			萨库兹]<半蛇人サクズィー>
+			 ●这张卡1个回合可以有1次变回覆盖防守表示。参见
+			 [隐形鸟/ステルスバード]的对应内容
+			 ●这张卡翻转时，对方场上的覆盖放置的全部魔法陷阱卡翻开，确认后变会原来的放置形式。
+			 ◇诱发效果，强制发动
+			 ◇只是“确认”，那些魔法陷阱卡的效果在此效果处理时不发动
 
-		 中文名: 半蛇人 萨库兹
-		 卡片种类: 效果怪兽
-		 卡片密码: 75109441
-		 种族: 爬虫类
-		 属性: 地
-		 星级: 3
-		 攻击力: 800
-		 防御力: 1400
-		 罕见度: 平卡N
-		 卡包: PH、DL05
-		 效果: 这张卡1个回合可以有1次变回里侧守备表示。这张卡反转时，对方场上的盖伏的全部魔法·陷阱卡翻开，确认后变回原来的盖伏形式。
+			 中文名: 半蛇人 萨库兹
+			 卡片种类: 效果怪兽
+			 卡片密码: 75109441
+			 种族: 爬虫类
+			 属性: 地
+			 星级: 3
+			 攻击力: 800
+			 防御力: 1400
+			 罕见度: 平卡N
+			 卡包: PH、DL05
+			 效果: 这张卡1个回合可以有1次变回里侧守备表示。这张卡反转时，对方场上的盖伏的全部魔法·陷阱卡翻开，确认后变回原来的盖伏形式。
 
 		*/
 		Id:       659,
 		Password: "75109441",
 		Name:     "半蛇人 萨库兹",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,   // 地
@@ -6060,37 +6060,37 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 165 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 2785
-		 调整:
+			 id: 2785
+			 调整:
 
-		 [稀有金属女武神]<レアメタル·ヴァルキリー>
-		 ●此卡在给对手直接攻击的伤害计算时攻击力上升1000。
-		 ◇诱发效果，强制发动
-		 ◇时点同
-		 [注射天使
-		莉莉/お注射天使リリー]
-		 ●在场上的此卡可以和融合区的
-		 [稀有金属骑士/レアメタル·ナイト]互换(这张卡特殊召唤的回合不可以互换。)
-		 ◇起动效果
-		 ◇“互换”属于特殊召唤，但不属于融合召唤
+			 [稀有金属女武神]<レアメタル·ヴァルキリー>
+			 ●此卡在给对手直接攻击的伤害计算时攻击力上升1000。
+			 ◇诱发效果，强制发动
+			 ◇时点同
+			 [注射天使
+			莉莉/お注射天使リリー]
+			 ●在场上的此卡可以和融合区的
+			 [稀有金属骑士/レアメタル·ナイト]互换(这张卡特殊召唤的回合不可以互换。)
+			 ◇起动效果
+			 ◇“互换”属于特殊召唤，但不属于融合召唤
 
-		 中文名: 稀有金属女武神
-		 卡片种类: 融合怪兽
-		 卡片密码: 75923050
-		 种族: 机械
-		 属性: 地
-		 星级: 6
-		 攻击力: 1200
-		 防御力: 500
-		 罕见度: 平卡N
-		 卡包: MA
-		 效果: 融合：「稀有金属女郎」＋「稀有金属战士」。这张卡在给对方直接攻击的伤害计算时攻击力上升1000，上场上的这张卡可以和融合区的「稀有金属骑士」互换（这张卡特殊召唤的回合不可以互换。）
+			 中文名: 稀有金属女武神
+			 卡片种类: 融合怪兽
+			 卡片密码: 75923050
+			 种族: 机械
+			 属性: 地
+			 星级: 6
+			 攻击力: 1200
+			 防御力: 500
+			 罕见度: 平卡N
+			 卡包: MA
+			 效果: 融合：「稀有金属女郎」＋「稀有金属战士」。这张卡在给对方直接攻击的伤害计算时攻击力上升1000，上场上的这张卡可以和融合区的「稀有金属骑士」互换（这张卡特殊召唤的回合不可以互换。）
 
 		*/
 		Id:       2785,
 		Password: "75923050",
 		Name:     "稀有金属女武神",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 6,
 		La:    ygo.LA_Earth,   // 地
@@ -6129,7 +6129,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2786,
 		Password: "01412158",
 		Name:     "稀有金属骑士",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 6,
 		La:    ygo.LA_Earth,   // 地
@@ -6143,40 +6143,40 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 167 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 381
-		 调整:
+			 id: 381
+			 调整:
 
-		 [异星的最终战士]<異星の最終戦士>
-		 ●这张卡特殊召唤时，其他的自己的场上的怪兽全部破坏。
-		 ◇诱发效果，强制发动
-		 ◇此效果在此卡以里侧守备表示特殊召唤以外的方式特殊召唤的场合发动
-		 ●只要这张卡在场上存在，互相的其他的怪兽不能召唤，反转召唤，特殊召唤。
-		 ◇永续效果
-		 ◇不能解放此卡进行上级召唤
-		 ◇
-		 [神圣光辉/聖なる輝き]效果适用中的场合，双方都不能出怪兽
-		 ◇“不能特殊召唤”参见
-		 [升灵术师
-		奘玄/昇霊術師
-		ジョウゲン]的对应内容
+			 [异星的最终战士]<異星の最終戦士>
+			 ●这张卡特殊召唤时，其他的自己的场上的怪兽全部破坏。
+			 ◇诱发效果，强制发动
+			 ◇此效果在此卡以里侧守备表示特殊召唤以外的方式特殊召唤的场合发动
+			 ●只要这张卡在场上存在，互相的其他的怪兽不能召唤，反转召唤，特殊召唤。
+			 ◇永续效果
+			 ◇不能解放此卡进行上级召唤
+			 ◇
+			 [神圣光辉/聖なる輝き]效果适用中的场合，双方都不能出怪兽
+			 ◇“不能特殊召唤”参见
+			 [升灵术师
+			奘玄/昇霊術師
+			ジョウゲン]的对应内容
 
-		 中文名: 异星的最终战士
-		 卡片种类: 融合怪兽
-		 卡片密码: 86099788
-		 种族: 战士
-		 属性: 地
-		 星级: 7
-		 攻击力: 2350
-		 防御力: 2300
-		 罕见度: 面闪SR
-		 卡包: BE02、LN、DL03
-		 效果: 融合：「暗黑英雄 尸魔侠」＋「魔力吸收球体」。这张卡特殊召唤时，其他的自己的场上的怪兽全部破坏。只要这张卡在场上存在，互相的其他的怪兽不能召唤·反转召唤·特殊召唤。
+			 中文名: 异星的最终战士
+			 卡片种类: 融合怪兽
+			 卡片密码: 86099788
+			 种族: 战士
+			 属性: 地
+			 星级: 7
+			 攻击力: 2350
+			 防御力: 2300
+			 罕见度: 面闪SR
+			 卡包: BE02、LN、DL03
+			 效果: 融合：「暗黑英雄 尸魔侠」＋「魔力吸收球体」。这张卡特殊召唤时，其他的自己的场上的怪兽全部破坏。只要这张卡在场上存在，互相的其他的怪兽不能召唤·反转召唤·特殊召唤。
 
 		*/
 		Id:       381,
 		Password: "86099788",
 		Name:     "异星的最终战士",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 7,
 		La:    ygo.LA_Earth,   // 地
@@ -6190,42 +6190,42 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 168 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 545
-		 调整:
+			 id: 545
+			 调整:
 
-		 [魔人
-		暗黑护持师]<魔人
-		ダーク·バルター>
-		 ●融合召唤这只怪兽，必须用上面所写的卡融合召唤。参见
-		 [电子终结龙/サイバー·エンド·ドラゴン]的对应内容
-		 ◇因
-		 [简易融合/簡易融合]属于融合召唤但不用素材，所以不能用
-		 [简易融合/簡易融合]的效果特殊召唤此卡
-		 ●通常魔法发动时付出1000分，那个通常魔法的效果无效化。参见
-		 [荷鲁斯之黑炎龙LV8/ホルスの黒炎竜
-		LV8]的对应内容
-		 ●这张卡战斗破坏的效果怪兽的效果无效化。参见
-		 [冥界的魔王
-		哈迪斯/冥界の魔王
-		ハ·デス]的对应内容
+			 [魔人
+			暗黑护持师]<魔人
+			ダーク·バルター>
+			 ●融合召唤这只怪兽，必须用上面所写的卡融合召唤。参见
+			 [电子终结龙/サイバー·エンド·ドラゴン]的对应内容
+			 ◇因
+			 [简易融合/簡易融合]属于融合召唤但不用素材，所以不能用
+			 [简易融合/簡易融合]的效果特殊召唤此卡
+			 ●通常魔法发动时付出1000分，那个通常魔法的效果无效化。参见
+			 [荷鲁斯之黑炎龙LV8/ホルスの黒炎竜
+			LV8]的对应内容
+			 ●这张卡战斗破坏的效果怪兽的效果无效化。参见
+			 [冥界的魔王
+			哈迪斯/冥界の魔王
+			ハ·デス]的对应内容
 
-		 中文名: 魔人 暗黑护持师
-		 卡片种类: 融合怪兽
-		 卡片密码: 80071763
-		 种族: 恶魔
-		 属性: 暗
-		 星级: 5
-		 攻击力: 2000
-		 防御力: 1200
-		 罕见度: 银字R
-		 卡包: BE02、SC、DL05
-		 效果: 融合：「凭依的血魂」＋「边境的大贤者」。融合召唤这只怪兽，必须用上面所写的卡融合召唤。通常魔法发动时支付1000分，那个通常魔法的效果无效化。这张卡战斗破坏的效果怪兽的效果无效化。
+			 中文名: 魔人 暗黑护持师
+			 卡片种类: 融合怪兽
+			 卡片密码: 80071763
+			 种族: 恶魔
+			 属性: 暗
+			 星级: 5
+			 攻击力: 2000
+			 防御力: 1200
+			 罕见度: 银字R
+			 卡包: BE02、SC、DL05
+			 效果: 融合：「凭依的血魂」＋「边境的大贤者」。融合召唤这只怪兽，必须用上面所写的卡融合召唤。通常魔法发动时支付1000分，那个通常魔法的效果无效化。这张卡战斗破坏的效果怪兽的效果无效化。
 
 		*/
 		Id:       545,
 		Password: "80071763",
 		Name:     "魔人 暗黑护持师",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 5,
 		La:    ygo.LA_Dark,  // 暗
@@ -6239,36 +6239,36 @@ func d_4(cardBag *ygo.CardVersion) {
 	/* 169 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 561
-		 调整:
+			 id: 561
+			 调整:
 
-		 [龙战士]<ドラゴン·ウォリアー>
-		 ●融合召唤这只怪兽，必须用上面所写的卡融合召唤。参见
-		 [电子终结龙/サイバー·エンド·ドラゴン]的对应内容
-		 ●只要这张卡在场上存在，可以付出1000分使通常陷阱的效果无效化。参见
-		 [黑魔法神官/黒の魔法神官]的对应内容
-		 ●以这张卡为对象的魔法卡的效果无效并破坏。参见
-		 [无败将军
-		弗里德/無敗将軍
-		フリード]的对应内容
+			 [龙战士]<ドラゴン·ウォリアー>
+			 ●融合召唤这只怪兽，必须用上面所写的卡融合召唤。参见
+			 [电子终结龙/サイバー·エンド·ドラゴン]的对应内容
+			 ●只要这张卡在场上存在，可以付出1000分使通常陷阱的效果无效化。参见
+			 [黑魔法神官/黒の魔法神官]的对应内容
+			 ●以这张卡为对象的魔法卡的效果无效并破坏。参见
+			 [无败将军
+			弗里德/無敗将軍
+			フリード]的对应内容
 
-		 中文名: 龙战士
-		 卡片种类: 融合怪兽
-		 卡片密码: 49868263
-		 种族: 战士
-		 属性: 地
-		 星级: 6
-		 攻击力: 2000
-		 防御力: 1200
-		 罕见度: 平卡N，银字R
-		 卡包: BE02、SC、DL05
-		 效果: 融合：「战士 戴·格雷法」＋「灵魂龙」融合召唤这只怪兽，必须用上面所写的卡融合召唤。只要这张卡在场上存在，可以支付1000分使通常陷阱的效果无效化。以这张卡为对象的魔法卡的效果无效并破坏。
+			 中文名: 龙战士
+			 卡片种类: 融合怪兽
+			 卡片密码: 49868263
+			 种族: 战士
+			 属性: 地
+			 星级: 6
+			 攻击力: 2000
+			 防御力: 1200
+			 罕见度: 平卡N，银字R
+			 卡包: BE02、SC、DL05
+			 效果: 融合：「战士 戴·格雷法」＋「灵魂龙」融合召唤这只怪兽，必须用上面所写的卡融合召唤。只要这张卡在场上存在，可以支付1000分使通常陷阱的效果无效化。以这张卡为对象的魔法卡的效果无效并破坏。
 
 		*/
 		Id:       561,
 		Password: "49868263",
 		Name:     "龙战士",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 6,
 		La:    ygo.LA_Earth,   // 地
@@ -6313,7 +6313,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       578,
 		Password: "66235877",
 		Name:     "死亡魔龙",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 5,
 		La:    ygo.LA_Wind,   // 风
@@ -6346,7 +6346,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2655,
 		Password: "44203504",
 		Name:     "机械军曹",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Fire,    // 炎
@@ -6378,7 +6378,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2773,
 		Password: "98456117",
 		Name:     "骨海马",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Water, // 水
@@ -6410,7 +6410,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2774,
 		Password: "12883044",
 		Name:     "火焰舞者",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Fire, // 炎
@@ -6442,7 +6442,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2775,
 		Password: "52121290",
 		Name:     "蛇女郎",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth, // 地
@@ -6474,7 +6474,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2776,
 		Password: "27671321",
 		Name:     "雷鳗",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Water,   // 水
@@ -6506,7 +6506,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2779,
 		Password: "93346024",
 		Name:     "洞穴的潜龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Wind,   // 风
@@ -6538,7 +6538,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2780,
 		Password: "20831168",
 		Name:     "蜥蜴兵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Wind,   // 风
@@ -6570,7 +6570,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2781,
 		Password: "56369281",
 		Name:     "贝奥武夫狼",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,        // 地
@@ -6602,7 +6602,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2782,
 		Password: "83764996",
 		Name:     "魔导绅士-J",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,        // 暗
@@ -6634,7 +6634,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2783,
 		Password: "92421852",
 		Name:     "稀有金属女郎",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth,   // 地
@@ -6666,7 +6666,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2784,
 		Password: "38916461",
 		Name:     "稀有金属战士",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth,   // 地
@@ -6698,7 +6698,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2787,
 		Password: "17192817",
 		Name:     "熔岩大巨人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Fire, // 炎
@@ -6730,7 +6730,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2788,
 		Password: "04035199",
 		Name:     "形体抓取者",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Dark,    // 暗
@@ -6762,7 +6762,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       2789,
 		Password: "31242786",
 		Name:     "食魂鱼",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth, // 地
@@ -6794,7 +6794,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       360,
 		Password: "32541773",
 		Name:     "绘画中的潜藏者",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth, // 地
@@ -6826,7 +6826,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       361,
 		Password: "68049471",
 		Name:     "梦魔的亡灵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗
@@ -6858,7 +6858,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       362,
 		Password: "05434080",
 		Name:     "无头骑士",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth, // 地
@@ -6890,7 +6890,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       363,
 		Password: "67105242",
 		Name:     "地缚灵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth, // 地
@@ -6922,7 +6922,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       364,
 		Password: "66989694",
 		Name:     "死灵伯爵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Dark,  // 暗
@@ -6954,7 +6954,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       551,
 		Password: "14531242",
 		Name:     "红色独眼巨人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗
@@ -6986,7 +6986,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       562,
 		Password: "75953262",
 		Name:     "战士 戴·格雷法",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,   // 地
@@ -7018,7 +7018,7 @@ func d_4(cardBag *ygo.CardVersion) {
 		Id:       589,
 		Password: "17658803",
 		Name:     "绿宝石龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Wind,   // 风

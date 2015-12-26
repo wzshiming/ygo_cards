@@ -26,7 +26,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2083,
 		Password: "19523799",
 		Name:     "昼夜的大火事",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellNormalPuah(ygo.LO_Hurt, func() {
@@ -63,7 +63,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2501,
 		Password: "81820689",
 		Name:     "未熟的密探",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellNormalPuah(ygo.LO_Peek, func() {
@@ -103,7 +103,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2531,
 		Password: "17092736",
 		Name:     "古代的望远镜",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellNormalPuah(ygo.LO_Peek, func() {
@@ -149,7 +149,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       476,
 		Password: "56830749",
 		Name:     "分担痛苦",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellNormal(func() {
@@ -195,13 +195,15 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       478,
 		Password: "19613556",
 		Name:     "大风暴",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellNormalPuah(ygo.LO_DestroySpellAndTrap, func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				css := ygo.NewCards(pl.Szone(), tar.Szone())
+				css := ygo.NewCards(pl.Szone(), tar.Szone(), func(c0 *ygo.Card) bool {
+					return ca != c0
+				})
 				css.ForEach(func(c0 *ygo.Card) bool {
 					c0.Destroy(ca)
 					return true
@@ -234,7 +236,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       483,
 		Password: "47852924",
 		Name:     "天使的鲜血",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellNormalPuah(ygo.LO_Reply, func() {
@@ -268,7 +270,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       484,
 		Password: "45895206",
 		Name:     "消除黑暗的光",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellNormal(func() {
@@ -313,7 +315,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       487,
 		Password: "20871001",
 		Name:     "蓝色药剂",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellNormalPuah(ygo.LO_Reply, func() {
@@ -348,7 +350,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       488,
 		Password: "56260110",
 		Name:     "雷鸣",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellNormalPuah(ygo.LO_Hurt, func() {
@@ -386,7 +388,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       504,
 		Password: "79571449",
 		Name:     "天使的施舍",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellNormal(func() {
@@ -430,11 +432,11 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       525,
 		Password: "90330453",
 		Name:     "魔女狩猎",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellEffectDestroyFor(func(c0 *ygo.Card) bool {
-				return c0.IsFaceUp() && c0.RaceIsSpellcaster()
+				return c0.IsFaceUp() && c0.GetRace().IsSpellcaster()
 			})
 			return true
 		}, // 初始
@@ -463,11 +465,11 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       526,
 		Password: "26725158",
 		Name:     "恶魔祓除",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellEffectDestroyFor(func(c0 *ygo.Card) bool {
-				return c0.IsFaceUp() && c0.RaceIsFiend()
+				return c0.IsFaceUp() && c0.GetRace().IsFiend()
 			})
 			return true
 		}, // 初始
@@ -498,7 +500,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       528,
 		Password: "99518961",
 		Name:     "革命",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellNormalPuah(ygo.LO_Hurt, func() {
@@ -534,7 +536,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       529,
 		Password: "26902560",
 		Name:     "融合贤者",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellNormal(func() {
@@ -578,11 +580,11 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2499,
 		Password: "37120512",
 		Name:     "暗之破神剑",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellEquipEffect1(func(c *ygo.Card) bool {
-				return c.AttrIsDark()
+				return c.GetAttr().IsDark()
 			}, func(c *ygo.Card) {
 				c.AddAtk(400)
 				c.AddDef(-200)
@@ -616,11 +618,11 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2500,
 		Password: "98374133",
 		Name:     "觉醒",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellEquipEffect1(func(c *ygo.Card) bool {
-				return c.AttrIsEarth()
+				return c.GetAttr().IsEarth()
 			}, func(c *ygo.Card) {
 				c.AddAtk(400)
 				c.AddDef(-200)
@@ -653,7 +655,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       475,
 		Password: "20436034",
 		Name:     "磁力指轮",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -682,12 +684,12 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       477,
 		Password: "83225447",
 		Name:     "兴奋剂",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.Counter = 0
 			ca.RegisterSpellEquipEffect2(func(c *ygo.Card) bool {
-				return !c.RaceIsMachine()
+				return !c.GetRace().IsMachine()
 			}, func(c *ygo.Card) {
 				c.AddAtk(700 + ca.Counter*-200)
 			}, ygo.SP, func(c *ygo.Card) {
@@ -726,11 +728,11 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       481,
 		Password: "39897277",
 		Name:     "精灵之光",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellEquipEffect1(func(c *ygo.Card) bool {
-				return c.AttrIsLight()
+				return c.GetAttr().IsLight()
 			}, func(c *ygo.Card) {
 				c.AddAtk(400)
 				c.AddDef(-200)
@@ -764,11 +766,11 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       482,
 		Password: "02370081",
 		Name:     "钢甲壳",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellEquipEffect1(func(c *ygo.Card) bool {
-				return c.AttrIsWater()
+				return c.GetAttr().IsWater()
 			}, func(c *ygo.Card) {
 				c.AddAtk(400)
 				c.AddDef(-200)
@@ -802,11 +804,11 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       489,
 		Password: "18937875",
 		Name:     "灼热之枪",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellEquipEffect1(func(c *ygo.Card) bool {
-				return c.AttrIsFire()
+				return c.GetAttr().IsFire()
 			}, func(c *ygo.Card) {
 				c.AddAtk(400)
 				c.AddDef(-200)
@@ -840,11 +842,11 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       490,
 		Password: "55321970",
 		Name:     "突风之扇",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterSpellEquipEffect1(func(c *ygo.Card) bool {
-				return c.AttrIsWind()
+				return c.GetAttr().IsWind()
 			}, func(c *ygo.Card) {
 				c.AddAtk(400)
 				c.AddDef(-200)
@@ -890,7 +892,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       1358,
 		Password: "80604091",
 		Name:     "血之代偿",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterTrapUnnormal(func() {
@@ -898,7 +900,7 @@ func d_2(cardBag *ygo.CardVersion) {
 				if (pl.IsCurrent() && pl.IsInMP()) || (!pl.IsCurrent() && pl.GetCurrent().IsInBP()) {
 					l := pl.Mzone().Len()
 					css := pl.Hand().Find(func(c0 *ygo.Card) bool {
-						if c0.IsMonster() {
+						if c0.GetType().IsMonster() {
 							if c0.GetLevel() <= 4 {
 								return true
 							} else if c0.GetLevel() <= 6 && l >= 1 {
@@ -950,7 +952,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       524,
 		Password: "51452091",
 		Name:     "王宫的通告",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -983,7 +985,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       527,
 		Password: "53119267",
 		Name:     "魔力之棘",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterTrapUnnormal(func(tar *ygo.Player) {
@@ -1028,7 +1030,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       1420,
 		Password: "24068492",
 		Name:     "自业自得",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterTrapNormalAnyPush(ygo.LO_Hurt, func() {
@@ -1064,7 +1066,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2081,
 		Password: "44209392",
 		Name:     "城壁",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterTrapNormalAny(func() {
@@ -1111,7 +1113,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2082,
 		Password: "17814387",
 		Name:     "援军",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterTrapNormalAny(func() {
@@ -1160,7 +1162,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2532,
 		Password: "77622396",
 		Name:     "天邪鬼的诅咒",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1188,10 +1190,25 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2556,
 		Password: "43487744",
 		Name:     "白洞",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterTrapNormal(func(c *ygo.Card) {
+				tar := c.GetSummoner()
+				pl := ca.GetSummoner()
+				if c.GetName() == "黑洞" && tar != pl {
+					ca.PushTrap(ygo.LO_Intercept, func() {
+						c.StopEvent()
+						tar.Mzone().ForEach(func(c0 *ygo.Card) bool {
+							c0.Destroy(c)
+							return true
+						})
+					})
+				}
+			}, ygo.UseSpell)
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 30 */
@@ -1217,7 +1234,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2616,
 		Password: "55608151",
 		Name:     "狮鹫之翼",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1246,7 +1263,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       505,
 		Password: "16970158",
 		Name:     "来自墓场的呼声",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1274,7 +1291,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2527,
 		Password: "35752363",
 		Name:     "朱雀",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 5,
 		La:    ygo.LA_Fire, // 炎
@@ -1311,7 +1328,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2528,
 		Password: "56413937",
 		Name:     "战场的死装束",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 6,
 		La:    ygo.LA_Earth,   // 地
@@ -1348,7 +1365,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2529,
 		Password: "08327462",
 		Name:     "死亡鸟",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 6,
 		La:    ygo.LA_Wind,        // 风
@@ -1385,7 +1402,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2554,
 		Password: "86164529",
 		Name:     "水精龙",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 6,
 		La:    ygo.LA_Water,      // 水
@@ -1422,7 +1439,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2555,
 		Password: "80727036",
 		Name:     "黑色食人鲨",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 5,
 		La:    ygo.LA_Water, // 水
@@ -1459,7 +1476,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2576,
 		Password: "16507828",
 		Name:     "腕龙",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 6,
 		La:    ygo.LA_Water,    // 水
@@ -1496,7 +1513,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2577,
 		Password: "54622031",
 		Name:     "金色的魔象",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 6,
 		La:    ygo.LA_Dark,   // 暗
@@ -1533,7 +1550,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2578,
 		Password: "72869010",
 		Name:     "狩魂魔人",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 6,
 		La:    ygo.LA_Dark,  // 暗
@@ -1570,7 +1587,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2579,
 		Password: "29929832",
 		Name:     "海兽鱼",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 5,
 		La:    ygo.LA_Water, // 水
@@ -1607,7 +1624,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2596,
 		Password: "94566432",
 		Name:     "帝王龙",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 7,
 		La:    ygo.LA_Light,  // 光
@@ -1644,7 +1661,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2597,
 		Password: "46696593",
 		Name:     "红阳鸟",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 6,
 		La:    ygo.LA_Fire,        // 炎
@@ -1681,7 +1698,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2598,
 		Password: "32751480",
 		Name:     "沙之魔女",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 6,
 		La:    ygo.LA_Earth, // 地
@@ -1718,7 +1735,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2599,
 		Password: "32355828",
 		Name:     "骸骨龙",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 6,
 		La:    ygo.LA_Dark,   // 暗
@@ -1755,7 +1772,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2600,
 		Password: "95144193",
 		Name:     "锹甲独角仙",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 6,
 		La:    ygo.LA_Earth,  // 地
@@ -1792,7 +1809,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2617,
 		Password: "02504891",
 		Name:     "骷髅祭司",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 7,
 		La:    ygo.LA_Dark,        // 暗
@@ -1829,7 +1846,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2618,
 		Password: "25655502",
 		Name:     "恶魔箱",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 7,
 		La:    ygo.LA_Dark,  // 暗
@@ -1866,7 +1883,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       522,
 		Password: "40173854",
 		Name:     "水陆两用战斗艇",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 5,
 		La:    ygo.LA_Water, // 水
@@ -1912,15 +1929,32 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       1357,
 		Password: "46461247",
 		Name:     "陷阱大师",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,   // 地
 		Lr:    ygo.LR_Warrior, // 战士
 		Atk:   500,
 		Def:   1100,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFlip(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				css := ygo.NewCards(pl.Szone(), tar.Mzone(), func(c0 *ygo.Card) bool {
+					return (c0.IsFaceUp() && c0.GetType().IsTrap()) || c0.IsFaceDown()
+				})
+
+				if c := pl.SelectRequiredShor(ygo.LO_DestroyTrap, css); c != nil {
+					if c.GetType().IsTrap() {
+						c.Destroy(ca)
+					} else {
+						c.PeekFor(pl)
+					}
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 50 */
@@ -1955,15 +1989,28 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       1359,
 		Password: "54098121",
 		Name:     "谜之傀儡师",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,   // 地
 		Lr:    ygo.LR_Warrior, // 战士
 		Atk:   1000,
 		Def:   1500,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			e := func(c *ygo.Card) {
+				if c == ca {
+					return
+				}
+				pl := ca.GetSummoner()
+				pl.ChangeLp(500)
+			}
+			ca.RangeGlobal(ygo.FaceUp, ygo.FaceDown, ygo.Arg{
+				ygo.Summon:     e,
+				ygo.SummonFlip: e,
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 51 */
@@ -1995,7 +2042,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2530,
 		Password: "72520073",
 		Name:     "暗之艺术家",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Dark,  // 暗
@@ -2037,7 +2084,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2551,
 		Password: "45688586",
 		Name:     "机巧蜘蛛",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Earth,   // 地
@@ -2081,7 +2128,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2552,
 		Password: "85255550",
 		Name:     "异国的剑士",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 1,
 		La:    ygo.LA_Earth,   // 地
@@ -2125,7 +2172,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2553,
 		Password: "86100785",
 		Name:     "区域吞噬者",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 1,
 		La:    ygo.LA_Water, // 水
@@ -2164,13 +2211,14 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2595,
 		Password: "16229315",
 		Name:     "狂风毒蛾",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Earth,  // 地
 		Lr:    ygo.LR_Insect, // 昆虫
 		Atk:   650,
 		Def:   600,
+
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
 	})
@@ -2206,15 +2254,32 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       421,
 		Password: "00062121",
 		Name:     "暗晦之城",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Dark,  // 暗
 		Lr:    ygo.LR_Fiend, // 恶魔
 		Atk:   920,
 		Def:   1930,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.Counter = 0
+			ca.RegisterFlip(func() {
+				ca.EffectExistMzoneHalo(func(c *ygo.Card) {
+					if ca.GetRace().IsZombie() {
+						ca.AddAtk((ca.Counter + 1) * 200)
+					}
+				})
+
+			})
+			ca.RangeGlobal(ygo.FaceUp, ygo.FaceDown, ygo.Arg{
+				ygo.SP: func() {
+					ca.Counter++
+					ca.EquipTargetFlash()
+				},
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 57 */
@@ -2246,15 +2311,29 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       426,
 		Password: "93889755",
 		Name:     "杀人小丑",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Dark,  // 暗
 		Lr:    ygo.LR_Fiend, // 恶魔
 		Atk:   1350,
 		Def:   1400,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEventSuf(ygo.Expres, func() {
+				if ca.IsAttack() {
+					pl := ca.GetSummoner()
+					tar := pl.GetTarget()
+					if tar.Mzone().Len() != 0 {
+						if c := pl.SelectRequiredShor(ygo.LO_Popup, tar.Mzone()); c != nil {
+							c.ToHand()
+						}
+					}
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 58 */
@@ -2292,15 +2371,29 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       427,
 		Password: "29155212",
 		Name:     "南瓜幽灵王",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 6,
 		La:    ygo.LA_Dark,   // 暗
 		Lr:    ygo.LR_Zombie, // 不死
 		Atk:   1800,
 		Def:   2000,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.Counter = 0
+			ca.RegisterMonsterSelfAreaSize(ygo.LL_Mzone, func(c *ygo.Card) bool {
+				return c.GetName() == "暗晦之城"
+			}, func(i int, c0 *ygo.Card) {
+				c0.AddAtk((ca.Counter + 1) * 100)
+			})
+			ca.RangeGlobal(ygo.FaceUp, ygo.FaceDown, ygo.Arg{
+				ygo.SP: func() {
+					ca.Counter++
+					ca.EquipFlash()
+				},
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 59 */
@@ -2333,15 +2426,29 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       428,
 		Password: "13215230",
 		Name:     "梦幻小丑",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,   // 地
 		Lr:    ygo.LR_Warrior, // 战士
 		Atk:   1200,
 		Def:   900,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEventSuf(ygo.Expres, func() {
+				if ca.IsDefense() {
+					pl := ca.GetSummoner()
+					tar := pl.GetTarget()
+					if tar.Mzone().Len() != 0 {
+						if c := pl.SelectRequiredShor(ygo.LO_Popup, tar.Mzone()); c != nil {
+							c.Destroy(ca)
+						}
+					}
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 60 */
@@ -2374,15 +2481,24 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       429,
 		Password: "28725004",
 		Name:     "恶魔的智慧",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Dark,  // 暗
 		Lr:    ygo.LR_Fiend, // 恶魔
 		Atk:   1250,
 		Def:   800,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEventSuf(ygo.Expres, func() {
+				if ca.IsDefense() {
+					pl := ca.GetSummoner()
+					pl.Deck().Shuffle()
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 61 */
@@ -2415,7 +2531,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       430,
 		Password: "25109950",
 		Name:     "艾尔的小剑士",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Water,   // 水
@@ -2456,7 +2572,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       433,
 		Password: "94773007",
 		Name:     "地雷蜘蛛",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,  // 地
@@ -2495,7 +2611,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       441,
 		Password: "07019529",
 		Name:     "空中的昆虫兵",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Wind,   // 风
@@ -2538,7 +2654,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       444,
 		Password: "29380133",
 		Name:     "寄居龙",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Water, // 水
@@ -2577,7 +2693,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       448,
 		Password: "71107816",
 		Name:     "恶魔烹调师",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Dark,  // 暗
@@ -2617,7 +2733,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       491,
 		Password: "06285791",
 		Name:     "邪恶蠕虫兽",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth, // 地
@@ -2659,15 +2775,22 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       494,
 		Password: "42883273",
 		Name:     "森之住人 乌丹",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,   // 地
 		Lr:    ygo.LR_Warrior, // 战士
 		Atk:   900,
 		Def:   1200,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterAllAreaSize(ygo.LL_Mzone, func(c *ygo.Card) bool {
+				return c.GetRace().IsPlant()
+			}, func(i int, c0 *ygo.Card) {
+				c0.AddAtk(i * 100)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 68 */
@@ -2701,15 +2824,20 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       497,
 		Password: "33413638",
 		Name:     "蟑螂骑士",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,  // 地
 		Lr:    ygo.LR_Insect, // 昆虫
 		Atk:   800,
 		Def:   900,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.AddEvent(ygo.InGrave, func() {
+				ca.ToDeckTop()
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 69 */
@@ -2741,7 +2869,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       499,
 		Password: "76775123",
 		Name:     "巡逻机器人",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,   // 地
@@ -2782,7 +2910,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       501,
 		Password: "43530283",
 		Name:     "勇气之沙漏",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Light, // 光
@@ -2827,7 +2955,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       509,
 		Password: "53493204",
 		Name:     "心眼之女神",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Light, // 光
@@ -2872,7 +3000,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       511,
 		Password: "99426834",
 		Name:     "沼地的魔兽王",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Water, // 水
@@ -2919,7 +3047,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       512,
 		Password: "50259460",
 		Name:     "破坏神 瓦沙克",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Dark,  // 暗
@@ -2959,7 +3087,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       513,
 		Password: "84133008",
 		Name:     "眼球怪",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 1,
 		La:    ygo.LA_Dark,  // 暗
@@ -2998,15 +3126,22 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       514,
 		Password: "46700124",
 		Name:     "机械王",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 6,
 		La:    ygo.LA_Earth,   // 地
 		Lr:    ygo.LR_Machine, // 机械
 		Atk:   2200,
 		Def:   2000,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterMonsterAllAreaSize(ygo.LL_Mzone, func(c *ygo.Card) bool {
+				return c.GetRace().IsMachine()
+			}, func(i int, c0 *ygo.Card) {
+				c0.AddAtk(i * 100)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 76 */
@@ -3043,7 +3178,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       515,
 		Password: "69015963",
 		Name:     "恶魔科学怪人",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Dark,    // 暗
@@ -3084,7 +3219,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       516,
 		Password: "94230224",
 		Name:     "针球",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Dark,  // 暗
@@ -3125,15 +3260,31 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       517,
 		Password: "28563545",
 		Name:     "杀龙者",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 6,
 		La:    ygo.LA_Dark,  // 暗
 		Lr:    ygo.LR_Fiend, // 恶魔
 		Atk:   2000,
 		Def:   2100,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			e := func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				css := ygo.NewCards(pl.Mzone(), tar.Mzone(), func(c *ygo.Card) bool {
+					return c.IsFaceUp() && c.GetRace().IsDragon()
+				})
+				if css.Len() != 0 {
+					if c := pl.SelectRequiredShor(ygo.LO_DestroyMonster, css); c != nil {
+						c.Destroy(ca)
+					}
+				}
+			}
+			ca.AddEventSuf(ygo.Summon, e)
+			ca.AddEventSuf(ygo.SummonFlip, e)
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 79 */
@@ -3166,15 +3317,26 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       518,
 		Password: "81843628",
 		Name:     "针虫",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Earth,  // 地
 		Lr:    ygo.LR_Insect, // 昆虫
 		Atk:   750,
 		Def:   600,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFlip(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				tar.DeckTop(5).ForEach(func(c *ygo.Card) bool {
+					c.Discard(ca)
+					return true
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 80 */
@@ -3209,15 +3371,33 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       519,
 		Password: "61831093",
 		Name:     "二重身",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Dark,    // 暗
 		Lr:    ygo.LR_Warrior, // 战士
 		Atk:   650,
 		Def:   900,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFlip(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				css := ygo.NewCards(pl.Mzone(), tar.Mzone(), func(c *ygo.Card) bool {
+					return c.IsFaceDown()
+				})
+				if css.Len() >= 2 {
+					if cs := pl.SelectRequiredRange(2, 2, ygo.LO_DestroySpellAndTrap, css); cs != nil {
+						cs.ForEach(func(c *ygo.Card) bool {
+							c.Destroy(ca)
+							return true
+						})
+					}
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 81 */
@@ -3251,15 +3431,29 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       520,
 		Password: "33508719",
 		Name:     "变形壶",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Earth, // 地
 		Lr:    ygo.LR_Rock,  // 岩石
 		Atk:   700,
 		Def:   600,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFlip(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				e := func(c *ygo.Card) bool {
+					c.Discard(ca)
+					return true
+				}
+				pl.Hand().ForEach(e)
+				tar.Hand().ForEach(e)
+				pl.DrawCard(5)
+				pl.DrawCard(5)
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 82 */
@@ -3293,15 +3487,27 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       521,
 		Password: "93920745",
 		Name:     "企鹅士兵",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Water, // 水
 		Lr:    ygo.LR_Water, // 水
 		Atk:   750,
 		Def:   500,
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterFlip(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				if cs := pl.SelectRequiredRange(0, 2, ygo.LO_Popup, pl.Mzone(), tar.Mzone()); cs != nil {
+					cs.ForEach(func(c *ygo.Card) bool {
+						c.ToHand()
+						return true
+					})
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 83 */
@@ -3338,7 +3544,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       523,
 		Password: "30451366",
 		Name:     "幻想绵羊",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth, // 地
@@ -3371,7 +3577,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       1227,
 		Password: "97590747",
 		Name:     "灯之魔精",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗
@@ -3403,7 +3609,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2445,
 		Password: "78556320",
 		Name:     "女夜魔战士",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,    // 暗
@@ -3435,7 +3641,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2446,
 		Password: "37243151",
 		Name:     "气象控制员",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Light, // 光
@@ -3467,7 +3673,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2447,
 		Password: "03732747",
 		Name:     "水元素",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Water, // 水
@@ -3499,7 +3705,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2448,
 		Password: "15303296",
 		Name:     "石像怪",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,  // 暗
@@ -3531,7 +3737,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2449,
 		Password: "55550921",
 		Name:     "格斗战士 阿提米特",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth,   // 地
@@ -3563,7 +3769,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2450,
 		Password: "97843505",
 		Name:     "风之番人 精",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Wind,        // 风
@@ -3595,7 +3801,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2451,
 		Password: "60589682",
 		Name:     "格洛斯",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Water, // 水
@@ -3627,7 +3833,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2452,
 		Password: "61201220",
 		Name:     "幽灵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Dark,   // 暗
@@ -3659,7 +3865,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2453,
 		Password: "77603950",
 		Name:     "萨塔那",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Dark,        // 暗
@@ -3691,7 +3897,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2454,
 		Password: "92944626",
 		Name:     "邪炎之翼",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Fire, // 炎
@@ -3723,7 +3929,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2455,
 		Password: "97973387",
 		Name:     "大嘴鸟",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Wind,        // 风
@@ -3755,7 +3961,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2456,
 		Password: "63515678",
 		Name:     "神圣之锁",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Light, // 光
@@ -3787,7 +3993,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2457,
 		Password: "63545455",
 		Name:     "僵尸鬼灯",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Dark,   // 暗
@@ -3819,7 +4025,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2458,
 		Password: "13193642",
 		Name:     "暗黑植物",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   1,
 		La:      ygo.LA_Dark,  // 暗
@@ -3851,7 +4057,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2459,
 		Password: "81492226",
 		Name:     "太古之壶",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   1,
 		La:      ygo.LA_Earth, // 地
@@ -3883,7 +4089,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2460,
 		Password: "29948642",
 		Name:     "鸟嘴兽",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Earth, // 地
@@ -3915,7 +4121,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2461,
 		Password: "27094595",
 		Name:     "招手的墓场",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,   // 暗
@@ -3947,7 +4153,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2462,
 		Password: "00756652",
 		Name:     "多隆",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Earth,   // 地
@@ -3979,7 +4185,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2463,
 		Password: "98898173",
 		Name:     "溶化的赤影",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Water, // 水
@@ -4011,7 +4217,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2464,
 		Password: "88643173",
 		Name:     "梦魇蝎",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth,  // 地
@@ -4043,7 +4249,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2465,
 		Password: "99030164",
 		Name:     "幸福恋人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Light, // 光
@@ -4075,7 +4281,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2466,
 		Password: "15042735",
 		Name:     "飓风怪",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Wind,        // 风
@@ -4107,7 +4313,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2467,
 		Password: "49127943",
 		Name:     "食人植物",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Earth, // 地
@@ -4139,7 +4345,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2468,
 		Password: "88435542",
 		Name:     "火眼",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Fire, // 炎
@@ -4171,7 +4377,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2469,
 		Password: "75646173",
 		Name:     "法兰克斯",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth, // 地
@@ -4203,7 +4409,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2470,
 		Password: "49258578",
 		Name:     "地狱之门",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,  // 暗
@@ -4235,7 +4441,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2471,
 		Password: "03985011",
 		Name:     "神圣能量",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Light,       // 光
@@ -4267,7 +4473,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2472,
 		Password: "02957055",
 		Name:     "魔头邪龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Wind,   // 风
@@ -4299,7 +4505,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2473,
 		Password: "64154377",
 		Name:     "未熟的恶魔",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Dark,  // 暗
@@ -4331,7 +4537,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2474,
 		Password: "83678433",
 		Name:     "午夜恶魔",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Dark,  // 暗
@@ -4363,7 +4569,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2475,
 		Password: "76704943",
 		Name:     "八俣龙绘卷",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Wind,   // 风
@@ -4395,7 +4601,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2476,
 		Password: "63125616",
 		Name:     "司暗的影子",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,  // 暗
@@ -4427,7 +4633,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2477,
 		Password: "56713552",
 		Name:     "邪恶老鼠",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth, // 地
@@ -4459,7 +4665,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2478,
 		Password: "70924884",
 		Name:     "锯足锹形虫",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth,  // 地
@@ -4491,7 +4697,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2479,
 		Password: "92391084",
 		Name:     "威尔米",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth, // 地
@@ -4523,7 +4729,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2480,
 		Password: "17511156",
 		Name:     "木灵小丑",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth,   // 地
@@ -4555,7 +4761,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2481,
 		Password: "37160778",
 		Name:     "天使魔女",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,        // 暗
@@ -4587,7 +4793,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2482,
 		Password: "82065276",
 		Name:     "电波英雄",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth,   // 地
@@ -4619,7 +4825,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2483,
 		Password: "69750536",
 		Name:     "鱼战士",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -4651,7 +4857,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2484,
 		Password: "10598400",
 		Name:     "龙虾怪",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Water, // 水
@@ -4683,7 +4889,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2485,
 		Password: "40387124",
 		Name:     "开在深渊的花",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Earth, // 地
@@ -4715,7 +4921,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2486,
 		Password: "72269672",
 		Name:     "岩石幽灵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth, // 地
@@ -4747,7 +4953,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2487,
 		Password: "03606209",
 		Name:     "狩魂者",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,        // 地
@@ -4779,7 +4985,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2488,
 		Password: "34290067",
 		Name:     "死亡鲨",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,   // 暗
@@ -4811,7 +5017,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2489,
 		Password: "72076281",
 		Name:     "机械蝙蝠",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   1,
 		La:      ygo.LA_Wind,    // 风
@@ -4843,7 +5049,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2490,
 		Password: "84990171",
 		Name:     "豌豆战士",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth, // 地
@@ -4875,7 +5081,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2491,
 		Password: "68963107",
 		Name:     "书之精灵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Dark,        // 暗
@@ -4907,7 +5113,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2492,
 		Password: "42625254",
 		Name:     "小霸王龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth,    // 地
@@ -4939,7 +5145,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2493,
 		Password: "21239280",
 		Name:     "骨鼠",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   1,
 		La:      ygo.LA_Dark,   // 暗
@@ -4971,7 +5177,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2494,
 		Password: "48531733",
 		Name:     "电击企鹅",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Water,   // 水
@@ -5003,7 +5209,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2495,
 		Password: "92409659",
 		Name:     "白海豚",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Water, // 水
@@ -5035,7 +5241,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2496,
 		Password: "23032273",
 		Name:     "梅基拉斯之光",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,  // 暗
@@ -5067,7 +5273,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2497,
 		Password: "20541432",
 		Name:     "心锁妖精",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗
@@ -5099,7 +5305,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2498,
 		Password: "57405307",
 		Name:     "翼龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Wind,        // 风
@@ -5131,7 +5337,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2502,
 		Password: "62403074",
 		Name:     "赤剑之莱蒙多斯",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,   // 地
@@ -5163,7 +5369,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2503,
 		Password: "34320307",
 		Name:     "有生命的花瓶",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth, // 地
@@ -5195,7 +5401,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2504,
 		Password: "52367652",
 		Name:     "食命者",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗
@@ -5227,7 +5433,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2505,
 		Password: "46864967",
 		Name:     "岩之战士",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth, // 地
@@ -5259,7 +5465,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2506,
 		Password: "38942059",
 		Name:     "音女",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth,   // 地
@@ -5291,7 +5497,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2507,
 		Password: "13429800",
 		Name:     "大白鲨",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -5323,7 +5529,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2508,
 		Password: "60802233",
 		Name:     "锹甲阿尔法",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,  // 地
@@ -5355,7 +5561,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2509,
 		Password: "07526150",
 		Name:     "钢铁魔人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,   // 地
@@ -5387,7 +5593,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2510,
 		Password: "55210709",
 		Name:     "青玉眼怪",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth, // 地
@@ -5419,7 +5625,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2511,
 		Password: "16899564",
 		Name:     "斩首的美女",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,   // 地
@@ -5451,7 +5657,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2512,
 		Password: "47922711",
 		Name:     "海马兽",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Earth, // 地
@@ -5483,7 +5689,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2513,
 		Password: "28003512",
 		Name:     "审判之手",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth,   // 地
@@ -5515,7 +5721,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2514,
 		Password: "00732302",
 		Name:     "骷髅寺院",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,   // 暗
@@ -5547,7 +5753,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2515,
 		Password: "84916669",
 		Name:     "树精",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,       // 地
@@ -5579,7 +5785,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2516,
 		Password: "47060154",
 		Name:     "狂战士",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗
@@ -5611,7 +5817,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2517,
 		Password: "48109103",
 		Name:     "复仇的河童",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Water, // 水
@@ -5643,7 +5849,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2518,
 		Password: "52584282",
 		Name:     "大力独角仙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Earth,  // 地
@@ -5675,7 +5881,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2519,
 		Password: "14037717",
 		Name:     "书之精灵 飞鹰主教",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Wind,        // 风
@@ -5707,7 +5913,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2520,
 		Password: "75559356",
 		Name:     "魔界的机械兵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,    // 暗
@@ -5739,7 +5945,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2521,
 		Password: "69992868",
 		Name:     "缪斯天使",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Light, // 光
@@ -5771,7 +5977,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2522,
 		Password: "07225792",
 		Name:     "蒙·拉瓦斯",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth, // 地
@@ -5803,7 +6009,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2523,
 		Password: "41061625",
 		Name:     "椰树",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Earth, // 地
@@ -5835,7 +6041,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2524,
 		Password: "17115745",
 		Name:     "尤蒙刚德",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth,   // 地
@@ -5867,7 +6073,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2525,
 		Password: "75850803",
 		Name:     "月之魔法师",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Light,       // 光
@@ -5899,7 +6105,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2526,
 		Password: "04392470",
 		Name:     "狮子男巫",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Earth,       // 地
@@ -5931,7 +6137,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2533,
 		Password: "72929454",
 		Name:     "龟鸟",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Water, // 水
@@ -5963,7 +6169,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2534,
 		Password: "50176820",
 		Name:     "电子鱼",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Water,   // 水
@@ -5995,7 +6201,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2535,
 		Password: "11250655",
 		Name:     "水陆的帝王",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Water,   // 水
@@ -6027,7 +6233,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2536,
 		Password: "04179849",
 		Name:     "红叶之女王",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Earth, // 地
@@ -6059,7 +6265,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2537,
 		Password: "02971090",
 		Name:     "战神 奥利安",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Light, // 光
@@ -6091,7 +6297,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2538,
 		Password: "34690519",
 		Name:     "山之精灵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Earth,       // 地
@@ -6123,7 +6329,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2539,
 		Password: "42418084",
 		Name:     "诞生的天使",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Light, // 光
@@ -6155,7 +6361,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2540,
 		Password: "53606874",
 		Name:     "巨大蚂蚁",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,  // 地
@@ -6187,7 +6393,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2541,
 		Password: "75582395",
 		Name:     "圣鸟",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Wind,        // 风
@@ -6219,7 +6425,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2542,
 		Password: "77456781",
 		Name:     "恶魔乌贼",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -6251,7 +6457,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2543,
 		Password: "17968114",
 		Name:     "海原的女战士",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -6283,7 +6489,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2544,
 		Password: "65623423",
 		Name:     "杀人污泥",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Water, // 水
@@ -6315,7 +6521,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2545,
 		Password: "74277583",
 		Name:     "剪刀勇士",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,    // 暗
@@ -6347,7 +6553,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2546,
 		Password: "71746462",
 		Name:     "深海切割手",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -6379,7 +6585,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2547,
 		Password: "10476868",
 		Name:     "机枪岩",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth, // 地
@@ -6411,7 +6617,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2548,
 		Password: "89494469",
 		Name:     "暗黑魔神 梦魇",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗
@@ -6443,7 +6649,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2549,
 		Password: "11793047",
 		Name:     "戈耳工蛋",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,  // 暗
@@ -6475,7 +6681,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2550,
 		Password: "20315854",
 		Name:     "妖精龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Wind,   // 风
@@ -6507,7 +6713,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2557,
 		Password: "47319141",
 		Name:     "飞鹰",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Wind,        // 风
@@ -6539,7 +6745,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2558,
 		Password: "38116136",
 		Name:     "机器攻击者",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Earth,   // 地
@@ -6571,7 +6777,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2559,
 		Password: "38289717",
 		Name:     "贪尸龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,    // 地
@@ -6603,7 +6809,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2560,
 		Password: "29402771",
 		Name:     "彩虹人鱼",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Water, // 水
@@ -6635,7 +6841,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2561,
 		Password: "29491031",
 		Name:     "美杜莎的亡灵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,   // 暗
@@ -6667,7 +6873,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2562,
 		Password: "93343894",
 		Name:     "水之魔导师",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -6699,7 +6905,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2563,
 		Password: "94022093",
 		Name:     "大肚海蛇",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -6731,7 +6937,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2564,
 		Password: "11714098",
 		Name:     "3万年的白龟",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Water, // 水
@@ -6763,7 +6969,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2565,
 		Password: "49417509",
 		Name:     "狼",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth, // 地
@@ -6795,7 +7001,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2566,
 		Password: "76512652",
 		Name:     "鳄鱼人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water,   // 水
@@ -6827,7 +7033,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2567,
 		Password: "12436646",
 		Name:     "水蛇",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Water, // 水
@@ -6859,7 +7065,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2568,
 		Password: "96643568",
 		Name:     "气象精灵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Water, // 水
@@ -6891,7 +7097,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2569,
 		Password: "28450915",
 		Name:     "来自异次元的侵略者",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗
@@ -6923,7 +7129,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2570,
 		Password: "06103114",
 		Name:     "鸟嘴蛇",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth,   // 地
@@ -6955,7 +7161,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2571,
 		Password: "17441953",
 		Name:     "龟狸",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Water, // 水
@@ -6987,7 +7193,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2572,
 		Password: "32569498",
 		Name:     "屎壳郎",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Earth,  // 地
@@ -7019,7 +7225,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2573,
 		Password: "60715406",
 		Name:     "藤蔓植物",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Water, // 水
@@ -7051,7 +7257,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2574,
 		Password: "55567161",
 		Name:     "戏法壶",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Earth, // 地
@@ -7083,7 +7289,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2575,
 		Password: "53830602",
 		Name:     "魔界植物",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   1,
 		La:      ygo.LA_Dark,  // 暗
@@ -7115,7 +7321,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2580,
 		Password: "48649353",
 		Name:     "牛鬼",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Dark,  // 暗
@@ -7147,7 +7353,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2581,
 		Password: "69780745",
 		Name:     "加尔瓦斯",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Earth, // 地
@@ -7179,7 +7385,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2582,
 		Password: "62762898",
 		Name:     "鹦鹉龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Wind,   // 风
@@ -7211,7 +7417,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2583,
 		Password: "95288024",
 		Name:     "天空龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Wind,   // 风
@@ -7243,7 +7449,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2584,
 		Password: "14977074",
 		Name:     "加鲁撒斯",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Fire,         // 炎
@@ -7275,7 +7481,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2585,
 		Password: "13069066",
 		Name:     "剑龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Earth,    // 地
@@ -7307,7 +7513,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2586,
 		Password: "70084224",
 		Name:     "猎头魔人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Dark,  // 暗
@@ -7339,7 +7545,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2587,
 		Password: "54615781",
 		Name:     "风之精灵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Wind,        // 风
@@ -7371,7 +7577,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2588,
 		Password: "05053103",
 		Name:     "牛头人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,        // 地
@@ -7403,7 +7609,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2589,
 		Password: "82818645",
 		Name:     "岩石之精灵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Earth,       // 地
@@ -7435,7 +7641,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2590,
 		Password: "81686058",
 		Name:     "塞壬",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Light,       // 光
@@ -7467,7 +7673,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2591,
 		Password: "09540040",
 		Name:     "岩石龟",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Water, // 水
@@ -7499,7 +7705,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2592,
 		Password: "85448931",
 		Name:     "守卫海洋的战士",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -7531,7 +7737,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2593,
 		Password: "09197735",
 		Name:     "龙魂之石像",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Earth,   // 地
@@ -7563,7 +7769,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2601,
 		Password: "68339286",
 		Name:     "金属守护者",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Dark,  // 暗
@@ -7595,7 +7801,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2602,
 		Password: "36821538",
 		Name:     "古代魔导士",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,        // 暗
@@ -7627,7 +7833,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2603,
 		Password: "67724379",
 		Name:     "恶魔龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,   // 暗
@@ -7659,7 +7865,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2604,
 		Password: "34743446",
 		Name:     "碎块人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,    // 暗
@@ -7691,7 +7897,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2605,
 		Password: "55337339",
 		Name:     "转职的魔镜",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,  // 暗
@@ -7723,7 +7929,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2606,
 		Password: "42431843",
 		Name:     "魔天老",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,  // 暗
@@ -7755,7 +7961,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2607,
 		Password: "68171737",
 		Name:     "岩石龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   7,
 		La:      ygo.LA_Earth, // 地
@@ -7787,7 +7993,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2608,
 		Password: "47986555",
 		Name:     "千年石人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Earth, // 地
@@ -7819,7 +8025,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2609,
 		Password: "75390004",
 		Name:     "角龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Earth,    // 地
@@ -7851,7 +8057,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2610,
 		Password: "29616941",
 		Name:     "美丽的魔物使",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Earth,   // 地
@@ -7883,7 +8089,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2611,
 		Password: "97612389",
 		Name:     "地狱的魔物使",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Earth,   // 地
@@ -7915,7 +8121,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2612,
 		Password: "14181608",
 		Name:     "蘑菇人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Earth, // 地
@@ -7947,7 +8153,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2613,
 		Password: "02906250",
 		Name:     "捕猎蛇",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water,   // 水
@@ -7979,7 +8185,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2614,
 		Password: "78402798",
 		Name:     "蜥蜴骑士",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -8011,7 +8217,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       2615,
 		Password: "45909477",
 		Name:     "月之使者",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Light,   // 光
@@ -8043,7 +8249,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       420,
 		Password: "14851496",
 		Name:     "水母",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -8075,7 +8281,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       422,
 		Password: "69455834",
 		Name:     "暗魔界的霸王",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Dark,  // 暗
@@ -8107,7 +8313,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       435,
 		Password: "24611934",
 		Name:     "强化石像怪",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗
@@ -8139,7 +8345,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       479,
 		Password: "27324313",
 		Name:     "电气小子",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Light,   // 光
@@ -8171,7 +8377,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       480,
 		Password: "41762634",
 		Name:     "吸血跳蚤",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,  // 地
@@ -8202,7 +8408,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       485,
 		Password: "10262698",
 		Name:     "复活节岛的摩艾石像",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth, // 地
@@ -8234,7 +8440,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       486,
 		Password: "82085619",
 		Name:     "友谊天使",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Light, // 光
@@ -8266,7 +8472,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       492,
 		Password: "49791927",
 		Name:     "老虎斧战士",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,        // 地
@@ -8298,7 +8504,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       493,
 		Password: "48305365",
 		Name:     "巨斧袭击者",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,   // 地
@@ -8330,7 +8536,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       495,
 		Password: "07359741",
 		Name:     "机械猎手",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,    // 暗
@@ -8362,7 +8568,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       496,
 		Password: "58831685",
 		Name:     "海鳞蛇",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -8394,7 +8600,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       498,
 		Password: "69140098",
 		Name:     "双生精灵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,       // 地
@@ -8426,7 +8632,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       500,
 		Password: "03170832",
 		Name:     "橐蜚",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Wind,        // 风
@@ -8458,7 +8664,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       502,
 		Password: "81563416",
 		Name:     "泉之妖精",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -8490,7 +8696,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       503,
 		Password: "79629370",
 		Name:     "月光少女",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Light,       // 光
@@ -8522,7 +8728,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       506,
 		Password: "94119974",
 		Name:     "双头恐龙王",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,    // 地
@@ -8554,7 +8760,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       507,
 		Password: "76634149",
 		Name:     "海龙神",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Water,      // 水
@@ -8586,7 +8792,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       508,
 		Password: "66672569",
 		Name:     "龙僵尸",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,   // 暗
@@ -8618,7 +8824,7 @@ func d_2(cardBag *ygo.CardVersion) {
 		Id:       510,
 		Password: "99510761",
 		Name:     "神灯魔人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗

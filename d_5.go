@@ -26,7 +26,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       27,
 		Password: "81380218",
 		Name:     "圣域歌声",
-		Lc:       ygo.LC_SpellField, // 场地魔法
+		Lt:       ygo.LT_SpellField, // 场地魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -49,7 +49,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       82,
 		Password: "82999629",
 		Name:     "水世界",
-		Lc:       ygo.LC_SpellField, // 场地魔法
+		Lt:       ygo.LT_SpellField, // 场地魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -72,7 +72,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       83,
 		Password: "19384334",
 		Name:     "燃烧熔岩",
-		Lc:       ygo.LC_SpellField, // 场地魔法
+		Lt:       ygo.LT_SpellField, // 场地魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -95,7 +95,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       84,
 		Password: "45778932",
 		Name:     "沙漠风暴",
-		Lc:       ygo.LC_SpellField, // 场地魔法
+		Lt:       ygo.LT_SpellField, // 场地魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -118,7 +118,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       85,
 		Password: "81777047",
 		Name:     "光芒冲击",
-		Lc:       ygo.LC_SpellField, // 场地魔法
+		Lt:       ygo.LT_SpellField, // 场地魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -141,7 +141,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       86,
 		Password: "18161786",
 		Name:     "暗黑地带",
-		Lc:       ygo.LC_SpellField, // 场地魔法
+		Lt:       ygo.LT_SpellField, // 场地魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -181,7 +181,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       283,
 		Password: "23171610",
 		Name:     "限制解除",
-		Lc:       ygo.LC_SpellQuickPlay, // 速攻魔法
+		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -213,7 +213,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       285,
 		Password: "93108433",
 		Name:     "怪兽回收",
-		Lc:       ygo.LC_SpellQuickPlay, // 速攻魔法
+		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -222,29 +222,29 @@ func d_5(cardBag *ygo.CardVersion) {
 	/* 8 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 32
-		 调整:
+			 id: 32
+			 调整:
 
-		 [善变的裁缝师]<移り気な仕立屋>
-		 [2010/10/01]
-		 ●给怪兽装备着的1张装备卡转移到别的正确对象。
-		 ◇可以让「强化支援机械·重装武器/強化支援メカ·ヘビーウェポン」给其他机械族怪兽装备
-		 ◇「命运英雄
-		血魔-D/Ｄ－ＨＥＲＯ
-		Ｂｌｏｏ－Ｄ」的效果造成的作为装备卡的装备怪兽不能被转移
+			 [善变的裁缝师]<移り気な仕立屋>
+			 [2010/10/01]
+			 ●给怪兽装备着的1张装备卡转移到别的正确对象。
+			 ◇可以让「强化支援机械·重装武器/強化支援メカ·ヘビーウェポン」给其他机械族怪兽装备
+			 ◇「命运英雄
+			血魔-D/Ｄ－ＨＥＲＯ
+			Ｂｌｏｏ－Ｄ」的效果造成的作为装备卡的装备怪兽不能被转移
 
-		 中文名: 善变的裁缝师
-		 卡片种类: 速攻魔法
-		 卡片密码: 43641473
-		 罕见度: 平卡N
-		 卡包: BE01、MR、DL01
-		 效果: 把怪兽装备的1张装备卡，转换给1只别的能变成正确对象的怪兽。
+			 中文名: 善变的裁缝师
+			 卡片种类: 速攻魔法
+			 卡片密码: 43641473
+			 罕见度: 平卡N
+			 卡包: BE01、MR、DL01
+			 效果: 把怪兽装备的1张装备卡，转换给1只别的能变成正确对象的怪兽。
 
 		*/
 		Id:       32,
 		Password: "43641473",
 		Name:     "善变的裁缝师",
-		Lc:       ygo.LC_SpellQuickPlay, // 速攻魔法
+		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -273,7 +273,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       33,
 		Password: "70046172",
 		Name:     "突进",
-		Lc:       ygo.LC_SpellQuickPlay, // 速攻魔法
+		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -302,7 +302,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       34,
 		Password: "16430187",
 		Name:     "可靠的守护者",
-		Lc:       ygo.LC_SpellQuickPlay, // 速攻魔法
+		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -332,7 +332,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       359,
 		Password: "19230407",
 		Name:     "给死者的供物",
-		Lc:       ygo.LC_SpellQuickPlay, // 速攻魔法
+		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -360,7 +360,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       128,
 		Password: "16227556",
 		Name:     "检阅",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -369,106 +369,106 @@ func d_5(cardBag *ygo.CardVersion) {
 	/* 13 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 129
-		 调整:
+			 id: 129
+			 调整:
 
-		 [禁止令]
-		 [14/11/19]
-		 ●这张卡发动时宣言一个卡名。
-		 ◇不可宣言怪兽衍生物（TOKEN）的名称
-		 ◇可以宣言限制规章里的禁止卡，不能宣言在对战所属的环境中不存在的卡（如在OCG对战中不能宣言TCG专有卡、世界冠军奖品卡、错误的卡名等）
-		 ●只要这张卡在场上打开表示存在，宣言的卡不能使用。
-		 ◇不能使用的卡不能从任何场所以任何方法进行发动、覆盖、通常召唤、特殊召唤、效果的发动、回到场上，不能进行攻击宣言，不能以玩家的意志改变表示形式，也不能用做融合素材、同调素材、XYZ召唤的XYZ素材
-		 ◇可以把不能使用的卡当作其他卡片的COST、做解放、为其他卡片的特殊召唤条件使用，可以用其他卡的效果把不能使用的卡的表示形式变更或将其变成XYZ怪兽的XYZ素材，「未来融合/未来融合－フューチャー·フュージョン」的效果可以把不能使用的卡从卡组送去墓地
-		 ◇此卡被暂时无效的场合，重新有效后宣言卡不变，在暂时无效的期间出现在场上的卡算作“在此卡发动前就在场上存在的卡”
-		 ◇在此卡发动前在场上存在的卡一旦从场上离开，就不再当作“在此卡发动前在场上存在的卡”
-		 ◇「入魔雷神鸟/ヴェルズ・サンダーバード」等以卡的效果暂时除外的怪兽在回到场上前被此卡宣言，在此卡适用中迎来回到场上的时点时，不能回到场上，送去墓地（即使此卡宣言时那个怪兽在场上、在此卡适用后才暂时除外，一样不能回到场上，送去墓地）
-		 ◇宣言融合怪兽、同调怪兽、XYZ怪兽的场合，那些怪兽不能做任何形式的特殊召唤例：宣言「星尘龙/スターダスト·ドラゴン」的场合，不能使用「星光大道/スターライト·ロード」的效果将其特殊召唤
-		 ◇宣言「黑羽-兵翼鸦/BF－アームズ·ウィング」的场合，可以把「黑羽-大旆之伐由/BF－大旆のヴァーユ」和「黑羽-兵翼鸦/BF－アームズ·ウィング」除外，特殊召唤「黑羽-铠翼鸦/BF－アーマード·ウィング」
-		 ◇宣言此卡自身的场合，此卡自身按“在此卡发动前在场上存在的卡”对待，别的与此卡同名的卡不能发动或覆盖
-		 ◇宣言
-		 [寄生虫
-		帕拉赛德/寄生虫パラサイド]时，因
-		 [寄生虫
-		帕拉赛德/寄生虫パラサイド]的效果洗入对手卡组的
-		 [寄生虫
-		帕拉赛德/寄生虫パラサイド]被抽到的场合，其效果不处理
-		 ◇宣言魔法、陷阱的场合，那些魔法·陷阱不能用任何方法出现在场上例：不能使用的魔法·陷阱不能被
-		 [魔术礼帽/マジカルシルクハット]的效果当做怪兽特殊召唤例：宣言
-		 [遗言的假面]的场合，不能因
-		 [假面魔兽
-		死亡护法师]的效果发动那张卡例：宣言
-		 [死之信息「E」/死のメッセージ「E」]
-		 [死之信息「A」/死のメッセージ「A」]
-		 [死之信息「T」/死のメッセージ「T」]
-		 [死之信息「H」/死のメッセージ「H」]的场合，那些卡不能出场
-		 ◇宣言
-		 [荷鲁斯之黑炎龙LV6/ホルスの黒炎竜
-		LV6]的场合，不能通常召唤·特殊召唤
-		 [荷鲁斯之黑炎龙LV6/ホルスの黒炎竜
-		LV6]
-		 ◇自己场上存在被此卡宣言的
-		 [鹰身女郎/ハーピィ·レディ]的规则同名卡的场合，其卡名仍然视为鹰身女郎，满足发动
-		 [万华镜-华丽的分身-/万华镜－华丽なる分身－]的条件
-		 ◇此卡宣言
-		 [电子龙/サイバー·ドラゴン]的场合，手卡的
-		 [原始电子龙/プロト·サイバー·ドラゴン]可以使用，但其一旦出场，卡名当作
-		 [电子龙/サイバー·ドラゴン]，变成不能使用的状态（不能攻击、不能改变表示形式、不能做融合素材、不能做同调素材、不能做XYZ素材）
-		 ◇宣言「鹰身女郎/ハーピィ·レディ」的场合，手卡的
-		 [鹰身女王/ハーピィ·クィーン]可以使用，但其一旦出场，卡名当作
-		 [鹰身女郎/ハーピィ·レディ]，变成不能使用的状态（不能攻击、不能改变表示形式、不能做融合素材、不能做同调素材、不能做XYZ素材）
-		 ◇此卡宣言
-		 [奈芙提斯之凤凰神/ネフティスの凤凰神]的场合，已经存在于墓地中的
-		 [奈芙提斯之凤凰神/ネフティスの凤凰神]不能发动效果。在场上被卡的效果破坏的
-		 [奈芙提斯之凤凰神/ネフティスの凤凰神]下次自己的准备阶段也不能特殊召唤。
-		 ◇此卡宣言
-		 [奈芙提斯之凤凰神/ネフティスの凤凰神]后，
-		 [奈芙提斯之凤凰神/ネフティスの凤凰神]满足效果发动条件的场合，如果能在下次自己的准备阶段之前破坏此卡，那么那个效果可以发动
-		 ◇无论是墓地里已经存在
-		 [黄泉青蛙/黄泉ガエル]的场合发动此卡宣言
-		 [黄泉青蛙/黄泉ガエル]，还是在发动此卡前场上存在
-		 [黄泉青蛙/黄泉ガエル]然后发动此卡宣言
-		 [黄泉青蛙/黄泉ガエル]再将其送去墓地，
-		 [黄泉青蛙/黄泉ガエル]都不能在下次自己的准备阶段特殊召唤
-		 ◇宣言
-		 [死灵守卫者/ネクロ·ガードナー]的场合，已经存在于墓地中的
-		 [死灵守卫者/ネクロ·ガードナー]不能发动效果，从场上破坏送去墓地的
-		 [死灵守卫者/ネクロ·ガードナー]也不能发动效果，不过在此卡适用前已经发动并适用的
-		 [死灵守卫者/ネクロ·ガードナー]的效果仍然适用
-		 ◇宣言二重怪兽的场合，那些二重怪兽不能进行再度召唤。
-		 ◇此卡宣言
-		 [异次元的侦察机/异次元の侦察机]
-		 [异次元的生还者/异次元の生还者]的场合，无论从哪里除外
-		 [异次元的侦察机/异次元の侦察机]
-		 [异次元的生还者/异次元の生还者]，结束阶段
-		 [异次元的侦察机/异次元の侦察机]
-		 [异次元的生还者/异次元の生还者]都不能从除外状态特殊召唤
-		 ◇无论是墓地里已经存在效果确定在结束阶段发动的
-		 [多尔·多拉/ドル·ドラ]的场合发动此卡宣言
-		 [多尔·多拉/ドル·ドラ]，还是在发动此卡前场上存在
-		 [多尔·多拉/ドル·ドラ]，然后再发动此卡宣言
-		 [多尔·多拉/ドル·ドラ]之后破坏
-		 [多尔·多拉/ドル·ドラ]，
-		 [多尔·多拉/ドル·ドラ]都不能在结束阶段特殊召唤
-		 ◇此卡宣言
-		 [多尔·多拉/ドル·ドラ]后，
-		 [多尔·多拉/ドル·ドラ]满足发动效果的条件的场合，如果能在结束阶段之前破坏此卡，那么那个效果可以发动
-		 ●这张卡发动前就在场上存在的卡不受这张卡的效果影响。
-		 ◇包括在此卡发动前覆盖在场上的被宣言卡
-		 ◇在此卡发动前覆盖在场上的被宣言卡，因时间流逝变得无法证明是否是“在此卡发动前就在场上存在的卡”的场合，由在场裁判进行判断
+			 [禁止令]
+			 [14/11/19]
+			 ●这张卡发动时宣言一个卡名。
+			 ◇不可宣言怪兽衍生物（TOKEN）的名称
+			 ◇可以宣言限制规章里的禁止卡，不能宣言在对战所属的环境中不存在的卡（如在OCG对战中不能宣言TCG专有卡、世界冠军奖品卡、错误的卡名等）
+			 ●只要这张卡在场上打开表示存在，宣言的卡不能使用。
+			 ◇不能使用的卡不能从任何场所以任何方法进行发动、覆盖、通常召唤、特殊召唤、效果的发动、回到场上，不能进行攻击宣言，不能以玩家的意志改变表示形式，也不能用做融合素材、同调素材、XYZ召唤的XYZ素材
+			 ◇可以把不能使用的卡当作其他卡片的COST、做解放、为其他卡片的特殊召唤条件使用，可以用其他卡的效果把不能使用的卡的表示形式变更或将其变成XYZ怪兽的XYZ素材，「未来融合/未来融合－フューチャー·フュージョン」的效果可以把不能使用的卡从卡组送去墓地
+			 ◇此卡被暂时无效的场合，重新有效后宣言卡不变，在暂时无效的期间出现在场上的卡算作“在此卡发动前就在场上存在的卡”
+			 ◇在此卡发动前在场上存在的卡一旦从场上离开，就不再当作“在此卡发动前在场上存在的卡”
+			 ◇「入魔雷神鸟/ヴェルズ・サンダーバード」等以卡的效果暂时除外的怪兽在回到场上前被此卡宣言，在此卡适用中迎来回到场上的时点时，不能回到场上，送去墓地（即使此卡宣言时那个怪兽在场上、在此卡适用后才暂时除外，一样不能回到场上，送去墓地）
+			 ◇宣言融合怪兽、同调怪兽、XYZ怪兽的场合，那些怪兽不能做任何形式的特殊召唤例：宣言「星尘龙/スターダスト·ドラゴン」的场合，不能使用「星光大道/スターライト·ロード」的效果将其特殊召唤
+			 ◇宣言「黑羽-兵翼鸦/BF－アームズ·ウィング」的场合，可以把「黑羽-大旆之伐由/BF－大旆のヴァーユ」和「黑羽-兵翼鸦/BF－アームズ·ウィング」除外，特殊召唤「黑羽-铠翼鸦/BF－アーマード·ウィング」
+			 ◇宣言此卡自身的场合，此卡自身按“在此卡发动前在场上存在的卡”对待，别的与此卡同名的卡不能发动或覆盖
+			 ◇宣言
+			 [寄生虫
+			帕拉赛德/寄生虫パラサイド]时，因
+			 [寄生虫
+			帕拉赛德/寄生虫パラサイド]的效果洗入对手卡组的
+			 [寄生虫
+			帕拉赛德/寄生虫パラサイド]被抽到的场合，其效果不处理
+			 ◇宣言魔法、陷阱的场合，那些魔法·陷阱不能用任何方法出现在场上例：不能使用的魔法·陷阱不能被
+			 [魔术礼帽/マジカルシルクハット]的效果当做怪兽特殊召唤例：宣言
+			 [遗言的假面]的场合，不能因
+			 [假面魔兽
+			死亡护法师]的效果发动那张卡例：宣言
+			 [死之信息「E」/死のメッセージ「E」]
+			 [死之信息「A」/死のメッセージ「A」]
+			 [死之信息「T」/死のメッセージ「T」]
+			 [死之信息「H」/死のメッセージ「H」]的场合，那些卡不能出场
+			 ◇宣言
+			 [荷鲁斯之黑炎龙LV6/ホルスの黒炎竜
+			LV6]的场合，不能通常召唤·特殊召唤
+			 [荷鲁斯之黑炎龙LV6/ホルスの黒炎竜
+			LV6]
+			 ◇自己场上存在被此卡宣言的
+			 [鹰身女郎/ハーピィ·レディ]的规则同名卡的场合，其卡名仍然视为鹰身女郎，满足发动
+			 [万华镜-华丽的分身-/万华镜－华丽なる分身－]的条件
+			 ◇此卡宣言
+			 [电子龙/サイバー·ドラゴン]的场合，手卡的
+			 [原始电子龙/プロト·サイバー·ドラゴン]可以使用，但其一旦出场，卡名当作
+			 [电子龙/サイバー·ドラゴン]，变成不能使用的状态（不能攻击、不能改变表示形式、不能做融合素材、不能做同调素材、不能做XYZ素材）
+			 ◇宣言「鹰身女郎/ハーピィ·レディ」的场合，手卡的
+			 [鹰身女王/ハーピィ·クィーン]可以使用，但其一旦出场，卡名当作
+			 [鹰身女郎/ハーピィ·レディ]，变成不能使用的状态（不能攻击、不能改变表示形式、不能做融合素材、不能做同调素材、不能做XYZ素材）
+			 ◇此卡宣言
+			 [奈芙提斯之凤凰神/ネフティスの凤凰神]的场合，已经存在于墓地中的
+			 [奈芙提斯之凤凰神/ネフティスの凤凰神]不能发动效果。在场上被卡的效果破坏的
+			 [奈芙提斯之凤凰神/ネフティスの凤凰神]下次自己的准备阶段也不能特殊召唤。
+			 ◇此卡宣言
+			 [奈芙提斯之凤凰神/ネフティスの凤凰神]后，
+			 [奈芙提斯之凤凰神/ネフティスの凤凰神]满足效果发动条件的场合，如果能在下次自己的准备阶段之前破坏此卡，那么那个效果可以发动
+			 ◇无论是墓地里已经存在
+			 [黄泉青蛙/黄泉ガエル]的场合发动此卡宣言
+			 [黄泉青蛙/黄泉ガエル]，还是在发动此卡前场上存在
+			 [黄泉青蛙/黄泉ガエル]然后发动此卡宣言
+			 [黄泉青蛙/黄泉ガエル]再将其送去墓地，
+			 [黄泉青蛙/黄泉ガエル]都不能在下次自己的准备阶段特殊召唤
+			 ◇宣言
+			 [死灵守卫者/ネクロ·ガードナー]的场合，已经存在于墓地中的
+			 [死灵守卫者/ネクロ·ガードナー]不能发动效果，从场上破坏送去墓地的
+			 [死灵守卫者/ネクロ·ガードナー]也不能发动效果，不过在此卡适用前已经发动并适用的
+			 [死灵守卫者/ネクロ·ガードナー]的效果仍然适用
+			 ◇宣言二重怪兽的场合，那些二重怪兽不能进行再度召唤。
+			 ◇此卡宣言
+			 [异次元的侦察机/异次元の侦察机]
+			 [异次元的生还者/异次元の生还者]的场合，无论从哪里除外
+			 [异次元的侦察机/异次元の侦察机]
+			 [异次元的生还者/异次元の生还者]，结束阶段
+			 [异次元的侦察机/异次元の侦察机]
+			 [异次元的生还者/异次元の生还者]都不能从除外状态特殊召唤
+			 ◇无论是墓地里已经存在效果确定在结束阶段发动的
+			 [多尔·多拉/ドル·ドラ]的场合发动此卡宣言
+			 [多尔·多拉/ドル·ドラ]，还是在发动此卡前场上存在
+			 [多尔·多拉/ドル·ドラ]，然后再发动此卡宣言
+			 [多尔·多拉/ドル·ドラ]之后破坏
+			 [多尔·多拉/ドル·ドラ]，
+			 [多尔·多拉/ドル·ドラ]都不能在结束阶段特殊召唤
+			 ◇此卡宣言
+			 [多尔·多拉/ドル·ドラ]后，
+			 [多尔·多拉/ドル·ドラ]满足发动效果的条件的场合，如果能在结束阶段之前破坏此卡，那么那个效果可以发动
+			 ●这张卡发动前就在场上存在的卡不受这张卡的效果影响。
+			 ◇包括在此卡发动前覆盖在场上的被宣言卡
+			 ◇在此卡发动前覆盖在场上的被宣言卡，因时间流逝变得无法证明是否是“在此卡发动前就在场上存在的卡”的场合，由在场裁判进行判断
 
-		 中文名: 禁止令
-		 卡片种类: 永续魔法
-		 卡片密码: 43711255
-		 罕见度: 平卡N
-		 卡包: CA、DL01、TP07、SD18
-		 效果: 宣言1个卡名发动。只要这张卡在场上存在，宣言的卡不能使用。从这张卡的效果适用前就在场上存在的卡不会被这张卡的效果适用。
+			 中文名: 禁止令
+			 卡片种类: 永续魔法
+			 卡片密码: 43711255
+			 罕见度: 平卡N
+			 卡包: CA、DL01、TP07、SD18
+			 效果: 宣言1个卡名发动。只要这张卡在场上存在，宣言的卡不能使用。从这张卡的效果适用前就在场上存在的卡不会被这张卡的效果适用。
 
 		*/
 		Id:       129,
 		Password: "43711255",
 		Name:     "禁止令",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -500,7 +500,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       21,
 		Password: "16762927",
 		Name:     "守墓的使魔",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -529,7 +529,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       24,
 		Password: "82003859",
 		Name:     "通行税",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -561,7 +561,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       280,
 		Password: "24294108",
 		Name:     "燃烧的大地",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -590,7 +590,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       289,
 		Password: "90502999",
 		Name:     "地盘沉下",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -616,7 +616,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       312,
 		Password: "23615409",
 		Name:     "除虫网",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -647,7 +647,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       327,
 		Password: "20765952",
 		Name:     "魔力无力化之假面",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -677,7 +677,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       336,
 		Password: "21770260",
 		Name:     "史莱姆增殖炉",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -705,7 +705,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       337,
 		Password: "94163677",
 		Name:     "无限的手札",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -736,7 +736,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       339,
 		Password: "57953380",
 		Name:     "生还的宝札",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -765,7 +765,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       36,
 		Password: "79323590",
 		Name:     "魔力之枷",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -795,7 +795,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       87,
 		Password: "44656491",
 		Name:     "和平使者",
-		Lc:       ygo.LC_SpellContinuous, // 永续魔法
+		Lt:       ygo.LT_SpellContinuous, // 永续魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -824,7 +824,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       329,
 		Password: "56948373",
 		Name:     "咒魂之假面",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -854,7 +854,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       330,
 		Password: "82432018",
 		Name:     "凶暴化之假面",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -883,7 +883,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       332,
 		Password: "55226821",
 		Name:     "闪电之剑",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -911,7 +911,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       356,
 		Password: "10352095",
 		Name:     "幻惑之卷物",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -941,7 +941,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       357,
 		Password: "56747793",
 		Name:     "团结之力",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -971,7 +971,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       358,
 		Password: "83746708",
 		Name:     "魔导师之力",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1005,7 +1005,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       4,
 		Password: "65169794",
 		Name:     "黑项链",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1034,7 +1034,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       41,
 		Password: "64047146",
 		Name:     "一角兽之角",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1071,7 +1071,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       44,
 		Password: "64389297",
 		Name:     "迷宫变化",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1106,7 +1106,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       5,
 		Password: "38552107",
 		Name:     "光之角",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1141,7 +1141,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       6,
 		Password: "99597615",
 		Name:     "恶魔之吻",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1170,7 +1170,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       93,
 		Password: "86198326",
 		Name:     "7卡",
-		Lc:       ygo.LC_SpellEquip, // 装备魔法
+		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1199,7 +1199,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       22,
 		Password: "12470447",
 		Name:     "邪恶的仪式",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1228,7 +1228,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       23,
 		Password: "70368879",
 		Name:     "哥布林暴发户",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1256,7 +1256,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       25,
 		Password: "18591904",
 		Name:     "最终战争",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1285,7 +1285,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       28,
 		Password: "17375316",
 		Name:     "收押",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1294,42 +1294,42 @@ func d_5(cardBag *ygo.CardVersion) {
 	/* 41 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 281
-		 调整:
+			 id: 281
+			 调整:
 
-		 [大寒波]<大寒波>
-		 [08/07/30]
-		 ●主要阶段1的开始时才能发动。
-		 ◇只能在“主阶段1一开始”发动，就算是因
-		 [命运英雄
-		钻石人]的效果确定发动的场合也是如此
-		 ◇无论如何一回合都不可能发动2张此卡
-		 ●直到下次的自己的抽卡阶段时，双方不能有魔法·陷阱卡的效果使用以及发动·放置(SET)。
-		 ◇行动限制效果在此卡对应的连锁处理完后才适用
-		 ◇不能做的事：从手牌里发动魔/陷，SET魔/陷，发动覆盖的魔/陷，发动时机类似于“怪兽的起动效果”与“怪兽的诱发效果”的正面魔/陷使用效果
-		 ◇可以连锁这张卡发动魔法·陷阱卡
-		 ◇这张卡效果适用中的场合，不能发动因「命运英雄
-		钻石人/D－HERO
-		ダイヤモンドガイ」效果送入墓地的通常魔法
-		 ◇发动时机类似于“怪兽的永续效果”的正面魔/陷的效果有效，COST有效
-		 ◇
-		 [恶魔之斧]
-		 [神剑-凤凰刃]
-		 [魔法爆破]
-		 [诅咒之棺]之类在墓地里发动效果的魔/陷卡，在这张卡效果适用中不能发动效果
+			 [大寒波]<大寒波>
+			 [08/07/30]
+			 ●主要阶段1的开始时才能发动。
+			 ◇只能在“主阶段1一开始”发动，就算是因
+			 [命运英雄
+			钻石人]的效果确定发动的场合也是如此
+			 ◇无论如何一回合都不可能发动2张此卡
+			 ●直到下次的自己的抽卡阶段时，双方不能有魔法·陷阱卡的效果使用以及发动·放置(SET)。
+			 ◇行动限制效果在此卡对应的连锁处理完后才适用
+			 ◇不能做的事：从手牌里发动魔/陷，SET魔/陷，发动覆盖的魔/陷，发动时机类似于“怪兽的起动效果”与“怪兽的诱发效果”的正面魔/陷使用效果
+			 ◇可以连锁这张卡发动魔法·陷阱卡
+			 ◇这张卡效果适用中的场合，不能发动因「命运英雄
+			钻石人/D－HERO
+			ダイヤモンドガイ」效果送入墓地的通常魔法
+			 ◇发动时机类似于“怪兽的永续效果”的正面魔/陷的效果有效，COST有效
+			 ◇
+			 [恶魔之斧]
+			 [神剑-凤凰刃]
+			 [魔法爆破]
+			 [诅咒之棺]之类在墓地里发动效果的魔/陷卡，在这张卡效果适用中不能发动效果
 
-		 中文名: 大寒波
-		 卡片种类: 通常魔法
-		 卡片密码: 60682203
-		 罕见度: 平卡N
-		 卡包: TB 、DL03、SD15
-		 效果: 主要阶段1的开始时才能发动。直到下次的自己的抽卡阶段时，双方不能有魔法·陷阱卡的效果使用以及发动·放置（SET）。
+			 中文名: 大寒波
+			 卡片种类: 通常魔法
+			 卡片密码: 60682203
+			 罕见度: 平卡N
+			 卡包: TB 、DL03、SD15
+			 效果: 主要阶段1的开始时才能发动。直到下次的自己的抽卡阶段时，双方不能有魔法·陷阱卡的效果使用以及发动·放置（SET）。
 
 		*/
 		Id:       281,
 		Password: "60682203",
 		Name:     "大寒波",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1352,7 +1352,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       284,
 		Password: "66719324",
 		Name:     "恩惠之雨",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1361,31 +1361,31 @@ func d_5(cardBag *ygo.CardVersion) {
 	/* 43 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 287
-		 调整:
+			 id: 287
+			 调整:
 
-		 [孵化]<孵化>
-		 ●自己的场上一只怪兽做祭品。
-		 ◇COST
-		 ◇这只怪兽的星数在祭品前判定
-		 ●从自己的卡组特殊召唤比做祭品高一星的昆虫族怪兽。
-		 ◇只能特殊召唤一只满足条件的怪兽★因
-		 [命运英雄
-		钻石人/D－HERO
-		ダイヤモンドガイ]的效果将此卡送入墓地的场合，暂调整为因不能判断星数，此卡无法发动
+			 [孵化]<孵化>
+			 ●自己的场上一只怪兽做祭品。
+			 ◇COST
+			 ◇这只怪兽的星数在祭品前判定
+			 ●从自己的卡组特殊召唤比做祭品高一星的昆虫族怪兽。
+			 ◇只能特殊召唤一只满足条件的怪兽★因
+			 [命运英雄
+			钻石人/D－HERO
+			ダイヤモンドガイ]的效果将此卡送入墓地的场合，暂调整为因不能判断星数，此卡无法发动
 
-		 中文名: 孵化
-		 卡片种类: 通常魔法
-		 卡片密码: 96965364
-		 罕见度: 平卡N
-		 卡包: TB 、DL03、TP20
-		 效果: 自己的场上1只怪兽做祭品。从自己的卡组特殊召唤比做祭品高1星的昆虫族怪兽。
+			 中文名: 孵化
+			 卡片种类: 通常魔法
+			 卡片密码: 96965364
+			 罕见度: 平卡N
+			 卡包: TB 、DL03、TP20
+			 效果: 自己的场上1只怪兽做祭品。从自己的卡组特殊召唤比做祭品高1星的昆虫族怪兽。
 
 		*/
 		Id:       287,
 		Password: "96965364",
 		Name:     "孵化",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1414,7 +1414,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       29,
 		Password: "44763025",
 		Name:     "爱恶作剧的双子恶魔",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1445,7 +1445,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       30,
 		Password: "80168720",
 		Name:     "暗之拜访",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1473,7 +1473,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       324,
 		Password: "21888494",
 		Name:     "被选中者",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1503,7 +1503,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       331,
 		Password: "19827717",
 		Name:     "死者生还",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1532,7 +1532,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       35,
 		Password: "42829885",
 		Name:     "强引的番兵",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1561,7 +1561,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       39,
 		Password: "74191942",
 		Name:     "苦涩的选择",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1588,7 +1588,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       45,
 		Password: "95051344",
 		Name:     "成佛",
-		Lc:       ygo.LC_SpellNormal, // 通常魔法
+		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1611,7 +1611,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       326,
 		Password: "94377247",
 		Name:     "假面魔兽的仪式",
-		Lc:       ygo.LC_SpellRitual, // 仪式魔法
+		Lt:       ygo.LT_SpellRitual, // 仪式魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1634,7 +1634,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       47,
 		Password: "43417563",
 		Name:     "诱发之舞",
-		Lc:       ygo.LC_SpellRitual, // 仪式魔法
+		Lt:       ygo.LT_SpellRitual, // 仪式魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1657,7 +1657,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       48,
 		Password: "80811661",
 		Name:     "汉堡的食谱",
-		Lc:       ygo.LC_SpellRitual, // 仪式魔法
+		Lt:       ygo.LT_SpellRitual, // 仪式魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1680,7 +1680,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       51,
 		Password: "76806714",
 		Name:     "龟的誓言",
-		Lc:       ygo.LC_SpellRitual, // 仪式魔法
+		Lt:       ygo.LT_SpellRitual, // 仪式魔法
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1689,29 +1689,29 @@ func d_5(cardBag *ygo.CardVersion) {
 	/* 55 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 290
-		 调整:
+			 id: 290
+			 调整:
 
-		 [魔力抽取]<マジック·ドレイン>
-		 ●对方的魔法发动的时候才可以发动。对方从手卡丢弃一张魔法卡就可以使这张卡无效化。如果对方不丢弃的场合，对方的魔法卡的发动无效化并破坏。
-		 ◇
-		 [辉煌金星/The
-		splendid
-		VENUS]效果适用中的场合，对手不能通过丢弃魔法使此卡无效
-		 ◇就算对手丢弃魔法使此卡无效，也只无效效果，发动有效
+			 [魔力抽取]<マジック·ドレイン>
+			 ●对方的魔法发动的时候才可以发动。对方从手卡丢弃一张魔法卡就可以使这张卡无效化。如果对方不丢弃的场合，对方的魔法卡的发动无效化并破坏。
+			 ◇
+			 [辉煌金星/The
+			splendid
+			VENUS]效果适用中的场合，对手不能通过丢弃魔法使此卡无效
+			 ◇就算对手丢弃魔法使此卡无效，也只无效效果，发动有效
 
-		 中文名: 魔力抽取
-		 卡片种类: 反击陷阱
-		 卡片密码: 59344077
-		 罕见度: 平卡N，银字R
-		 卡包: BE01、TB 、DL03、SD07、YSD04
-		 效果: 对方的魔法发动的时候才可以发动。对方从手卡丢弃1张魔法卡就可以使这张卡无效化。如果对方不丢弃的场合，对方的魔法卡的发动无效化并破坏。
+			 中文名: 魔力抽取
+			 卡片种类: 反击陷阱
+			 卡片密码: 59344077
+			 罕见度: 平卡N，银字R
+			 卡包: BE01、TB 、DL03、SD07、YSD04
+			 效果: 对方的魔法发动的时候才可以发动。对方从手卡丢弃1张魔法卡就可以使这张卡无效化。如果对方不丢弃的场合，对方的魔法卡的发动无效化并破坏。
 
 		*/
 		Id:       290,
 		Password: "59344077",
 		Name:     "魔力抽取",
-		Lc:       ygo.LC_TrapCounter, // 反击陷阱
+		Lt:       ygo.LT_TrapCounter, // 反击陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1720,28 +1720,28 @@ func d_5(cardBag *ygo.CardVersion) {
 	/* 56 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 102
-		 调整:
+			 id: 102
+			 调整:
 
-		 [所罗门的律法书]<ソロモンの律法書>
-		 ●跳过自己的准备流程。
-		 ◇等价于“跳过自己的下一个准备流程”★跳过自己的下一个准备流程后，
-		 [觉醒战士
-		库丘林/覚醒戦士
-		クーフーリン]的攻击力怎么算，调整中
+			 [所罗门的律法书]<ソロモンの律法書>
+			 ●跳过自己的准备流程。
+			 ◇等价于“跳过自己的下一个准备流程”★跳过自己的下一个准备流程后，
+			 [觉醒战士
+			库丘林/覚醒戦士
+			クーフーリン]的攻击力怎么算，调整中
 
-		 中文名: 所罗门的律法书
-		 卡片种类: 通常陷阱
-		 卡片密码: 23471572
-		 罕见度: 平卡N
-		 卡包: CA、DL01、TP14
-		 效果: 下次的自己的准备阶段跳过。
+			 中文名: 所罗门的律法书
+			 卡片种类: 通常陷阱
+			 卡片密码: 23471572
+			 罕见度: 平卡N
+			 卡包: CA、DL01、TP14
+			 效果: 下次的自己的准备阶段跳过。
 
 		*/
 		Id:       102,
 		Password: "23471572",
 		Name:     "所罗门的律法书",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1769,7 +1769,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       103,
 		Password: "60866277",
 		Name:     "地壳变动",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1801,7 +1801,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       104,
 		Password: "96355986",
 		Name:     "神圣标枪",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1830,7 +1830,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       106,
 		Password: "73079365",
 		Name:     "突风",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1859,7 +1859,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       107,
 		Password: "00473469",
 		Name:     "猛吹雪",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1891,7 +1891,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       108,
 		Password: "36868108",
 		Name:     "玻璃铠",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1922,7 +1922,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       109,
 		Password: "12253117",
 		Name:     "世界平定",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1952,7 +1952,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       110,
 		Password: "49251811",
 		Name:     "魔法探查石板",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -1982,7 +1982,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       111,
 		Password: "75646520",
 		Name:     "金属探知器",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2014,7 +2014,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       112,
 		Password: "02130625",
 		Name:     "白衣天使",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2046,7 +2046,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       118,
 		Password: "09074847",
 		Name:     "大骚动",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2083,7 +2083,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       119,
 		Password: "36468556",
 		Name:     "停战协定",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2116,7 +2116,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       273,
 		Password: "37580756",
 		Name:     "同路人",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2144,7 +2144,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       275,
 		Password: "37313786",
 		Name:     "赌博",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2177,7 +2177,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       276,
 		Password: "63689843",
 		Name:     "白兵战",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2205,7 +2205,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       294,
 		Password: "58621589",
 		Name:     "诱惑之影",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2236,7 +2236,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       325,
 		Password: "57882509",
 		Name:     "弱体化之假面",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2267,7 +2267,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       335,
 		Password: "53582587",
 		Name:     "激流葬",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2296,7 +2296,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       40,
 		Password: "00596051",
 		Name:     "毒蛇之牙",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2324,7 +2324,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       49,
 		Password: "15083728",
 		Name:     "粘胶带之家",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2352,7 +2352,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       50,
 		Password: "42578427",
 		Name:     "捕鼠夹",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2383,7 +2383,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       94,
 		Password: "49587034",
 		Name:     "光之封札剑",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2416,7 +2416,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       95,
 		Password: "01248895",
 		Name:     "连锁破坏",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2439,7 +2439,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       96,
 		Password: "35316708",
 		Name:     "刻之封印",
-		Lc:       ygo.LC_TrapNormal, // 通常陷阱
+		Lt:       ygo.LT_TrapNormal, // 通常陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2475,7 +2475,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       105,
 		Password: "22359980",
 		Name:     "银幕之镜壁",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2508,7 +2508,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       113,
 		Password: "48539234",
 		Name:     "便乘",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2539,7 +2539,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       114,
 		Password: "74923978",
 		Name:     "强制接收",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2568,7 +2568,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       115,
 		Password: "74701381",
 		Name:     "DNA改造手术",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2597,7 +2597,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       116,
 		Password: "00296499",
 		Name:     "一族之规",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2620,7 +2620,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       122,
 		Password: "61740673",
 		Name:     "王宫的敕命",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2649,7 +2649,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       274,
 		Password: "01918087",
 		Name:     "哥布林小役人",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2676,7 +2676,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       277,
 		Password: "35346968",
 		Name:     "神之恩惠",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2704,7 +2704,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       278,
 		Password: "98139712",
 		Name:     "死灵的引诱",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2733,7 +2733,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       291,
 		Password: "54109233",
 		Name:     "救世主之蚁地狱",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2761,7 +2761,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       292,
 		Password: "85742772",
 		Name:     "超重力网",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2788,7 +2788,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       293,
 		Password: "21237481",
 		Name:     "零式魔导粉碎机",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2816,7 +2816,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       328,
 		Password: "29549364",
 		Name:     "牲祭封印之假面",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2853,7 +2853,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       333,
 		Password: "18605135",
 		Name:     "龙卷海流壁",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2885,7 +2885,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       334,
 		Password: "21598948",
 		Name:     "怪兽箱",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2914,7 +2914,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       338,
 		Password: "21558682",
 		Name:     "防御史莱姆",
-		Lc:       ygo.LC_TrapContinuous, // 永续陷阱
+		Lt:       ygo.LT_TrapContinuous, // 永续陷阱
 
 		//Initialize: func(ca *ygo.Card) bool {}, // 初始
 		IsValid: false,
@@ -2942,7 +2942,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       316,
 		Password: "05600127",
 		Name:     "人形鳞虫",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 7,
 		La:    ygo.LA_Water, // 水
@@ -2975,7 +2975,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       353,
 		Password: "21175632",
 		Name:     "圣女 贞德",
-		Lc:       ygo.LC_MonsterFusion, // 融合怪兽
+		Lt:       ygo.LT_MonsterFusion, // 融合怪兽
 
 		Level: 7,
 		La:    ygo.LA_Light, // 光
@@ -3013,7 +3013,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       10,
 		Password: "93013676",
 		Name:     "摩诃毗卢",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Light,       // 光
@@ -3052,7 +3052,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       12,
 		Password: "32539892",
 		Name:     "伊比",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth,  // 地
@@ -3093,7 +3093,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       13,
 		Password: "95744531",
 		Name:     "格里格尔",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 1,
 		La:    ygo.LA_Earth, // 地
@@ -3138,7 +3138,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       132,
 		Password: "04266839",
 		Name:     "精神寄生体",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Dark,  // 暗
@@ -3179,7 +3179,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       14,
 		Password: "72053645",
 		Name:     "气象报告员",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Water, // 水
@@ -3220,7 +3220,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       17,
 		Password: "03056267",
 		Name:     "王座侵略者",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,   // 地
@@ -3262,7 +3262,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2,
 		Password: "36039163",
 		Name:     "企鹅骑士",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Water, // 水
@@ -3300,7 +3300,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       279,
 		Password: "06104968",
 		Name:     "死亡仓鼠",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth, // 地
@@ -3340,7 +3340,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       295,
 		Password: "03643300",
 		Name:     "传说的渔人",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 5,
 		La:    ygo.LA_Water,   // 水
@@ -3382,7 +3382,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       296,
 		Password: "51345461",
 		Name:     "狩剑猎人",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 7,
 		La:    ygo.LA_Earth,   // 地
@@ -3396,37 +3396,37 @@ func d_5(cardBag *ygo.CardVersion) {
 	/* 108 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 297
-		 调整:
+			 id: 297
+			 调整:
 
-		 [穿孔虫]<穿孔虫>
-		 ●这张卡给与对方战斗伤害的时候，从自己的卡组取出一张
-		 [寄生虫
-		帕拉赛德/寄生虫パラサイド]，之后在卡组洗切后放在卡组最上面。
-		 ◇诱发效果，强制发动
-		 ◇时点同
-		 [首领
-		扎鲁格/首領·ザルーグ]★暂调整为不能选择正面的
-		 [寄生虫
-		帕拉赛德/寄生虫パラサイド]
+			 [穿孔虫]<穿孔虫>
+			 ●这张卡给与对方战斗伤害的时候，从自己的卡组取出一张
+			 [寄生虫
+			帕拉赛德/寄生虫パラサイド]，之后在卡组洗切后放在卡组最上面。
+			 ◇诱发效果，强制发动
+			 ◇时点同
+			 [首领
+			扎鲁格/首領·ザルーグ]★暂调整为不能选择正面的
+			 [寄生虫
+			帕拉赛德/寄生虫パラサイド]
 
-		 中文名: 穿孔虫
-		 卡片种类: 效果怪兽
-		 卡片密码: 88733579
-		 种族: 昆虫
-		 属性: 地
-		 星级: 2
-		 攻击力: 1100
-		 防御力: 200
-		 罕见度: 平卡N
-		 卡包: BE01、TB 、DL03
-		 效果: 这张卡给予对方战斗伤害的时候，从自己的卡组取出1张「寄生虫 帕拉赛德」，之后在卡组洗切后放在卡组最上面。
+			 中文名: 穿孔虫
+			 卡片种类: 效果怪兽
+			 卡片密码: 88733579
+			 种族: 昆虫
+			 属性: 地
+			 星级: 2
+			 攻击力: 1100
+			 防御力: 200
+			 罕见度: 平卡N
+			 卡包: BE01、TB 、DL03
+			 效果: 这张卡给予对方战斗伤害的时候，从自己的卡组取出1张「寄生虫 帕拉赛德」，之后在卡组洗切后放在卡组最上面。
 
 		*/
 		Id:       297,
 		Password: "88733579",
 		Name:     "穿孔虫",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Earth,  // 地
@@ -3464,7 +3464,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       298,
 		Password: "24128274",
 		Name:     "深海战士",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 5,
 		La:    ygo.LA_Water,   // 水
@@ -3506,7 +3506,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       304,
 		Password: "57409948",
 		Name:     "爆弹椿象",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Wind,   // 风
@@ -3544,7 +3544,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       305,
 		Password: "83994646",
 		Name:     "死之四星瓢虫",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Wind,   // 风
@@ -3584,7 +3584,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       307,
 		Password: "56387350",
 		Name:     "吸血鬼婴儿",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Dark,   // 暗
@@ -3621,7 +3621,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       308,
 		Password: "79870141",
 		Name:     "猛进的剑角兽",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,    // 地
@@ -3659,7 +3659,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       310,
 		Password: "66362965",
 		Name:     "魔导电子巨人",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 6,
 		La:    ygo.LA_Dark,    // 暗
@@ -3697,7 +3697,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       317,
 		Password: "31709826",
 		Name:     "再生史莱姆",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Water, // 水
@@ -3711,35 +3711,35 @@ func d_5(cardBag *ygo.CardVersion) {
 	/* 116 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 323
-		 调整:
+			 id: 323
+			 调整:
 
-		 [女邪神
-		努维娅]<女邪神ヌヴィア>
-		 ●召唤的场合，这张卡破坏。
-		 ◇永续效果，不入连锁
-		 ●对方有怪兽控制的场合，对方场上每有一张可控制的怪兽这张卡的攻击力降低200。
-		 ◇永续效果
-		 ◇
-		 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
+			 [女邪神
+			努维娅]<女邪神ヌヴィア>
+			 ●召唤的场合，这张卡破坏。
+			 ◇永续效果，不入连锁
+			 ●对方有怪兽控制的场合，对方场上每有一张可控制的怪兽这张卡的攻击力降低200。
+			 ◇永续效果
+			 ◇
+			 [天邪鬼的诅咒/あまのじゃくの呪い]効果适用
 
-		 中文名: 女邪神 努维娅
-		 卡片种类: 效果怪兽
-		 卡片密码: 12953226
-		 种族: 恶魔
-		 属性: 暗
-		 星级: 4
-		 攻击力: 2000
-		 防御力: 800
-		 罕见度: 平卡N，银字R
-		 卡包: BE01、SM、DL03
-		 效果: 召唤的场合，这张卡破坏。对方有怪兽控制的场合，对方场上每有1张可控制的怪兽这张卡的攻击力下降200。
+			 中文名: 女邪神 努维娅
+			 卡片种类: 效果怪兽
+			 卡片密码: 12953226
+			 种族: 恶魔
+			 属性: 暗
+			 星级: 4
+			 攻击力: 2000
+			 防御力: 800
+			 罕见度: 平卡N，银字R
+			 卡包: BE01、SM、DL03
+			 效果: 召唤的场合，这张卡破坏。对方有怪兽控制的场合，对方场上每有1张可控制的怪兽这张卡的攻击力下降200。
 
 		*/
 		Id:       323,
 		Password: "12953226",
 		Name:     "女邪神 努维娅",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Dark,  // 暗
@@ -3779,7 +3779,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       340,
 		Password: "38480590",
 		Name:     "女豹佣兵",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,        // 地
@@ -3816,7 +3816,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       341,
 		Password: "65475294",
 		Name:     "杀戮同伴的女骑士",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,   // 地
@@ -3853,7 +3853,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       342,
 		Password: "91869203",
 		Name:     "亚马逊射手",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,   // 地
@@ -3890,7 +3890,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       344,
 		Password: "64752646",
 		Name:     "爆炎少女",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Fire, // 炎
@@ -3928,7 +3928,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       347,
 		Password: "53530069",
 		Name:     "微风之精灵",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Wind,  // 风
@@ -3966,7 +3966,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       348,
 		Password: "90925163",
 		Name:     "舞蹈妖精",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Wind,  // 风
@@ -4004,7 +4004,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       349,
 		Password: "22419772",
 		Name:     "妖精守护者",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Wind,  // 风
@@ -4042,7 +4042,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       350,
 		Password: "85802526",
 		Name:     "人鱼公主",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Water, // 水
@@ -4079,7 +4079,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       351,
 		Password: "21297224",
 		Name:     "歇斯底里的天使",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Light, // 光
@@ -4116,7 +4116,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       352,
 		Password: "84080938",
 		Name:     "大慈大悲的修女",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Light, // 光
@@ -4130,32 +4130,32 @@ func d_5(cardBag *ygo.CardVersion) {
 	/* 127 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 354
-		 调整:
+			 id: 354
+			 调整:
 
-		 [堕天使
-		玛丽]<堕天使マリー>
-		 ●只要这张卡在墓地存在，每次的自己的准备流程自己恢复200基本分。
-		 ◇诱发效果，强制发动
-		 ◇效果处理时此卡不在墓地的场合，效果不发
+			 [堕天使
+			玛丽]<堕天使マリー>
+			 ●只要这张卡在墓地存在，每次的自己的准备流程自己恢复200基本分。
+			 ◇诱发效果，强制发动
+			 ◇效果处理时此卡不在墓地的场合，效果不发
 
-		 中文名: 堕天使 玛丽
-		 卡片种类: 效果怪兽
-		 卡片密码: 57579381
-		 种族: 恶魔
-		 属性: 暗
-		 星级: 5
-		 攻击力: 1700
-		 防御力: 1200
-		 罕见度: 平卡N，银字R
-		 卡包: BE01、SM、DL03
-		 效果: 只要这张卡在墓地存在，每次的自己的准备阶段自己回复200基本分。
+			 中文名: 堕天使 玛丽
+			 卡片种类: 效果怪兽
+			 卡片密码: 57579381
+			 种族: 恶魔
+			 属性: 暗
+			 星级: 5
+			 攻击力: 1700
+			 防御力: 1200
+			 罕见度: 平卡N，银字R
+			 卡包: BE01、SM、DL03
+			 效果: 只要这张卡在墓地存在，每次的自己的准备阶段自己回复200基本分。
 
 		*/
 		Id:       354,
 		Password: "57579381",
 		Name:     "堕天使 玛丽",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 5,
 		La:    ygo.LA_Dark,  // 暗
@@ -4195,7 +4195,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       43,
 		Password: "63162310",
 		Name:     "墙壁之影",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 7,
 		La:    ygo.LA_Dark,    // 暗
@@ -4232,7 +4232,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       63,
 		Password: "61528025",
 		Name:     "光之追放者",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Light, // 光
@@ -4269,7 +4269,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       66,
 		Password: "60806437",
 		Name:     "飞碟龟",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Fire,    // 炎
@@ -4309,7 +4309,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       67,
 		Password: "96890582",
 		Name:     "秒杀之暗杀者",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Dark,  // 暗
@@ -4346,7 +4346,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       69,
 		Password: "59784896",
 		Name:     "暗黑斑马",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth, // 地
@@ -4385,7 +4385,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       70,
 		Password: "95178994",
 		Name:     "巨型病毒",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Dark,  // 暗
@@ -4422,7 +4422,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       71,
 		Password: "22567609",
 		Name:     "迅捷鼯鼠",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Earth, // 地
@@ -4470,7 +4470,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       72,
 		Password: "58551308",
 		Name:     "暗黑使魔",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Dark,  // 暗
@@ -4507,7 +4507,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       73,
 		Password: "95956346",
 		Name:     "光辉天使",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Light, // 光
@@ -4548,7 +4548,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       74,
 		Password: "21340051",
 		Name:     "野猪士兵",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Earth,        // 地
@@ -4585,7 +4585,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       75,
 		Password: "57839750",
 		Name:     "母灰熊",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Water,        // 水
@@ -4622,7 +4622,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       76,
 		Password: "84834865",
 		Name:     "蜻蜓",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 4,
 		La:    ygo.LA_Wind,   // 风
@@ -4659,7 +4659,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       77,
 		Password: "20228463",
 		Name:     "仪式之钟",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Light,       // 光
@@ -4698,7 +4698,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       8,
 		Password: "11324436",
 		Name:     "电蛇",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Light,   // 光
@@ -4740,7 +4740,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       80,
 		Password: "19406822",
 		Name:     "言灵",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 3,
 		La:    ygo.LA_Earth, // 地
@@ -4781,7 +4781,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       9,
 		Password: "95174353",
 		Name:     "阿米巴",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 1,
 		La:    ygo.LA_Water, // 水
@@ -4795,43 +4795,43 @@ func d_5(cardBag *ygo.CardVersion) {
 	/* 144 */
 	cardBag.Register(&ygo.CardOriginal{
 		/*
-		 id: 92
-		 调整:
+			 id: 92
+			 调整:
 
-		 [寄生虫
-		帕拉赛德]<寄生虫パラサイド>
-		 ●翻转效果：把这张卡表面向上混进对方卡组洗切。
-		 ◇反转效果
-		 ◇此卡战破确定的场合，此效果不发
-		 ◇“向上”等价于“和对方卡组中卡的方向相反”
-		 ◇因此效果进入对方卡组的所有权不属于对方的此卡不能被检索★因此效果进入对方卡组的所有权属于对方的此卡能否被检索，调整中
-		 ●对方抽到这张卡的时候，这张卡打开防守表示在对方场上特殊召唤，对方受到1000分的伤害。
-		 ◇诱发效果，强制发动
-		 ◇因抽卡以外的方法将此卡加入手牌的场合，此效果不发动
-		 ◇因先抽卡后弃卡的卡的效果加入手牌的场合，不能弃此卡，此时没卡可弃的场合不弃
-		 ◇“对方”指反转效果发动时的“对方”，也就是此时此卡控制者
-		 ●只要这张卡打开表示在场上存在，对方场上打开表示的怪兽全部变成昆虫族。
-		 ◇永续效果
-		 ◇只有因此卡的效果在对方场上特殊召唤的场合才适用
-		 ◇“对方”指反转效果发动时的“对方”，也就是此时此卡控制者
+			 [寄生虫
+			帕拉赛德]<寄生虫パラサイド>
+			 ●翻转效果：把这张卡表面向上混进对方卡组洗切。
+			 ◇反转效果
+			 ◇此卡战破确定的场合，此效果不发
+			 ◇“向上”等价于“和对方卡组中卡的方向相反”
+			 ◇因此效果进入对方卡组的所有权不属于对方的此卡不能被检索★因此效果进入对方卡组的所有权属于对方的此卡能否被检索，调整中
+			 ●对方抽到这张卡的时候，这张卡打开防守表示在对方场上特殊召唤，对方受到1000分的伤害。
+			 ◇诱发效果，强制发动
+			 ◇因抽卡以外的方法将此卡加入手牌的场合，此效果不发动
+			 ◇因先抽卡后弃卡的卡的效果加入手牌的场合，不能弃此卡，此时没卡可弃的场合不弃
+			 ◇“对方”指反转效果发动时的“对方”，也就是此时此卡控制者
+			 ●只要这张卡打开表示在场上存在，对方场上打开表示的怪兽全部变成昆虫族。
+			 ◇永续效果
+			 ◇只有因此卡的效果在对方场上特殊召唤的场合才适用
+			 ◇“对方”指反转效果发动时的“对方”，也就是此时此卡控制者
 
-		 中文名: 寄生虫 帕拉赛德
-		 卡片种类: 效果怪兽
-		 卡片密码: 27911549
-		 种族: 昆虫
-		 属性: 地
-		 星级: 2
-		 攻击力: 500
-		 防御力: 300
-		 罕见度: 平卡N，银字R
-		 卡包: BE01、CA、DL01
-		 效果: 反转：把这张卡表面向上混进对方卡组洗切。对方抽到这张卡时，这张卡在对方场上表侧守备表示特殊召唤，给予对方基本分1000分伤害。之后，只要这张卡表侧表示在场上存在，对方场上表侧表示存在的怪兽全部变成昆虫族。
+			 中文名: 寄生虫 帕拉赛德
+			 卡片种类: 效果怪兽
+			 卡片密码: 27911549
+			 种族: 昆虫
+			 属性: 地
+			 星级: 2
+			 攻击力: 500
+			 防御力: 300
+			 罕见度: 平卡N，银字R
+			 卡包: BE01、CA、DL01
+			 效果: 反转：把这张卡表面向上混进对方卡组洗切。对方抽到这张卡时，这张卡在对方场上表侧守备表示特殊召唤，给予对方基本分1000分伤害。之后，只要这张卡表侧表示在场上存在，对方场上表侧表示存在的怪兽全部变成昆虫族。
 
 		*/
 		Id:       92,
 		Password: "27911549",
 		Name:     "寄生虫 帕拉赛德",
-		Lc:       ygo.LC_MonsterEffect, // 效果怪兽
+		Lt:       ygo.LT_MonsterEffect, // 效果怪兽
 
 		Level: 2,
 		La:    ygo.LA_Earth,  // 地
@@ -4864,7 +4864,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       321,
 		Password: "49064413",
 		Name:     "假面魔兽 地狱修道士",
-		Lc:       ygo.LC_MonsterRitual, // 仪式怪兽
+		Lt:       ygo.LT_MonsterRitual, // 仪式怪兽
 
 		Level: 8,
 		La:    ygo.LA_Dark,  // 暗
@@ -4897,7 +4897,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       52,
 		Password: "04849037",
 		Name:     "舞蹈战士",
-		Lc:       ygo.LC_MonsterRitual, // 仪式怪兽
+		Lt:       ygo.LT_MonsterRitual, // 仪式怪兽
 
 		Level: 6,
 		La:    ygo.LA_Earth,   // 地
@@ -4930,7 +4930,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       53,
 		Password: "30243636",
 		Name:     "饥饿的汉堡",
-		Lc:       ygo.LC_MonsterRitual, // 仪式怪兽
+		Lt:       ygo.LT_MonsterRitual, // 仪式怪兽
 
 		Level: 6,
 		La:    ygo.LA_Dark,    // 暗
@@ -4963,7 +4963,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       54,
 		Password: "91782219",
 		Name:     "蟹龟",
-		Lc:       ygo.LC_MonsterRitual, // 仪式怪兽
+		Lt:       ygo.LT_MonsterRitual, // 仪式怪兽
 
 		Level: 8,
 		La:    ygo.LA_Water, // 水
@@ -4996,7 +4996,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       11,
 		Password: "47879985",
 		Name:     "王室前的守护者",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Light,   // 光
@@ -5028,7 +5028,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       1191,
 		Password: "55998462",
 		Name:     "金属鱼",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Water,   // 水
@@ -5060,7 +5060,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       131,
 		Password: "78861134",
 		Name:     "炎之剑豪",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Fire, // 炎
@@ -5092,7 +5092,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       133,
 		Password: "30655537",
 		Name:     "机械猎鹰",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Wind,    // 风
@@ -5124,7 +5124,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       134,
 		Password: "03134241",
 		Name:     "飞螳螂",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Wind,   // 风
@@ -5156,7 +5156,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       135,
 		Password: "30532390",
 		Name:     "鸟人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Wind,        // 风
@@ -5188,7 +5188,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       16,
 		Password: "54579801",
 		Name:     "满潮鱼人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -5220,7 +5220,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       18,
 		Password: "03797883",
 		Name:     "角子老虎机AM-7",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   7,
 		La:      ygo.LA_Dark,    // 暗
@@ -5252,7 +5252,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2739,
 		Password: "73081602",
 		Name:     "女王鸟",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Wind,        // 风
@@ -5284,7 +5284,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2740,
 		Password: "20624263",
 		Name:     "孔雀",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Wind,        // 风
@@ -5316,7 +5316,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2741,
 		Password: "46534755",
 		Name:     "火焰乌贼",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Fire,  // 炎
@@ -5348,7 +5348,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2742,
 		Password: "56789759",
 		Name:     "红龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Fire,   // 炎
@@ -5380,7 +5380,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2743,
 		Password: "14015067",
 		Name:     "大森林的长老",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Earth, // 地
@@ -5412,7 +5412,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2744,
 		Password: "35565537",
 		Name:     "女武神",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Light, // 光
@@ -5444,7 +5444,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2745,
 		Password: "34442949",
 		Name:     "机械蜗牛",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,    // 暗
@@ -5476,7 +5476,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2746,
 		Password: "96981563",
 		Name:     "食火的大龟",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Water, // 水
@@ -5508,7 +5508,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2747,
 		Password: "93108297",
 		Name:     "液体兽",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Water, // 水
@@ -5540,7 +5540,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2748,
 		Password: "91996584",
 		Name:     "鞭尾石像怪",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗
@@ -5572,7 +5572,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2749,
 		Password: "74637266",
 		Name:     "章鱼怪",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Water, // 水
@@ -5604,7 +5604,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2750,
 		Password: "07892180",
 		Name:     "念力河童",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Water, // 水
@@ -5636,7 +5636,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2751,
 		Password: "29692206",
 		Name:     "双尾",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Water, // 水
@@ -5668,7 +5668,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2752,
 		Password: "15023985",
 		Name:     "岩石巨人",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Earth, // 地
@@ -5700,7 +5700,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2753,
 		Password: "42599677",
 		Name:     "火焰杀手",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Fire, // 炎
@@ -5732,7 +5732,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2754,
 		Password: "78984772",
 		Name:     "爆炎龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Fire, // 炎
@@ -5764,7 +5764,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2755,
 		Password: "05388481",
 		Name:     "燃烧士兵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Fire, // 炎
@@ -5796,7 +5796,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2756,
 		Password: "31477025",
 		Name:     "火山先生",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Fire, // 炎
@@ -5828,7 +5828,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2757,
 		Password: "67049542",
 		Name:     "暗黑蝙蝠",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Wind,        // 风
@@ -5860,7 +5860,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2758,
 		Password: "66927994",
 		Name:     "鬼坦克T-34",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,   // 地
@@ -5892,7 +5892,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2759,
 		Password: "02311603",
 		Name:     "机关炮装甲车",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,   // 地
@@ -5924,7 +5924,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2760,
 		Password: "87511987",
 		Name:     "尖钉头",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Dark,    // 暗
@@ -5956,7 +5956,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2761,
 		Password: "84620194",
 		Name:     "断头台锹甲",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Wind,   // 风
@@ -5988,7 +5988,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2762,
 		Password: "05265750",
 		Name:     "海贼船 血骸骨号",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water,   // 水
@@ -6020,7 +6020,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2763,
 		Password: "32269855",
 		Name:     "独眼白虎",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Wind,  // 风
@@ -6052,7 +6052,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2764,
 		Password: "04042268",
 		Name:     "岛龟",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -6084,7 +6084,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2765,
 		Password: "31447217",
 		Name:     "织翼者",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   7,
 		La:      ygo.LA_Light, // 光
@@ -6116,7 +6116,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2766,
 		Password: "67532912",
 		Name:     "科学特殊兵",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Dark,    // 暗
@@ -6148,7 +6148,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2767,
 		Password: "04920010",
 		Name:     "怨念集合体",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   2,
 		La:      ygo.LA_Dark,  // 暗
@@ -6180,7 +6180,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2769,
 		Password: "31987274",
 		Name:     "飞鱼",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Wind, // 风
@@ -6212,7 +6212,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2771,
 		Password: "58818411",
 		Name:     "女帝螳螂",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Wind,   // 风
@@ -6244,7 +6244,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       2772,
 		Password: "58696829",
 		Name:     "生化僧侣",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   3,
 		La:      ygo.LA_Light, // 光
@@ -6276,7 +6276,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       306,
 		Password: "10992251",
 		Name:     "超时空战斗机 V形蛇",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Light,   // 光
@@ -6308,7 +6308,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       314,
 		Password: "46821314",
 		Name:     "人形史莱姆",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Water, // 水
@@ -6340,7 +6340,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       315,
 		Password: "73216412",
 		Name:     "鳞虫",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Earth,   // 地
@@ -6372,7 +6372,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       318,
 		Password: "67371383",
 		Name:     "半鱼兽",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   6,
 		La:      ygo.LA_Water, // 水
@@ -6404,7 +6404,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       319,
 		Password: "87303357",
 		Name:     "光辉深渊",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Light, // 光
@@ -6436,7 +6436,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       320,
 		Password: "13676474",
 		Name:     "假面咒术师 诅咒之喉",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗
@@ -6468,7 +6468,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       322,
 		Password: "86569121",
 		Name:     "梅尔基多四面兽",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗
@@ -6500,7 +6500,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       42,
 		Password: "67284908",
 		Name:     "迷宫壁",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   5,
 		La:      ygo.LA_Earth, // 地
@@ -6532,7 +6532,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       60,
 		Password: "62397231",
 		Name:     "钻石龙",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   7,
 		La:      ygo.LA_Light,  // 光
@@ -6564,7 +6564,7 @@ func d_5(cardBag *ygo.CardVersion) {
 		Id:       90,
 		Password: "78423643",
 		Name:     "三头基多",
-		Lc:       ygo.LC_MonsterNormal, // 通常怪兽
+		Lt:       ygo.LT_MonsterNormal, // 通常怪兽
 
 		Level:   4,
 		La:      ygo.LA_Dark,  // 暗
