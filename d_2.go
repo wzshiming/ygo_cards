@@ -921,7 +921,7 @@ func d_2(cardBag *ygo.CardVersion) {
 					}
 				}
 
-			}, ygo.MP, ygo.Pre+ygo.BP)
+			}, ygo.MP, ygo.BP)
 
 			return true
 		}, // 初始

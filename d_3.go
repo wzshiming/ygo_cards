@@ -92,8 +92,20 @@ func d_3(cardBag *ygo.CardVersion) {
 		Name:     "天使的骰子",
 		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellQuickPlayPush(ygo.LO_TempChange, func() {
+				pl := ca.GetSummoner()
+				ca.EffectTempMzoneHalo(ygo.EP, func(c0 *ygo.Card) {
+					if c0.GetSummoner() != pl {
+						return
+					}
+					c0.AddAtk(100)
+					c0.AddDef(100)
+				})
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 4 */
@@ -154,8 +166,15 @@ func d_3(cardBag *ygo.CardVersion) {
 		Name:     "旋风",
 		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellQuickPlayPush(ygo.LO_DestroySpellAndTrap, func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				pl.SelectRequiredShor(ygo.LO_Destroy, pl.Szone(), tar.Szone())
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 6 */
