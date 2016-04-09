@@ -93,15 +93,20 @@ func d_3(cardBag *ygo.CardVersion) {
 		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterSpellQuickPlayPush(ygo.LO_TempChange, func() {
+			ca.RegisterSpellQuickPlay(func() {
 				pl := ca.GetSummoner()
-				ca.EffectTempMzoneHalo(ygo.EP, func(c0 *ygo.Card) {
-					if c0.GetSummoner() != pl {
-						return
-					}
-					c0.AddAtk(100)
-					c0.AddDef(100)
-				})
+				if pl.Mzone().Len() != 0 {
+					ca.PushSpell(ygo.LO_TempChange, func() {
+						rand := ygo.RandInt(6) + 1
+						ca.EffectTempMzoneHalo(ygo.EP, func(c0 *ygo.Card) {
+							if c0.GetSummoner() != pl {
+								return
+							}
+							c0.AddAtk(100 * rand)
+							c0.AddDef(100 * rand)
+						})
+					})
+				}
 			})
 			return true
 		}, // 初始
@@ -167,10 +172,18 @@ func d_3(cardBag *ygo.CardVersion) {
 		Lt:       ygo.LT_SpellQuickPlay, // 速攻魔法
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterSpellQuickPlayPush(ygo.LO_DestroySpellAndTrap, func() {
+			ca.RegisterSpellQuickPlay(func() {
 				pl := ca.GetSummoner()
 				tar := pl.GetTarget()
-				pl.SelectRequiredShor(ygo.LO_Destroy, pl.Szone(), tar.Szone())
+				css := ygo.NewCards(pl.Szone(), tar.Szone(), func(c0 *ygo.Card) bool {
+					return c0 != ca
+				})
+				if css.Len() != 0 {
+					ca.PushSpell(ygo.LO_DestroySpellAndTrap, func() {
+						c := pl.SelectRequiredShor(ygo.LO_Destroy, css)
+						c.Destroy(ca)
+					})
+				}
 			})
 			return true
 		}, // 初始
@@ -387,8 +400,29 @@ func d_3(cardBag *ygo.CardVersion) {
 		Name:     "恶魔之斧",
 		Lt:       ygo.LT_SpellEquip, // 装备魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellEquipEffect1(func(*ygo.Card) bool {
+				return true
+			}, func(c *ygo.Card) {
+				c.AddAtk(1000)
+			})
+			ca.AddEventSuf(ygo.InGrave, func() {
+				if ca.GetLastPlace().GetName() != ygo.LL_Szone {
+					return
+				}
+				pl := ca.GetSummoner()
+				if pl.Mzone().Len() != 0 {
+					if c := pl.SelectChoosable(ygo.LO_JoinDeckTop, ca); c == ca {
+						if c0 := pl.SelectRequiredShor(ygo.LO_Cost, pl.Mzone()); c0 != nil {
+							c0.Cost(ca)
+							ca.ToDeckTop()
+						}
+					}
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 12 */
@@ -620,8 +654,31 @@ func d_3(cardBag *ygo.CardVersion) {
 		Name:     "扑灭之使徒",
 		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormal(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+
+				css := ygo.NewCards(pl.Szone(), tar.Szone(), func(c0 *ygo.Card) bool {
+					return c0 != ca && c0.IsFaceDown()
+				})
+				if css.Len() != 0 {
+					ca.PushSpell(ygo.LO_Removed, func() {
+						if c := pl.SelectRequiredShor(ygo.LO_Removed, css); c != nil {
+							c.Removed(ca)
+							ygo.NewCards(pl.Deck(), tar.Deck(), func(c0 *ygo.Card) bool {
+								return ca.GetName() == c0.GetName()
+							}).ForEach(func(c0 *ygo.Card) bool {
+								c0.Removed(ca)
+								return true
+							})
+						}
+					})
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 18 */
@@ -660,8 +717,35 @@ func d_3(cardBag *ygo.CardVersion) {
 		Name:     "过浅的墓穴",
 		Lt:       ygo.LT_SpellNormal, // 通常魔法
 
-		//Initialize: func(ca *ygo.Card) bool {}, // 初始
-		IsValid: false,
+		Initialize: func(ca *ygo.Card) bool {
+			ca.RegisterSpellNormal(func() {
+				pl := ca.GetSummoner()
+				tar := pl.GetTarget()
+				if pl.Mzone().Len() >= 5 || tar.Mzone().Len() >= 5 {
+					return
+				}
+				plm := ygo.NewCards(pl.Grave(), func(c0 *ygo.Card) bool {
+					return c0.GetType().IsMonster()
+				})
+				tarm := ygo.NewCards(tar.Grave(), func(c0 *ygo.Card) bool {
+					return c0.GetType().IsMonster()
+				})
+				if plm.Len() != 0 && tarm.Len() != 0 {
+					ca.PushSpell(ygo.LO_Summon, func() {
+						if c := pl.SelectRequiredShor(ygo.LO_Summon, plm); c != nil {
+							c.ToMzone()
+							c.SetFaceDownDefense()
+						}
+						if c := tar.SelectRequiredShor(ygo.LO_Summon, tarm); c != nil {
+							c.ToMzone()
+							c.SetFaceDownDefense()
+						}
+					})
+				}
+			})
+			return true
+		}, // 初始
+		IsValid: true,
 	})
 
 	/* 19 */

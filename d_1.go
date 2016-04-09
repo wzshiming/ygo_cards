@@ -4984,26 +4984,26 @@ func d_1(cardBag *ygo.CardVersion) {
 		Def:   1300,
 
 		Initialize: func(ca *ygo.Card) bool {
-			ca.RegisterFlip(func() {
-				pl := ca.GetSummoner()
-				pl.ChangeLp(3000)
-				ca.OnlyOnce(ygo.OutMzone, func() {
-					pl := ca.GetSummoner()
-					e1 := func() {
-						pl.ChangeLp(-5000)
-					}
-					e2 := func() {
-						ca.RemoveEvent(ygo.InGrave, e1)
-					}
-					ca.OnlyOnce(ygo.InHand, e2)
-					ca.OnlyOnce(ygo.InRemoved, e2)
-					ca.OnlyOnce(ygo.InGrave, e1)
-				})
-			})
+			//			ca.RegisterFlip(func() {
+			//				pl := ca.GetSummoner()
+			//				pl.ChangeLp(3000)
+			//				ca.OnlyOnce(ygo.OutMzone, func() {
+			//					pl := ca.GetSummoner()
+			//					e1 := func() {
+			//						pl.ChangeLp(-5000)
+			//					}
+			//					e2 := func() {
+			//						ca.RemoveEvent(ygo.InGrave, e1)
+			//					}
+			//					ca.OnlyOnce(ygo.InHand, e2)
+			//					ca.OnlyOnce(ygo.InRemoved, e2)
+			//					ca.OnlyOnce(ygo.InGrave, e1)
+			//				})
+			//			})
 			return true
 		}, // 初始
 
-		IsValid: true,
+		IsValid: false,
 	})
 
 	/* 115 */
