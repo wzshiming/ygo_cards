@@ -2063,6 +2063,10 @@ func d_1(cardBag *ygo.CardVersion) {
 
 		Initialize: func(ca *ygo.Card) bool {
 			ca.RegisterTrapUnnormal(func(tar *ygo.Player) {
+				pl := ca.GetSummoner()
+				if pl == tar {
+					return
+				}
 				e := func() {
 					if c := tar.Hand().Random(); c != nil {
 						c.Discard(ca)
